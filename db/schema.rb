@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171017173352) do
+ActiveRecord::Schema.define(version: 20171017174126) do
 
   create_table "offices", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.text "position"
@@ -20,6 +20,16 @@ ActiveRecord::Schema.define(version: 20171017173352) do
 
   create_table "parishes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.text "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "propositions", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string "politician_id"
+    t.string "title"
+    t.datetime "proposition_date"
+    t.datetime "vote_date"
+    t.string "reference"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

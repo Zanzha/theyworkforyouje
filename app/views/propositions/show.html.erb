@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Politician:</strong>
+  <%= @proposition.politician_id %>
+</p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @proposition.title %>
+</p>
+
+<p>
+  <strong>Proposition date:</strong>
+  <%= @proposition.proposition_date %>
+</p>
+
+<p>
+  <strong>Vote date:</strong>
+  <%= @proposition.vote_date %>
+</p>
+
+<p>
+  <strong>Reference:</strong>
+  <%= @proposition.reference %>
+</p>
+
+<%= link_to 'Edit', edit_proposition_path(@proposition) %> |
+<%= link_to 'Back', propositions_path %>

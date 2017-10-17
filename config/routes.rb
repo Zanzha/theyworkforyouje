@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :propositions
   resources :terms
   resources :offices
   resources :parishes
