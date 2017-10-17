@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  parishid: 1
+  title: MyString
+  first_name: MyString
+  middle_name: MyString
+  last_name: MyString
+  gender: MyString
+  Date_of_birth: 2017-10-17 18:33:52
+  website_url: MyString
+  facebook_url: MyString
+
+two:
+  parishid: 1
+  title: MyString
+  first_name: MyString
+  middle_name: MyString
+  last_name: MyString
+  gender: MyString
+  Date_of_birth: 2017-10-17 18:33:52
+  website_url: MyString
+  facebook_url: MyString

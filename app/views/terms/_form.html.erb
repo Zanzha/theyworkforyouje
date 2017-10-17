@@ -1,0 +1,62 @@
+<%= form_with(model: term, local: true) do |form| %>
+  <% if term.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(term.errors.count, "error") %> prohibited this term from being saved:</h2>
+
+      <ul>
+      <% term.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :parishid %>
+    <%= form.number_field :parishid, id: :term_parishid %>
+  </div>
+
+  <div class="field">
+    <%= form.label :title %>
+    <%= form.text_field :title, id: :term_title %>
+  </div>
+
+  <div class="field">
+    <%= form.label :first_name %>
+    <%= form.text_field :first_name, id: :term_first_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :middle_name %>
+    <%= form.text_field :middle_name, id: :term_middle_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :last_name %>
+    <%= form.text_field :last_name, id: :term_last_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :gender %>
+    <%= form.text_field :gender, id: :term_gender %>
+  </div>
+
+  <div class="field">
+    <%= form.label :Date_of_birth %>
+    <%= form.datetime_select :Date_of_birth, id: :term_Date_of_birth %>
+  </div>
+
+  <div class="field">
+    <%= form.label :website_url %>
+    <%= form.text_field :website_url, id: :term_website_url %>
+  </div>
+
+  <div class="field">
+    <%= form.label :facebook_url %>
+    <%= form.text_field :facebook_url, id: :term_facebook_url %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
