@@ -11,7 +11,6 @@ class CreatePoliticians < ActiveRecord::Migration[5.1]
        t.datetime :date_of_birth
        t.string :website_url
        t.string :facebook_url
-     end
-
+    end
   end
 end
