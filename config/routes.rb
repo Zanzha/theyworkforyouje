@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+  resources :roles
+  devise_for :users
+  root to: "home#index"
+  get 'home/index'
+  resources :politicians
   resources :notices
   resources :votes
   resources :propositions
