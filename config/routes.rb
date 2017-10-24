@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
-  resources :roles
   devise_for :users
+  resources :roles
   root to: "home#index"
   get 'home/index'
   resources :politicians
