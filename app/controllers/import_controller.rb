@@ -1,7 +1,7 @@
 class ImportController < ApplicationController
   require 'open-uri'
   def index
-    Vote.all.destroy # To do - optimise?
+    Vote.delete_all
     data_uri = 'http://www.statesassembly.gov.je/Feeds/VotingDataJSON?Year=2014'
     raw_data = open(data_uri).read
     @data = JSON.parse(raw_data)
