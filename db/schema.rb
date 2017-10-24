@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171020214419) do
+ActiveRecord::Schema.define(version: 20171024173718) do
 
   create_table "notices", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.bigint "user_id"
@@ -49,12 +49,17 @@ ActiveRecord::Schema.define(version: 20171020214419) do
 
   create_table "propositions", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.bigint "politician_id"
-    t.string "title"
-    t.datetime "proposition_date"
-    t.datetime "vote_date"
-    t.string "reference"
+    t.string "prop_name"
+    t.datetime "prop_date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "lodged_by"
+    t.string "debate_date"
+    t.string "prop_pdf"
+    t.string "minutes_pdf"
+    t.string "hansard_pdf"
+    t.string "vote_id"
+    t.string "status"
     t.index ["politician_id"], name: "fk_rails_90bd012afd"
   end
 
