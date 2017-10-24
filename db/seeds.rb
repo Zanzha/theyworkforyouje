@@ -24,4 +24,5 @@ parish_list.each do |parish|
 end
 
 Role.create(name: 'Admin', created_at: '201710240000', updated_at: '201710240000')
+Role.create(name: 'Guest', created_at: '201710240000', updated_at: '201710240000')
 User.create(username: 'Captain Placeholder', email: 'admin@admin.com', password: 'topsecret', password_confirmation: 'topsecret', created_by: 'devteam', role_id: '1', created_at: '201710240000', updated_at: '201710240000')
