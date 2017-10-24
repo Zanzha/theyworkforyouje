@@ -10,14 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171019185529) do
+ActiveRecord::Schema.define(version: 20171020214419) do
 
   create_table "notices", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.integer "user_id"
+    t.bigint "user_id"
     t.string "title"
     t.text "content"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "fk_rails_984b9c27bc"
   end
 
   create_table "offices", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -33,7 +34,7 @@ ActiveRecord::Schema.define(version: 20171019185529) do
   end
 
   create_table "politician", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.integer "parish_id"
+    t.bigint "parish_id"
     t.string "full_name"
     t.string "first_name"
     t.string "middle_name"
@@ -43,16 +44,18 @@ ActiveRecord::Schema.define(version: 20171019185529) do
     t.datetime "date_of_birth"
     t.string "website_url"
     t.string "facebook_url"
+    t.index ["parish_id"], name: "fk_rails_a52db85833"
   end
 
   create_table "propositions", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string "politician_id"
+    t.bigint "politician_id"
     t.string "title"
     t.datetime "proposition_date"
     t.datetime "vote_date"
     t.string "reference"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["politician_id"], name: "fk_rails_90bd012afd"
   end
 
   create_table "roles", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -84,11 +87,18 @@ ActiveRecord::Schema.define(version: 20171019185529) do
     t.string "last_sign_in_ip"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+<<<<<<< HEAD
     t.string "created_by"
     t.bigint "role_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
     t.index ["role_id"], name: "fk_rails_642f17018b"
+=======
+    t.integer "role_id"
+    t.string "created_by"
+    t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+>>>>>>> 6dcff3feaec73b41bbab7a86a59f322f18d5bea7
   end
 
   create_table "votes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -98,5 +108,11 @@ ActiveRecord::Schema.define(version: 20171019185529) do
     t.datetime "updated_at", null: false
   end
 
+<<<<<<< HEAD
   add_foreign_key "users", "roles"
+=======
+  add_foreign_key "notices", "users"
+  add_foreign_key "politician", "parishes"
+  add_foreign_key "propositions", "politician"
+>>>>>>> 6dcff3feaec73b41bbab7a86a59f322f18d5bea7
 end
