@@ -85,16 +85,13 @@ ActiveRecord::Schema.define(version: 20171024181914) do
   end
 
   create_table "terms", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer "parish_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "politician_id"
+    t.integer "office_id"
     t.datetime "begin_date"
     t.datetime "end_date"
-    t.bigint "parishes_id"
-    t.bigint "politician_id"
-    t.bigint "offices_id"
-    t.index ["offices_id"], name: "index_terms_on_offices_id"
-    t.index ["parishes_id"], name: "index_terms_on_parishes_id"
-    t.index ["politician_id"], name: "index_terms_on_politician_id"
   end
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -117,11 +114,10 @@ ActiveRecord::Schema.define(version: 20171024181914) do
   end
 
   create_table "votes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer "proposition_id"
     t.string "type"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "propositions_id"
-    t.index ["propositions_id"], name: "index_votes_on_propositions_id"
   end
 
   add_foreign_key "notices", "users"
