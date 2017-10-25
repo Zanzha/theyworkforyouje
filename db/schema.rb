@@ -70,20 +70,6 @@ ActiveRecord::Schema.define(version: 20171024181914) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "scraped_props", id: :integer, force: :cascade, options: "ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin" do |t|
-    t.string "p_id", null: false, collation: "latin1_swedish_ci"
-    t.string "lodged_by", null: false
-    t.string "prop_name", null: false
-    t.string "prop_date", null: false, collation: "latin1_swedish_ci"
-    t.string "debate_date", null: false, collation: "latin1_swedish_ci"
-    t.string "prop_pdf", null: false, collation: "latin1_swedish_ci"
-    t.string "minutes_pdf", null: false, collation: "latin1_swedish_ci"
-    t.string "hansard_pdf", null: false, collation: "latin1_swedish_ci"
-    t.string "vote_id", null: false, collation: "latin1_swedish_ci"
-    t.string "status", null: false, collation: "latin1_swedish_ci"
-    t.index ["p_id"], name: "p_id", unique: true
-  end
-
   create_table "terms", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer "parish_id"
     t.datetime "created_at", null: false
