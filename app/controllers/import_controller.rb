@@ -9,7 +9,10 @@ class ImportController < ApplicationController
       @data = JSON.parse(raw_data)
       @data.each do |item|
         vote = Vote.new
-        vote.proposition_id = item['Id']
+        vote.proposition_id = item['Reference']
+        vote.voting_id = item['Id']
+        vote.voting_date = item['Date']
+        vote.proposition_title['PropositionTitle']
         vote.type = item['Vote']
         vote.member_name = item['MemberName']
         vote.member_position = item['MemberPosition']
