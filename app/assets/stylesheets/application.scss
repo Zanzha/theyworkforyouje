@@ -18,7 +18,7 @@
   padding: 0;
 }
 a:hover {
-  background-color: none;
+  background-color: transparent;
 }
 body, html {
   display: flex;
@@ -28,6 +28,7 @@ body, html {
 }
 .meta-wrapper {
   display: flex;
+  flex-direction: column;
   flex: 1;
   // height: 100vh;
   // margin-top: -10em; 
