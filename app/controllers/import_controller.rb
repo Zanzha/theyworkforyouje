@@ -11,7 +11,10 @@ class ImportController < ApplicationController
         vote = Vote.new
         vote.proposition_id = item['Id']
         vote.type = item['Vote']
+        vote.member_name = item['MemberName']
+        vote.member_position = item['MemberPosition']
         vote.save
+        Puts "#{Year} pulled"
       end
     end
     puts 'Data import complete'
