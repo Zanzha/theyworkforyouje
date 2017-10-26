@@ -14,7 +14,6 @@ class ImportController < ApplicationController
         vote.member_name = item['MemberName']
         vote.member_position = item['MemberPosition']
         vote.save
-        Puts "#{Year} pulled"
       end
     end
     puts 'Data import complete'
