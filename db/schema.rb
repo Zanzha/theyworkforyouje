@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171024181914) do
+ActiveRecord::Schema.define(version: 20171026183742) do
 
   create_table "notices", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.bigint "user_id"
@@ -33,7 +33,7 @@ ActiveRecord::Schema.define(version: 20171024181914) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "politician", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "politicians", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.bigint "parish_id"
     t.string "full_name"
     t.string "first_name"
@@ -44,6 +44,7 @@ ActiveRecord::Schema.define(version: 20171024181914) do
     t.datetime "date_of_birth"
     t.string "website_url"
     t.string "facebook_url"
+    t.string "avatar"
     t.index ["parish_id"], name: "fk_rails_a52db85833"
   end
 
@@ -71,16 +72,13 @@ ActiveRecord::Schema.define(version: 20171024181914) do
   end
 
   create_table "terms", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer "parish_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "politician_id"
+    t.integer "office_id"
     t.datetime "begin_date"
     t.datetime "end_date"
-    t.bigint "parishes_id"
-    t.bigint "politician_id"
-    t.bigint "offices_id"
-    t.index ["offices_id"], name: "index_terms_on_offices_id"
-    t.index ["parishes_id"], name: "index_terms_on_parishes_id"
-    t.index ["politician_id"], name: "index_terms_on_politician_id"
   end
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -103,14 +101,15 @@ ActiveRecord::Schema.define(version: 20171024181914) do
   end
 
   create_table "votes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer "proposition_id"
     t.string "type"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "propositions_id"
-    t.index ["propositions_id"], name: "index_votes_on_propositions_id"
+    t.string "member_position"
+    t.string "member_name"
   end
 
   add_foreign_key "notices", "users"
-  add_foreign_key "politician", "parishes"
-  add_foreign_key "propositions", "politician"
+  add_foreign_key "politicians", "parishes"
+  add_foreign_key "propositions", "politicians"
 end
