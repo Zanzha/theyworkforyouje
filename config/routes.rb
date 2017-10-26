@@ -1,8 +1,15 @@
 Rails.application.routes.draw do
+  get 'import/index'
+
   resources :roles
   devise_for :users
-  root to: "home#index"
+  root to: 'home#index'
   get 'home/index'
+  get 'notices/index'
+  get 'offices/index'
+  get 'politicians/index'
+  get 'propositions/index'
+  get 'terms/index'
   resources :politicians
   resources :notices
   resources :votes

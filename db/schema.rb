@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171024174449) do
+ActiveRecord::Schema.define(version: 20171026183742) do
 
   create_table "notices", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.bigint "user_id"
@@ -33,7 +33,7 @@ ActiveRecord::Schema.define(version: 20171024174449) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "politician", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "politicians", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.bigint "parish_id"
     t.string "full_name"
     t.string "first_name"
@@ -44,17 +44,24 @@ ActiveRecord::Schema.define(version: 20171024174449) do
     t.datetime "date_of_birth"
     t.string "website_url"
     t.string "facebook_url"
+    t.string "avatar"
     t.index ["parish_id"], name: "fk_rails_a52db85833"
   end
 
   create_table "propositions", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.bigint "politician_id"
-    t.string "title"
-    t.datetime "proposition_date"
-    t.datetime "vote_date"
-    t.string "reference"
+    t.string "prop_name"
+    t.datetime "prop_date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "lodged_by"
+    t.string "debate_date"
+    t.string "prop_pdf"
+    t.string "minutes_pdf"
+    t.string "hansard_pdf"
+    t.string "vote_id"
+    t.string "status"
+    t.string "p_id"
     t.index ["politician_id"], name: "fk_rails_90bd012afd"
   end
 
@@ -100,10 +107,11 @@ ActiveRecord::Schema.define(version: 20171024174449) do
     t.string "type"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "member_position"
+    t.string "member_name"
   end
 
   add_foreign_key "notices", "users"
-  add_foreign_key "politician", "parishes"
-  add_foreign_key "propositions", "politician"
-  add_foreign_key "users", "roles"
+  add_foreign_key "politicians", "parishes"
+  add_foreign_key "propositions", "politicians"
 end
