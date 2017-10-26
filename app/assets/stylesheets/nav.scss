@@ -8,4 +8,16 @@ nav.navbar {
     background-color: $green;
     border-radius: 5px;
   }
+  .dropdown-menu {
+    opacity: 0;
+  }
+  .dropdown-menu:hover {
+    opacity: 1;
+  }
+  // #navbarDropdown:hover {
+  //   .dropdown-menu {
+  //     opacity: 1;
+  //     transition-delay: 1;
+  //   }
+  // }
 }
