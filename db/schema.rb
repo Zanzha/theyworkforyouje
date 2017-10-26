@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171026185848) do
+ActiveRecord::Schema.define(version: 20171026183742) do
 
   create_table "notices", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.bigint "user_id"
@@ -33,7 +33,7 @@ ActiveRecord::Schema.define(version: 20171026185848) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "politician", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "politicians", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.bigint "parish_id"
     t.string "full_name"
     t.string "first_name"
@@ -107,12 +107,9 @@ ActiveRecord::Schema.define(version: 20171026185848) do
     t.datetime "updated_at", null: false
     t.string "member_position"
     t.string "member_name"
-    t.string "voting_id"
-    t.datetime "voting_date"
-    t.string "proposition_title"
   end
 
   add_foreign_key "notices", "users"
-  add_foreign_key "politician", "parishes"
-  add_foreign_key "propositions", "politician"
+  add_foreign_key "politicians", "parishes"
+  add_foreign_key "propositions", "politicians"
 end
