@@ -114,4 +114,5 @@ ActiveRecord::Schema.define(version: 20171026183742) do
   add_foreign_key "notices", "users"
   add_foreign_key "politicians", "parishes"
   add_foreign_key "propositions", "politicians"
+  add_foreign_key "users", "roles"
 end
