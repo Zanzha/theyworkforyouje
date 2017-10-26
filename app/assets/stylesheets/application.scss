@@ -15,13 +15,24 @@
  */
 * {
   margin: 0;
+  padding: 0;
+}
+a:hover {
+  background-color: none;
 }
 body, html {
-  width: 100%;
-  height: 100%;
-}
-.wrapper {
   display: flex;
-  height: 100%;
-  margin-bottom: -10em; 
+  flex-direction: column;
+  width: 100%;
+  min-height: 100vh;
+}
+.meta-wrapper {
+  display: flex;
+  flex: 1;
+  // height: 100vh;
+  // margin-top: -10em; 
+}
+p.notice, p.alert {
+  margin: 0;
+  padding: 0;
 }
