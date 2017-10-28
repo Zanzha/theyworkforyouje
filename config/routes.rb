@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 get 'import/index'
+  resources :import_politicians
+  get 'import/index'
 
   devise_for :users, :path_prefix => 'my'
 resources :users
