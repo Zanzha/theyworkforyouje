@@ -1,4 +1,54 @@
 <p id="notice"><%= notice %></p>
 
+<div class="politicians_wraper">
+
+  <div class="avatar">
+    <%= link_to root_path do %>
+     <%= image_tag "Philip Martin Bailhache.jpg"%>
+  <% end %>
+  </div>
+
+  <div class="politician_title">
+    <strong>Sir </strong>
+    <%= @politician.title %>
+  </div>
+
+  <div class="politician_fullname">
+    <strong>Philip Martin Bailhache</strong>
+    <%= @politician.full_name %>
+  </div>
+
+
+
+  <div>
+    <strong>Email</strong>
+
+  </div>
+
+  <div>
+    <strong>Website</strong>
+    <%= @politician.website_url %>
+  </div>
+
+  <div>
+    <strong>Facebook</strong>
+    <%= @politician.facebook_url %>
+  </div>
+</div>
+
+
+t.bigint "parish_id"
+t.string "full_name"
+t.string "first_name"
+t.string "middle_name"
+t.string "last_name"
+t.string "title"
+t.string "gender"
+t.datetime "date_of_birth"
+t.string "website_url"
+t.string "facebook_url"
+t.string "avatar"
+t.index ["parish_id"], name: "fk_rails_a52db85833"
+
 <%= link_to 'Edit', edit_politician_path(@politician) %> |
 <%= link_to 'Back', politicians_path %>
