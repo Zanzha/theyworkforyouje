@@ -21,7 +21,7 @@
   <tbody>
     <% @politicians.each do |politician| %>
       <tr>
-        <td><%= politician.full_name %></td>
+        <td><%= image_tag("#{politician.avatar}", alt: "#{politician.full_name}")%><%= politician.title%> <%= politician.full_name %></td>
         <td><%= politician.first_name %></td>
         <td><%= politician.last_name %></td>
         <td><%= politician.title %></td>
