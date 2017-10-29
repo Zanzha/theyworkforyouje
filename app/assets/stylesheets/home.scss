@@ -2,13 +2,27 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.main_index_wraper {
+  display: flex;
+  display: block;
+  flex-direction: row;
+}
+
 .main_index {
-  margin: 5em;
-  margin-top: 3em;
-  background-image: image(IMG_6395);
+  padding: 5em;
+  padding-top: 12em;
+
 
   p{
     font-size: 1em;
     padding-top: 1em;
   }
+}
+
+.main_index_pic {
+  display: block;
+  height: 100%;
+  background-image: url('IMG_6395.jpg');
+  background-size: 100%;
+  background-repeat: no-repeat;
 }
