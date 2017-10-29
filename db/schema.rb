@@ -10,7 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171026183742) do
+ActiveRecord::Schema.define(version: 20171028133430) do
+
+  create_table "import_politicians", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "notices", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.bigint "user_id"
@@ -40,11 +45,13 @@ ActiveRecord::Schema.define(version: 20171026183742) do
     t.string "middle_name"
     t.string "last_name"
     t.string "title"
-    t.string "gender"
-    t.datetime "date_of_birth"
-    t.string "website_url"
-    t.string "facebook_url"
     t.string "avatar"
+    t.text "summary"
+    t.string "address"
+    t.string "mobile"
+    t.string "fax"
+    t.string "parish"
+    t.string "landline"
     t.index ["parish_id"], name: "fk_rails_a52db85833"
   end
 
@@ -94,10 +101,12 @@ ActiveRecord::Schema.define(version: 20171026183742) do
     t.string "last_sign_in_ip"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "role_id"
+    t.bigint "role_id"
     t.string "created_by"
+    t.string "username"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+    t.index ["role_id"], name: "fk_rails_642f17018b"
   end
 
   create_table "votes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -107,9 +116,13 @@ ActiveRecord::Schema.define(version: 20171026183742) do
     t.datetime "updated_at", null: false
     t.string "member_position"
     t.string "member_name"
+    t.string "voting_id"
+    t.datetime "voting_date"
+    t.string "proposition_title"
   end
 
   add_foreign_key "notices", "users"
   add_foreign_key "politicians", "parishes"
   add_foreign_key "propositions", "politicians"
+  add_foreign_key "users", "roles"
 end
