@@ -12,8 +12,8 @@ class ImportController < ApplicationController
         vote.proposition_id = item['Reference']
         vote.voting_id = item['Id']
         vote.voting_date = item['Date']
-        vote.proposition_title['PropositionTitle']
-        vote.type = item['Vote']
+        vote.proposition_title = item['PropositionTitle']
+        vote.vote_type = item['Vote']
         vote.member_name = item['MemberName']
         vote.member_position = item['MemberPosition']
         vote.save
