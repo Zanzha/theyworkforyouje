@@ -94,10 +94,12 @@ ActiveRecord::Schema.define(version: 20171026183742) do
     t.string "last_sign_in_ip"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "role_id"
+    t.bigint "role_id"
     t.string "created_by"
+    t.string "username"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+    t.index ["role_id"], name: "fk_rails_642f17018b"
   end
 
   create_table "votes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -112,4 +114,5 @@ ActiveRecord::Schema.define(version: 20171026183742) do
   add_foreign_key "notices", "users"
   add_foreign_key "politicians", "parishes"
   add_foreign_key "propositions", "politicians"
+  add_foreign_key "users", "roles"
 end

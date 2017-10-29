@@ -52,6 +52,9 @@ group :development do
 #  gem 'spring-watcher-listen', '~> 2.0.0'
 end
 
+#DatabaseCleaner
+gem 'database_cleaner'
+
 #devise
 gem 'devise'
 #cancancan
