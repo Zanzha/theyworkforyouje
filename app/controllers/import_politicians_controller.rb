@@ -23,39 +23,19 @@ require 'open-uri'
 
    ### data varies per page and no class per item on lovely states site
    address = profile_data.scan(/Address(.*\s+<\/div>\s+<p>\s+)([0-9a-zA-Z<\/>,\'. ]+)/)
-   if (!address.blank?)
-   address = address[0][1].strip.sub('\'', '`')
-   else
-   address = ""
-   end
+   (!address.blank? ? address = address[0][1].strip.sub('\'', '`') : address = "")
 
    landline = profile_data.scan(/Telephone(.*\s+<\/div>\s+<p>\s+)([0-9 ]+)/)
-   if (!landline.blank?)
-   landline = landline[0][1].strip
-   else
-   landline = ""
-   end
+   (!landline.blank? ? landline = landline[0][1].strip : landline = "")
 
    mobile = profile_data.scan(/Mobile(.*\s+<\/div>\s+<p>\s+)([0-9 ]+)/)
-   if (!mobile.blank?)
-   mobile = mobile[0][1].strip
-   else
-   mobile = ""
-   end
+   (!mobile.blank? ? mobile = mobile[0][1].strip : mobile = "")
 
    fax = profile_data.scan(/Fax(.*\s+<\/div>\s+<p>\s+)([0-9 ]+)/)
-   if (!fax.blank?)
-   fax = fax[0][1].strip
-   else
-   fax = ""
-   end
+   (!fax.blank? ? fax = fax[0][1].strip : fax = "")
 
    parish = profile_data.scan(/Parish(.*\s+<\/div>\s+<p>\s+)([a-zA-Z. ]+)/)
-   if (!parish.blank?)
-   parish = parish[0][1]
-   else
-   parish = ""
-   end
+   (!parish.blank? ? parish = parish[0][1] : parish = "")
 
    politician = Politician.new
    politician.full_name = fullname
