@@ -1,0 +1,26 @@
+/* line 7, /home/student/theyworkforyouje/app/assets/stylesheets/home.scss */
+.main_index_wraper {
+  display: flex;
+  flex-direction: row;
+}
+
+/* line 12, /home/student/theyworkforyouje/app/assets/stylesheets/home.scss */
+.main_index {
+  padding: 5em;
+  padding-top: 5em;
+}
+/* line 15, /home/student/theyworkforyouje/app/assets/stylesheets/home.scss */
+.main_index border
+p {
+  font-size: 1em;
+  padding-top: 1em;
+}
+
+/* line 24, /home/student/theyworkforyouje/app/assets/stylesheets/home.scss */
+.main_index_pic {
+  height: 100px;
+  width: 100%;
+  background-color: orange;
+  background-image: url("stateschamber.jpg");
+  background-repeat: no-repeat;
+}

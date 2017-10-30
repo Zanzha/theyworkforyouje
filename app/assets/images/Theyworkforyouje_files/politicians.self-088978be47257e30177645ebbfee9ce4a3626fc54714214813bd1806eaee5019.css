@@ -1,0 +1,11 @@
+/* line 5, /home/student/theyworkforyouje/app/assets/stylesheets/politicians.scss */
+.person_wraper {
+  display: block;
+}
+
+/* line 9, /home/student/theyworkforyouje/app/assets/stylesheets/politicians.scss */
+.avatar {
+  margin: 1em;
+  border-radius: 1px;
+  box-shadow: 1px 1px 1px #888888;
+}
