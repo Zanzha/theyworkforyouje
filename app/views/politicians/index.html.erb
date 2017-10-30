@@ -2,7 +2,7 @@
 
 <h1>Politicians</h1>
 
-<table>
+<table class="table">
   <thead>
     <tr>
       <th>Full Name</th>
@@ -11,6 +11,7 @@
       <th>Title</th>
       <th>Summary</th>
       <th>Address</th>
+      <th>Parish</th>
       <th>Mobile</th>
       <th>Fax</th>
       <th>Landline</th>
@@ -21,12 +22,13 @@
   <tbody>
     <% @politicians.each do |politician| %>
       <tr>
-        <td><%= politician.full_name %></td>
+        <td><%= image_tag("#{politician.avatar}", alt: "#{politician.full_name}")%><br/><%= politician.full_name %><br/><%= politician.email %></td>
         <td><%= politician.first_name %></td>
         <td><%= politician.last_name %></td>
         <td><%= politician.title %></td>
         <td><%= politician.summary %></td>
         <td><%== politician.address %></td>
+        <td><%= politician.parish %></td>
         <td><%= politician.mobile %></td>
         <td><%= politician.fax %></td>
         <td><%= politician.landline %></td>

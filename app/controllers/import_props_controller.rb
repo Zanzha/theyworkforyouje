@@ -5,8 +5,8 @@ require 'open-uri'
 
 ##### statesassembly may IP ban you for running this script
 ##### Dont run on IP you want to view the site on in future - ie. DJ
-##### Will take >1.5h to complete
-#sleep(20.hours)
+##### Will take >4h to complete
+exit
 
   for page_id in 1..136 do
    page = Nokogiri::HTML(open("http://www.statesassembly.gov.je/Pages/Propositions.aspx?page=#{page_id}&SortBy=pnumber&items=50&query=&sadocumentdatefrom=1998-01-01&sadocumentdateto=2020-11-30"))
@@ -36,18 +36,10 @@ require 'open-uri'
     prop_page = more_uri.css(".ministerialdecisions").to_s
 
     hansard = prop_page.match(/(http:\/\/www.statesassembly.gov.je\/AssemblyHansard\/(.*).pdf)/).to_a
-    if (!hansard.blank?)
-     hansard = hansard[1]
-    else
-     hansard = ""
-    end
+    (!hansard.blank? ? hansard = hansard[1] : hansard = "")
 
     minutes = prop_page.match(/(http:\/\/www.statesassembly.gov.je\/AssemblyMinutes\/(.*).pdf)/).to_a
-    if (!minutes.blank?)
-     minutes = minutes[1]
-    else
-     minutes = ""
-    end
+    (!minutes.blank? ? minutes = minutes[1] : minutes = "")
 
     votes = prop_page.scan(/Votes.aspx\?VotingId=([0-9]{1,7})/).to_a
     if (!votes.empty?)
