@@ -1,3 +1,13 @@
 // Place all the styles related to the politicians controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.person_wraper {
+  display: block;
+}
+
+.avatar {
+  margin: 1em;
+  border-radius: 1px;
+  box-shadow: 1px 1px 1px #888888;
+}

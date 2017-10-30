@@ -10,7 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20171030172315) do
+=======
+ActiveRecord::Schema.define(version: 20171029184909) do
+>>>>>>> m_views
 
   create_table "import_politicians", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.datetime "created_at", null: false
@@ -52,7 +56,10 @@ ActiveRecord::Schema.define(version: 20171030172315) do
     t.string "fax"
     t.string "parish"
     t.string "landline"
+<<<<<<< HEAD
     t.string "email"
+=======
+>>>>>>> m_views
     t.index ["parish_id"], name: "fk_rails_a52db85833"
   end
 
