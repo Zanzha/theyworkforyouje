@@ -10,13 +10,11 @@ require 'open-uri'
   result = raw_data.scan(/\?MemberId=([0-9]{1,5})/).flatten
   result.each do |profile_id|
 
-   ### 2 requests - need to sort
-   profile_data = open("http://www.statesassembly.gov.je/Pages/Members.aspx?MemberId=#{profile_id}").read
    page = Nokogiri::HTML(open("http://www.statesassembly.gov.je/Pages/Members.aspx?MemberId=#{profile_id}"))
+   profile_data = page.to_s
 
    ### the only thing that can be counted, can vary from 0
    summary = page.css('p')[0].text.strip!
-
    email = page.css('a[href*="mailto"]/@href').map(&:text).find { |e| e.include? 'gov.je' }.to_s.sub('mailto:','')
    photo = "http://www.statesassembly.gov.je"+page.css('img#ctl00_PlaceHolderMain_EditModePanelintroview_Members_imgMember/@src').text
    position, fullname = page.css('#ctl00_PlaceHolderMain_EditModePanelintroview_Members_lblTitle').text.strip.split(' - ')
@@ -71,6 +69,7 @@ require 'open-uri'
    politician.landline = landline
    politician.fax = fax
    politician.parish = parish
+   politician.email = email
    politician.save
 
    sleep 1
