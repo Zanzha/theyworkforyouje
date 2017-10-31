@@ -7,7 +7,7 @@ $green: #00B541;
 .main_index_wraper {
   display: flex;
   flex-direction: row;
-  padding: 2em;
+  // padding: 2em;
 }
 
 .main_index {
@@ -16,17 +16,23 @@ $green: #00B541;
   height: 50%;
 
 
-  p{
+  p {
     font-size: 1em;
     padding-top: 1em;
   }
 }
 
 .main_index_pic {
-  height: 300px;
-  width: 100%;
-  padding: 6em;
-  background-color: orange;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+  // height: 300px;
+  min-height: 78vh;
+  // height: -6em;
+  max-width: 90%;
+  // padding: 6em;
+  // background-color: orange;
   background-image: url('stateschamber.jpg');
   background-size: cover;
   background-repeat: no-repeat;
