@@ -1,16 +1,19 @@
 // Place all the styles related to the Home controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+$green: #00B541;
+
 
 .main_index_wraper {
   display: flex;
-  display: block;
   flex-direction: row;
+  padding: 2em;
 }
 
 .main_index {
   padding: 5em;
-  padding-top: 12em;
+  padding-top: 5em;
+  height: 50%;
 
 
   p{
@@ -20,9 +23,11 @@
 }
 
 .main_index_pic {
-  display: block;
-  height: 100%;
-  background-image: url('IMG_6395.jpg');
-  background-size: 100%;
+  height: 300px;
+  width: 100%;
+  padding: 6em;
+  background-color: orange;
+  background-image: url('stateschamber.jpg');
+  background-size: cover;
   background-repeat: no-repeat;
 }
