@@ -53,7 +53,7 @@ ActiveRecord::Schema.define(version: 20171030172315) do
     t.string "parish"
     t.string "landline"
     t.string "email"
-    t.index ["parish_id"], name: "fk_rails_3acf0946b4"
+    t.index ["parish_id"], name: "fk_rails_a52db85833"
   end
 
   create_table "propositions", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -102,8 +102,8 @@ ActiveRecord::Schema.define(version: 20171030172315) do
     t.string "last_sign_in_ip"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "role_id"
     t.string "created_by"
+    t.bigint "role_id"
     t.string "username"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
