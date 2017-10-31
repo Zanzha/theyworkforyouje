@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'search/index'
+
   get 'import/index'
   get 'import_props/index'
   resources :import_politicians
