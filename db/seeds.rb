@@ -1,21 +1,26 @@
-User.create!([
-  {email: "admin@admin.com", encrypted_password: "$2a$11$t8CeUAmwbxQVMPX.k8HHFuOeCWxEeqOregdH4OGu1o/WXTzaoG22i", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, sign_in_count: 0, current_sign_in_at: nil, last_sign_in_at: nil, current_sign_in_ip: nil, last_sign_in_ip: nil, role_id: 1, created_by: "devteam", username: "Captain Placeholder"}
-])
-Parish.create!([
-  {name: "Saint Helier"},
-  {name: "Grouville"},
-  {name: "Saint Brelade"},
-  {name: "Saint Clement"},
-  {name: "Saint John"},
-  {name: "Saint Lawrence"},
-  {name: "Saint Martin"},
-  {name: "Saint Mary"},
-  {name: "Saint Ouen"},
-  {name: "Saint Peter"},
-  {name: "Saint Saviour"},
-  {name: "Trinity"}
-])
-Role.create!([
-  {name: "Admin"},
-  {name: "Guest"}
-])
+# This file should contain all the record creation needed to seed the database with its default values.
+# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
+#
+# Examples:
+#
+#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
+#   Character.create(name: 'Luke', movie: movies.first)
+
+require 'database_cleaner'
+
+DatabaseCleaner.strategy = :truncation
+
+# then, whenever you need to clean the DB
+DatabaseCleaner.clean
+
+parish_list = Array["Saint Helier","Grouville","Saint Brelade","Saint Clement","Saint John","Saint Lawrence","Saint Martin","Saint Mary","Saint Ouen","Saint Peter","Saint Saviour","Trinity"]
+
+parish_list.each do |parish|
+  Parish.create(name: parish)
+end
+
+Role.create(name: 'Admin', created_at: '201710240000', updated_at: '201710240000')
+Role.create(name: 'Guest', created_at: '201710240000', updated_at: '201710240000')
+User.create(username: 'Captain Placeholder', email: 'admin@admin.com', password: 'topsecret', password_confirmation: 'topsecret', created_by: 'devteam', role_id: '1', created_at: '201710240000', updated_at: '201710240000')
+
+Dir[File.join(Rails.root, 'db', 'seeds', '*.rb')].sort.each { |seed| load seed }
