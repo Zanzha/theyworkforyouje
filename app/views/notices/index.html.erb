@@ -7,22 +7,25 @@
 
     <% @notices.each do |notice| %>
     <div class="notice_container">
-      <div class="userinfo_container">
-        <div><%= notice.user_id %></div>
+        <div class="notice_title">
+          <%= link_to 'show' do %>
+          <%= notice.title %>
+          <% end %>
+        </div>
+        <div class="notice_author">
+          <i>Written by  <%= notice.user.username %> - <%= notice.created_at.strftime("%d %b. %Y") %> </i>
+        </div>
+        <divc class="notice_content">
+          <%= notice.content %>
+        </div>
+
+
+        <div class="notice_management">
+          <div><%= link_to 'Show', notice %></div>
+          <div><%= link_to 'Edit', edit_notice_path(notice) %></div>
+          <div>><%= link_to 'Destroy', notice, method: :delete, data: { confirm: 'Are you sure?' } %></div>
+        </div>
       </div>
-      <div class="content_container">
-
-        <div><%= notice.title %></div>
-        <div><%= notice.content %></div>
-      </div>
-</div>
-<div>
-
-
-        <div><%= link_to 'Show', notice %></div>
-        <div><%= link_to 'Edit', edit_notice_path(notice) %></div>
-        <div>><%= link_to 'Destroy', notice, method: :delete, data: { confirm: 'Are you sure?' } %></div>
-</div
     <% end %>
 
 

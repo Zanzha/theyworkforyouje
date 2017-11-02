@@ -7,6 +7,7 @@ load_and_authorize_resource
     @notices = Notice.all
   end
 
+
   # GET /notices/1
   # GET /notices/1.json
   def show
