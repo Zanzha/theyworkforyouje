@@ -1,2 +1,4 @@
 class Vote < ApplicationRecord
-end
+ # belongs_to :politician
+ # belongs_to :proposition
+end 

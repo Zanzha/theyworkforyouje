@@ -1,4 +1,41 @@
 <p id="notice"><%= notice %></p>
 
+<div class="person_wraper">
+
+  <div>
+    <%= link_to root_path do %>
+     <%= image_tag "Philip Martin Bailhache.jpg", class: "avatar"%>
+  <% end %>
+  </div>
+
+  <div class="person_title">
+    <strong>Sir </strong>
+    <%= @politician.title %>
+  </div>
+
+  <div class="person_fullname">
+    <strong>Philip Martin Bailhache</strong>
+    <%= @politician.full_name %>
+  </div>
+
+
+
+  <div>
+    <strong>Email</strong>
+
+  </div>
+
+  <div>
+    <strong>Website</strong>
+
+  </div>
+
+  <div>
+    <strong>Facebook</strong>
+    
+  </div>
+</div>
+
+
 <%= link_to 'Edit', edit_politician_path(@politician) %> |
 <%= link_to 'Back', politicians_path %>

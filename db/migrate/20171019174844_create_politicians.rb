@@ -1,6 +1,6 @@
 class CreatePoliticians < ActiveRecord::Migration[5.1]
   def change
-    create_table :politician do |t|
+    create_table :politicians do |t|
        t.integer :parish_id
        t.string :full_name
        t.string :first_name

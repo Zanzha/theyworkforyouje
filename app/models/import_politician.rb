@@ -1,0 +1,2 @@
+class ImportPolitician < ApplicationRecord
+end
