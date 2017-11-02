@@ -1,40 +1,94 @@
-<p id="notice"><%= notice %></p>
-
 <div class="person_wraper">
 
-  <div>
-    <%= link_to root_path do %>
-     <%= image_tag "Philip Martin Bailhache.jpg", class: "avatar"%>
-  <% end %>
+<div class="container">
+  <br/><br/>      
+  <div class="row">
+    <div class="person_wraper col-md-4">
+      <div class="card" style="width: 20rem;">
+        <img class="card-img-top" src="<%= @politician.avatar %>" alt="Card image cap">
+        <div class="card-body">
+          <h4 class="card-title"><%= @politician.full_name %></h4>
+          <p class="card-text"><%= @politician.summary %></p>
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item"><%== @politician.address %></li>
+          <li class="list-group-item">Total Votes:  <%= @politician.votes.count %></li>
+          <li class="list-group-item"><%= @politician.mobile %><br/><%= @politician.landline %></li>
+        </ul>
+        <div class="card-body">
+          <a href="#" class="card-link">Card link</a>
+          <a href="#" class="card-link">Another link</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-8">
+
+
+<html>
+  <head>
+    <!--Load the AJAX API-->
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+
+      // Load the Visualization API and the corechart package.
+      google.charts.load('current', {'packages':['corechart']});
+
+      // Set a callback to run when the Google Visualization API is loaded.
+      google.charts.setOnLoadCallback(drawChart);
+
+      // Callback that creates and populates a data table,
+      // instantiates the pie chart, passes in the data and
+      // draws it.
+      function drawChart() {
+        // Create the data table.
+        var data = new google.visualization.DataTable();
+        data.addColumn('string', 'Vote Status');
+        data.addColumn('number', 'Count');
+        data.addRows([
+          ['Out of island', <%= @politician.votes.where(vote_type: 'Out of the island').count %>],
+          ['Not present for vote', <%= @politician.votes.where(vote_type: 'Not present for vote').count %>],
+          ['Pour', <%= @politician.votes.where(vote_type: 'Pour').count %>],
+          ['Contre', <%= @politician.votes.where(vote_type: 'Contre').count %>],
+        ]);
+
+        // Set chart options
+        var options = {'title':'Voting Stats',
+                       'width':500,
+                       'height':400};
+
+        // Instantiate and draw our chart, passing in some options.
+        var chart = new google.visualization.PieChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
+      }
+    </script>
+  </head>
+
+  <body>
+    <!--Div that will hold the pie chart-->
+    <div id="chart_div"></div>
+  </body>
+</html>
+
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Proposition</th>
+            <th>Type</th>
+            <th>Proposition Title</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @politician.votes.each.reverse_each do |vote| %>
+          <tr>
+            <td><%= vote.proposition_id %></td>
+            <td><%= vote.vote_type %></td>
+            <td><%= vote.proposition_title %></td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
   </div>
-
-  <div class="person_title">
-    <strong>Sir </strong>
-    <%= @politician.title %>
-  </div>
-
-  <div class="person_fullname">
-    <strong>Philip Martin Bailhache</strong>
-    <%= @politician.full_name %>
-  </div>
-
-
-
-  <div>
-    <strong>Email</strong>
-
-  </div>
-
-  <div>
-    <strong>Website</strong>
-
-  </div>
-
-  <div>
-    <strong>Facebook</strong>
-    
-  </div>
-</div>
 
 
 <%= link_to 'Edit', edit_politician_path(@politician) %> |
