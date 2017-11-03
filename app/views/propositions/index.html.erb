@@ -5,7 +5,6 @@
 <table class="table">
   <thead>
     <tr>
-      <th>Politician</th>
       <th>Title</th>
       <th>Proposition date</th>
       <th>Debate date</th>
@@ -20,7 +19,6 @@
     <% ##### @propositions.each do |proposition| %>
     <% @propositions.limit(30).each do |proposition| %>
       <tr>
-        <td><%= proposition.politician_id %></td>
         <td><%= proposition.prop_name %></td>
         <td><%= proposition.prop_date %></td>
         <td><%= proposition.debate_date %></td>
