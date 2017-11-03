@@ -1,10 +1,8 @@
-<div class="person_wraper">
-
-<div class="container">
-  <br/><br/>      
+<div class="container-fluid">
   <div class="row">
-    <div class="person_wraper col-md-4">
-      <div class="card" style="width: 20rem;">
+
+    <div class="person_wraper col-md-3">
+      <div class="card" style="width: 320px;">
         <img class="card-img-top" src="<%= @politician.avatar %>" alt="Card image cap">
         <div class="card-body">
           <h4 class="card-title"><%= @politician.full_name %></h4>
@@ -21,8 +19,8 @@
         </div>
       </div>
     </div>
-    <div class="col-md-8">
 
+    <div class="col-md-6">
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script type="text/javascript">
       google.charts.load('current', {'packages':['corechart']});
@@ -41,8 +39,7 @@
         ]);
 
         var options = {'title':'Voting Stats',
-                       'width':500,
-                       'height':400};
+                       'is3D': true};
 
        var chart = new google.visualization.PieChart(document.getElementById('chart_div'));
         chart.draw(data, options);
