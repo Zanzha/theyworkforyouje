@@ -1,5 +1,6 @@
 # README
 
+Do not use db:seed to import data,  drop the database then import the sql file in db folder.
 
 Importing a MySQL database
 
