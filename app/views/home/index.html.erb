@@ -11,11 +11,17 @@
         </h1>
         <p>
             You shouldn’t have to be an expert to understand what goes on in Parliament. Your politicians represent you… but what exactly do they do in your name?<br>
-            TheyWorkForYouJersey takes open data from the Parliament, and presents it in a way that’s easy to follow – for everyone. So now you can check, with just a few clicks: are They Working For You?
+            TheyWorkForYouJersey takes open data from the Parliament, and presents it in a way that’s easy to follow – for everyone. So now you can check, with just a few clicks:<b> are They Working For You?</b>
 
         </p>
-        <p>
-          <%= render partial: "notices/show" %>
+        <h5>Latest news</h5>
+        <p class="home_notice">
+          <% @notices.each do |notice| %>
+          <%= notice.title %><br>
+          <%= notice.content[0,150] %>
+          <%= "..." %>
+          <%= link_to "read more", notices_path %>
+          <% end %>
         </p>
       </div>
     </div>

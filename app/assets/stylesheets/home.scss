@@ -8,24 +8,24 @@ $green: #00B541;
   display: flex;
   flex-direction: row;
   padding: 2em;
+  margin-bottom: 0;
 }
 
 .main_index {
-  display: block;
+  border: 1px solid black;
+  width: 30%;
   padding: 5em;
-  padding-top: 5em;
-  height: 50%;
-
 
   p{
-    font-size: 1em;
-    padding-top: 1em;
+    font-size: 0.9em;
+    padding-left: 0.5em;
   }
 }
 
 .main_index_pic {
+  border: 1px solid black;
   height: 100%;
-  padding: 6em;
   background-color: orange;
-background-image: url('stateschamber.jpg');
-background-size:cover;}
+  background-image: url('stateschamber.jpg');
+  background-size: cover;
+}
