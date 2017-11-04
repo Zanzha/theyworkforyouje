@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171103181742) do
+ActiveRecord::Schema.define(version: 20171104102228) do
 
   create_table "import_politicians", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.datetime "created_at", null: false
@@ -67,7 +67,7 @@ ActiveRecord::Schema.define(version: 20171103181742) do
     t.string "prop_pdf"
     t.string "minutes_pdf"
     t.string "hansard_pdf"
-    t.bigint "voting_id"
+    t.string "voting_id"
     t.string "status"
     t.string "p_id"
     t.bigint "vote_id"

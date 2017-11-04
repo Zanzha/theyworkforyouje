@@ -1,7 +1,7 @@
-<div class="container-fluid">
+<div class="container">
+<br/><br/>
   <div class="row">
-
-    <div class="person_wraper col-md-3">
+    <div class="person_wraper col-md-4">
       <div class="card" style="width: 320px;">
         <img class="card-img-top" src="<%= @politician.avatar %>" alt="Card image cap">
         <div class="card-body">
@@ -20,8 +20,7 @@
       </div>
     </div>
 
-    <div class="col-md-6">
-    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <div class="col-md-8">
     <script type="text/javascript">
       google.charts.load('current', {'packages':['corechart']});
       google.charts.setOnLoadCallback(drawChart);
@@ -37,34 +36,27 @@
           ['Contre', <%= @politician.votes.where(vote_type: 'Contre').count %>],
           ['Unwell', <%= @politician.votes.where(vote_type: 'Ill').count %>],
         ]);
-
-        var options = {'title':'Voting Stats',
-                       'is3D': true};
-
+        var options = {'title':'Voting Stats','is3D': true};
        var chart = new google.visualization.PieChart(document.getElementById('chart_div'));
         chart.draw(data, options);
       }
     </script>
     <div id="chart_div"></div>
 
-      <table class="table">
-        <thead>
-          <tr>
-            <th>Proposition</th>
-            <th>Type</th>
-            <th>Proposition Title</th>
-          </tr>
-        </thead>
-        <tbody>
-          <% @politician.votes.each.reverse_each do |vote| %>
-          <tr>
-            <td><%= vote.proposition_id %></td>
-            <td><%= vote.vote_type %></td>
-            <td><%= vote.proposition_title %></td>
-          </tr>
+<div class="panel">
+
+<h2>How <%= @politician.full_name %> voted</h2>
+
+<ul class="vote-descriptions">
+
+<% @politician.votes.each.reverse_each do |vote| %>
+  <li>Has voted for <%= vote.proposition_title.truncate_words(13) %> <%= link_to "Show Vote", votes_path + "/" + vote.id.to_s, class: "vote-description__source" %>
+  <a class="vote-description__evidence"><%= vote.vote_type %>  <%= vote.proposition_id %><p></a>
+</li>
+
           <% end %>
-        </tbody>
-      </table>
+
+                            </div>
     </div>
   </div>
 

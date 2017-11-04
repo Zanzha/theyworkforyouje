@@ -1,44 +1,15 @@
-<% @politicians_grouped.each do |title, politicians| %>
-
-<h1><%= title %></h1>
-
-<table class="table">
-  <thead>
-    <tr>
-      <th>Full Name</th>
-      <th>First Name</th>
-      <th>Last Name</th>
-      <th>Summary</th>
-      <th>Address</th>
-      <th>Parish</th>
-      <th>Mobile</th>
-      <th>Fax</th>
-      <th>Landline</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% politicians.each do |politician| %>
-      <tr>
-        <td><%= image_tag("#{politician.avatar}", size: "140x180", alt: "#{politician.full_name}")%><br/><%= politician.full_name %><br/><%= politician.email %></td>
-        <td><%= politician.first_name %></td>
-        <td><%= politician.last_name %></td>
-        <td><%= politician.summary %></td>
-        <td><%== politician.address %></td>
-        <td><%= politician.parish %></td>
-        <td><%= politician.mobile %></td>
-        <td><%= politician.fax %></td>
-        <td><%= politician.landline %></td>
-         <td><%= link_to 'Show', politician %></td>
-        <td><%= link_to 'Edit', edit_politician_path(politician) %></td>
-        <td><%= link_to 'Destroy', politician, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-<% end %>
-
-<br>
-
-<%= link_to 'New Politician', new_politician_path %>
+<div class="container">
+   <% @politicians_grouped.each do |title, politicians| %>
+   <% politicians.each do |politician| %>
+   <div class="people-list">
+      <%= link_to politician, class: "people-list__person" do %>
+      <img class="people-list__person__image" src="<%= politician.avatar %>">
+      <h2 class="people-list__person__name"><%= title %> - <%= politician.full_name %></h2>
+      <p class="people-list__person__memberships">
+         <span class="people-list__person__party crossbench"><%= politician.parish %></span>
+      </p>
+      <% end %>
+   </div>
+   <% end %>
+   <% end %>
+</div>
