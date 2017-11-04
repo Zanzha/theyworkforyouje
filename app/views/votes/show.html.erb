@@ -1,14 +1,14 @@
-<p id="notice"><%= notice %></p>
+   <%= @vote.inspect %>
+   <%= @votes.inspect %>
 
-<p>
-  <strong>Proposition:</strong>
-  <%= @vote.proposition_id %>
-</p>
-
-<p>
-  <strong>Type:</strong>
-  <%= @vote.type %>
-</p>
-
-<%= link_to 'Edit', edit_vote_path(@vote) %> |
-<%= link_to 'Back', votes_path %>
+   <% @votes.limit(30).each do |vote| %>
+      <tr>
+        <td><%= vote.proposition_id %></td>
+        <td><%= vote.vote_type %></td>
+        <td><%= vote.member_position %></td>
+        <td><%= vote.voting_id %></td>
+        <td><%= vote.member_name %></td>
+        <td><%= vote.proposition_title %></td>
+        <td><%= link_to 'Show', vote %></td>
+      </tr>
+    <% end %>

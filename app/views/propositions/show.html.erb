@@ -1,29 +1,36 @@
-<p id="notice"><%= notice %></p>
-
 <p>
   <strong>Politician:</strong>
-  <%= @proposition.politician_id %>
 </p>
 
 <p>
+  <strong>Lodged By:</strong>
+  <%= @proposition.lodged_by %>
+</p>
+
+
+<p>
   <strong>Title:</strong>
-  <%= @proposition.title %>
+  <%= @proposition.prop_name %>
 </p>
 
 <p>
   <strong>Proposition date:</strong>
-  <%= @proposition.proposition_date %>
+  <%= @proposition.prop_date %>
 </p>
 
 <p>
-  <strong>Vote date:</strong>
-  <%= @proposition.vote_date %>
+  <strong>Debate date:</strong>
+  <%= @proposition.debate_date %>
 </p>
 
 <p>
   <strong>Reference:</strong>
-  <%= @proposition.reference %>
+  <%= @proposition.p_id %>
 </p>
+
+<p><%= @proposition.prop_pdf %></p>
+<p><%= @proposition.minutes_pdf %></p>
+<p><%= @proposition.hansard_pdf %></p>
 
 <%= link_to 'Edit', edit_proposition_path(@proposition) %> |
 <%= link_to 'Back', propositions_path %>

@@ -1,5 +1,18 @@
 # README
 
+
+Importing a MySQL database
+
+To import a MySQL database, you need to use the mysql command. Here is the full command:
+mysql -uUSERNAME -p DATABASE < backup.sql
+Again, you will be prompted for the password of your MySQL user.
+
+From project Dir.
+cd db
+rake db:destroy
+mysql -uroot -p theyworkforyouje_development < theyworkforyouje_development.sql
+
+
 This README would normally document whatever steps are necessary to get the
 application up and running.
 
