@@ -12,20 +12,31 @@ $green: #00B541;
 }
 
 .main_index {
-  border: 1px solid black;
   width: 30%;
-  padding: 5em;
+  padding: 1em;
+  padding-top: 3em;
+  padding-bottom: 4em;
 
-  p{
+  p {
     font-size: 0.9em;
-    padding-left: 0.5em;
+
+    padding-top: 1em;
+  }
+  h3 {
+    text-align: center;
   }
 }
 
 .main_index_pic {
-  border: 1px solid black;
   height: 100%;
   background-color: orange;
   background-image: url('stateschamber.jpg');
   background-size: cover;
+}
+.home_notice {
+  font-size: 1.4em;
+  padding-left: 3em;
+  h5 {
+    font-weight: bold;
+  }
 }
