@@ -1,8 +1,10 @@
 Rails.application.routes.draw do
-get 'import/index'
-
+  get 'import/index'
+  get 'import_props/index'
+  resources :import_politicians
+  get 'import/index'
   devise_for :users, :path_prefix => 'my'
-resources :users
+  resources :users
   resources :roles
   root to: "home#index"
   get 'home/index'

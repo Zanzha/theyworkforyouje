@@ -1,5 +1,5 @@
 class AddPictureToPolitician < ActiveRecord::Migration[5.1]
   def change
-    add_column :politician, :avatar, :string
+    add_column :politicians, :avatar, :string
   end
 end

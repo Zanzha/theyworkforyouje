@@ -10,7 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171026183742) do
+ActiveRecord::Schema.define(version: 20171030172315) do
+
+  create_table "import_politicians", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "notices", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.bigint "user_id"
@@ -40,12 +45,15 @@ ActiveRecord::Schema.define(version: 20171026183742) do
     t.string "middle_name"
     t.string "last_name"
     t.string "title"
-    t.string "gender"
-    t.datetime "date_of_birth"
-    t.string "website_url"
-    t.string "facebook_url"
     t.string "avatar"
-    t.index ["parish_id"], name: "fk_rails_a52db85833"
+    t.text "summary"
+    t.string "address"
+    t.string "mobile"
+    t.string "fax"
+    t.string "parish"
+    t.string "landline"
+    t.string "email"
+    t.index ["parish_id"], name: "fk_rails_3acf0946b4"
   end
 
   create_table "propositions", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -103,12 +111,15 @@ ActiveRecord::Schema.define(version: 20171026183742) do
   end
 
   create_table "votes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.integer "proposition_id"
-    t.string "type"
+    t.string "proposition_id"
+    t.string "vote_type"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "member_position"
     t.string "member_name"
+    t.string "voting_id"
+    t.string "voting_date"
+    t.string "proposition_title"
   end
 
   add_foreign_key "notices", "users"
