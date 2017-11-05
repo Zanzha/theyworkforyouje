@@ -2,18 +2,18 @@
 <script src="/path/to/masonry.pkgd.min.js"></script>
 
 <script>
-var elem = document.querySelector('.grid');
-var msnry = new Masonry( elem, {
+  var elem = document.querySelector('.grid');
+  var msnry = new Masonry( elem, {
   // options
   itemSelector: '.grid-item',
   columnWidth: 200
-});
+  });
 
-// element argument can be a selector string
-//   for an individual element
-var msnry = new Masonry( '.grid', {
+  // element argument can be a selector string
+  //   for an individual element
+  var msnry = new Masonry( '.grid', {
   // options
-});
+  });
 </script>
 
 
@@ -21,16 +21,19 @@ var msnry = new Masonry( '.grid', {
 <p id="notice"><%= notice %></p>
 
 
-  <div class="grid">
-    <% @parishes.each do |parish| %>
-    <div class="grid-item">
+<div class="grid">
+  <div class="grid-sizer"></div>
+  <div class="gutter-sizer"></div>
+  <div class="grid-item"></div>
+  <div class="grid-item grid-item--width2">
+...
+      <% @parishes.each do |parish| %>
       <%= parish.name %>
       <%= link_to 'Show', parish %>
-      <%= link_to 'Edit', edit_parish_path(parish) %>
-      <%= link_to 'Destroy', parish, method: :delete, data: { confirm: 'Are you sure?' } %>
+
       <% end %>
-    </div>
   </div>
+</div>
 
 
 <br>

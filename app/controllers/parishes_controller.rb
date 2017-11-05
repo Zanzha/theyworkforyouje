@@ -5,6 +5,7 @@ class ParishesController < ApplicationController
   # GET /parishes.json
   def index
     @parishes = Parish.all
+    @politicians = Politician.all
   end
 
   # GET /parishes/1

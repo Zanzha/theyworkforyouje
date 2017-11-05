@@ -1,3 +1,16 @@
 // Place all the styles related to the parishes controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.grid-sizer,
+.grid-item {
+  width: 22%;
+ }
+
+.gutter-sizer {
+   width: 4%;
+  }
+
+.grid-item--width2 {
+   width: 98%;
+ }
