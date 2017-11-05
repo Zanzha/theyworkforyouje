@@ -1,6 +1,6 @@
 # README
 
-Do not use db:seed to import data,  drop the database then import the sql file in db folder.
+Do not use db:seed to import data,
 
 Importing a MySQL database
 
@@ -18,5 +18,6 @@ From project Dir.
 cd db
 
 rake db:destroy
+rake db:create
 
 mysql -uroot -p theyworkforyouje_development < theyworkforyouje_development.sql
