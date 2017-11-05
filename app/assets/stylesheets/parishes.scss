@@ -4,13 +4,12 @@
 
 .grid-sizer,
 .grid-item {
-  width: 22%;
- }
-
-.gutter-sizer {
-   width: 4%;
+  background-color: #f8f9fa;
+  width: auto;
+  padding: 0.1em;
+  margin: 1em;
+  h1 {
+    font-size: 2em;
+    font-weight: 400;
   }
-
-.grid-item--width2 {
-   width: 48%;
  }

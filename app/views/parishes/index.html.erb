@@ -1,42 +1,43 @@
 
-<script src=“https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js“></script>
-
-
-
-
+<!-- Bringing in jQuery and Masonry libraries -->
+<script
+  src="https://code.jquery.com/jquery-3.2.1.min.js"
+  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  crossorigin="anonymous">
+</script>
+<script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
 
 <p id="notice"><%= notice %></p>
 
 
-<div class="grid">
-  <div class="grid-item grid-item--width2">
-      <% @parishes.each do |parish| %>
-      <div class='grid-item'>
-      <%= parish.name %>
-      <%= link_to 'Show', parish %>
+<div class='grid'>
+  <% @parishes.each do |parish| %>
+    <div class="grid-item" data-target='#additional-info-<%= parish %>'>
+      <h1 class='title'>
+        <%= parish.name %>
+      </h1>
+      <p id='additional-info-<%= parish %>' class='hidden'>
+        This is additional info
+      </p>
     </div>
-      <% end %>
-  </div>
+  <% end %>
 </div>
-
 
 <br>
 
 <%= link_to 'New Parish', new_parish_path %>
 
+
 <script>
-  var elem = document.querySelector('.grid');
-  var msnry = new Masonry( elem, {
-  // options
-  columnWidth: '.grid-sizer',
-  gutter: '.gutter-sizer',
-  itemSelector: '.grid-item',
-  percentPosition: true
+  // Initialize masonary on the grid
+  var $grid = $('.grid').masonry({
+    itemSelector: '.grid-item',
+    columnWidth: 200
   });
 
-  // element argument can be a selector string
-  //   for an individual element
-  var msnry = new Masonry( '.grid', {
-  // options
-  });
+  // On click remove (or add) the hidden class and reinitailze masonary
+  $grid.on( 'click', '.grid-item', function() {
+    $($(this).data('target')).toggleClass('hidden')
+    $grid.masonry()
+  })
 </script>
