@@ -5,13 +5,13 @@ class PoliticiansController < ApplicationController
   # GET /politicians.json
   def index
     @politicians = Politician.all
+    @politicians_grouped = @politicians.group_by(&:title)
   end
 
   # GET /politicians/1
   # GET /politicians/1.json
   def show
   end
-
   # GET /politicians/new
   def new
     @politician = Politician.new

@@ -1,40 +1,64 @@
-<p id="notice"><%= notice %></p>
+<div class="container">
+<br/><br/>
+  <div class="row">
+    <div class="person_wraper col-md-4">
+      <div class="card" style="width: 320px;">
+        <img class="card-img-top" src="<%= @politician.avatar %>" alt="Card image cap">
+        <div class="card-body">
+          <h4 class="card-title"><%= @politician.full_name %></h4>
+          <p class="card-text"><%= @politician.summary %></p>
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item"><%== @politician.address %></li>
+          <li class="list-group-item">Total Votes:  <%= @politician.votes.count %></li>
+          <li class="list-group-item"><%= @politician.mobile %><br/><%= @politician.landline %></li>
+        </ul>
+        <div class="card-body">
+          <a href="#" class="card-link">Card link</a>
+          <a href="#" class="card-link">Another link</a>
+        </div>
+      </div>
+    </div>
 
-<div class="person_wraper">
+    <div class="col-md-8">
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
 
-  <div>
-    <%= link_to root_path do %>
-     <%= image_tag "Philip Martin Bailhache.jpg", class: "avatar"%>
-  <% end %>
+      function drawChart() {
+        var data = new google.visualization.DataTable();
+        data.addColumn('string', 'Vote Status');
+        data.addColumn('number', 'Count');
+        data.addRows([
+          ['Out of island', <%= @politician.votes.where(vote_type: 'Out of the island').count %>],
+          ['Not present for vote', <%= @politician.votes.where(vote_type: 'Not present for vote').count %>],
+          ['Pour', <%= @politician.votes.where(vote_type: 'Pour').count %>],
+          ['Contre', <%= @politician.votes.where(vote_type: 'Contre').count %>],
+          ['Unwell', <%= @politician.votes.where(vote_type: 'Ill').count %>],
+        ]);
+        var options = {'title':'Voting Stats','is3D': true};
+       var chart = new google.visualization.PieChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
+      }
+    </script>
+    <div id="chart_div"></div>
+
+<div class="panel">
+
+<h2>How <%= @politician.full_name %> voted</h2>
+
+<ul class="vote-descriptions">
+
+<% @politician.votes.each.reverse_each do |vote| %>
+  <li>Has voted for <%= vote.proposition_title.truncate_words(13) %> <%= link_to "Show Vote", votes_path + "/" + vote.id.to_s, class: "vote-description__source" %>
+  <a class="vote-description__evidence"><%= vote.vote_type %>  <%= vote.proposition_id %><p></a>
+</li>
+
+          <% end %>
+
+                            </div>
+    </div>
   </div>
-
-  <div class="person_title">
-    <strong>Sir </strong>
-    <%= @politician.title %>
-  </div>
-
-  <div class="person_fullname">
-    <strong>Philip Martin Bailhache</strong>
-    <%= @politician.full_name %>
-  </div>
-
-
-
-  <div>
-    <strong>Email</strong>
-
-  </div>
-
-  <div>
-    <strong>Website</strong>
-
-  </div>
-
-  <div>
-    <strong>Facebook</strong>
-    
-  </div>
-</div>
 
 
 <%= link_to 'Edit', edit_politician_path(@politician) %> |
