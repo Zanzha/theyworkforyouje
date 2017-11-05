@@ -1,20 +1,7 @@
 
-<script src="/path/to/masonry.pkgd.min.js"></script>
+<script src=“https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js“></script>
 
-<script>
-  var elem = document.querySelector('.grid');
-  var msnry = new Masonry( elem, {
-  // options
-  itemSelector: '.grid-item',
-  columnWidth: 200
-  });
 
-  // element argument can be a selector string
-  //   for an individual element
-  var msnry = new Masonry( '.grid', {
-  // options
-  });
-</script>
 
 
 
@@ -22,15 +9,12 @@
 
 
 <div class="grid">
-  <div class="grid-sizer"></div>
-  <div class="gutter-sizer"></div>
-  <div class="grid-item"></div>
   <div class="grid-item grid-item--width2">
-...
       <% @parishes.each do |parish| %>
+      <div class='grid-item'>
       <%= parish.name %>
       <%= link_to 'Show', parish %>
-
+    </div>
       <% end %>
   </div>
 </div>
@@ -39,3 +23,20 @@
 <br>
 
 <%= link_to 'New Parish', new_parish_path %>
+
+<script>
+  var elem = document.querySelector('.grid');
+  var msnry = new Masonry( elem, {
+  // options
+  columnWidth: '.grid-sizer',
+  gutter: '.gutter-sizer',
+  itemSelector: '.grid-item',
+  percentPosition: true
+  });
+
+  // element argument can be a selector string
+  //   for an individual element
+  var msnry = new Masonry( '.grid', {
+  // options
+  });
+</script>
