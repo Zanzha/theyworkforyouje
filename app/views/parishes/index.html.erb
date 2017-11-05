@@ -16,9 +16,20 @@
       <h1 class='title'>
         <%= parish.name %>
       </h1>
+
       <p id='additional-info-<%= parish %>' class='hidden'>
-        This is additional info
+
+        <% @politicians.each do |p| %>
+        <% if p.parish == parish %>
+
+<!-- how to define variable parish -->
+
+        <%= p.full_name %>
+        <% else %>
+        <% break %>
+        <% end %>
       </p>
+        <% end %>
     </div>
   <% end %>
 </div>
