@@ -1,28 +1,37 @@
+
+<script src="/path/to/masonry.pkgd.min.js"></script>
+
+<script>
+var elem = document.querySelector('.grid');
+var msnry = new Masonry( elem, {
+  // options
+  itemSelector: '.grid-item',
+  columnWidth: 200
+});
+
+// element argument can be a selector string
+//   for an individual element
+var msnry = new Masonry( '.grid', {
+  // options
+});
+</script>
+
+
+
 <p id="notice"><%= notice %></p>
 
-<h1>Parishes</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>ID</th>
-      <th>Name</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
+  <div class="grid">
     <% @parishes.each do |parish| %>
-      <tr>
-        <td><%= parish.id %></td>
-        <td><%= parish.name %></td>
-        <td><%= link_to 'Show', parish %></td>
-        <td><%= link_to 'Edit', edit_parish_path(parish) %></td>
-        <td><%= link_to 'Destroy', parish, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+    <div class="grid-item">
+      <%= parish.name %>
+      <%= link_to 'Show', parish %>
+      <%= link_to 'Edit', edit_parish_path(parish) %>
+      <%= link_to 'Destroy', parish, method: :delete, data: { confirm: 'Are you sure?' } %>
+      <% end %>
+    </div>
+  </div>
+
 
 <br>
 
