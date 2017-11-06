@@ -1,14 +1,27 @@
-   <%= @vote.inspect %>
-   <%= @votes.inspect %>
-
-   <% @votes.limit(30).each do |vote| %>
-      <tr>
-        <td><%= vote.proposition_id %></td>
-        <td><%= vote.vote_type %></td>
-        <td><%= vote.member_position %></td>
-        <td><%= vote.voting_id %></td>
-        <td><%= vote.member_name %></td>
-        <td><%= vote.proposition_title %></td>
-        <td><%= link_to 'Show', vote %></td>
-      </tr>
-    <% end %>
+<p>&#32;</p>
+<div class="container">
+   <% found=0 %>
+   <% @propositions.each do |prop| %>
+   <% if (prop.p_id == @vote.proposition_id && found==0) %>
+   <div class="jumbotron">
+      <h3>Proposal Name: <%= prop.prop_name %></h3>
+      <p>Proposal Date: <%= prop.prop_date %></p>
+      <p>Debate Date: <%= prop.debate_date %></p>
+      <p>Lodged by: <%= prop.lodged_by %></p>
+      <p>Status: <%= prop.status %></p>
+	<% if (prop.prop_pdf.present?) %> <%= link_to 'Proposal PDF', prop.prop_pdf, target: '_blank', class: 'btn btn-primary' %><% end %>
+	<% if (prop.minutes_pdf.present?) %><%= link_to  'Minutes PDF', prop.minutes_pdf, target: '_blank', class: "btn btn-primary" %><% end %>
+	<% if (prop.hansard_pdf.present?) %><%= link_to 'Hansard PDF', prop.hansard_pdf, target: '_blank', class: "btn btn-primary" %><% end %>
+   </div>
+   <% found=1 %>
+   <% end %>
+   <% end %>
+   <div>
+      <p><%= @vote.proposition_id %></p>
+      <p><%= @vote.vote_type %></p>
+      <p><%= @vote.member_position %></p>
+      <p><%= @vote.voting_id %></p>
+      <p><%= @vote.member_name %></p>
+      <p><%= @vote.proposition_title %></p>
+   </div>
+</div>

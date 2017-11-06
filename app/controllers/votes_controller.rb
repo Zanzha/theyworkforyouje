@@ -11,6 +11,8 @@ class VotesController < ApplicationController
   # GET /votes/1.json
   def show
     @votes = Vote.all
+   @propositions = Proposition.all
+#     @propositions = Proposition.where("propositions.p_id = @votes.proposition_id")
   end
 
   # GET /votes/new
