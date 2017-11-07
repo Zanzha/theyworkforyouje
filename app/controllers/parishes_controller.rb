@@ -1,7 +1,6 @@
 class ParishesController < ApplicationController
   before_action :set_parish, only: [:show, :edit, :update, :destroy]
-  before_action :set_politician, only: [:show]
-
+  
   # GET /parishes
   # GET /parishes.json
   def index

@@ -15,16 +15,18 @@
     <div class="grid-item" data-target='#additional-info-<%= parish %>'>
       <h1 class='title'>
         <%= parish.name %>
+        <%= parish.id %>
 
-        <%= @politician %>
+
+        <% parish.politicians.each do |politician| %>
+          <%= politician.full_name %>
+
+        <% end %>
+
+
       </h1>
 
-      <p id='additional-info-<%= parish %>' class='hidden'>
-        <% x = parish.name %>
-        <% while x = @politician.parish %>
-        <%=  puts @politician.full_name %>
-        <% end %>
-      </p>
+
     </div>
   <% end %>
 </div>
