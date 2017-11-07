@@ -55,7 +55,7 @@ load_and_authorize_resource
   # DELETE /notices/1
   # DELETE /notices/1.json
   def destroy
-    @notice.destroy
+    @notice.delete
     respond_to do |format|
       format.html { redirect_to notices_url, notice: 'Notice was successfully destroyed.' }
       format.json { head :no_content }

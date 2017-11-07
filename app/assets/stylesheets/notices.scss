@@ -2,14 +2,29 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+$green: #00B541;
 
 .notice_container a{
   color: black;
   text-decoration: none;
 }
 
+.notice_button a{
+  color: black;
+  text-decoration: none;
+}
 .notice_container a:hover{
-  color: #2ABB9B;
+  color: $green;
+  text-decoration: none;
+}
+
+.notice_button a:hover{
+  color: $green;
+  text-decoration: none;
+}
+
+.notice_button a:visited{
+  color: black;
   text-decoration: none;
 }
 
@@ -37,4 +52,11 @@ margin-bottom: 2em;
   display:flex;
   flex-direction: row;
   margin-top: 1em;
+  margin-left: 40px;
+  margin-right: 40px;
+}
+
+.notice_button{
+  margin-right: 5px;
+  color: black;
 }

@@ -1,10 +1,5 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Notices</h1>
-
-
-
-
     <% @notices.each do |notice| %>
     <div class="notice_container">
         <div class="notice_title">
@@ -19,16 +14,27 @@
           <%= notice.content %>
         </div>
 
+        <% if current_user.blank? %>
+          <%else %>
+            <%if current_user.role_id == 1%>
 
-        <div class="notice_management">
-          <div><%= link_to 'Show', notice %></div>
-          <div><%= link_to 'Edit', edit_notice_path(notice) %></div>
-          <div>><%= link_to 'Destroy', notice, method: :delete, data: { confirm: 'Are you sure?' } %></div>
-        </div>
+              <div class="notice_management">
+                <div class="notice_button"><%= link_to 'Show', notice %></div>
+                <div class="notice_button"><%= link_to 'Edit', edit_notice_path(notice) %></div>
+                <div class="notice_button"><%= link_to 'Delete', notice, method: :delete, data: { confirm: 'Are you sure?' } %></div>
+              </div>
+
+              <% end %>
+        <% end %>
       </div>
+
     <% end %>
 
 
 <br>
-
-<%= link_to 'New Notice', new_notice_path %>
+<% if current_user.blank? %>
+  <%else %>
+    <%if current_user.role_id == 1%>
+      <%= link_to 'New Notice', new_notice_path %>
+    <% end %>
+    <% end %>
