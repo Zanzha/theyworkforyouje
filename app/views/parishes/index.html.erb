@@ -15,11 +15,11 @@
     <div class="grid-item" data-target='#additional-info-<%= parish %>'>
       <h1 class='title'>
         <%= parish.name %>
-        <%= parish.id %>
-
 
         <% parish.politicians.each do |politician| %>
-          <%= politician.full_name %>
+        <p>
+          <%= link_to politician.full_name, politician_path(politician)  %>
+        </p>
 
         <% end %>
 
