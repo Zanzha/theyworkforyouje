@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  get 'search/index'
 
   get 'import/index'
   get 'import_props/index'
@@ -9,6 +8,7 @@ Rails.application.routes.draw do
   resources :users
   resources :roles
   root to: "home#index"
+  get 'search/index'
   get 'home/index'
   get 'notices/index'
   get 'offices/index'

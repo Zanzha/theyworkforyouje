@@ -15,7 +15,7 @@ class SearchController < ApplicationController
       searchResults = Politician.search(params['q']) # Note search is a model method
     elsif searchOn == 'proposition'
       searchResults = Proposition.search(params['q']) # Note search is a model method
-    end
+    end 
 
     # Loop over the results and make them consistent
     searchResults.each do |searchResult|
@@ -32,8 +32,10 @@ class SearchController < ApplicationController
         'label' => result_label, 
         'link' => result_link
       })
-    end
 
+      post 'politicians/show'
+    end
+    <%= link_to 'Politician', politician_show_path(@politician) %>
   end
 
 end
