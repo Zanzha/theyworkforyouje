@@ -1,14 +1,28 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Proposition:</strong>
-  <%= @vote.proposition_id %>
-</p>
-
-<p>
-  <strong>Type:</strong>
-  <%= @vote.type %>
-</p>
-
-<%= link_to 'Edit', edit_vote_path(@vote) %> |
-<%= link_to 'Back', votes_path %>
+<p>&#32;</p>
+<div class="container">
+<% found=0 %>
+<% @propositions.each do |prop| %>
+<% if (prop.p_id == @vote.proposition_id && found==0) %>
+<div class="jumbotron">
+   <h3>Proposal Name: <%= prop.prop_name %></h3>
+   <p>Proposal Date: <%= prop.prop_date %></p>
+   <p>Debate Date: <%= prop.debate_date %></p>
+   <p>Lodged by: <%= prop.lodged_by %></p>
+   <p>Status: <%= prop.status %></p>
+   <% if (prop.prop_pdf.present?) %> <%= link_to 'Proposal PDF', prop.prop_pdf, target: '_blank', class: 'btn btn-primary' %><% end %>
+   <% if (prop.minutes_pdf.present?) %><%= link_to  'Minutes PDF', prop.minutes_pdf, target: '_blank', class: "btn btn-primary" %><% end %>
+   <% if (prop.hansard_pdf.present?) %><%= link_to 'Hansard PDF', prop.hansard_pdf, target: '_blank', class: "btn btn-primary" %><% end %>
+</div>
+<% found=1 %>
+<% end %>
+<% end %>
+<div class="panel">
+   <h4><%= @shared_voteid.count %> Votes have been recorded</h4>
+   <ul class="vote-descriptions">
+   <% @shared_voteid.each.reverse_each do |vote| %>
+   <li>
+      <b><%= vote.member_name %></b> Voted <%= vote.vote_type %> for <%= vote.proposition_title.truncate_words(17) %><a class="vote-description__source"><%= vote.vote_type %></a>
+      <a class="vote-description__evidence"><%= vote.vote_type %>  <%= vote.proposition_id %></a>
+   </li>
+   <% end %>
+</div>

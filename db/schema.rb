@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171030172315) do
+ActiveRecord::Schema.define(version: 20171104102228) do
 
   create_table "import_politicians", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.datetime "created_at", null: false
@@ -67,10 +67,12 @@ ActiveRecord::Schema.define(version: 20171030172315) do
     t.string "prop_pdf"
     t.string "minutes_pdf"
     t.string "hansard_pdf"
-    t.string "vote_id"
+    t.string "voting_id"
     t.string "status"
     t.string "p_id"
+    t.bigint "vote_id"
     t.index ["politician_id"], name: "fk_rails_90bd012afd"
+    t.index ["vote_id"], name: "fk_rails_af78db00fe"
   end
 
   create_table "roles", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -120,10 +122,14 @@ ActiveRecord::Schema.define(version: 20171030172315) do
     t.string "voting_id"
     t.string "voting_date"
     t.string "proposition_title"
+    t.bigint "politician_id"
+    t.index ["politician_id"], name: "fk_rails_7d623af5ff"
   end
 
   add_foreign_key "notices", "users"
   add_foreign_key "politicians", "parishes"
   add_foreign_key "propositions", "politicians"
+  add_foreign_key "propositions", "votes"
   add_foreign_key "users", "roles"
+  add_foreign_key "votes", "politicians"
 end
