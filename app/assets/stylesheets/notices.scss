@@ -19,7 +19,7 @@ $green: #00B541;
 }
 
 .notice_button a:hover{
-  color: $green;
+  color: white;
   text-decoration: none;
 }
 
@@ -59,4 +59,12 @@ margin-bottom: 2em;
 .notice_button{
   margin-right: 5px;
   color: black;
+  border: 1px black solid;
+  border-radius: 2px;
+  padding:4px;
+}
+
+.notice_button:hover{
+  background-color: $green;
+  color: white;
 }
