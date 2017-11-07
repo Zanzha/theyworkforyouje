@@ -15,21 +15,16 @@
     <div class="grid-item" data-target='#additional-info-<%= parish %>'>
       <h1 class='title'>
         <%= parish.name %>
+
+        <%= @politician %>
       </h1>
 
       <p id='additional-info-<%= parish %>' class='hidden'>
-
-        <% @politicians.each do |p| %>
-        <% if p.parish == parish %>
-
-<!-- how to define variable parish in that loop -->
-
-        <%= p.full_name %>
-        <% else %>
-        <% break %>
+        <% x = parish.name %>
+        <% while x = @politician.parish %>
+        <%=  puts @politician.full_name %>
         <% end %>
       </p>
-        <% end %>
     </div>
   <% end %>
 </div>
