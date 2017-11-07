@@ -1,12 +1,19 @@
 <h1>Search</h1>
 
 <% if @results and @results.length > 0 %>
-  <p>Your search for <%= params['q'] %> returned <%= @results.length %> results</p>
-  <% @results.each do |result| %>
-    <p><%= result['label'] %> <%= result['link'] %></p>
-  <% end %>
+<p>Your search for <%= params['q'] %> returned <%= @results.length %> results</p>
+<% @results.each do |result| %>
+  <p><%= result['label'] %> <%= result['link'] %></p>
+<% end %>
 <% elsif @results and @results.length == 0 %>
-  <p>Your search for <%= params['q'] %> returned no results</p>
-<% else %>
-  No search
+<p>Your search for <%= params['q'] %> returned no results</p>
+<% end %>
+
+<% if @results and @results.length > 0 %>
+<p>Your search for <%= params['q'] %> returned <%= @results.length %> results</p>
+<% @results.each do |result| %>
+  <p><%= result['label'] %> <%= result['link'] %></p>
+<% end %>
+<% elsif @results and @results.length == 0 %>
+<p>Your search for <%= params['q'] %> returned no results</p>
 <% end %>
