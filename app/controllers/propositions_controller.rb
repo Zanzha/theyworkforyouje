@@ -1,5 +1,6 @@
 class PropositionsController < ApplicationController
   before_action :set_proposition, only: [:show, :edit, :update, :destroy]
+  load_and_authorize_resource
 
   # GET /propositions
   # GET /propositions.json
