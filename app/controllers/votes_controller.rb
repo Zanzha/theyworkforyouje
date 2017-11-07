@@ -10,7 +10,11 @@ class VotesController < ApplicationController
   # GET /votes/1
   # GET /votes/1.json
   def show
-    @votes = Vote.all
+#	@votes = Vote.all
+	@propositions = Proposition.all
+	@mainid = Vote.find(params[:id])
+	@mainid = @mainid.voting_id.to_i
+	@shared_voteid = Vote.find_by_sql("SELECT * FROM votes WHERE voting_id=#{@mainid}")
   end
 
   # GET /votes/new
