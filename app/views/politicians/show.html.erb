@@ -4,25 +4,33 @@
 
   <div>
     <%= link_to root_path do %>
-     <%= image_tag "Philip Martin Bailhache.jpg", class: "avatar"%>
+     <%= image_tag @politician.avatar, class: "avatar"%>
   <% end %>
   </div>
 
   <div class="person_title">
-    <strong>Sir </strong>
-    <%= @politician.title %>
+    <strong>
+      <%= @politician.title %>
+    </strong>
   </div>
 
   <div class="person_fullname">
-    <strong>Philip Martin Bailhache</strong>
-    <%= @politician.full_name %>
+    <strong>
+      <%= @politician.full_name %>
+    </strong>
   </div>
 
-
+  <div class="person_bio">
+    <p>
+      <%= @politician.summary %>
+    <p>
+  </div>
 
   <div>
-    <strong>Email</strong>
-
+    <strong>Email:</strong>
+      <p>
+        <%= @politician.email %>
+      </p>
   </div>
 
   <div>
