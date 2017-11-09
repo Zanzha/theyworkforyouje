@@ -6,7 +6,7 @@ class Proposition < ApplicationRecord
     if query.blank?  # blank? covers both nil and empty string
       all
     else
-      where('prop_name AND lodged_by LIKE ?', "%#{query}%")
+      where('prop_name LIKE ? OR lodged_by LIKE ?', "%#{query}%", "%#{query}%")
     end
   end
 end
