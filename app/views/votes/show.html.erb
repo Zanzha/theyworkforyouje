@@ -2,7 +2,7 @@
 <div class="container">
 <% found=0 %>
 <% @propositions.each do |prop| %>
-<% if (prop.p_id == @vote.proposition_id && found==0) %>
+<% if (prop.p_id == @vote.p_id && found==0) %>
 <div class="jumbotron">
    <h3>Proposal Name: <%= prop.prop_name %></h3>
    <p>Proposal Date: <%= prop.prop_date %></p>
