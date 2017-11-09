@@ -1,0 +1,31 @@
+<h1>Search</h1>
+
+<% if !params['q'].blank? %> 
+
+  <% if @pol_results and @pol_results.length > 0 %>
+    <p>Your search for <%= params['q'] %> returned <%= @pol_results.length %> results</p>
+
+    <% @pol_results.each do |pol| %>
+      <p><%= pol['label'] %> <%= pol['link'] %></p>
+    <% end %>
+
+    <% elsif @pol_results and @pol_results.length == 0 %>
+      <p>Your search for <%= params['q'] %> returned no results</p>
+  <% end %>
+
+
+  <% if @prop_results and @prop_results.length > 0 %>
+    <p>Your search for <%= params['q'] %> returned <%= @pol_results.length %> results</p>
+
+    <% @prop_results.each do |prop| %>
+      <p><%= prop['label'] %> <%= prop['link'] %></p>
+    <% end %>
+
+    <% elsif @prop_results and @prop_results.length == 0 %>
+      <p>Your search for <%= params['q'] %> returned no results</p>
+  <% end %>
+
+    <% else %>
+      <p>No search term</p>
+
+<% end %>
