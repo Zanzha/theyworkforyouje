@@ -7,22 +7,26 @@
     
 
     <% @pol_results.each do |pol| %>
-      <p><%= pol['label'] %> <%= pol['link'] %></p>
+      <p><%= pol['title'] %> <%= pol['label'] %> <%= pol['link'] %></p>
     <% end %>
 
   <% end %>
+
 
 
   <% if @prop_results and @prop_results.length > 0 %>
     <p>Your search for <%= params['q'] %> returned <%= @pol_results.length %> results</p>
 
     <% @prop_results.each do |prop| %>
-      <p><%= prop['label'] %> <%= prop['proposer'] %> <%= prop['link'] %></p>
+      <p>
+        Lodged By: <%= prop['proposer'] %>
+        </br>
+        <%= prop['label'] %> <%= prop['link'] %>
+      </p>
     <% end %>
-
   <% end %>
 
-    <% else @pol_results.length and @prop_results.length == 0 %>
-    <p>Your search for <%= params['q'] %> returned no results</p>
+  <% else @pol_results.length and @prop_results.length == 0 %>
+  <p>Your search for <%= params['q'] %> returned no results</p>
 
 <% end %>

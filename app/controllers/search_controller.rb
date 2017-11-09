@@ -16,11 +16,13 @@ class SearchController < ApplicationController
     # Loop over the results and make them consistent
     polResults.each do |polResult|
       pol_result_label = polResult.full_name
+      pol_result_title = polResult.title
       pol_result_link = view_context.link_to("View more", politician_path(polResult))
 
       # Add this result ot the Array of results
       @pol_results.push({
         'label' => pol_result_label, 
+        'title' => pol_result_title, 
         'link' => pol_result_link
       })
     end
