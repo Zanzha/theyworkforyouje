@@ -18,7 +18,9 @@
     <div id="collapse-<%= parish.id %>" class="collapse" role="tabpanel" aria-labelledby="headingOne" data-parent="#accordion">
       <% parish.politicians.each do |politician| %>
       <div class="card-body">
-        <%= link_to politician.full_name, politician_path(politician)  %>
+        <p> &bull;
+          <%= link_to politician.full_name, politician_path(politician)  %>
+        </p>
       </div>
       <% end %>
     </div>

@@ -11,16 +11,20 @@
 .card {
   display: flex;
   flex-direction: row;
+  margin:1em;
   min-width: 50px;
-  padding: 0.5em;
   max-width: max-content;
 }
 
 .card-header {
   padding: 1em;
   min-width: 100px;
+  border-bottom: none;
 }
 
 .card-body {
   padding: 0.5em;
+  p {
+    margin-bottom: 0;
+  }
 }
