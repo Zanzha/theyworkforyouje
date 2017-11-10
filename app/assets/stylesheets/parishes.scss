@@ -2,13 +2,21 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+#accordion {
+  display: flex;
+  flex-direction: column;
+
+}
+
 .card {
   display: flex;
+
+  min-width: 50px;
 }
 
 .card-header {
-  padding: 3em;
-  background-color: red;
+  padding: 1em;
+  min-width: 200px;
 }
 
 .card-body {
