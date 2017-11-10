@@ -4,21 +4,23 @@
 
 #accordion {
   display: flex;
-  flex-direction: column;
-
+  flex-direction: row;
+  flex-wrap: wrap;
 }
 
 .card {
   display: flex;
-
+  flex-direction: row;
   min-width: 50px;
+  padding: 0.5em;
+  max-width: max-content;
 }
 
 .card-header {
   padding: 1em;
-  min-width: 200px;
+  min-width: 100px;
 }
 
 .card-body {
-  padding: 0;
+  padding: 0.5em;
 }
