@@ -17,22 +17,15 @@
 //= require popper
 //= require bootstrap-sprockets
 
-<script>
-  src="https://code.jquery.com/jquery-3.2.1.min.js"
-  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
-  crossorigin="anonymous">
-</script>
+// Initialize masonary on the grid
+var $grid = $('.grid').masonry({
+  itemSelector: '.grid-item',
+  columnWidth: 200
+});
 
-<script>
-  // Initialize masonary on the grid
-  var $grid = $('.grid').masonry({
-    itemSelector: '.grid-item',
-    columnWidth: 200
-  });
+// On click remove (or add) the hidden class and reinitailze masonary
+$grid.on( 'click', '.grid-item', function() {
+  $($(this).data('target')).toggleClass('hidden')
+  $grid.masonry()
+})
 
-  // On click remove (or add) the hidden class and reinitailze masonary
-  $grid.on( 'click', '.grid-item', function() {
-    $($(this).data('target')).toggleClass('hidden')
-    $grid.masonry()
-  })
-</script>
