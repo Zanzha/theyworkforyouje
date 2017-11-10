@@ -26,7 +26,7 @@
     <p>
       <% @notices.each do |notice| %>
       <%= notice.title %><br>
-      <%= notice.content[0,150] %>
+      <%= notice.content[0,80] %>
       <%= "..." %>
       <%= link_to "read more", notices_path %>
       <% end %>

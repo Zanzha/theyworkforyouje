@@ -1,28 +1,32 @@
+
+<!-- Bringing in jQuery and Masonry libraries -->
+
+
 <p id="notice"><%= notice %></p>
 
-<h1>Parishes</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>ID</th>
-      <th>Name</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @parishes.each do |parish| %>
-      <tr>
-        <td><%= parish.id %></td>
-        <td><%= parish.name %></td>
-        <td><%= link_to 'Show', parish %></td>
-        <td><%= link_to 'Edit', edit_parish_path(parish) %></td>
-        <td><%= link_to 'Destroy', parish, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<div id="accordion" role="tablist">
+  <% @parishes.each do |parish| %>
+  <div class="card">
+    <div class="card-header" role="tab" id="headingOne">
+        <h5 class="mb-0">
+          <a data-toggle="collapse" data-target="#collapse-<%= parish.id %>" href="#collapse-<%= parish.id %>" aria-expanded="true" aria-controls="collapse">
+            <%= parish.name %>
+          </a>
+      </h5>
+    </div>
+    <div id="collapse-<%= parish.id %>" class="collapse" role="tabpanel" aria-labelledby="headingOne" data-parent="#accordion">
+      <% parish.politicians.each do |politician| %>
+      <div class="card-body">
+        <p> &bull;
+          <%= link_to politician.full_name, politician_path(politician)  %>
+        </p>
+      </div>
+      <% end %>
+    </div>
+  </div>
+  <% end %>
+</div>
 
 <br>
 
