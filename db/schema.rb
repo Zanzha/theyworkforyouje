@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171108164249) do
+ActiveRecord::Schema.define(version: 20171111180015) do
 
   create_table "import_politicians", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.datetime "created_at", null: false
@@ -53,7 +53,7 @@ ActiveRecord::Schema.define(version: 20171108164249) do
     t.string "parish"
     t.string "landline"
     t.string "email"
-    t.index ["parish_id"], name: "fk_rails_a52db85833"
+    t.index ["parish_id"], name: "fk_rails_3acf0946b4"
   end
 
   create_table "propositions", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -82,13 +82,16 @@ ActiveRecord::Schema.define(version: 20171108164249) do
   end
 
   create_table "terms", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.integer "parish_id"
+    t.string "position"
+    t.bigint "parish_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "politician_id"
+    t.bigint "politician_id"
     t.integer "office_id"
-    t.datetime "begin_date"
-    t.datetime "end_date"
+    t.date "begin_date"
+    t.date "end_date"
+    t.index ["parish_id"], name: "fk_rails_9b43323b34"
+    t.index ["politician_id"], name: "fk_rails_896ea326e5"
   end
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -113,7 +116,7 @@ ActiveRecord::Schema.define(version: 20171108164249) do
   end
 
   create_table "votes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.bigint "proposition_id"
+    t.string "p_id"
     t.string "vote_type"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -123,6 +126,7 @@ ActiveRecord::Schema.define(version: 20171108164249) do
     t.string "voting_date"
     t.string "proposition_title"
     t.bigint "politician_id"
+    t.bigint "proposition_id"
     t.index ["politician_id"], name: "fk_rails_7d623af5ff"
     t.index ["proposition_id"], name: "fk_rails_0bc883c6a4"
   end
@@ -131,6 +135,8 @@ ActiveRecord::Schema.define(version: 20171108164249) do
   add_foreign_key "politicians", "parishes"
   add_foreign_key "propositions", "politicians"
   add_foreign_key "propositions", "votes"
+  add_foreign_key "terms", "parishes"
+  add_foreign_key "terms", "politicians"
   add_foreign_key "users", "roles"
   add_foreign_key "votes", "politicians"
   add_foreign_key "votes", "propositions"
