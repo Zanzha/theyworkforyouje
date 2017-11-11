@@ -6,6 +6,10 @@
   display: block;
 }
 
+.card {
+  flex-direction: column;
+}
+
 .avatar {
   margin: 1em;
   border-radius: 1px;
@@ -163,8 +167,8 @@
 	min-width:330px;
 }
 li {
-	list-style: none; 
+	list-style: none;
 }
 #chart_div {
-	min-height:200px; 
+	min-height:200px;
 }

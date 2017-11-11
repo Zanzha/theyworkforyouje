@@ -2,13 +2,32 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.grid-sizer,
-.grid-item {
+#accordion {
+  display: flex;
+  flex-direction: row;
+  flex-flow: wrap;
+}
+
+.card {
+  display: flex;
+  flex-direction: row !important;
+  margin:0.2em;
+  margin-left: 2em;
+  min-width: 50px;
+  max-width: max-content;
+  max-height: max-content;
+}
+
+.card-header {
+  padding: 0.5em;
+  min-width: 100px;
+  border-bottom: none;
   background-color: #f8f9fa;
-  width: auto;
-  margin: 1em;
-  h1 {
-    font-size: 2em;
-    font-weight: 400;
+}
+
+.card-body {
+  padding: 0.5em;
+  p {
+    margin-bottom: 0;
   }
- }
+}

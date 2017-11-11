@@ -1,51 +1,33 @@
 
 <!-- Bringing in jQuery and Masonry libraries -->
-<script
-  src="https://code.jquery.com/jquery-3.2.1.min.js"
-  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
-  crossorigin="anonymous">
-</script>
-<script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
+
 
 <p id="notice"><%= notice %></p>
 
 
-<div class='grid'>
+<div id="accordion" role="tablist">
   <% @parishes.each do |parish| %>
-    <div class="grid-item" data-target='#additional-info-<%= parish %>'>
-      <h1 class='title'>
-        <%= parish.name %>
-
-        <% parish.politicians.each do |politician| %>
-        <p>
+  <div class="card">
+    <div class="card-header" role="tab" id="headingOne">
+        <h5 class="mb-0">
+          <a data-toggle="collapse" data-target="#collapse-<%= parish.id %>" href="#collapse-<%= parish.id %>" aria-expanded="true" aria-controls="collapse">
+            <%= parish.name %>
+          </a>
+      </h5>
+    </div>
+    <div id="collapse-<%= parish.id %>" class="collapse" role="tabpanel" aria-labelledby="headingOne" data-parent="#accordion">
+      <% parish.politicians.each do |politician| %>
+      <div class="card-body">
+        <p> &bull;
           <%= link_to politician.full_name, politician_path(politician)  %>
         </p>
-
-        <% end %>
-
-
-      </h1>
-
-
+      </div>
+      <% end %>
     </div>
+  </div>
   <% end %>
 </div>
 
 <br>
 
 <%= link_to 'New Parish', new_parish_path %>
-
-
-<script>
-  // Initialize masonary on the grid
-  var $grid = $('.grid').masonry({
-    itemSelector: '.grid-item',
-    columnWidth: 200
-  });
-
-  // On click remove (or add) the hidden class and reinitailze masonary
-  $grid.on( 'click', '.grid-item', function() {
-    $($(this).data('target')).toggleClass('hidden')
-    $grid.masonry()
-  })
-</script>
