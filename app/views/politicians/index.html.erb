@@ -1,6 +1,6 @@
 <div class="container">
    <% @politicians_grouped.each do |title, politicians| %>
-   <% politicians.each do |politician| %>
+    <% politicians.each do |politician| %>
    <div class="people-list">
       <%= link_to politician, class: "people-list__person" do %>
       <img class="people-list__person__image" src="<%= politician.avatar %>">
@@ -10,6 +10,6 @@
       </p>
       <% end %>
    </div>
-   <% end %>
+    <% end %>
    <% end %>
 </div>
