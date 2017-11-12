@@ -3,8 +3,7 @@
 
     <% if @pol_results and @pol_results.length > 0 %>
       <h6>
-        Your search for "<%= params['q'] %>" brought back the following results:
-        <h5> Politician(s): <%= @pol_results.length %></h5>
+        Your search results for "<%= params['q'] %>" in Politician(s): <%= @pol_results.length %>
       </h6>
 
       <div class="search_pol">
@@ -18,9 +17,9 @@
 
 
     <% if @prop_results and @prop_results.length > 0 %>
-      <h5>
-         Propositions of <%= @pol_results.length %> politician:
-      </h5>
+    <h6>
+      Your search results for "<%= params['q'] %>" in Propositions:
+    </h6>
       <div class="search_prop">
         <% @prop_results.each do |prop| %>
           <h4>
