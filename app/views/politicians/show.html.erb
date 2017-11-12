@@ -3,7 +3,7 @@
 <div class="row">
 <div class="person_wraper col-md-4">
    <div class="card" style="width: 320px;">
-      <img class="card-img-top" src="<%= @politician.avatar %>" alt="Card image cap">
+      <img class="card-img-top" src="<%= @politician.avatar %>" alt="<%= @politician.title %> <%= @politician.full_name %>">
       <div class="card-body">
          <h4 class="card-title"><%= @politician.full_name %></h4>
          <p class="card-text"><%= @politician.summary %></p>
