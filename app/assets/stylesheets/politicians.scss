@@ -6,11 +6,11 @@
   display: block;
 }
 
-.card {
+.person_wraper .card {
   flex-direction: column;
 }
 
-.avatar {
+.person_wraper .avatar {
   margin: 1em;
   border-radius: 1px;
   box-shadow: 1px 1px 1px #888888;

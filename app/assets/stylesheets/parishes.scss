@@ -8,7 +8,7 @@
   flex-flow: wrap;
 }
 
-.card {
+#accordion .card {
   display: flex;
   flex-direction: row !important;
   margin:0.2em;
@@ -18,14 +18,14 @@
   max-height: max-content;
 }
 
-.card-header {
+#accordion .card-header {
   padding: 0.5em;
   min-width: 100px;
   border-bottom: none;
   background-color: #f8f9fa;
 }
 
-.card-body {
+#accordion .card-body {
   padding: 0.5em;
   p {
     margin-bottom: 0;

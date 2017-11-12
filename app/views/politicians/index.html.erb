@@ -6,7 +6,7 @@
       <img class="people-list__person__image" src="<%= politician.avatar %>">
       <h2 class="people-list__person__name"><%= title %> - <%= politician.full_name %></h2>
       <p class="people-list__person__memberships">
-         <span class="people-list__person__party crossbench"><%= politician.parish %></span>
+         <span class="people-list__person__party crossbench"><%= politician.parish.name %></span>
       </p>
       <% end %>
    </div>
