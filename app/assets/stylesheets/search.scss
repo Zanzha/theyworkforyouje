@@ -1,3 +1,22 @@
 // Place all the styles related to the Search controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.search_wrapper{
+  margin: 2em;
+  h6 {
+    padding-top: 1em;
+    padding-bottom: 1em;
+  }
+}
+
+.search_pol,
+.search_prop {
+  padding-top: 1em;
+  padding-left: 1em;
+  background-color: #f8f9fa;
+  max-width: content;
+  p {
+  padding-left: 2em;
+  }
+}

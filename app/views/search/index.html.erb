@@ -1,32 +1,43 @@
-<h1>Search</h1>
+<div class="search_wrapper">
+  <% if !params['q'].blank? %>
 
-<% if !params['q'].blank? %> 
+    <% if @pol_results and @pol_results.length > 0 %>
+      <h6>
+        Your search results for "<%= params['q'] %>" in Politician(s): <%= @pol_results.length %>
+      </h6>
 
-  <% if @pol_results and @pol_results.length > 0 %>
-    <p>Your search for <%= params['q'] %> returned <%= @pol_results.length %> results</p>
-    
-
-    <% @pol_results.each do |pol| %>
-      <p><%= pol['title'] %> <%= pol['label'] %> <%= pol['link'] %></p>
+      <div class="search_pol">
+        <% @pol_results.each do |pol| %>
+          <h3> &bull; <%= pol['title'] %> <%= pol['label'] %></h3>
+          <p><%= pol['link'] %></p>
+        <% end %>
+      </div>
     <% end %>
 
-  <% end %>
 
 
-
-  <% if @prop_results and @prop_results.length > 0 %>
-    <p>Your search for <%= params['q'] %> returned <%= @pol_results.length %> results</p>
-
-    <% @prop_results.each do |prop| %>
-      <p>
-        Lodged By: <%= prop['proposer'] %>
-        </br>
-        <%= prop['label'] %> <%= prop['link'] %>
-      </p>
+    <% if @prop_results and @prop_results.length > 0 %>
+    <h6>
+      Your search results for "<%= params['q'] %>" in Propositions:
+    </h6>
+      <div class="search_prop">
+        <% @prop_results.each do |prop| %>
+          <h4>
+            &bull; Lodged By: <%= prop['proposer'] %>
+            </br>
+          <h6>
+            <%= prop['label'] %>
+          </h6>
+          <p>
+            <%= prop['link'] %>
+          </p>
+          </h4>
+        <% end %>
+    </div>
     <% end %>
+
+    <% else @pol_results.length and @prop_results.length == 0 %>
+    <p>Your search for <%= params['q'] %> returned no results</p>
+
   <% end %>
-
-  <% else @pol_results.length and @prop_results.length == 0 %>
-  <p>Your search for <%= params['q'] %> returned no results</p>
-
-<% end %>
+</div>
