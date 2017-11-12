@@ -10,13 +10,24 @@
          </div>
          <ul class="list-group list-group-flush">
             <li class="list-group-item"><%== @politician.address %></li>
-            <li class="list-group-item">Total Votes:  <%= @politician.votes.count %></li>
-            <li class="list-group-item"><%= @politician.mobile %><br/><%= @politician.landline %></li>
+            <li class="list-group-item">Represents <%= @politician.parish.name %></li>
+
+<% if user_signed_in? %>
+            <li class="list-group-item"><%= link_to 'Edit', edit_politician_path(@politician) %></li>
+<% end %>
          </ul>
          <div class="card-body">
-            <a href="#" class="card-link">Card link</a>
-            <a href="#" class="card-link">Another link</a>
-         </div>
+            <a href="#" class="card-link"><%= mail_to @politician.email, "Send Email", class: 'btn btn-primary' %></a>
+            <a  class="card-link">
+
+<% if (@politician.landline) %>
+<%= link_to "Phone", "tel:#{@politician.landline}", class: 'btn btn-primary' %></a>
+<% elsif (@politician.mobile) %>
+ <%= link_to "Phone", "tel:#{@politician.mobile}", class: 'btn btn-primary' %></a>
+<% elsif (@politician.fax) %>
+ <%= link_to "Fax", "tel:#{@politician.Fax}", class: 'btn btn-primary' %></a>
+<% end %>
+        </div>
       </div>
    </div>
    <div class="col-md-8">
@@ -35,22 +46,27 @@
              ['Contre', <%= @politician.votes.where(vote_type: 'Contre').count %>],
              ['Unwell', <%= @politician.votes.where(vote_type: 'Ill').count %>],
            ]);
-           var options = {'title':'Voting Stats','is3D': true};
+           var options = {'title':'Breakdown of <%= number_with_delimiter(@politician.votes.count) %> Votes','is3D': true};
           var chart = new google.visualization.PieChart(document.getElementById('chart_div'));
            chart.draw(data, options);
          }
       </script>
+<% if (@politician.votes.count>0) %>
       <div id="chart_div"></div>
       <div class="panel">
-         <h2>How <%= @politician.full_name %> voted</h2>
+         <h4>How <%= @politician.title %> <%= @politician.full_name %> has voted</h4>
          <ul class="vote-descriptions">
          <% @politician.votes.each.reverse_each do |vote| %>
          <li>
-            Has voted for <%= vote.proposition_title.truncate_words(13) %> <%= link_to "Show Vote", vote_path(vote.id), class: "vote-description__source" %>
+            Has voted for <%= vote.proposition_title.truncate_words(13) %> <%= link_to "View Vote", vote_path(vote.id), class: "vote-description__source" %>
             <a class="vote-description__evidence"><%= vote.vote_type %>  <%= vote.proposition_id %></a>
          </li>
          <% end %>
       </div>
-  <%= link_to 'Edit', edit_politician_path(@politician) %> |
-  <%= link_to 'Back', politicians_path %>
+<% else %>
+      <div class="panel">
+<h3><%= @politician.title %> <%= @politician.full_name %></h3>
+         <h5>Sorry we dont have any voting data to show</h5>
+</div>
+<% end %>
 </div>
