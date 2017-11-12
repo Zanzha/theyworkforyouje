@@ -1,19 +1,26 @@
 // Place all the styles related to the politicians controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-.politician_list .person_wraper img {
-	height:180px;
+.politician_list  img {
+  max-height: 190px;
 }
 
 .politician_list .card {
-	height:330px;
-	margin-top:20px;
+	height: 335px;
+	margin: 10px 0 10px;
+	max-width: 202px;
+}
+
+.politician_list .card-footer {
+	line-height:10px;
+	height: 40px;
+	overflow:hidden;
 }
 
 .politician_list h4 {
-	height:40px;
-	font-size:16px;
-	overflow:hidden;
+	height: 40px;
+	font-size: 16px;
+	overflow: hidden;
 }
 
 .politician_list .card-subtitle     {
