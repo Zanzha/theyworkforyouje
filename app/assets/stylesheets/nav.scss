@@ -14,11 +14,3 @@ nav.navbar {
     background-color: transparent;
   }
 }
-
-.navbar-static-top {
-  top: -1px; /* you'll have to figure out the exact number here */
-}
-
-.navbar-fixed-top, .navbar-fixed-bottom {
-  position: relative; /* this can also be static */
-}
