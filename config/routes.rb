@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  get 'import_terms/index'
+
+  get 'import_terms/show'
+
   root to: "home#index"
 
   devise_for :users, :path_prefix => 'my'
