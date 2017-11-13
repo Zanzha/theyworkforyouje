@@ -3,7 +3,8 @@ $border: 1px solid $green;
 
 nav.navbar {
   min-width: 100%;
-  height: 4em;
+  min-height: 100%;
+  height: auto !important;
   border-bottom: $border;
   a:hover {
     background-color: $green;
@@ -12,4 +13,12 @@ nav.navbar {
   a.navbar-brand:hover {
     background-color: transparent;
   }
+}
+
+.navbar-static-top {
+  top: -1px; /* you'll have to figure out the exact number here */
+}
+
+.navbar-fixed-top, .navbar-fixed-bottom {
+  position: relative; /* this can also be static */
 }
