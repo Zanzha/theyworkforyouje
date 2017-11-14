@@ -16,13 +16,26 @@
       </h5>
     </div>
     <div id="collapse-<%= parish.id %>" class="collapse" role="tabpanel" aria-labelledby="headingOne" data-parent="#accordion">
-      <% parish.politicians.each do |politician| %>
-      <div class="card-body">
-        <p> &bull;
-          <%= link_to politician.full_name, politician_path(politician)  %>
-        </p>
+      <div class="container parish">
+        <div class="row">
+          <div class="col-6">
+            <p> Parish description </p>
+          </div>
+          <div class="col-6">
+            <% parish.politicians.each do |politician| %>
+            <div class="card-body">
+                <span class="parish_politician_title">
+                  <%= politician.title %>
+                </span>
+                <span class="parish_politician">
+                  <%= link_to politician.full_name, politician_path(politician)  %>
+                </span>
+            </div>
+            <% end %>
+          </div>
+        </div>
       </div>
-      <% end %>
+
     </div>
   </div>
   <% end %>
