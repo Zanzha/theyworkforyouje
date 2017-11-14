@@ -19,17 +19,9 @@
     </div>
 
   </div>
-  <div class="home_notice">
-    <h5>
-      Latest news
-    </h5>
-    <p>
-      <% @notices.each do |notice| %>
-      <%= notice.title %><br>
-      <%= notice.content[0,80] %>
-      <%= "..." %>
-      <%= link_to "read more", notices_path %>
-      <% end %>
-    </p>
-  </div>
+
+   <h2> Notice Board </h2>
+    <% @notices.each do |notice| %>
+    <%= render 'notices/notice_home', notice: notice %>
+    <% end %>
 </body>
