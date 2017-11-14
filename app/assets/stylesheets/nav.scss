@@ -6,6 +6,16 @@ nav.navbar {
   min-height: 10%;
   // height: auto !important;
   border-bottom: $border;
+  .external-nav {
+    margin-left: 5em;
+    text-decoration: underline;
+  }
+  .external-nav:hover {
+    background-color: transparent;
+  }
+  .form-control {
+    // width: 100%;
+  }
   a:hover {
     background-color: $green;
     border-radius: 5px;
