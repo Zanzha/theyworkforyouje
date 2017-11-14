@@ -4,13 +4,12 @@ $border: 1px solid $green;
 nav.navbar {
   min-width: 100%;
   min-height: 10%;
-  // height: auto !important;
   border-bottom: $border;
-  .external-nav {
-    margin-left: 5em;
+  li.external-nav {
+    margin-left: 21em;
     text-decoration: underline;
   }
-  .external-nav:hover {
+  li.external-nav a:hover {
     background-color: transparent;
   }
   .form-control {
