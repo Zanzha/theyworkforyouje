@@ -19,7 +19,13 @@
       <div class="container parish">
         <div class="row">
           <div class="col-6">
-            <p> Parish description </p>
+            <% if parish.name == 'Saint Helier' %>
+                SH
+            <%elsif parish.name == 'Grouville' %>
+              GR
+            <% else %>
+              <p> Parish description </p>
+            <% end %>
           </div>
           <div class="col-6">
             <% parish.politicians.each do |politician| %>
