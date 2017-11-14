@@ -1,10 +1,12 @@
 <div class="search_wrapper">
+
   <% if !params['q'].blank? %>
 
-    <% if @pol_results and @pol_results.length > 0 %>
+    <% if @meta_results.length > 0 %>
       <h6>
-        Your search results for "<%= params['q'] %>" in Politician(s): <%= @pol_results.length %>
+        Your search results for "<%= params['q'] %>" returned <%= @meta_results.length %> results.
       </h6>
+    <% end %>
 
       <div class="search_pol">
         <% @pol_results.each do |pol| %>
@@ -12,14 +14,7 @@
           <p><%= pol['link'] %></p>
         <% end %>
       </div>
-    <% end %>
 
-
-
-    <% if @prop_results and @prop_results.length > 0 %>
-    <h6>
-      Your search results for "<%= params['q'] %>" in Propositions:
-    </h6>
       <div class="search_prop">
         <% @prop_results.each do |prop| %>
           <h4>
@@ -33,11 +28,12 @@
           </p>
           </h4>
         <% end %>
-    </div>
-    <% end %>
 
-    <% else @pol_results.length and @prop_results.length == 0 %>
-    <p>Your search for <%= params['q'] %> returned no results</p>
+      <% if @meta_results == 0 %>
+        <p>Your search for <%= params['q'] %> returned no results</p>
+      <% end %>
+
+          <%= @meta_results.first_page? %>
 
   <% end %>
 </div>

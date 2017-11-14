@@ -8,6 +8,11 @@ end
 gem 'nokogiri'
 gem 'seed_dump'
 gem 'smarter_csv'
+# Kaminari handles search results pagination.
+gem 'kaminari'
+
+# Ruby syntax 
+# gem 'solargraph'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.4'
