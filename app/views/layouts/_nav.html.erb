@@ -1,7 +1,7 @@
 <%= stylesheet_link_tag 'nav', media: 'all', 'data-turbolinks-track': 'reload' %>
 <% @title = "TheyWorkForYouJersey" %>
 
-<nav class="navbar navbar-expand-lg navbar-light bg-light navbar-static-top" role="navigation">
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
   <a class="navbar-brand" href="/">
     <%= @title %>
   </a>
@@ -44,10 +44,44 @@
     </li>
 
     <li class="nav-item">
-      <a class="nav-link" href="/parishes">
+      <a class="nav-link" href="parishes">
         PARISH
       </a>
     </li>
+
+<!-- # District dropdown menu -->
+    <li class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle" href="" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      DISTRICT
+    </a>
+    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+      <a class="dropdown-item" href="#">
+        St. Helier 1
+      </a>
+      <a class="dropdown-item" href="#">
+        St. Helier 2
+      </a>
+      <a class="dropdown-item" href="#">
+        St. Helier 3
+      </a>
+      <a class="dropdown-item" href="#">
+        St. Saviour 1
+      </a>
+      <a class="dropdown-item" href="#">
+        St. Saviour 2
+      </a>
+      <a class="dropdown-item" href="#">
+        St. Saviour 3
+      </a>
+      <a class="dropdown-item" href="#">
+        St. Brelade 1
+      </a>
+      <a class="dropdown-item" href="#">
+        St. Brelade 2
+      </a>
+      <div class="dropdown-divider"></div>
+    </div>
+  </li>
 
   </ul>
 
