@@ -1,32 +1,7 @@
 <p id="notice"><%= notice %></p>
 
     <% @notices.each do |notice| %>
-    <div class="notice_container">
-        <div class="notice_title">
-          <%= link_to 'show' do %>
-          <%= notice.title %>
-          <% end %>
-        </div>
-        <div class="notice_author">
-          <i>Written by  <%= notice.user.username %> - <%= notice.created_at.strftime("%d %b. %Y") %> </i>
-        </div>
-        <divc class="notice_content">
-          <%= notice.content %>
-        </div>
-
-        <% if current_user.blank? %>
-          <%else %>
-            <%if current_user.role_id == 1%>
-
-              <div class="notice_management">
-                <div class="notice_button"><%= link_to 'Show', notice %></div>
-                <div class="notice_button"><%= link_to 'Edit', edit_notice_path(notice) %></div>
-                <div class="notice_button"><%= link_to 'Delete', notice, method: :delete, data: { confirm: 'Are you sure?' } %></div>
-              </div>
-
-              <% end %>
-        <% end %>
-      </div>
+    <%= render 'notice_home', notice: notice %>
     <% end %>
 
 

@@ -11,22 +11,21 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :user_id %>
-    <%= form.number_field :user_id, id: :notice_user_id %>
-  </div>
 
+<div class="input_container">
+
+Title:
   <div class="field">
-    <%= form.label :title %>
     <%= form.text_field :title, id: :notice_title %>
   </div>
 
+Notice:
   <div class="field">
-    <%= form.label :content %>
-    <%= form.text_area :content, id: :notice_content %>
+    <%= form.text_area :content, class: 'content_input', id: :notice_content %>
   </div>
 
   <div class="actions">
     <%= form.submit %>
   </div>
+</div>
 <% end %>

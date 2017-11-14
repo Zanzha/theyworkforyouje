@@ -25,7 +25,7 @@ load_and_authorize_resource
   # POST /notices
   # POST /notices.json
   def create
-    @notice = Notice.new(notice_params)
+    @notice = current_user.notices.new(notice_params)
 
     respond_to do |format|
       if @notice.save
