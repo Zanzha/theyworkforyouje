@@ -1,10 +1,11 @@
 class ParishesController < ApplicationController
   before_action :set_parish, only: [:show, :edit, :update, :destroy]
-
+  
   # GET /parishes
   # GET /parishes.json
   def index
     @parishes = Parish.all
+    @politicians = Politician.all
   end
 
   # GET /parishes/1
