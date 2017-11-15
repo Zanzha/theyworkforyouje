@@ -11,7 +11,7 @@ class SearchController < ApplicationController
     @pol_results = Array.new
 
     # Run the search & Limits search results
-      polResults = Politician.search(params['q'])
+      polResults = Politician.search(params['q']).page params[:page]
        # Note search is a model method
 
     # Loop over the results and make them consistent
@@ -33,7 +33,7 @@ class SearchController < ApplicationController
       @prop_results = Array.new
       
       # Run the search & Limits search results.
-        propResults = Proposition.search(params['q']) # Note search is a model method
+        propResults = Proposition.search(params['q']).page params[:page] # Note search is a model method
   
       # Loop over the results and make them consistent
       propResults.each do |propResult|
@@ -50,7 +50,7 @@ class SearchController < ApplicationController
       end
 
       @meta_results = @prop_results.concat(@pol_results)
-      @meta_results = @meta_results.page params[:page]
+      # @meta_results = @meta_results.page params[:page]
 
   end
 end
