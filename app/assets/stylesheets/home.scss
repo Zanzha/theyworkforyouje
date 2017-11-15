@@ -19,15 +19,11 @@ $green: #00B541;
   p {
     font-size: 1em;
     padding-top: 2em;
-
-  }
-  h3 {
-
   }
 }
 
 .main_index_pic {
-  height: 100%;
+  min-height: 100%;
   background-color: orange;
   background-image: url('stateschamber.jpg');
   background-size: cover;

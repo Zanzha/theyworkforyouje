@@ -3,14 +3,16 @@ $border: 1px solid $green;
 
 nav.navbar {
   min-width: 100%;
-  min-height: 10%;
+  min-height: 8%;
   border-bottom: $border;
   li.external-nav {
-    margin-left: 21em;
+    padding-left: 11em;
+    a {
     text-decoration: underline;
-  }
-  li.external-nav a:hover {
+    }
+    a:hover {
     background-color: transparent;
+    }
   }
   .form-control {
     // width: 100%;
