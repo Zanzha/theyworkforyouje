@@ -5,12 +5,12 @@
 <table class="table">
   <thead>
     <tr>
+      <th>Ref ID</th>
       <th>Title</th>
-      <th>Proposition date</th>
-      <th>Debate date</th>
+      <th>Proposed On</th>
+      <th>Debated On</th>
       <th>Lodged By</th>
-      <th>Reference</th>
-      <th>Status</th>
+      <!-- <th>Status</th> -->
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -19,12 +19,12 @@
     <% ##### @propositions.each do |proposition| %>
     <% @propositions.limit(30).each do |proposition| %>
       <tr>
+        <td><%= proposition.p_id %></td>
         <td><%= proposition.prop_name %></td>
         <td><%= proposition.prop_date %></td>
         <td><%= proposition.debate_date %></td>
         <td><%= proposition.lodged_by %></td>
-        <td><%= proposition.p_id %></td>
-        <td><%= proposition.status %></td>
+        <!-- <td><%= proposition.status %></td> -->
         <td><%= link_to 'Show', proposition %></td>
         <td><%= link_to 'Edit', edit_proposition_path(proposition) %></td>
         <td><%= link_to 'Destroy', proposition, method: :delete, data: { confirm: 'Are you sure?' } %></td>
