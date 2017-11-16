@@ -12,7 +12,7 @@
          <li class="list-group-item"><%== @politician.address %></li>
          <li class="list-group-item">Represents <%= @politician.parish.name %></li>
          <% if user_signed_in? %>
-         <li class="list-group-item"><%= link_to 'Edit', edit_politician_path(@politician) %></li>
+          <li class="list-group-item"><%= link_to 'Edit', edit_politician_path(@politician) %></li>
          <% end %>
       </ul>
       <div class="card-body">
