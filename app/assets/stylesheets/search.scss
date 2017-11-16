@@ -12,11 +12,21 @@
 
 .search_pol,
 .search_prop {
-  padding-top: 1em;
-  padding-left: 1em;
+  padding: 1em;
+  margin-bottom: 0.3em;
   background-color: #f8f9fa;
   max-width: content;
-  p {
-  padding-left: 2em;
-  }
+}
+
+.search_title {
+  padding-right: 1em;
+}
+
+.search_label {
+  font-weight: 600;
+  margin-bottom: 1em;
+}
+
+.search_link {
+  padding-left: 4em;
 }

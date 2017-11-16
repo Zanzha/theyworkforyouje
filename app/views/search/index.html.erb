@@ -8,32 +8,45 @@
       </h6>
     <% end %>
 
-      <div class="search_pol">
+      <div>
         <% @pol_results.each do |pol| %>
-          <h3> &bull; <%= pol['title'] %> <%= pol['label'] %></h3>
-          <p><%= pol['link'] %></p>
+          <div class="search_pol">
+            <span class="search_title">
+            <%= pol['title'] %>
+          </span>
+          <span class="search_label">
+            <%= pol['label'] %>
+          </span>
+          <span class="search_link">
+          <%= pol['link'] %>
+          </span>
+          </div>
+
         <% end %>
       </div>
 
       <div class="search_prop">
         <% @prop_results.each do |prop| %>
-          <h4>
-            &bull; Lodged By: <%= prop['proposer'] %>
-            </br>
-          <h6>
-            <%= prop['label'] %>
-          </h6>
-          <p>
-            <%= prop['link'] %>
-          </p>
-          </h4>
+          <div class="search_prop">
+            <div class="search_lodgeby">
+              Lodged By: <%= prop['proposer'] %>
+            </div>
+            <span class="search_label">
+              <%= prop['label'] %>
+            </span>
+            <span class="search_link">
+              <%= prop['link'] %>
+            </span>
+          </div>
         <% end %>
+      </div>
+    <% end %>
 
       <% if @meta_results == 0 %>
         <p>Your search for <%= params['q'] %> returned no results</p>
       <% end %>
 
-        
+
 
   <% end %>
 </div>
