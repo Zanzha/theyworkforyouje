@@ -52,5 +52,4 @@ class SearchController < ApplicationController
       @meta_results = @prop_results.concat(@pol_results)
       # @meta_results = @meta_results.page params[:page]
 
-  end
 end
