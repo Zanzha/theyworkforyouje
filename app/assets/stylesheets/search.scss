@@ -12,11 +12,23 @@
 
 .search_pol,
 .search_prop {
-  padding-top: 1em;
-  padding-left: 1em;
+  padding: 1em;
+  margin-bottom: 0.3em;
   background-color: #f8f9fa;
   max-width: content;
-  p {
+}
+
+.search_label {
+  margin-left: 2em;
+  font-weight: 600;
+  margin-bottom: 1em;
+}
+
+.search_link {
+  padding-left: 3em;
+  color: darkgray;
+}
+
+.search_lodgeby {
   padding-left: 2em;
-  }
 }
