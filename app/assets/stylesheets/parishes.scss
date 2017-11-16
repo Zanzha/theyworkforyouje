@@ -22,7 +22,7 @@
 }
 
 #accordion .card-body {
-  padding: 0.5em;
+  padding: 1em;
   margin: 0.5em;
 }
 .parish {
@@ -32,4 +32,10 @@
 .parish_politician {
   font-weight: bold;
   padding-left: 2em;
+}
+
+.parish_desc {
+  padding-top: 1em;
+  padding-bottom: 1em;
+  font-family: inherit;
 }
