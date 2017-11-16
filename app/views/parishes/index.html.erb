@@ -18,14 +18,8 @@
     <div id="collapse-<%= parish.id %>" class="collapse" role="tabpanel" aria-labelledby="headingOne" data-parent="#accordion">
       <div class="container parish">
         <div class="row">
-          <div class="col-6">
-            <% if parish.name == 'Saint Helier' %>
-                SH
-            <%elsif parish.name == 'Grouville' %>
-              GR
-            <% else %>
-              <p> Parish description </p>
-            <% end %>
+          <div class="col-6 parish_desc">
+            <%= parish.parish_desc %>
           </div>
           <div class="col-6">
             <% parish.politicians.each do |politician| %>

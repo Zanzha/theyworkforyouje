@@ -1,6 +1,6 @@
 class ParishesController < ApplicationController
   before_action :set_parish, only: [:show, :edit, :update, :destroy]
-  
+
   # GET /parishes
   # GET /parishes.json
   def index
@@ -61,6 +61,7 @@ class ParishesController < ApplicationController
       format.json { head :no_content }
     end
   end
+
 
   private
     # Use callbacks to share common setup or constraints between actions.
