@@ -2,25 +2,25 @@
 
 <h1>Offices</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Position</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
     <% @offices.each do |office| %>
-      <tr>
-        <td><%= office.position %></td>
-        <td><%= link_to 'Show', office %></td>
-        <td><%= link_to 'Edit', edit_office_path(office) %></td>
-        <td><%= link_to 'Destroy', office, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+
+<div class="office_container">
+    <div class=office_position>  <%= office.position %></div>
+        <div class="manage_container">
+          <% if current_user.blank? %>
+            <%else %>
+              <%if current_user.role_id == 1%>
+
+                  <div class="manage_button"><%= link_to 'Show', office %></div>
+                  <div class="manage_button"><%= link_to 'Edit', edit_office_path(office) %></div>
+                  <div class="manage_button"><%= link_to 'Delete', office, method: :delete, data: { confirm: 'Are you sure?' } %></div>
+
+
+                <% end %>
+          <% end %>
+        </div>
+      </div>
     <% end %>
-  </tbody>
-</table>
 
 <br>
 

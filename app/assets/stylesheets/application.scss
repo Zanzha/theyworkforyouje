@@ -46,3 +46,49 @@ p.notice, p.alert {
   margin: 0;
   padding: 0;
 }
+
+.manage_container a{
+  color: black;
+  text-decoration: none;
+}
+
+.manage_button a{
+  color: black;
+  text-decoration: none;
+}
+.manage_container a:hover{
+  color: $green;
+  text-decoration: none;
+}
+
+.manage_button a:hover{
+  color: white;
+  text-decoration: none;
+}
+
+.manage_button a:visited{
+  color: black;
+  text-decoration: none;
+}
+
+
+.manage_container{
+  display: flex;
+  flex-direction:row;
+  flex-wrap: nowrap;
+  margin-left: 40px;
+  margin-right: 40px;
+  }
+
+  .manage_button{
+    margin-right: 5px;
+    color: black;
+    border: 1px black solid;
+    border-radius: 2px;
+    padding:4px;
+  }
+
+  .manage_button:hover{
+    background-color: $green;
+    color: white;
+  }
