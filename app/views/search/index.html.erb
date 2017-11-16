@@ -21,8 +21,7 @@
           <%= pol['link'] %>
           </span>
           </div>
-
-        <% end %>
+            <% end %>
       </div>
 
       <div class="search_prop">
@@ -42,9 +41,9 @@
       </div>
     <% end %>
 
-      <% if @meta_results == 0 %>
-        <p>Your search for <%= params['q'] %> returned no results</p>
-      <% end %>
+    <% if @meta_results == 0 %>
+      <p>Your search for <%= params['q'] %> returned no results</p>
+    <% end %>
 
 
 
