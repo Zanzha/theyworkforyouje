@@ -1,6 +1,7 @@
 <p>&#32;</p>
 <div class="container">
 <% found=0 %>
+<%=@proposition.prop_name%>
 <% @propositions.each do |prop| %>
 <% if (prop.p_id == @vote.p_id && found==0) %>
 <div class="jumbotron">
