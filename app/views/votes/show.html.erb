@@ -13,9 +13,36 @@
 </div>
 
 <div class="panel">
-   <h4><%= @shared_voteid.count %> Votes have been recorded</h4>
+
+   <script type="text/javascript">
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
+      
+      function drawChart() {
+        var data = new google.visualization.DataTable();
+        data.addColumn('string', 'Vote Status');
+        data.addColumn('number', 'Count');
+        data.addRows([
+          ['Pour', <%= @shared_voteid.where(vote_type: 'Pour').count %>],
+          ['Contre', <%= @shared_voteid.where(vote_type: 'Contre').count %>],
+          ['Out of island', <%= @shared_voteid.where(vote_type: 'Out of the island').count %>],
+          ['Not present for vote', <%= @shared_voteid.where(vote_type: 'Not present for vote').count %>],
+          ['Unwell', <%= @shared_voteid.where(vote_type: 'Ill').count %>],
+        ]);
+        var options = {'title':'Breakdown of <%= number_with_delimiter(@shared_voteid.count) %> Votes','is3D': true};
+       var chart = new google.visualization.PieChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
+      }
+   </script>
+   <div id="chart_div"></div>
    <ul class="vote-descriptions">
-   <% @shared_voteid.each.reverse_each do |vote| %>
-   <li><b><%= link_to vote.member_name, politician_path(vote.politician_id) %></b> Voted <b><%= vote.vote_type %></b> for <%= vote.proposition_title.truncate_words(13) %><a class="vote-description__source"><%= vote.vote_type %></a></li>
+
+         <% @shared_voteid_type.each do |vote_type, votes| %>
+<h1><%= vote_type %></h1>
+
+   <% votes.each do |vote| %>
+
+   <li><b><%= link_to vote.member_name, politician_path(vote.politician_id) %></b></li>
+   <% end %>
    <% end %>
 </div>
