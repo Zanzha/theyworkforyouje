@@ -1,6 +1,6 @@
 class OfficesController < ApplicationController
   before_action :set_office, only: [:show, :edit, :update, :destroy]
-
+load_and_authorize_resource
   # GET /offices
   # GET /offices.json
   def index

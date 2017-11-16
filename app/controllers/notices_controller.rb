@@ -4,7 +4,7 @@ load_and_authorize_resource
   # GET /notices
   # GET /notices.json
   def index
-    @notices = Notice.all
+    @notices = Notice.order('created_at DESC')
   end
 
 

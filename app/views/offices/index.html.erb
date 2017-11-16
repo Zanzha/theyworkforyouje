@@ -24,4 +24,9 @@
 
 <br>
 
-<%= link_to 'New Office', new_office_path %>
+<% if current_user.blank? %>
+  <%else %>
+    <%if current_user.role_id == 1%>
+      <%= link_to 'New Office', new_office_path %>
+    <% end %>
+    <% end %>
