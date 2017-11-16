@@ -8,7 +8,15 @@ class ImportController < ApplicationController
       raw_data = open(data_uri).read
       @data = JSON.parse(raw_data)
       @data.each do |item|
+
+        politician = Politician.find_by(full_name:item['MemberName'])
+
         vote = Vote.new
+
+        if politician != nil then
+          vote.politician_id = politician.id
+        end if
+        
         vote.proposition_id = item['Reference']
         vote.voting_id = item['Id']
         vote.voting_date = item['Date']

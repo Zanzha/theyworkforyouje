@@ -5,6 +5,7 @@ class ParishesController < ApplicationController
   # GET /parishes.json
   def index
     @parishes = Parish.all
+    @politicians = Politician.all
   end
 
   # GET /parishes/1
@@ -60,6 +61,7 @@ class ParishesController < ApplicationController
       format.json { head :no_content }
     end
   end
+
 
   private
     # Use callbacks to share common setup or constraints between actions.

@@ -7,6 +7,7 @@ load_and_authorize_resource
     @notices = Notice.all
   end
 
+
   # GET /notices/1
   # GET /notices/1.json
   def show
@@ -24,7 +25,7 @@ load_and_authorize_resource
   # POST /notices
   # POST /notices.json
   def create
-    @notice = Notice.new(notice_params)
+    @notice = current_user.notices.new(notice_params)
 
     respond_to do |format|
       if @notice.save
@@ -54,7 +55,7 @@ load_and_authorize_resource
   # DELETE /notices/1
   # DELETE /notices/1.json
   def destroy
-    @notice.destroy
+    @notice.delete
     respond_to do |format|
       format.html { redirect_to notices_url, notice: 'Notice was successfully destroyed.' }
       format.json { head :no_content }

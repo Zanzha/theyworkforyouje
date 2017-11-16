@@ -2,18 +2,15 @@
 
 <h1>Terms</h1>
 
-<table>
+<table class="table">
   <thead>
     <tr>
-      <th>Parishid</th>
+      <th>Parish</th>
+      <th>Position</th>
       <th>Title</th>
-      <th>First name</th>
-      <th>Middle name</th>
-      <th>Last name</th>
-      <th>Gender</th>
-      <th>Date of birth</th>
-      <th>Website url</th>
-      <th>Facebook url</th>
+      <th>Politician name</th>
+      <th>From</th>
+      <th>To</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -21,18 +18,17 @@
   <tbody>
     <% @terms.each do |term| %>
       <tr>
-        <td><%= term.parishid %></td>
-        <td><%= term.title %></td>
-        <td><%= term.first_name %></td>
-        <td><%= term.middle_name %></td>
-        <td><%= term.last_name %></td>
-        <td><%= term.gender %></td>
-        <td><%= term.Date_of_birth %></td>
-        <td><%= term.website_url %></td>
-        <td><%= term.facebook_url %></td>
+<% if  (term.politician_id) %>
+        <td><%= term.parish.name %></td>
+        <td><%= term.position %></td>
+        <td><%= term.politician.title %></td>
+        <td><%= term.politician.full_name %></td>
+        <td><%= term.begin_date %></td>
+        <td><%= term.end_date %></td>
         <td><%= link_to 'Show', term %></td>
         <td><%= link_to 'Edit', edit_term_path(term) %></td>
         <td><%= link_to 'Destroy', term, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <% end %>
       </tr>
     <% end %>
   </tbody>

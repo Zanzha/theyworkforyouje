@@ -1,29 +1,51 @@
+
+<!-- Bringing in jQuery and Masonry libraries -->
+
+
 <p id="notice"><%= notice %></p>
 
-<h1>Parishes</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>ID</th>
-      <th>Name</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<div id="accordion" role="tablist">
+  <% @parishes.each do |parish| %>
+  <div class="card">
+    <div class="card-header" role="tab" id="headingOne">
+        <h5 class="mb-0">
+          <a data-toggle="collapse" data-target="#collapse-<%= parish.id %>" href="#collapse-<%= parish.id %>" aria-expanded="true" aria-controls="collapse">
+            <%= parish.name %>
+          </a>
+      </h5>
+    </div>
+    <div id="collapse-<%= parish.id %>" class="collapse" role="tabpanel" aria-labelledby="headingOne" data-parent="#accordion">
+      <div class="container parish">
+        <div class="row">
+          <div class="col-6 parish_desc">
+            <%= parish.parish_desc %>
+          </div>
+          <div class="col-6">
+            <% parish.politicians.each do |politician| %>
+            <div class="card-body">
+                <span class="parish_politician_title">
+                  <%= politician.title %>
+                </span>
+                <span class="parish_politician">
+                  <%= link_to politician.full_name, politician_path(politician)  %>
+                </span>
+            </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
 
-  <tbody>
-    <% @parishes.each do |parish| %>
-      <tr>
-        <td><%= parish.id %></td>
-        <td><%= parish.name %></td>
-        <td><%= link_to 'Show', parish %></td>
-        <td><%= link_to 'Edit', edit_parish_path(parish) %></td>
-        <td><%= link_to 'Destroy', parish, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+    </div>
+  </div>
+  <% end %>
+</div>
 
 <br>
 
-<%= link_to 'New Parish', new_parish_path %>
+<% if current_user.blank? %>
+  <%else %>
+    <%if current_user.role_id == 1%>
+    <%= link_to 'New Parish', new_parish_path %>
+    <% end %>
+<% end %>

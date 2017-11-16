@@ -1,7 +1,10 @@
 <%= stylesheet_link_tag 'nav', media: 'all', 'data-turbolinks-track': 'reload' %>
+<% @title = "theyworkforyouje" %>
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="/">TheyWorkForYouJersey</a>
+  <a class="navbar-brand" href="/">
+    <%= @title %>
+  </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
     </button>
@@ -11,25 +14,25 @@
   <ul class="navbar-nav mr-auto">
 
     <li class="nav-item">
-      <a class="nav-link" href="politicians">
+      <a class="nav-link" href="/politicians">
         POLITICIANS
       </a>
     </li>
 
     <li class="nav-item">
-      <a class="nav-link" href="propositions">
+      <a class="nav-link" href="/propositions">
         PROPOSITIONS
       </a>
     </li>
 
     <li class="nav-item">
-      <a class="nav-link" href="terms">
+      <a class="nav-link" href="/terms">
         TERMS
       </a>
     </li>
 
     <li class="nav-item">
-      <a class="nav-link" href="notices">
+      <a class="nav-link" href="/notices">
         NOTICES
       </a>
     </li>
@@ -40,89 +43,58 @@
       </a>
     </li>
 
-    <li class="nav-item dropdown">
-      <a class="nav-link dropdown-toggle" href="" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    <li class="nav-item">
+      <a class="nav-link" href="parishes">
         PARISH
       </a>
-      <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-        <a class="dropdown-item" href="#">
-          St. Brelade
-        </a>
-        <a class="dropdown-item" href="#">
-          St. Clement
-        </a>
-        <a class="dropdown-item" href="#">
-          Grouville
-        </a>
-        <a class="dropdown-item" href="#">
-          St. Helier
-        </a>
-        <a class="dropdown-item" href="#">
-          St. John
-        </a>
-        <a class="dropdown-item" href="#">
-          St. Lawrence
-        </a>
-        <a class="dropdown-item" href="#">
-          St. Martin
-        </a>
-        <a class="dropdown-item" href="#">
-          St. Mary
-        </a>
-        <a class="dropdown-item" href="#">
-          St. Ouen
-        </a>
-        <a class="dropdown-item" href="#">
-          St. Peter
-        </a>
-        <a class="dropdown-item" href="#">
-          St. Saviour
-        </a>
-        <a class="dropdown-item" href="#">
-          Trinity
-        </a>
-        <div class="dropdown-divider"></div>
-      </div>
+    </li>
+
+    <li class="nav-item external-nav">
+      <a class="nav-link" href="https://cab.org.je/index.php?option=com_content&view=article&id=221:electoral-districts-731l1&catid=29&Itemid=53" target="_blank">
+        WHATS MY DISRTICT?
+      </a>
     </li>
 
 <!-- # District dropdown menu -->
-    <li class="nav-item dropdown">
-    <a class="nav-link dropdown-toggle" href="" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-      DISTRICT
-    </a>
-    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-      <a class="dropdown-item" href="#">
-        St. Helier 1
-      </a>
-      <a class="dropdown-item" href="#">
-        St. Helier 2
-      </a>
-      <a class="dropdown-item" href="#">
-        St. Helier 3
-      </a>
-      <a class="dropdown-item" href="#">
-        St. Saviour 1
-      </a>
-      <a class="dropdown-item" href="#">
-        St. Saviour 2
-      </a>
-      <a class="dropdown-item" href="#">
-        St. Saviour 3
-      </a>
-      <a class="dropdown-item" href="#">
-        St. Brelade 1
-      </a>
-      <a class="dropdown-item" href="#">
-        St. Brelade 2
-      </a>
-      <div class="dropdown-divider"></div>
-    </div>
-  </li>
+<!--
+  #   <li class="nav-item dropdown">
+  #   <a class="nav-link dropdown-toggle" href="" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+  #     DISTRICT
+  #   </a>
+  #   <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+  #     <a class="dropdown-item" href="#">
+  #       St. Helier 1
+  #     </a>
+  #     <a class="dropdown-item" href="#">
+  #       St. Helier 2
+  #     </a>
+  #     <a class="dropdown-item" href="#">
+  #       St. Helier 3
+  #     </a>
+  #     <a class="dropdown-item" href="#">
+  #       St. Saviour 1
+  #     </a>
+  #     <a class="dropdown-item" href="#">
+  #       St. Saviour 2
+  #     </a>
+  #     <a class="dropdown-item" href="#">
+  #       St. Saviour 3
+  #     </a>
+  #     <a class="dropdown-item" href="#">
+  #       St. Brelade 1
+  #     </a>
+  #     <a class="dropdown-item" href="#">
+  #       St. Brelade 2
+  #     </a>
+  #     <div class="dropdown-divider"></div>
+  #   </div>
+  # </li>
+-->
 
   </ul>
 
-  <form class="form-inline my-2 my-lg-0">
-    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+  <form action="/search" method="GET" class="form-inline my-2 my-lg-0">
+    <input name="q" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
     <button class="btn btn-outline-success my-2 my-sm-0" type="submit">
       Search
     </button>

@@ -1,24 +1,22 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Do not use `db:seed` to `import data`,
 
-Things you may want to cover:
+Importing a MySQL database
 
-* Ruby version
+To import a MySQL database, you need to use the mysql command. Here is the full command:
 
-* System dependencies
+* <b>mysql -uUSERNAME -p DATABASE < backup.sql</b>
 
-* Configuration
 
-* Database creation
+Again, you will be prompted for the password of your MySQL user.
 
-* Database initialization
 
-* How to run the test suite
+* <b>From project Dir.</b>
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+```
+cd db
+rake db:drop
+rake db:create
+mysql -uroot -p theyworkforyouje_development < theyworkforyouje_development.sql
+```

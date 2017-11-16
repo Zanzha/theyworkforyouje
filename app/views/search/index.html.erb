@@ -1,0 +1,37 @@
+<div class="search_wrapper">
+
+  <% if !params['q'].blank? %>
+
+    <% if @meta_results.length > 0 %>
+      <h6>
+        Your search results for "<%= params['q'] %>" returned <%= @meta_results.length %> results.
+      </h6>
+    <% end %>
+
+      <div class="search_pol">
+        <% @pol_results.each do |pol| %>
+          <h3> &bull; <%= pol['title'] %> <%= pol['label'] %></h3>
+          <p><%= pol['link'] %></p>
+        <% end %>
+      </div>
+
+      <div class="search_prop">
+        <% @prop_results.each do |prop| %>
+          <h4>
+            &bull; Lodged By: <%= prop['proposer'] %>
+            </br>
+          <h6>
+            <%= prop['label'] %>
+          </h6>
+          <p>
+            <%= prop['link'] %>
+          </p>
+          </h4>
+        <% end %>
+
+      <% if @meta_results == 0 %>
+        <p>Your search for <%= params['q'] %> returned no results</p>
+      <% end %>
+
+  <% end %>
+</div>

@@ -10,9 +10,13 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
- *= require_tree .
  *= require_self
+ *= require_tree .
+
  */
+
+ @import "bootstrap";
+
 
 $green: #00B541;
 $border: 1px solid $green;
@@ -21,6 +25,7 @@ $border: 1px solid $green;
   margin: 0;
   padding: 0;
 }
+
 a:hover {
   background-color: transparent;
 }
