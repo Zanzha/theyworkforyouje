@@ -1,19 +1,8 @@
 <p>&#32;</p>
 <div class="container">
 
-<div class="jumbotron">
-   <h3>Proposal Name: <%= @proposition.prop_name %></h3>
-   <p>Proposal Date: <%= @proposition.prop_date %></p>
-   <p>Debate Date: <%= @proposition.debate_date %></p>
-   <p>Lodged by: <%= @proposition.lodged_by %></p>
-   <p>Status: <%= @proposition.status %></p>
-   <% if (@proposition.prop_pdf.present?) %> <%= link_to 'Proposal PDF', @proposition.prop_pdf, target: '_blank', class: 'btn btn-primary' %><% end %>
-   <% if (@proposition.minutes_pdf.present?) %><%= link_to  'Minutes PDF', @proposition.minutes_pdf, target: '_blank', class: "btn btn-primary" %><% end %>
-   <% if (@proposition.hansard_pdf.present?) %><%= link_to 'Hansard PDF', @proposition.hansard_pdf, target: '_blank', class: "btn btn-primary" %><% end %>
-</div>
-
 <div class="panel">
-
+   <h4>Proposal Name: <%= @proposition.prop_name %></h4>
    <script type="text/javascript">
       google.charts.load('current', {'packages':['corechart']});
       google.charts.setOnLoadCallback(drawChart);
@@ -35,10 +24,17 @@
       }
    </script>
    <div id="chart_div"></div>
+   <p>Proposal Date: <%= @proposition.prop_date %></p>
+   <p>Debate Date: <%= @proposition.debate_date %></p>
+   <p>Lodged by: <%= @proposition.lodged_by %></p>
+   <p>Status: <%= @proposition.status %></p>
+   <% if (@proposition.prop_pdf.present?) %> <%= link_to 'Proposal PDF', @proposition.prop_pdf, target: '_blank', class: 'btn btn-primary' %><% end %>
+   <% if (@proposition.minutes_pdf.present?) %><%= link_to  'Minutes PDF', @proposition.minutes_pdf, target: '_blank', class: "btn btn-primary" %><% end %>
+   <% if (@proposition.hansard_pdf.present?) %><%= link_to 'Hansard PDF', @proposition.hansard_pdf, target: '_blank', class: "btn btn-primary" %><% end %>
    <ul class="vote-descriptions">
 
          <% @shared_voteid_type.each do |vote_type, votes| %>
-<h1><%= vote_type %></h1>
+<h1><%= votes.count %> Voted <%= vote_type %></h1>
 
    <% votes.each do |vote| %>
 
