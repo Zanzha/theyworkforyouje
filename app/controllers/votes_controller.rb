@@ -12,7 +12,9 @@ class VotesController < ApplicationController
   def show
 	@propositions = Proposition.all
 	@mainid = Vote.find(params[:id]).voting_id.to_i
-	@shared_voteid = Vote.find_by_sql("SELECT * FROM votes WHERE voting_id=#{@mainid} ORDER BY vote_type DESC")
+	@proposition = Proposition.where(p_id: @vote.p_id).take
+    @shared_voteid = Vote.where(voting_id: @mainid)
+    @shared_voteid_type = Vote.where(voting_id: @mainid).group_by(&:vote_type)
   end
 
   # GET /votes/new
