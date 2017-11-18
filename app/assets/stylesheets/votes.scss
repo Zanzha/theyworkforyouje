@@ -18,3 +18,27 @@
     background-color: #f8f9fa;
   }
 }
+
+//vote index//
+
+.vote_wraper {
+  padding-top: 1em;
+  padding-left: 4em;
+  margin: auto;
+  .vote_prop {
+    background-color: #f8f9fa;
+    margin: 0.2em;
+    padding: 0.5em;
+  }
+  .vote_title {
+    font-weight: bold;
+    padding: 0.4em;
+  }
+  .vote_lodgeby {
+    padding-left: 2em;
+  }
+  .vote_link {
+    align-self: center;
+    text-align: center;
+  }
+}
