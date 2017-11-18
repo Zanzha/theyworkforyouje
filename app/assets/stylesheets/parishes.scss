@@ -5,14 +5,17 @@
 #accordion {
   display: flex;
   flex-direction: column;
+  padding-left: 5em;
+  padding-right: 7em;
 }
 
 #accordion .card {
   display: flex;
   flex-direction: column;
-  margin-top: 0.5em;
+  margin-top: 0.2em;
   margin-left: 2em;
   min-width: 50px;
+  border: none;
 }
 
 #accordion .card-header {
