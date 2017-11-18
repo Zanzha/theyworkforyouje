@@ -3,7 +3,7 @@
  <div class="row">
   <div class="col">
     <div class="proposal_name">
-      <h4> <%= @proposition.prop_name %></h4>
+      <h4><%= '<s>' if @proposition.status == 'Withdrawn' %><%= @proposition.prop_name %><%= '</s>' if @proposition.status == 'Withdrawn' %></h4>
       <h6>Lodged by:  <%= @proposition.lodged_by %></h6>
     </div>
      <script type="text/javascript">
@@ -26,12 +26,10 @@
           chart.draw(data, options);
         }
      </script>
-     <div id="chart_div" class="col">
-
-        <p>Proposal Date: <%= @proposition.prop_date %></p>
+     <div id="chart_div"></div>
+     <div  class="col">
+        <p>Proposal Date: <%= @proposition.prop_date.strftime('%F') %></p>
         <p>Debate Date: <%= @proposition.debate_date %></p>
-        <p>Lodged by: <%= @proposition.lodged_by %></p>
-        <p>Status: <%= @proposition.status %></p>
         <% if (@proposition.prop_pdf.present?) %> <%= link_to 'Proposal PDF', @proposition.prop_pdf, target: '_blank', class: 'btn btn-primary' %><% end %>
         <% if (@proposition.minutes_pdf.present?) %><%= link_to  'Minutes PDF', @proposition.minutes_pdf, target: '_blank', class: "btn btn-primary" %><% end %>
         <% if (@proposition.hansard_pdf.present?) %><%= link_to 'Hansard PDF', @proposition.hansard_pdf, target: '_blank', class: "btn btn-primary" %><% end %>
@@ -43,12 +41,10 @@
           <h6><%= votes.count %> Voted <%= vote_type %></h6>
 
            <% votes.each do |vote| %>
-
-          <div class="vote_sum_pol">
+           <div class="vote_sum_pol">
             <%= link_to vote.member_name, politician_path(vote.politician_id) %>
           </div>
           <% end %>
           <% end %>
      </div>
-
 </div>
