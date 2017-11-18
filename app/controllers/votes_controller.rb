@@ -12,6 +12,7 @@ class VotesController < ApplicationController
   # GET /votes/1.json
   def show
 	@propositions = Proposition.all
+  @politicians = Politician.all
 	@mainid = Vote.find(params[:id]).voting_id.to_i
 	@proposition = Proposition.where(p_id: @vote.p_id).take
     @shared_voteid = Vote.where(voting_id: @mainid)
