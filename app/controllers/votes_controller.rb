@@ -5,6 +5,7 @@ class VotesController < ApplicationController
   # GET /votes.json
   def index
     @votes = Vote.all
+    @votes_grouped = @votes.group(:proposition_title).order("id DESC")
   end
 
   # GET /votes/1
