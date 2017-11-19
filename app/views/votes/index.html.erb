@@ -1,17 +1,15 @@
-
-
 <div class="vote_wraper">
   <h1>Votes</h1>
   <div>
-    <% @votes_grouped.each do |vote| %>
+    <% @votes_grouped_pagination.each do |vote| %>
       <div class="container vote_prop">
         <div class="row">
           <div class="col-10">
             <div class="vote_title">
-              <%= vote.proposition_title %>
+              <%= link_to vote.proposition_title, vote %>
             </div>
             <div class="vote_lodgeby">Lodged By:
-              <b><%= vote.proposition.lodged_by %></b>
+              <%= vote.proposition.lodged_by %>
             </div>
             <span>
                <% if current_user.blank? %>
@@ -24,15 +22,14 @@
                    <% end %>
              </span>
           </div>
-          <div class="col vote_link">
-            <%= link_to 'Show', vote %>
-          </div>
         </div>
       </div>
     <% end %>
   </div>
+<div class="digg_pagination">
+    <div class="page_info">
+      <%= page_entries_info @votes_grouped_pagination %>
+    </div>
+    <%= will_paginate @votes_grouped_pagination, :container => false %>
+  </div>
 </div>
-
-<br>
-
-<%= link_to 'New Vote', new_vote_path %>
