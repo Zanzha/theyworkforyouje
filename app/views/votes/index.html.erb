@@ -8,7 +8,7 @@
         <div class="row">
           <div class="col-10">
             <div class="vote_title">
-              <%= vote.proposition_title %>
+              <%= link_to vote.proposition_title, vote %>
             </div>
             <div class="vote_lodgeby">Lodged By:
               <b><%= vote.proposition.lodged_by %></b>
@@ -23,9 +23,6 @@
                    <% end %>
                    <% end %>
              </span>
-          </div>
-          <div class="col vote_link">
-            <%= link_to 'Show', vote %>
           </div>
         </div>
       </div>
