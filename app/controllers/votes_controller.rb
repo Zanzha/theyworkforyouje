@@ -6,6 +6,7 @@ class VotesController < ApplicationController
   def index
     @votes = Vote.all
     @votes_grouped = @votes.group(:proposition_title).order("id DESC")
+    @votes_grouped_pagination = @votes_grouped.paginate(:page => params[:page])
   end
 
   # GET /votes/1
