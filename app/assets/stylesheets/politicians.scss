@@ -47,10 +47,21 @@
 	padding-top: 2em;
 }
 
-
 li {
 	list-style: none;
 }
+
 #chart_div {
 	min-height:200px;
+}
+
+.vote-descriptions > li {
+	position: relative;
+	border-bottom: 1px solid #e4e2dc;
+	line-height: 1.5em;
+	padding-top: 0.4m;
+	padding-bottom: 0.4em;
+}
+.vote-descriptions>li:first-child {
+	border-top: 1px solid #e4e2dc
 }
