@@ -7,25 +7,21 @@
     <tr>
       <th>Title</th>
       <th>Proposition date</th>
-      <th>Debate date</th>
       <th>Lodged By</th>
-      <th>Reference</th>
-      <th>Status</th>
-      <th colspan="3"></th>
+      <th colspan="2"></th>
     </tr>
   </thead>
 
   <tbody>
-    <% ##### @propositions.each do |proposition| %>
-    <% @propositions.limit(30).each do |proposition| %>
+    <% @propositions.each do |proposition| %>
       <tr>
-        <td><%= proposition.prop_name %></td>
-        <td><%= proposition.prop_date %></td>
-        <td><%= proposition.debate_date %></td>
+        <td>
+				<%= '<s>' if proposition.status == 'Withdrawn' %>
+				<%= link_to proposition.prop_name, proposition %>
+				<%= '</s>' if proposition.status == 'Withdrawn' %>
+		</td>
+        <td><%= proposition.prop_date.strftime('%F') %></td>
         <td><%= proposition.lodged_by %></td>
-        <td><%= proposition.p_id %></td>
-        <td><%= proposition.status %></td>
-        <td><%= link_to 'Show', proposition %></td>
         <td><%= link_to 'Edit', edit_proposition_path(proposition) %></td>
         <td><%= link_to 'Destroy', proposition, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
@@ -33,6 +29,12 @@
   </tbody>
 </table>
 
+<div class="digg_pagination">
+    <div class="page_info">
+      <%= page_entries_info @propositions %>
+    </div>
+    <%= will_paginate @propositions, :container => false %>
+  </div>
 <br>
 
 <%= link_to 'New Proposition', new_proposition_path %>
