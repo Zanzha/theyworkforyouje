@@ -8,9 +8,9 @@
       <div class="row">
          <div class="col-10">
             <div class="vote_title">
-               <%= '<s>' if proposition.status == 'Withdrawn' %>
+               <%== '<s>' if proposition.status == 'Withdrawn' %>
                <%= link_to proposition.prop_name, proposition %>
-               <%= '</s>' if proposition.status == 'Withdrawn' %>
+               <%== '</s><small class="text-muted">(withdrawn)</small>' if proposition.status == 'Withdrawn' %>
             </div>
             <div class="vote_lodgeby">Lodged By:
                <%= proposition.lodged_by %> on <%= proposition.prop_date.strftime('%F') %>
