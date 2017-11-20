@@ -65,13 +65,16 @@ li:focus>.vote-description__source:focus {
 
 // Start of custom code.
 
+$green: #00B541;
+
 table {
     padding: 0.5em;
     
     tbody {
         border: 0.2em 0.2em 0.2em 0.2em solid #000;
-        tr td span:hover {
-            background-color: transparent;
-        }
     }
 }
+a:hover {
+    color: $green;
+    text-decoration: none;
+  }
