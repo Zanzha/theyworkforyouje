@@ -1,9 +1,11 @@
 // Place all the styles related to the propositions controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
 .vote-descriptions>li {
     position: relative;
-    border-bottom: 1px solid #e4e2dc;
+    // border: 0.2em 0.2em 0.2em 0.2em solid #e4e2dc;
+    // border-radius: 2px;
     line-height: 1.5em;
     padding-top: 0.5em;
     padding-bottom: 0.5em;
@@ -59,4 +61,17 @@ li:focus>.vote-description__source:focus {
 .vote-description__evidence:focus {
     color: #5b5a57;
     text-decoration: underline !important
+}
+
+// Start of custom code.
+
+table {
+    padding: 0.5em;
+    
+    tbody {
+        border: 0.2em 0.2em 0.2em 0.2em solid #000;
+        tr td span:hover {
+            background-color: transparent;
+        }
+    }
 }

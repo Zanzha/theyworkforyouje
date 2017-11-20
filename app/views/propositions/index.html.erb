@@ -5,34 +5,35 @@
 <table class="table">
   <thead>
     <tr>
-      <th>Title</th>
-      <th>Proposition date</th>
-      <th>Debate date</th>
+      <th>I.D</th>
+      <th>Proposition Title</th>
       <th>Lodged By</th>
-      <th>Reference</th>
-      <th>Status</th>
-      <th colspan="3"></th>
+      <th>Proposal Date</th>
+      <th>Debate Date</th>
+      <th colspan="6"></th>
     </tr>
   </thead>
 
   <tbody>
-    <% ##### @propositions.each do |proposition| %>
-    <% @propositions.limit(30).each do |proposition| %>
+    <% @propositions.limit(30).reverse.each do |proposition| %>
       <tr>
+        <td><%= proposition.p_id %></td>
         <td><%= proposition.prop_name %></td>
+        <td><%= proposition.lodged_by %></td>
         <td><%= proposition.prop_date %></td>
         <td><%= proposition.debate_date %></td>
-        <td><%= proposition.lodged_by %></td>
-        <td><%= proposition.p_id %></td>
-        <td><%= proposition.status %></td>
-        <td><%= link_to 'Show', proposition %></td>
-        <td><%= link_to 'Edit', edit_proposition_path(proposition) %></td>
-        <td><%= link_to 'Destroy', proposition, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'VIEW PDF', proposition.prop_pdf %></td>
+
+        <% if current_user.blank? %>
+          <%else %>
+            <%if current_user.role_id == 1%>
+              <td><%= link_to 'Show', proposition %></td>
+              <td><%= link_to 'Edit', edit_proposition_path(proposition) %></td>
+              <td><%= link_to 'Destroy', proposition, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+              <td><%= link_to 'New Proposition', new_proposition_path %></td>
+            <% end %>
+        <% end %>
       </tr>
     <% end %>
   </tbody>
 </table>
-
-<br>
-
-<%= link_to 'New Proposition', new_proposition_path %>
