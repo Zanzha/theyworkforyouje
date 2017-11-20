@@ -11,7 +11,7 @@
               <%= link_to vote.proposition_title, vote %>
             </div>
             <div class="vote_lodgeby">Lodged By:
-              <b><%= vote.proposition.lodged_by %></b>
+              <%= vote.proposition.lodged_by %>
             </div>
             <span>
                <% if current_user.blank? %>
