@@ -4,34 +4,47 @@
 
 <div id="accordion" role="tablist">
   <% @propositions.limit(30).reverse.each do |proposition| %>
+
   <div class="card">
     <div class="card-header" role="tab" id="headingOne">
-        <h5 class="mb-0">
-          <a data-toggle="collapse" data-target="#collapse-<%= parish.id %>" href="#collapse-<%= parish.id %>" aria-expanded="true" aria-controls="collapse">
-            <%= parish.name %>
-          </a>
+      <h5 class="mb-0">
+        <a
+          data-toggle="collapse"
+          data-target="#collapse-<%= proposition.p_id %>"
+          href="#collapse-<%= proposition.p_id %>"
+          aria-expanded="true"
+          aria-controls="collapse">
+          <%= proposition.prop_name %>
+        </a>
       </h5>
     </div>
-    <div id="collapse-<%= parish.id %>" class="collapse" role="tabpanel" aria-labelledby="headingOne" data-parent="#accordion">
-      <div class="container parish">
-        <div class="row">
-          <div class="col-6 parish_desc">
-            <%= parish.parish_desc %>
-          </div>
+
+    <div
+      id="collapse-<%= proposition.prop_name %>"
+      class="collapse" role="tabpanel"
+      aria-labelledby="headingOne"
+      data-parent="#accordion">
+      <div class="container parish"
+    >
+      <div class="row">
+        <div class="col-6 parish_desc">
+          <%= link_to 'VIEW PDF', proposition.prop_pdf %>
+        </div>
+
           <div class="col-6">
-            <% parish.politicians.each do |politician| %>
+            
             <div class="card-body">
                 <span class="parish_politician_title">
-                  <%= politician.title %>
+                  <%= proposition.prop_date %>
                 </span>
                 <span class="parish_politician">
-                  <%= link_to politician.full_name, politician_path(politician)  %>
+                  <%= proposition.debate_date  %>
                 </span>
             </div>
-            <% end %>
           </div>
         </div>
       </div>
+
 <br>
 
  <% if current_user.blank? %>

@@ -13,12 +13,12 @@
   <tbody>
     <% @propositions.limit(30).reverse.each do |proposition| %>
       <tr>
-        <td><%= proposition.p_id %></td>
-        <td><%= proposition.prop_name %></td>
-        <td><%= proposition.lodged_by %></td>
-        <td><%= proposition.prop_date %></td>
+        <%# <td><%= proposition.p_id %></td> %>
+        <%# <td><%= proposition.prop_name %></td> %>
+        <%# <td><%= proposition.lodged_by %></td> %>
+        <%# <td><%= proposition.prop_date %></td> %>
         <td><%= proposition.debate_date %></td>
-        <td><%= link_to 'VIEW PDF', proposition.prop_pdf %></td>
+        <%# <td><%= link_to 'VIEW PDF', proposition.prop_pdf %></td> %>
 
         <% if current_user.blank? %>
           <%else %>

@@ -10,6 +10,8 @@ gem 'seed_dump'
 gem 'smarter_csv'
 # Kaminari handles search results pagination.
 gem 'kaminari'
+# Jquery masonry 
+gem 'jquery-masonry-rails'
 
 # Ruby syntax 
 # gem 'solargraph'
