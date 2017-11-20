@@ -1,44 +1,78 @@
-<div class="proposal_name">
-  <h3>
-    <%= @proposition.prop_name %>
-  </h3>
+<div class="container">
+ <div class="row">
+  <div class="col">
+    <div class="proposal_name">
+      <h3>
+        <%= @proposition.prop_name %>
+      </h3>
 
-  <p>Lodged By:
-    <strong>
-    <%= @proposition.lodged_by %>
-    </strong>
-  </p>
+      <p>Lodged By:
+        <strong>
+        <%= @proposition.lodged_by %>
+        </strong>
+      </p>
 
-  <div class="prop_date">
-    <p>
-      <strong>Proposition date:</strong>
-    <%= @proposition.prop_date %>
-  </p>
-  <p>
-    <strong>Debate date:</strong>
-    <%= @proposition.debate_date %>
-  </p>
+      <script type="text/javascript">
+         google.charts.load('current', {'packages':['corechart']});
+         google.charts.setOnLoadCallback(drawChart);
+
+         function drawChart() {
+           var data = new google.visualization.DataTable();
+           data.addColumn('string', 'Vote Status');
+           data.addColumn('number', 'Count');
+           data.addRows([
+             ['Pour', <%= @shared_voteid.where(vote_type: 'Pour').count %>],
+             ['Contre', <%= @shared_voteid.where(vote_type: 'Contre').count %>],
+             ['Out of island', <%= @shared_voteid.where(vote_type: 'Out of the island').count %>],
+             ['Not present for vote', <%= @shared_voteid.where(vote_type: 'Not present for vote').count %>],
+             ['Unwell', <%= @shared_voteid.where(vote_type: 'Ill').count %>],
+           ]);
+           var options = {'title':'Breakdown of <%= number_with_delimiter(@shared_voteid.count) %> Votes','is3D': true};
+          var chart = new google.visualization.PieChart(document.getElementById('chart_div'));
+           chart.draw(data, options);
+         }
+      </script>
+
+       <div id="chart_div"></div>
+
+      <div class="prop_date">
+        <p>
+          <strong>Proposition date:</strong>
+        <%= @proposition.prop_date %>
+      </p>
+      <p>
+        <strong>Debate date:</strong>
+        <%= @proposition.debate_date %>
+      </p>
+      </div>
+
+      <p>
+        <% if (@proposition.prop_pdf.present?) %>
+          <%= link_to 'Proposal PDF', @proposition.prop_pdf, target: '_blank', class: 'btn btn-primary' %>
+          <% end %>
+        <% if (@proposition.minutes_pdf.present?) %>
+          <%= link_to  'Minutes PDF', @proposition.minutes_pdf, target: '_blank', class: "btn btn-primary" %>
+          <% end %>
+        <% if (@proposition.hansard_pdf.present?) %>
+          <%= link_to 'Hansard PDF', @proposition.hansard_pdf, target: '_blank', class: "btn btn-primary" %>
+          <% end %>
+      </p>
+
+      <p>
+        <strong>Reference:</strong>
+        <%= @proposition.p_id %>
+      </p>
+        <% if !current_user.blank? && current_user.role_id == 1 %>
+          <%= link_to 'Edit', edit_proposition_path(@proposition) %> |
+          <%= link_to 'Back', propositions_path %>
+          <% end %>
+
+    </div>
   </div>
+  <div class="col">
+    <div class="vote_record">
 
-  <p>
-    <% if (@proposition.prop_pdf.present?) %>
-      <%= link_to 'Proposal PDF', @proposition.prop_pdf, target: '_blank', class: 'btn btn-primary' %>
-      <% end %>
-    <% if (@proposition.minutes_pdf.present?) %>
-      <%= link_to  'Minutes PDF', @proposition.minutes_pdf, target: '_blank', class: "btn btn-primary" %>
-      <% end %>
-    <% if (@proposition.hansard_pdf.present?) %>
-      <%= link_to 'Hansard PDF', @proposition.hansard_pdf, target: '_blank', class: "btn btn-primary" %>
-      <% end %>
-  </p>
-
-  <p>
-    <strong>Reference:</strong>
-    <%= @proposition.p_id %>
-  </p>
-    <% if !current_user.blank? && current_user.role_id == 1 %>
-      <%= link_to 'Edit', edit_proposition_path(@proposition) %> |
-      <%= link_to 'Back', propositions_path %>
-      <% end %>
-
+    </div>
+  </div>
+ </div>
 </div>

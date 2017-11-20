@@ -6,11 +6,19 @@ class PropositionsController < ApplicationController
   # GET /propositions.json
   def index
     @propositions = Proposition.all.order("id DESC").paginate(:page => params[:page])
+    @votes = Vote.all
   end
 
   # GET /propositions/1
   # GET /propositions/1.json
   def show
+    @votes = Vote.all
+    @propositions = Proposition.all
+    @politicians = Politician.all
+  	@mainid = Vote.find(params[:id]).voting_id.to_i
+  	@proposition = Proposition.where(p_id: @vote.p_id).take
+      @shared_voteid = Vote.where(voting_id: @mainid)
+      @shared_voteid_type = Vote.where(voting_id: @mainid).group_by(&:vote_type)
   end
 
   # GET /propositions/new
