@@ -1,35 +1,32 @@
-
-
 <div class="vote_wraper">
-  <h1>Votes</h1>
-  <div>
-    <% @votes_grouped.each do |vote| %>
+   <h1>Votes</h1>
+   <div>
+      <% @votes_grouped_pagination.each do |vote| %>
       <div class="container vote_prop">
-        <div class="row">
-          <div class="col-10">
-            <div class="vote_title">
-              <%= link_to vote.proposition_title, vote %>
+         <div class="row">
+            <div class="col-10">
+               <div class="vote_title">
+                  <%= link_to vote.proposition_title, vote %>
+               </div>
+               <div class="vote_lodgeby">Lodged By:
+                  <b><%= vote.proposition.lodged_by %></b>
+               </div>
+               <span>
+               <% if !current_user.blank? && current_user.role_id == 1 %>
+               <%= link_to 'Edit', edit_vote_path(vote) %>
+               <%= link_to 'Destroy', vote, method: :delete, data: { confirm: 'Are you sure?' } %>
+               <% end %>
+               </span>
             </div>
-            <div class="vote_lodgeby">Lodged By:
-              <b><%= vote.proposition.lodged_by %></b>
-            </div>
-            <span>
-               <% if current_user.blank? %>
-                 <%else %>
-                   <%if current_user.role_id == 1%>
-
-                     <%= link_to 'Edit', edit_vote_path(vote) %>
-                     <%= link_to 'Destroy', vote, method: :delete, data: { confirm: 'Are you sure?' } %>
-                   <% end %>
-                   <% end %>
-             </span>
-          </div>
-        </div>
+         </div>
       </div>
-    <% end %>
-  </div>
+      <% end %>
+   </div>
+   <div class="digg_pagination">
+      <div class="page_info">
+         <%= page_entries_info @votes_grouped_pagination %>
+      </div>
+      <%= will_paginate @votes_grouped_pagination, :container => false %>
+      <%= link_to 'New Vote', new_vote_path %>
+   </div>
 </div>
-
-<br>
-
-<%= link_to 'New Vote', new_vote_path %>
