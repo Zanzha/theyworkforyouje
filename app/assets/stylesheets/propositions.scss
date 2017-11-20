@@ -2,79 +2,40 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.vote-descriptions>li {
-    position: relative;
-    // border: 0.2em 0.2em 0.2em 0.2em solid #e4e2dc;
-    // border-radius: 2px;
-    line-height: 1.5em;
-    padding-top: 0.5em;
-    padding-bottom: 0.5em;
-    padding-right: 6.5em
-}
-.vote-descriptions>li:first-child {
-    border-top: 1px solid #e4e2dc
-}
-@media (min-height: 800px) {
-    .vote-descriptions>li {
-        padding-top: 0.7em;
-        padding-bottom: 0.7em
-    }
-}
-.vote-description__source {
-    position: absolute;
-    top: 50%;
-    right: 0;
-    margin-top: -1em;
-    padding: 0 1em;
-    line-height: 2em;
-    -webkit-border-radius: 1em;
-    border-radius: 1em;
-    background-color: #f3f1eb;
-    color: #333;
-    font-size: 14px;
-    text-decoration: none
-}
-li:hover>.vote-description__source,
-li:focus>.vote-description__source {
-    background-color: #4faded;
-    color: #fff
-}
-li:hover>.vote-description__source:after,
-li:focus>.vote-description__source:after {
-    background-image: url(/images/external-link-icon-white.png)
-}
-li:hover>.vote-description__source:hover,
-li:hover>.vote-description__source:focus,
-li:focus>.vote-description__source:hover,
-li:focus>.vote-description__source:focus {
-    background-color: #2197e8
-}
-.vote-description__evidence {
-    display: block;
-    color: #757470;
-    text-decoration: none !important;
-    font-size: 0.7em;
-    line-height: 1.5em;
-    margin-top: 0.2em
-}
-.vote-description__evidence:hover,
-.vote-description__evidence:focus {
-    color: #5b5a57;
-    text-decoration: underline !important
+#accordion {
+  display: flex;
+  flex-direction: column;
 }
 
-// Start of custom code.
-
-$green: #00B541;
-
-table {
-    padding: 0.5em;
-    
-    tbody {
-        border: 0.2em 0.2em 0.2em 0.2em solid #000;
-    }
+#accordion .card {
+  display: flex;
+  flex-direction: column;
+  margin-top: 0.5em;
+  margin-left: 2em;
+  min-width: 50px;
 }
-a:hover {
-    color: $green;
-    text-decoration: none;
-  }
+
+#accordion .card-header {
+  padding: 0.5em;
+  border-bottom: none;
+  background-color: #f8f9fa;
+}
+
+#accordion .card-body {
+  padding: 1em;
+  margin: 0.5em;
+}
+.parish {
+  padding: 0.5em;
+}
+
+.parish_politician {
+  font-weight: bold;
+  padding-left: 2em;
+}
+
+.parish_desc {
+  padding-top: 1em;
+  padding-bottom: 1em;
+  font-family: inherit;
+}
