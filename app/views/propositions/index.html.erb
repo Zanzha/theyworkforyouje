@@ -1,4 +1,5 @@
 
+<<<<<<< HEAD
 
 <div class="vote_wraper">
 <h1>Propositions</h1>
@@ -34,4 +35,66 @@
 <% if !current_user.blank? && current_user.role_id == 1 %>
 <%= link_to 'New Proposition', new_proposition_path %>
 <% end %>
+=======
+<h1>Propositions</h1>
+
+<div id="accordion" role="tablist">
+  <% @propositions.limit(30).reverse.each do |proposition| %>
+
+  <div class="card">
+    <div class="card-header" role="tab" id="headingOne">
+      <h5 class="mb-0">
+        <a
+          data-toggle="collapse"
+          data-target="#collapse-<%= proposition.p_id %>"
+          href="#collapse-<%= proposition.p_id %>"
+          aria-expanded="true"
+          aria-controls="collapse">
+          <%= proposition.prop_name %>
+        </a>
+      </h5>
+    </div>
+
+    <div
+      id="collapse-<%= proposition.prop_name %>"
+      class="collapse" role="tabpanel"
+      aria-labelledby="headingOne"
+      data-parent="#accordion">
+      <div class="container parish"
+    >
+      <div class="row">
+        <div class="col-6 parish_desc">
+          <%= link_to 'VIEW PDF', proposition.prop_pdf %>
+        </div>
+
+          <div class="col-6">
+            
+            <div class="card-body">
+                <span class="parish_politician_title">
+                  <%= proposition.prop_date %>
+                </span>
+                <span class="parish_politician">
+                  <%= proposition.debate_date  %>
+                </span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+<br>
+
+ <% if current_user.blank? %>
+          <%else %>
+            <%if current_user.role_id == 1%>
+              <td><%= link_to 'Show', proposition %></td>
+              <td><%= link_to 'Edit', edit_proposition_path(proposition) %></td>
+              <td><%= link_to 'Destroy', proposition, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+              <td><%= link_to 'New Proposition', new_proposition_path %></td>
+            <% end %>
+        <% end %>
+
+    </div>
+  </div>
+  <% end %>
+>>>>>>> e54c92a1d7a8467f76cb8ebbd165ef51601e6434
 </div>

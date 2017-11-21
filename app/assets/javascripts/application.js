@@ -16,8 +16,9 @@
 //= require jquery3
 //= require popper
 //= require bootstrap-sprockets
+//= require masonry.pkgd
 
-<script>
+{/* <script>
   integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
   crossorigin="anonymous">
 </script>
@@ -34,4 +35,4 @@
     $($(this).data('target')).toggleClass('hidden')
     $grid.masonry()
   })
-</script>
+</script> */}

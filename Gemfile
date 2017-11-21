@@ -11,6 +11,8 @@ gem 'smarter_csv'
 gem 'will_paginate', '~> 3.1.0'
 # Kaminari handles search results pagination.
 gem 'kaminari'
+# Jquery masonry 
+gem 'jquery-masonry-rails'
 
 # Ruby syntax 
 # gem 'solargraph'

@@ -118,7 +118,7 @@ ActiveRecord::Schema.define(version: 20171114184717) do
   end
 
   create_table "votes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.bigint "proposition_id"
+    t.string "p_id"
     t.string "vote_type"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -128,6 +128,7 @@ ActiveRecord::Schema.define(version: 20171114184717) do
     t.string "voting_date"
     t.string "proposition_title"
     t.bigint "politician_id"
+    t.bigint "proposition_id"
     t.index ["politician_id"], name: "fk_rails_7d623af5ff"
     t.index ["proposition_id"], name: "fk_rails_0bc883c6a4"
   end
