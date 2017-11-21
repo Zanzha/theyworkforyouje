@@ -4,30 +4,47 @@
 
 #accordion {
   display: flex;
-  flex-direction: row;
-  flex-flow: wrap;
+  flex-direction: column;
+  padding-left: 5em;
+  padding-right: 7em;
 }
 
 #accordion .card {
   display: flex;
-  flex-direction: row !important;
-  margin-top: 2em;
+  flex-direction: column;
+  margin-top: 0.2em;
   margin-left: 2em;
   min-width: 50px;
-  max-width: max-content;
-  max-height: max-content;
+  border: none;
 }
 
 #accordion .card-header {
   padding: 0.5em;
-  min-width: 100px;
   border-bottom: none;
   background-color: #f8f9fa;
 }
 
 #accordion .card-body {
   padding: 0.5em;
-  p {
-    margin-bottom: 0;
-  }
+  margin: 0.5em;
+}
+.parish {
+  padding: 0.5em;
+}
+
+.parish_politician {
+  font-weight: bold;
+  padding-left: 2em;
+}
+
+.parish_desc {
+  padding-top: 1em;
+  padding-bottom: 1em;
+  font-family: inherit;
+}
+
+.district_link {
+  padding: 2em;
+  padding-left: 1em;
+  max-width: max-content;
 }

@@ -10,7 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20171108164249) do
+=======
+ActiveRecord::Schema.define(version: 20171114184717) do
+>>>>>>> develop
 
   create_table "import_politicians", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.datetime "created_at", null: false
@@ -53,7 +57,7 @@ ActiveRecord::Schema.define(version: 20171108164249) do
     t.string "parish"
     t.string "landline"
     t.string "email"
-    t.index ["parish_id"], name: "fk_rails_a52db85833"
+    t.index ["parish_id"], name: "fk_rails_3acf0946b4"
   end
 
   create_table "propositions", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -81,6 +85,11 @@ ActiveRecord::Schema.define(version: 20171108164249) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "searches", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "terms", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer "parish_id"
     t.datetime "created_at", null: false
@@ -104,8 +113,8 @@ ActiveRecord::Schema.define(version: 20171108164249) do
     t.string "last_sign_in_ip"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "created_by"
     t.bigint "role_id"
+    t.string "created_by"
     t.string "username"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true

@@ -1,43 +1,49 @@
 <div class="search_wrapper">
+
   <% if !params['q'].blank? %>
 
-    <% if @pol_results and @pol_results.length > 0 %>
+    <% if @meta_results.length > 0 %>
       <h6>
-        Your search results for "<%= params['q'] %>" in Politician(s): <%= @pol_results.length %>
+        Your search results for "<%= params['q'] %>" returned <%= @meta_results.length %> results.
       </h6>
-
-      <div class="search_pol">
-        <% @pol_results.each do |pol| %>
-          <h3> &bull; <%= pol['title'] %> <%= pol['label'] %></h3>
-          <p><%= pol['link'] %></p>
-        <% end %>
-      </div>
     <% end %>
 
-
-
-    <% if @prop_results and @prop_results.length > 0 %>
-    <h6>
-      Your search results for "<%= params['q'] %>" in Propositions:
-    </h6>
-      <div class="search_prop">
-        <% @prop_results.each do |prop| %>
-          <h4>
-            &bull; Lodged By: <%= prop['proposer'] %>
-            </br>
-          <h6>
-            <%= prop['label'] %>
-          </h6>
-          <p>
-            <%= prop['link'] %>
-          </p>
-          </h4>
-        <% end %>
+    <div>
+      <% @pol_results.each do |pol| %>
+        <div class="search_pol">
+          <span class="search_title">
+            <%= pol['title'] %>
+          </span>
+          <span class="search_label">
+            <%= pol['label'] %>
+          </span>
+          <span class="search_link">
+            <%= pol['link'] %>
+          </span>
+        </div>
+      <% end %>
     </div>
-    <% end %>
 
-    <% else @pol_results.length and @prop_results.length == 0 %>
-    <p>Your search for <%= params['q'] %> returned no results</p>
+    <div class="search_prop">
+      <% @prop_results.each do |prop| %>
+        <div class="search_prop">
+          <div class="search_lodgeby">
+            Lodged By: <%= prop['proposer'] %>
+          </div>
+          <span class="search_label">
+            <%= prop['label'] %>
+          </span>
+          <span class="search_link">
+            <%= prop['link'] %>
+          </span>
+        </div>
+      <% end %>
+    </div>
+
+    <% if @meta_results == 0 %>
+      <p>Your search for <%= params['q'] %> returned no results</p>
+    <% end %>
 
   <% end %>
+
 </div>
