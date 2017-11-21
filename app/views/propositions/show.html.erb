@@ -1,41 +1,85 @@
-<p>
-  <strong>Politician:</strong>
-</p>
+<div class="container">
+ <div class="row">
+  <div class="col">
+    <div class="proposal_name">
+      <h3>
+        <%= @proposition.prop_name %>
+      </h3>
 
-<p>
-  <strong>Lodged By:</strong>
-  <%= @proposition.lodged_by %>
-</p>
+      <p>Lodged By:
+        <strong>
+        <%= @proposition.lodged_by %>
+        </strong>
+      </p>
 
+      <script type="text/javascript">
+         google.charts.load('current', {'packages':['corechart']});
+         google.charts.setOnLoadCallback(drawChart);
 
-<p>
-  <strong>Title:</strong>
-  <%= @proposition.prop_name %>
-</p>
+         function drawChart() {
+           var data = new google.visualization.DataTable();
+           data.addColumn('string', 'Vote Status');
+           data.addColumn('number', 'Count');
+           data.addRows([
+             ['Pour', <%= @votes.where(vote_type: 'Pour').count %>],
+             ['Contre', <%= @votes.where(vote_type: 'Contre').count %>],
+             ['Out of island', <%= @votes.where(vote_type: 'Out of the island').count %>],
+             ['Not present for vote', <%= @votes.where(vote_type: 'Not present for vote').count %>],
+             ['Unwell', <%= @votes.where(vote_type: 'Ill').count %>],
+           ]);
+           var options = {'title':'Breakdown of <%= number_with_delimiter(@votes.count) %> Votes','is3D': true};
+          var chart = new google.visualization.PieChart(document.getElementById('chart_div'));
+           chart.draw(data, options);
+         }
+      </script>
 
-<p>
-  <strong>Proposition date:</strong>
-  <%= @proposition.prop_date %>
-</p>
+       <div id="chart_div"></div>
 
-<p>
-  <strong>Debate date:</strong>
-  <%= @proposition.debate_date %>
-</p>
+      <div class="prop_date">
+        <p>
+          <strong>Proposition date:</strong>
+        <%= @proposition.prop_date %>
+      </p>
+      <p>
+        <strong>Debate date:</strong>
+        <%= @proposition.debate_date %>
+      </p>
+      </div>
 
-<p>
-  <strong>:</strong>
-  <%= link_to "Download PDF", @proposition.prop_pdf %>
-</p>
+      <p>
+        <% if (@proposition.prop_pdf.present?) %>
+          <%= link_to 'Proposal PDF', @proposition.prop_pdf, target: '_blank', class: 'btn btn-primary' %>
+          <% end %>
+        <% if (@proposition.minutes_pdf.present?) %>
+          <%= link_to  'Minutes PDF', @proposition.minutes_pdf, target: '_blank', class: "btn btn-primary" %>
+          <% end %>
+        <% if (@proposition.hansard_pdf.present?) %>
+          <%= link_to 'Hansard PDF', @proposition.hansard_pdf, target: '_blank', class: "btn btn-primary" %>
+          <% end %>
+      </p>
 
-<p>
-  <strong>Reference:</strong>
-  <%= @proposition.p_id %>
-</p>
+      <p>
+        <strong>Reference:</strong>
+        <%= @proposition.p_id %>
+      </p>
+        <% if !current_user.blank? && current_user.role_id == 1 %>
+          <%= link_to 'Edit', edit_proposition_path(@proposition) %> |
+          <%= link_to 'Back', propositions_path %>
+          <% end %>
 
-<p><%= @proposition.prop_pdf %></p>
-<p><%= @proposition.minutes_pdf %></p>
-<p><%= @proposition.hansard_pdf %></p>
+    </div>
+  </div>
+  <div class=" col vote_sum">
+          <% @votes.group_by(&:vote_type).each do |vote_type, votes| %>
+          <h6><%= votes.count %> Voted <%= vote_type %></h6>
 
-<%= link_to 'Edit', edit_proposition_path(@proposition) %> |
-<%= link_to 'Back', propositions_path %>
+           <% votes.each do |vote| %>
+           <div class="vote_sum_pol">
+            <%= link_to vote.member_name, politician_path(vote.politician_id) %>
+          </div>
+          <% end %>
+          <% end %>
+    </div>
+  </div>
+ </div>
+</div>
