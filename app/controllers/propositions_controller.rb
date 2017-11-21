@@ -12,13 +12,13 @@ class PropositionsController < ApplicationController
   # GET /propositions/1
   # GET /propositions/1.json
   def show
-    @votes = Vote.all
-    @propositions = Proposition.all
-    @politicians = Politician.all
-    @mainid = Proposition.find(params[:id]).voting_id.to_i
-  	@proposition = Proposition.where(p_id: @vote.vote_id).take
-      @shared_voteid = Vote.where(voting_id: @mainid)
-      @shared_voteid_type = Vote.where(voting_id: @mainid).group_by(&:vote_type)
+
+    @proposition = Proposition.find(params[:id])
+    @votes = @proposition.votes.includes(:politician)
+
+
+  #  @shared_voteid = Vote.where(voting_id: @mainid)
+    #  @shared_voteid_type = Vote.where(voting_id: @mainid).group_by(&:vote_type)
   end
 
   # GET /propositions/new

@@ -21,13 +21,13 @@
            data.addColumn('string', 'Vote Status');
            data.addColumn('number', 'Count');
            data.addRows([
-             ['Pour', <%= @shared_voteid.where(vote_type: 'Pour').count %>],
-             ['Contre', <%= @shared_voteid.where(vote_type: 'Contre').count %>],
-             ['Out of island', <%= @shared_voteid.where(vote_type: 'Out of the island').count %>],
-             ['Not present for vote', <%= @shared_voteid.where(vote_type: 'Not present for vote').count %>],
-             ['Unwell', <%= @shared_voteid.where(vote_type: 'Ill').count %>],
+             ['Pour', <%= @votes.where(vote_type: 'Pour').count %>],
+             ['Contre', <%= @votes.where(vote_type: 'Contre').count %>],
+             ['Out of island', <%= @votes.where(vote_type: 'Out of the island').count %>],
+             ['Not present for vote', <%= @votes.where(vote_type: 'Not present for vote').count %>],
+             ['Unwell', <%= @votes.where(vote_type: 'Ill').count %>],
            ]);
-           var options = {'title':'Breakdown of <%= number_with_delimiter(@shared_voteid.count) %> Votes','is3D': true};
+           var options = {'title':'Breakdown of <%= number_with_delimiter(@votes.count) %> Votes','is3D': true};
           var chart = new google.visualization.PieChart(document.getElementById('chart_div'));
            chart.draw(data, options);
          }
@@ -69,9 +69,16 @@
 
     </div>
   </div>
-  <div class="col">
-    <div class="vote_record">
+  <div class=" col vote_sum">
+          <% @votes.group_by(&:vote_type).each do |vote_type, votes| %>
+          <h6><%= votes.count %> Voted <%= vote_type %></h6>
 
+           <% votes.each do |vote| %>
+           <div class="vote_sum_pol">
+            <%= link_to vote.member_name, politician_path(vote.politician_id) %>
+          </div>
+          <% end %>
+          <% end %>
     </div>
   </div>
  </div>
