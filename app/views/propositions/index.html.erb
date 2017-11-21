@@ -26,12 +26,18 @@
    </div>
    <% end %>
 </div>
+
 <div class="digg_pagination">
-<div class="page_info">
-   <%= page_entries_info @propositions %>
-</div>
-<%= will_paginate @propositions, :container => false %>
-<% if !current_user.blank? && current_user.role_id == 1 %>
-<%= link_to 'New Proposition', new_proposition_path %>
-<% end %>
+  <div class="page_info">
+    <%= page_entries_info @propositions %>
+  </div>
+  <div class="page_select">
+    <%= will_paginate @propositions, :container => false %>
+  </div>
+  <div class="new_button">
+    <% if !current_user.blank? && current_user.role_id == 1 %>
+      <%= link_to 'New Proposition', new_proposition_path %>
+    <% end %>
+  </div>
+
 </div>
