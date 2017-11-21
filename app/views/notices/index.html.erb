@@ -6,9 +6,6 @@
 
 
 <br>
-<% if current_user.blank? %>
-  <%else %>
-    <%if current_user.role_id == 1%>
-      <%= link_to 'New Notice', new_notice_path %>
-    <% end %>
-    <% end %>
+  <% if !current_user.blank? && current_user.role_id == 1 %>
+      <%= link_to 'New Notice', new_notice_path, class:"btn btn-primary" %>
+  <% end %>

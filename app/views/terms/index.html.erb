@@ -25,15 +25,20 @@
         <td><%= term.politician.full_name %></td>
         <td><%= term.begin_date %></td>
         <td><%= term.end_date %></td>
-        <td><%= link_to 'Show', term %></td>
-        <td><%= link_to 'Edit', edit_term_path(term) %></td>
-        <td><%= link_to 'Destroy', term, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-    <% end %>
+        <td>
+        <% if !current_user.blank? && current_user.role_id == 1 %>
+        <div class="manage_container">
+          <%= link_to 'Show', term, class:"btn btn-primary manage_button" %>
+          <%= link_to 'Edit', edit_term_path(term), class:"btn btn-primary manage_button" %>
+          <%= link_to 'Destroy', term, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-primary manage_button" %>
+        </div>
+        <% end %>
+      </td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
 <br>
-
+<%end %>
 <%= link_to 'New Term', new_term_path %>

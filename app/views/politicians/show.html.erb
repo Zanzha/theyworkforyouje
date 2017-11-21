@@ -10,9 +10,7 @@
           <ul class="list-group list-group-flush">
              <li class="list-group-item"><%== @politician.address %></li>
              <li class="list-group-item">Represents <%= @politician.parish.name %></li>
-             <% if user_signed_in? %>
-             <li class="list-group-item"><%= link_to 'Edit', edit_politician_path(@politician) %></li>
-             <% end %>
+
           </ul>
           <div class="card-body">
              <a href="#" class="card-link"><%= mail_to @politician.email, "Send Email", class: 'btn btn-primary' %></a>
@@ -23,6 +21,13 @@
              <%= link_to "Phone", "tel:#{@politician.mobile}", class: 'btn btn-primary' %></a>
              <% elsif (@politician.fax) %>
              <%= link_to "Fax", "tel:#{@politician.Fax}", class: 'btn btn-primary' %></a>
+             <% end %>
+
+             <% if !current_user.blank? && current_user.role_id == 1 %>
+              <br><br>
+               <%= link_to 'Edit', edit_politician_path(@politician),class:"btn btn-primary manage_button" %>
+               <%= link_to 'Delete', @opolitician, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-primary manage_button" %>
+
              <% end %>
           </div>
        </div>

@@ -13,8 +13,10 @@
                </div>
                <span>
                <% if !current_user.blank? && current_user.role_id == 1 %>
-               <%= link_to 'Edit', edit_vote_path(vote) %>
-               <%= link_to 'Destroy', vote, method: :delete, data: { confirm: 'Are you sure?' } %>
+               <div class="manage_container">
+               <%= link_to 'Edit', edit_vote_path(vote), class:"btn btn-primary manage_button" %>
+               <%= link_to 'Destroy', vote, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-primary manage_button" %>
+             </div>
                <% end %>
                </span>
             </div>
@@ -27,6 +29,7 @@
          <%= page_entries_info @votes_grouped_pagination %>
       </div>
       <%= will_paginate @votes_grouped_pagination, :container => false %>
-      <%= link_to 'New Vote', new_vote_path %>
+
    </div>
 </div>
+<%= link_to 'New Vote', new_vote_path, class:"btn btn-primary" %>

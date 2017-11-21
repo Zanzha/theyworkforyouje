@@ -2,48 +2,36 @@
 
 <p>
   <strong>Parishid:</strong>
-  <%= @term.parishid %>
+  <%= @term.parish_id %>
 </p>
 
 <p>
   <strong>Title:</strong>
-  <%= @term.title %>
+  <%= @term.politician.title %>
 </p>
 
 <p>
   <strong>First name:</strong>
-  <%= @term.first_name %>
+  <%= @term.politician.first_name %>
 </p>
 
 <p>
   <strong>Middle name:</strong>
-  <%= @term.middle_name %>
+  <%= @term.politician.middle_name %>
 </p>
 
 <p>
   <strong>Last name:</strong>
-  <%= @term.last_name %>
+  <%= @term.politician.last_name %>
 </p>
 
-<p>
-  <strong>Gender:</strong>
-  <%= @term.gender %>
-</p>
 
-<p>
-  <strong>Date of birth:</strong>
-  <%= @term.Date_of_birth %>
-</p>
+REWRITE ALL OF THIS^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-<p>
-  <strong>Website url:</strong>
-  <%= @term.website_url %>
-</p>
-
-<p>
-  <strong>Facebook url:</strong>
-  <%= @term.facebook_url %>
-</p>
-
-<%= link_to 'Edit', edit_term_path(@term) %> |
-<%= link_to 'Back', terms_path %>
+<div class="manage_container">
+<% if !current_user.blank? && current_user.role_id == 1 %>
+    <%= link_to 'Edit', edit_term_path(@term),class:"btn btn-primary manage_button" %>
+    <%= link_to 'Delete', @term, method: :delete, data: { confirm: 'Are you sure?' },class:"btn btn-primary manage_button" %>
+<% end %>
+  <%= link_to 'Back', terms_path,class:"btn btn-primary manage_button" %>
+</div>
