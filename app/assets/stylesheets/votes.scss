@@ -1,3 +1,45 @@
 // Place all the styles related to the votes controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.proposal_name {
+  padding-top: 1em;
+  padding-bottom: 3em;
+}
+
+.vote_sum {
+  padding-left: 5em;
+  padding-bottom: 2em;
+  h6 {
+    padding-top: 1em
+  }
+  .vote_sum_pol {
+    padding-left: 1em;
+    margin: 0.1em;
+    background-color: #f8f9fa;
+  }
+}
+
+//vote index//
+
+.vote_wraper {
+  padding-top: 1em;
+  padding-left: 3em;
+  padding-right: 3em;
+  margin: auto;
+  .vote_prop {
+    background-color: #f8f9fa;
+    margin: 0.2em;
+    padding: 0.5em;
+  }
+  .vote_title {
+    font-weight: bold;
+    padding: 0.4em;
+  }
+  .vote_lodgeby {
+    padding-left: 2em;
+  }
+  .vote_link {
+    align-self: center;
+    text-align: center;
+  }
+}

@@ -5,7 +5,7 @@ class PropositionsController < ApplicationController
   # GET /propositions
   # GET /propositions.json
   def index
-    @propositions = Proposition.all
+    @propositions = Proposition.all.order("id DESC").paginate(:page => params[:page])
   end
 
   # GET /propositions/1
