@@ -6,7 +6,7 @@
 
 <div class="office_container">
     <div class=office_position>  <%= office.position %></div>
-        <div class="manage_container">
+    <div class="manage_container">
           <% if current_user.blank? %>
             <%else %>
               <%if current_user.role_id == 1%>

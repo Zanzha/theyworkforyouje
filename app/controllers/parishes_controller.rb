@@ -1,6 +1,7 @@
 class ParishesController < ApplicationController
   before_action :set_parish, only: [:show, :edit, :update, :destroy]
-  
+  load_and_authorize_resource
+
   # GET /parishes
   # GET /parishes.json
   def index
