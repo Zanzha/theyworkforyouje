@@ -45,6 +45,11 @@
 }
 
 .digg_pagination {
+  min-width: 100%;
   display: flex;
-  align-content: center;
+  flex-direction: column;
+  .page_info, .page_select, .new_button {
+    margin: 0 auto;
+    margin-top: 0.1em;
+  }
 }
