@@ -24,9 +24,10 @@
       </div>
       <% end %>
    </div>
+
    <div class="digg_pagination">
       <div class="page_info">
-         <%= page_entries_info @votes_grouped_pagination %>
+        <%= page_entries_info @votes_grouped_pagination %>
       </div>
       <%= will_paginate @votes_grouped_pagination, :container => false %>
 

@@ -28,7 +28,9 @@
    </div>
    <% end %>
 </div>
+
 <div class="digg_pagination">
+<<<<<<< HEAD
 <div class="page_info">
    <%= page_entries_info @propositions %>
 </div>
@@ -39,3 +41,18 @@
 <% if !current_user.blank? && current_user.role_id == 1 %>
 <%= link_to 'New Proposition', new_proposition_path,class:"btn btn-primary" %>
 <% end %>
+=======
+  <div class="page_info">
+    <%= page_entries_info @propositions %>
+  </div>
+  <div class="page_select">
+    <%= will_paginate @propositions, :container => false %>
+  </div>
+  <div class="new_button">
+    <% if !current_user.blank? && current_user.role_id == 1 %>
+      <%= link_to 'New Proposition', new_proposition_path %>
+    <% end %>
+  </div>
+
+</div>
+>>>>>>> 5883b1e93e7fc10219ced007bbd2a7a5d42127fa
