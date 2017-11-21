@@ -15,8 +15,8 @@ class PropositionsController < ApplicationController
     @votes = Vote.all
     @propositions = Proposition.all
     @politicians = Politician.all
-  	@mainid = Vote.find(params[:id]).voting_id.to_i
-  	@proposition = Proposition.where(p_id: @vote.p_id).take
+    @mainid = Proposition.find(params[:id]).voting_id.to_i
+  	@proposition = Proposition.where(p_id: @vote.vote_id).take
       @shared_voteid = Vote.where(voting_id: @mainid)
       @shared_voteid_type = Vote.where(voting_id: @mainid).group_by(&:vote_type)
   end
