@@ -1,4 +1,10 @@
+
+
+
 <div class="container">
+  <%if !@politician.deleted_at.blank? %>
+  <h1 class="deleted_alert"> This States member was deleted on <%=@politician.deleted_at.strftime("%d %b. %Y")%> and is currently inactive </h1>
+  <% end %>
   <div class="row">
     <div class="person_wraper col">
        <div class="card" style="width: 320px;">
@@ -24,11 +30,16 @@
              <% end %>
 
              <% if !current_user.blank? && current_user.role_id == 1 %>
-              <br><br>
-               <%= link_to 'Edit', edit_politician_path(@politician),class:"btn btn-primary manage_button" %>
-               <%= link_to 'Delete', @opolitician, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-primary manage_button" %>
+             <br><br>
+              <%= link_to 'Edit', edit_politician_path(@politician),class:"btn btn-primary manage_button" %>
+                <%if @politician.deleted_at.blank? %>
+                  <%= link_to 'Delete', @politician, type: :normal, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-primary manage_button" %>
+                    <%else%>
+                    <%= link_to 'Undelete', @politician, method: :undelete, class: 'btn' %>
 
-             <% end %>
+                  <%end%>
+
+              <%end%>
           </div>
        </div>
     </div>

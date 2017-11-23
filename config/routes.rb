@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resource :admin_panel
   root to: "home#index"
 
   devise_for :users, :path_prefix => 'my'
@@ -27,5 +28,5 @@ Rails.application.routes.draw do
   get 'propositions/index'
   get 'search', to: 'search#index'
 
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  
 end

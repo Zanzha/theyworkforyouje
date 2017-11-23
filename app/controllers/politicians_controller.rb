@@ -1,6 +1,6 @@
 class PoliticiansController < ApplicationController
-  before_action :set_politician, only: [:show, :edit, :update, :destroy]
- load_and_authorize_resource
+  before_action :set_politician, only: [:show, :edit, :update, :destroy, :undelete]
+## load_and_authorize_resource
   # GET /politicians
   # GET /politicians.json
   def index
@@ -54,21 +54,40 @@ class PoliticiansController < ApplicationController
   # DELETE /politicians/1
   # DELETE /politicians/1.json
   def destroy
-    @politician.destroy
-    respond_to do |format|
-      format.html { redirect_to politicians_url, notice: 'Politician was successfully destroyed.' }
-      format.json { head :no_content }
+      @politician.destroy
+      respond_to do |format|
+        format.html { redirect_to politicians_url, notice: 'Politician was successfully destroyed.' }
+        format.json { head :no_content }
+      end
     end
-  end
+
+    def undelete
+      @politician.restore
+      respond_to do |format|
+        format.html { redirect_to politicians_url, notice: 'Politician was successfully restored.' }
+        format.json { head :no_content }
+      end
+    end
+  
+
+
+  ## @politician = Politician.find(params[:politician_id])
+
 
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_politician
-      @politician = Politician.find(params[:id])
+      if !current_user.blank? && current_user.role.name == "Admin"
+        @politician = Politician.unscoped.find(params[:id])
+      else
+        @politician = Politician.find(params[:id])
+      end
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
+
     def politician_params
-      params.fetch(:politician, {})
+    params.fetch(:politician, {})
+
     end
 end

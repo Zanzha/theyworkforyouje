@@ -1,4 +1,4 @@
-class PropositionsController < ApplicationController
+f_class PropositionsController < ApplicationController
   before_action :set_proposition, only: [:show, :edit, :update, :destroy]
   load_and_authorize_resource
 

@@ -2,6 +2,14 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+
+.deleted_alert{
+  text-align: center;
+  margin-top:10px;
+  font-weight: bold;
+  color:red;
+}
+
 .politician_list  img {
   max-height: 180px;
 }
