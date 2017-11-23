@@ -13,19 +13,7 @@ Rails.application.routes.draw do
   resources :terms
   resources :offices
   resources :parishes
-
-  get 'import/index'
-  get 'import_props/index'
-  get 'import_terms/index'
-  get 'import_terms/show'
-  get 'terms/index'
-  get 'import/index'
-  get 'home/index'
-  get 'notices/index'
-  get 'offices/index'
-  get 'politicians/index'
-  get 'propositions/index'
-  get 'search', to: 'search#index'
-
+  get 'privacy', to: 'static_pages#privacy'
+  get 'termsandconditions' , to: 'static_pages#tandc'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
