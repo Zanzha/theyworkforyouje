@@ -20,5 +20,10 @@ Rails.application.routes.draw do
   resources :terms
   resources :offices
   resources :parishes
+  get 'privacy', to: 'static_pages#privacy'
+  get 'termsandconditions' , to: 'static_pages#tandc'
+
+  #static pages follow
+#  get 'privacy_policy'  => 'static_pages#privacy'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

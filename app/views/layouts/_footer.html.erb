@@ -3,10 +3,10 @@
 
 <footer class="navbar navbar-light bg-light">
   <span class="navbar-text">
-    theyworkforyouje
+    theyworkforyou.je
     &copy;
     <%= @year %>
     </br></br>
-    <span class="privacy-text">Privacy Policy</span> - <span class="dont-sue-me">Don't sue us plz thanx</span>
-  </span>
+    <%= link_to "Privacy Policy", privacy_path, class: "container static" %>
+    <%= link_to "Terms and Conditions", termsandconditions_path, class: "container static" %>
 </footer>
