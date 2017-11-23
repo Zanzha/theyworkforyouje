@@ -70,9 +70,9 @@ class Parish < ApplicationRecord
         Population 3,156 (2011)
         Density	260/km2 (660/sq mi).'
       elsif self.name == 'Island Wide'
-        'Senators'
+        'Senators represent the whole Island. All 8 Senators are elected for the same term of office as the Constables and Deputies.'
       else
-        'Parish description'
+        'Parish'
       end
     end
 end
