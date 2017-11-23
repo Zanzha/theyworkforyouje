@@ -25,7 +25,7 @@
 }
 
 .politician_list .card-subtitle     {
-	font-size:12x;
+	font-size:16px;
 }
 
 .person_wraper {
@@ -35,6 +35,10 @@
 
 .person_wraper .card {
   flex-direction: column;
+}
+
+.card--fixed-width {
+  width: 160px;
 }
 
 .person_wraper .avatar {
@@ -64,4 +68,8 @@ li {
 }
 .vote-descriptions>li:first-child {
 	border-top: 1px solid #e4e2dc
+}
+
+.no-flex-grow {
+  flex-grow: 0
 }
