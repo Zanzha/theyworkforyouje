@@ -1,6 +1,6 @@
 <div class="search_wrapper">
    <% if !params['q'].blank? %>
-   <h6>Your search results for "<%= params['q'] %>" returned <%= @politicians.count %> Politicians and <%= @propositions.count %> Propositions.</h6>
+   <h6>Your search results for "<%= params['q'] %>" returned <%= pluralize(@politicians.count, 'Politician') %> and <%= pluralize(@propositions.count, 'Proposition') %>.</h6>
    <div class="container">
       <div class="politician_list">
          <div class="row">
@@ -10,9 +10,7 @@
                   <img src="<%= politician.avatar %>" alt="<%= politician.title %> <%= politician.full_name %>">
                   <div class="card-body">
                      <h4 class="card-title">
-                     <%= link_to politician do %>
-                     <%= politician.full_name %>
-                     <% end %>
+                     <%= link_to politician.full_name, politician %>
                   </div>
                </div>
             </div>
@@ -29,10 +27,6 @@
                <%= link_to proposition.prop_name, proposition %>
                <%== '</s><small class="text-muted">(withdrawn)</small>' if proposition.status == 'Withdrawn' %>
             </div>
-            <!--            <div class="vote_lodgeby">Lodged By:
-               <%= proposition.lodged_by %> on <%= proposition.prop_date.strftime('%F') %>
-               </div>
-               --->
             <% if !current_user.blank? && current_user.role_id == 1 %>
             <div class="manage_container">
                <%= link_to 'Edit', edit_proposition_path(proposition),class:"btn btn-primary manage_button" %>

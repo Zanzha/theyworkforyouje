@@ -1,9 +1,16 @@
 class SearchController < ApplicationController
   def index
     if (!params['q'])
-      return
-    end
+return
+end
       @politicians = Politician.search(params['q'])
-      @propositions = Proposition.search(params['q']).paginate(:page => params[:page])
+  
+
+search_words = params['q'].split(" ")
+@propositions = Proposition.order("id DESC").where('prop_name REGEXP ?',search_words.join('|')) unless search_words.blank?
+@politicians = Politician.where('full_name REGEXP ?',search_words.join('|')) unless search_words.blank?
+
+@propositions = @propositions.paginate(:page => params[:page])
+
     end
 end
