@@ -1,21 +1,23 @@
 <div class="search_wrapper">
-   <% if !params['q'].blank? %>
-   <h6>Your search results for "<%= params['q'] %>" returned <%= pluralize(@politicians.count, 'Politician') %> and <%= pluralize(@propositions.count, 'Proposition') %>.</h6>
-   <div class="container">
-      <div class="politician_list">
-         <div class="row">
-            <% @politicians.each do |politician| %>
-            <div class="col no-flex-grow">
-               <div class="card card--fixed-width">
-                  <img src="<%= politician.avatar %>" alt="<%= politician.title %> <%= politician.full_name %>">
-                  <div class="card-body">
-                     <h4 class="card-title">
+<% if !params['q'].blank? %>
+<h6>Your search results for "<%= params['q'] %>" returned <%= pluralize(@politicians.count, 'Politician') %> and <%= pluralize(@propositions.count, 'Proposition') %>.</h6>
+<div class="container">
+   <div class="politician_list">
+      <div class="row">
+         <% if params['page'].blank? %>
+         <% @politicians.each do |politician| %>
+         <div class="col no-flex-grow">
+            <div class="card card--fixed-width">
+               <img src="<%= politician.avatar %>" alt="<%= politician.title %> <%= politician.full_name %>">
+               <div class="card-body">
+                  <h4 class="card-title">
                      <%= link_to politician.full_name, politician %>
-                  </div>
+                  </h4>
                </div>
             </div>
-            <% end %>
          </div>
+         <% end %>
+         <% end %>
       </div>
    </div>
    <% @propositions.each do |proposition| %>
