@@ -88,6 +88,6 @@ class PoliticiansController < ApplicationController
 
     def politician_params
     params.fetch(:politician, {})
-
+    params.permit(:deleted_at)
     end
 end
