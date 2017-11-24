@@ -7,13 +7,25 @@ Rails.application.routes.draw do
 
   resources :users
   resources :import_politicians
-  resources :politicians
-  resources :notices
+
+
   resources :votes
   resources :propositions
   resources :terms
   resources :offices
   resources :parishes
+
+  resources :notices do
+  collection do
+    get :manage
+  end
+end
+
+resources :politicians do
+  collection do
+    get :manage
+  end
+end
 
   get 'import/index'
   get 'import_props/index'
@@ -28,5 +40,5 @@ Rails.application.routes.draw do
   get 'propositions/index'
   get 'search', to: 'search#index'
 
-  
+
 end

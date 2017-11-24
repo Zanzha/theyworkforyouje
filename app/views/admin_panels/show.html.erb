@@ -1,1 +1,14 @@
 <p id="notice"><%= notice %></p>
+
+<h1>Admin Panel</h1>
+
+<ul>
+
+<li><%= link_to 'Create New User', new_user_path %></li>
+<li><%= link_to 'Manage Users', users_path %></li>
+<br>
+<li><%= link_to 'Create New Notice', new_notice_path%></li>
+<li><%= link_to 'Manage Notices', manage_notices_path %></li>
+<br>
+<li><%= link_to 'New Politician', new_politician_path%></li>
+<li><%= link_to 'Manage Politicians', politicians_path%></li>

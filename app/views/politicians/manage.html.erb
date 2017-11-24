@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1> Politician Management </h1>
+<br>
+  <%= link_to 'Return to Admin Panel', admin_panel_path%>
+</br>
+<div class="table-responsive">
+  <table class="table table-hover">
+    <tr>
+      <th> Politician Name </th>
+      <th> </th>
+      <th><th>
+        <th></th>
+        <th></th>
+    </tr>
+    <% @politicians.each do |politician| %>
+    ## no idea why this doesn't work
+  <tr>
+    <td><%= politician.full_name%></td>
+    <td> </td>
+    <td></td>
+    <td></td>
+    <td><%= link_to 'Edit', edit_politician_path(politician)%></td>
+    <td><%= link_to 'Delete', politician, method: :delete, data: { confirm: 'Are you sure?' }%></td>
+  </tr>
+
+  <%end%>
+  </table>
+</div>

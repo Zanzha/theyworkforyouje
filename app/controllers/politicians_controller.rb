@@ -1,12 +1,15 @@
 class PoliticiansController < ApplicationController
-  before_action :set_politician, only: [:show, :edit, :update, :destroy, :undelete]
+  before_action :set_politician, only: [:show, :edit, :update, :destroy]
 ## load_and_authorize_resource
   # GET /politicians
   # GET /politicians.json
+
   def index
     @politicians = Politician.all
     @politicians_grouped = @politicians.group_by(&:title)
   end
+
+
 
   # GET /politicians/1
   # GET /politicians/1.json
@@ -68,10 +71,7 @@ class PoliticiansController < ApplicationController
         format.json { head :no_content }
       end
     end
-  
 
-
-  ## @politician = Politician.find(params[:politician_id])
 
 
   private
