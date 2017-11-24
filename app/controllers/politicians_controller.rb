@@ -9,8 +9,9 @@ class PoliticiansController < ApplicationController
     @politicians_grouped = @politicians.group_by(&:title)
   end
 
-
-
+def manage
+  @politicians = Politician.all
+end
   # GET /politicians/1
   # GET /politicians/1.json
   def show

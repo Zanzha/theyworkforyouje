@@ -39,6 +39,5 @@ end
   get 'politicians/index'
   get 'propositions/index'
   get 'search', to: 'search#index'
-
-
+  
 end
