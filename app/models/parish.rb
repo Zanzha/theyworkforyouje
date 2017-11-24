@@ -7,12 +7,12 @@ class Parish < ApplicationRecord
         "St Helier has a population of about 33,500, roughly 34.2% of the total population of Jersey, and is the capital of the Island (although Government House is situated in St Saviour). The urban area of the parish of St Helier makes up most of town, although some of the town area is situated in adjacent St Saviour, with suburbs sprawling into St Lawrence and St Clement. The greater part of St Helier is rural.
 
         The parish covers a surface area of 4.1 square miles (10.6 km2), being 9% of the total land area of the Island (this includes reclaimed land area of 494 acres (2.00 km2) or 200 ha).
-        Saint Helier is the most populated of Jerseys' parishes, with 33,522 residents according to the 2011 census.<br>
+        Saint Helier is the most populated of Jerseys' parishes, with 33,522 residents according to the 2011 census.
         With the Constable, the parish therefore has 11 representatives in the States of Jersey (out of 53 elected members).
-        The Parish also has its own responsibilities and elections to the Municipality of St Helier take place to elect honorary officials who fulfill a variety of roles for Parishioners under the overall control of the Constable, two Procureurs du Bien Public and the Parish Assembly.'
+        The Parish also has its own responsibilities and elections to the Municipality of St Helier take place to elect honorary officials who fulfill a variety of roles for Parishioners under the overall control of the Constable, two Procureurs du Bien Public and the Parish Assembly."
       elsif self.name == 'Grouville'
         'Grouville is in the south east of the island and is dominated by the broad sweep of the Royal Bay of Grouville. The parish covers a surface area of 4,354 vergées (7.8 km²). It borders Saint Clement, Saint Saviour and Saint Martin.
-        Population: 4,866 (2011)"
+        Population: 4,866 (2011)'
       elsif self.name == 'Saint Brelade'
         'Saint Brélade population is around 9,560, and it occupies the southwestern part of the island. It is the only parish to border only one other parish, Saint Peter. The parish is the second-largest parish by surface area, covering 7,103 vergées (3,157 acres or 12.78 km²), which is 11% of the total land surface of the island.
         Its name is derived from a 6th-century Celtic or Welsh "wandering saint" named Branwalator or Saint Brelade (also Branwallder, Broladre, Brelodre, Brélade), who is said to have been the son of the Cornish king, Kenen. He is also said to have been a disciple of Samson of Dol, and worked with this churchman in Cornwall and the Channel Islands. A large section of the Jersey Railway linking La Corbière with Saint Helier ran through the parish between 1870 and 1936.
@@ -70,9 +70,9 @@ class Parish < ApplicationRecord
         Population 3,156 (2011)
         Density	260/km2 (660/sq mi).'
       elsif self.name == 'Island Wide'
-        'Senators'
+        'Senators represent the whole Island. All 8 Senators are elected for the same term of office as the Constables and Deputies.'
       else
-        'Parish description'
+        'Parish'
       end
     end
 end

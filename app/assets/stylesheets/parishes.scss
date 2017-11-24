@@ -1,19 +1,28 @@
 // Place all the styles related to the parishes controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-
+.parish_container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  margin: 0 auto;
+  max-width: 75%;
+}
 #accordion {
   display: flex;
   flex-direction: column;
-  padding-left: 5em;
-  padding-right: 7em;
+  align-content: center;
+  text-align: center;
+  // padding: 0 7em 0 5em;
+  // padding-right: 7em;
 }
 
 #accordion .card {
   display: flex;
   flex-direction: column;
   margin-top: 0.2em;
-  margin-left: 2em;
+  // margin-left: 2em;
   min-width: 50px;
   border: none;
 }
@@ -34,7 +43,7 @@
 
 .parish_politician {
   font-weight: bold;
-  padding-left: 2em;
+  padding-left: 1em;
 }
 
 .parish_desc {
@@ -43,8 +52,20 @@
   font-family: inherit;
 }
 
-.district_link {
-  padding: 2em;
-  padding-left: 1em;
-  max-width: max-content;
+.district_container {
+  min-width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding-top: 1.5em;
+  a {
+    margin: 0 0;
+    padding: 0 0;
+    font-size: 1.4em;
+  }
 }
+
+// .district_link {
+//   padding: 2em;
+//   padding-left: 1em;
+//   max-width: max-content;
+// }

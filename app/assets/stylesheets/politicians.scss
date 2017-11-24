@@ -33,7 +33,7 @@
 }
 
 .politician_list .card-subtitle     {
-	font-size:12x;
+	font-size:16px;
 }
 
 .person_wraper {
@@ -43,6 +43,10 @@
 
 .person_wraper .card {
   flex-direction: column;
+}
+
+.card--fixed-width {
+  width: 160px;
 }
 
 .person_wraper .avatar {
@@ -106,5 +110,8 @@ thead{
 
 .theader{
   text-align: center;
-  font-weight: bold;
+  font-weight: bold;}
+
+.no-flex-grow {
+  flex-grow: 0
 }

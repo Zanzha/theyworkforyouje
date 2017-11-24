@@ -15,6 +15,7 @@ end
   # GET /politicians/1
   # GET /politicians/1.json
   def show
+	@votes_pagination = @politician.votes.paginate(:page => params[:page])
   end
   # GET /politicians/new
   def new
