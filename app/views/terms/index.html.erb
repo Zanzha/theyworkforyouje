@@ -2,6 +2,8 @@
 
 <h1>Terms</h1>
 
+
+
 <table class="table">
   <thead>
     <tr>
@@ -18,15 +20,14 @@
   <tbody>
     <% @terms.each do |term| %>
       <tr>
-<% if  (term.politician_id) %>
         <td><%= term.parish.name %></td>
         <td><%= term.position %></td>
         <td><%= term.politician.title %></td>
-        <td><%= term.politician.full_name %></td>
+        <td><%= term.politicians.full_name %></td>
         <td><%= term.begin_date %></td>
         <td><%= term.end_date %></td>
         <td>
-        <% if !current_user.blank? && current_user.role_id == 1 %>
+        <% if !current_user.blank? && current_user.role.name == "Admin" %>
         <div class="manage_container">
           <%= link_to 'Show', term, class:"btn btn-primary manage_button" %>
           <%= link_to 'Edit', edit_term_path(term), class:"btn btn-primary manage_button" %>
@@ -35,7 +36,6 @@
         <% end %>
       </td>
       </tr>
-    <% end %>
   </tbody>
 </table>
 

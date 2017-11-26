@@ -1,5 +1,5 @@
 class PoliticiansController < ApplicationController
-  before_action :set_politician, only: [:show, :edit, :update, :destroy]
+  before_action :set_politician, only: [:show, :edit, :update, :destroy, :undelete]
 ## load_and_authorize_resource
   # GET /politicians
   # GET /politicians.json
