@@ -80,4 +80,4 @@ class PropositionsController < ApplicationController
     def proposition_params
       params.require(:proposition).permit(:politician_id, :title, :proposition_date, :vote_date, :reference)
     end
-end
+  end

@@ -2,6 +2,14 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+
+.deleted_alert{
+  text-align: center;
+  margin-top:10px;
+  font-weight: bold;
+  color:red;
+}
+
 .politician_list  img {
   max-height: 180px;
 }
@@ -69,6 +77,40 @@ li {
 .vote-descriptions>li:first-child {
 	border-top: 1px solid #e4e2dc
 }
+
+thead{
+  background-color: #59ABE3;
+}
+
+.mng_tbl_head th{
+  border-bottom:2px black solid;
+}
+
+.mng_tbl_row tr{
+  border-bottom:1px grey solid;
+}
+
+.mng_tbl{
+  width: 85%;
+  border: 1px black solid;
+  border-radius: 1px;
+  margin:auto;
+}
+
+.active{
+  background-color: #59ABE3;
+}
+.deleted{
+  background-color: #CF000F;
+  color: white;
+}
+.break{
+  height:20px;
+}
+
+.theader{
+  text-align: center;
+  font-weight: bold;}
 
 .no-flex-grow {
   flex-grow: 0
