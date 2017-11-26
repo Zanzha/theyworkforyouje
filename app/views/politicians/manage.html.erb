@@ -25,12 +25,12 @@
     <td class="filterable-cell"><%= politician.email%></td>
     <td class="filterable-cell"><%= link_to 'More info', politician%></td>
     <td class="filterable-cell"><%= link_to 'Edit', edit_politician_path(politician)%></td>
-    <td class="filterable-cell"><%= link_to 'Delete', politician, method: :destroy, data: { confirm: 'Are you sure?' }%></td>
+    <td class="filterable-cell"><%= link_to 'Archive', politician, method: :destroy, data: { confirm: 'Are you sure?' }%></td>
   </tr>
 
   <%end%>
   <tr class="break"></tr>
-  <thead class="break deleted"><td class="theader"colspan="7">Deleted Politicians</td></tr>
+  <thead class="break deleted"><td class="theader"colspan="7">Archived Politicians</td></tr>
   <thead class="mng_tbl_head deleted">
     <th data-field="first_name" sortable="true">First Name</th>
     <th>Last Name</th>
@@ -47,7 +47,7 @@
   <td class="filterable-cell"><%= politician.email%></td>
   <td class="filterable-cell"><%= link_to 'More info', politician%></td>
   <td class="filterable-cell"><%= link_to 'Edit', edit_politician_path(politician)%></td>
-  <td class="filterable-cell"><%= link_to 'Restore', politician, method: :undelete, data: { confirm: 'Are you sure?' }%></td>
+  <td class="filterable-cell"><%= link_to 'Restore', politician, method: :restore, data: { confirm: 'Are you sure?' }%></td>
 </tr>
 
 <%end%>
