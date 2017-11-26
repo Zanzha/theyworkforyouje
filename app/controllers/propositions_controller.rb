@@ -1,4 +1,4 @@
-f_class PropositionsController < ApplicationController
+class PropositionsController < ApplicationController
   before_action :set_proposition, only: [:show, :edit, :update, :destroy]
   load_and_authorize_resource
 
@@ -80,4 +80,4 @@ f_class PropositionsController < ApplicationController
     def proposition_params
       params.require(:proposition).permit(:politician_id, :title, :proposition_date, :vote_date, :reference)
     end
-end
+  end
