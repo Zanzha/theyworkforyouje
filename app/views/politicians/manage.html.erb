@@ -1,0 +1,55 @@
+<p id="notice"><%= notice %></p>
+
+
+
+<h1> Politician Management </h1>
+<br>
+  <%= link_to 'Return to Admin Panel', admin_panel_path%>
+<br>
+<div class="table-responsive">
+  <table class="table table-hover table-striped">
+    <thead class="break active"><td class="theader"colspan="7">Active Politicians</td></tr>
+    <thead class="mng_tbl_head active">
+      <th data-field="first_name" sortable="true">First Name</th>
+      <th>Last Name</th>
+      <th>Title</th>
+      <th>Email<th>
+        <th></th>
+        <th></th>
+    </thead>
+    <% @politicians.without_deleted.each do |politician| %>
+  <tr class="mng_tbl_row">
+    <td class="filterable-cell"><%= politician.first_name%></td>
+    <td class="filterable-cell"><%= politician.last_name%></td>
+    <td class="filterable-cell"><%= politician.title%> </td>
+    <td class="filterable-cell"><%= politician.email%></td>
+    <td class="filterable-cell"><%= link_to 'More info', politician%></td>
+    <td class="filterable-cell"><%= link_to 'Edit', edit_politician_path(politician)%></td>
+    <td class="filterable-cell"><%= link_to 'Delete', politician, method: :destroy, data: { confirm: 'Are you sure?' }%></td>
+  </tr>
+
+  <%end%>
+  <tr class="break"></tr>
+  <thead class="break deleted"><td class="theader"colspan="7">Deleted Politicians</td></tr>
+  <thead class="mng_tbl_head deleted">
+    <th data-field="first_name" sortable="true">First Name</th>
+    <th>Last Name</th>
+    <th>Title</th>
+    <th>Email<th>
+      <th></th>
+      <th></th>
+  </thead>
+  <% @politicians.only_deleted.each do |politician| %>
+<tr class="mng_tbl_row">
+  <td class="filterable-cell"><%= politician.first_name%></td>
+  <td class="filterable-cell"><%= politician.last_name%></td>
+  <td class="filterable-cell"><%= politician.title%> </td>
+  <td class="filterable-cell"><%= politician.email%></td>
+  <td class="filterable-cell"><%= link_to 'More info', politician%></td>
+  <td class="filterable-cell"><%= link_to 'Edit', edit_politician_path(politician)%></td>
+  <td class="filterable-cell"><%= link_to 'Restore', politician, method: :undelete, data: { confirm: 'Are you sure?' }%></td>
+</tr>
+
+<%end%>
+  </table>
+  </div>
