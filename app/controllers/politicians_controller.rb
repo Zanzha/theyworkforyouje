@@ -61,15 +61,16 @@ end
   def destroy
       @politician.destroy
       respond_to do |format|
-        format.html { redirect_to politicians_url, notice: 'Politician was successfully destroyed.' }
+        format.html { redirect_to politicians_url, notice: 'Politician was successfully Archived.' }
         format.json { head :no_content }
       end
     end
 
-    def undelete
+    def restore
+      @politician = Politician.with_deleted.find(params[:id])
       @politician.restore
-      respond_to do |format|
-        format.html { redirect_to politicians_url, notice: 'Politician was successfully restored.' }
+        respond_to do |format|
+        format.html { redirect_to manage_politicians_path, notice: 'Politician was successfully restored.' }
         format.json { head :no_content }
       end
     end
@@ -80,9 +81,9 @@ end
     # Use callbacks to share common setup or constraints between actions.
     def set_politician
       if !current_user.blank? && current_user.role.name == "Admin"
-        @politician = Politician.unscoped.find(params[:id])
+        @politician = Politician.with_deleted.find(params[:id])
       else
-        @politician = Politician.find(params[:id])
+        @politician = Politician.without_deleted.find(params[:id])
       end
     end
 

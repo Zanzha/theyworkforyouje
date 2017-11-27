@@ -33,9 +33,9 @@
              <br><br>
               <%= link_to 'Edit', edit_politician_path(@politician),class:"btn btn-primary manage_button" %>
                 <%if @politician.deleted_at.blank? %>
-                  <%= link_to 'Delete', @politician, type: :normal, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-primary manage_button" %>
+                  <%= link_to 'Delete', @politician, type: :normal, method: :destroy, data: { confirm: 'Are you sure?' }, class:"btn btn-primary manage_button" %>
                     <%else%>
-                    <%= link_to 'Undelete', @politician, method: :undelete, class: 'btn' %>
+                    <%= link_to 'Undelete', @politician, method: :restore, class: 'btn' %>
 
                   <%end%>
 

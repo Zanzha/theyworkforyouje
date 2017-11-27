@@ -41,5 +41,6 @@ end
   get 'search', to: 'search#index'
   get 'privacy', to: 'static_pages#privacy'
   get 'termsandconditions' , to: 'static_pages#tandc'
+  post 'politicians/:id(.:format)', to:'politicians#restore'
 
 end

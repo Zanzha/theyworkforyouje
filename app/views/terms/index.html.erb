@@ -19,23 +19,26 @@
 
   <tbody>
     <% @terms.each do |term| %>
-      <% if term.politician.present? %>
-        <tr>
-          <td><%= term.parish.name %></td>
-          <td><%= term.position %></td>
-          <td><%= term.politician.title %></td>
-          <td><%= term.politician.full_name %></td>
-          <td><%= term.begin_date %></td>
-          <td><%= term.end_date %></td>
-          <td>
-            <% if user_signed_in? && current_user.role.name == 'Admin' %>
-              <span class="manage_container">
-                <%= link_to 'Show', term, class:"btn btn-primary manage_button" %>
-                <%= link_to 'Edit', edit_term_path(term), class:"btn btn-primary manage_button" %>
-                <%= link_to 'Destroy', term, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-primary manage_button" %>
-              </span>
-          <% end %>
-        </td>
+      <tr>
+
+<% if  (term.politician_id) %>
+        <td><%= term.parish.name %></td>
+        <td><%= term.position %></td>
+        <td><%= term.politician.title %></td>
+        <td><%= term.politician.full_name %></td>
+        <td><%= term.begin_date %></td>
+        <td><%= term.end_date %></td>
+        <td>
+
+        <% if !current_user.blank? && current_user.role.name == "Admin" %>
+        <div class="manage_container">
+          <%= link_to 'Show', term, class:"btn btn-primary manage_button" %>
+          <%= link_to 'Edit', edit_term_path(term), class:"btn btn-primary manage_button" %>
+          <%= link_to 'Destroy', term, method: :destroy, data: { confirm: 'Are you sure?' }, class:"btn btn-primary manage_button" %>
+        </div>
+        <% end %>
+      </td>
+      <% end %>
       </tr>
       <% end %>
     <% end %>
