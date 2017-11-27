@@ -9,12 +9,11 @@ gem 'nokogiri'
 gem 'seed_dump'
 gem 'smarter_csv'
 gem 'will_paginate', '~> 3.1.0'
-# Kaminari handles search results pagination.
-gem 'kaminari'
-# Jquery masonry 
+
+# Jquery masonry
 gem 'jquery-masonry-rails'
 
-# Ruby syntax 
+# Ruby syntax
 # gem 'solargraph'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
@@ -67,6 +66,9 @@ end
 
 #DatabaseCleaner
 gem 'database_cleaner'
+
+#paranoia
+gem "paranoia", "~> 2.2"
 
 #devise
 gem 'devise'

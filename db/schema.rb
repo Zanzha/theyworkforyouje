@@ -10,7 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171114184717) do
+ActiveRecord::Schema.define(version: 20171123182744) do
+
+  create_table "admin_panels", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "import_politicians", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.datetime "created_at", null: false
@@ -53,6 +58,8 @@ ActiveRecord::Schema.define(version: 20171114184717) do
     t.string "parish"
     t.string "landline"
     t.string "email"
+    t.datetime "deleted_at"
+    t.index ["deleted_at"], name: "index_politicians_on_deleted_at"
     t.index ["parish_id"], name: "fk_rails_3acf0946b4"
   end
 
@@ -81,19 +88,17 @@ ActiveRecord::Schema.define(version: 20171114184717) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "searches", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "terms", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.integer "parish_id"
+    t.string "position"
+    t.bigint "parish_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "politician_id"
+    t.bigint "politician_id"
     t.integer "office_id"
-    t.datetime "begin_date"
-    t.datetime "end_date"
+    t.date "begin_date"
+    t.date "end_date"
+    t.index ["parish_id"], name: "fk_rails_9b43323b34"
+    t.index ["politician_id"], name: "fk_rails_896ea326e5"
   end
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -137,6 +142,8 @@ ActiveRecord::Schema.define(version: 20171114184717) do
   add_foreign_key "politicians", "parishes"
   add_foreign_key "propositions", "politicians"
   add_foreign_key "propositions", "votes"
+  add_foreign_key "terms", "parishes"
+  add_foreign_key "terms", "politicians"
   add_foreign_key "users", "roles"
   add_foreign_key "votes", "politicians"
   add_foreign_key "votes", "propositions"
