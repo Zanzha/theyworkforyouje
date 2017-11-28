@@ -26,9 +26,11 @@ class UsersController < ApplicationController
   # POST /notices
   # POST /notices.json
   def create
-    @user = User.new(role_id: 2, created_by: current_user.id)
+    @user = User.new(user_params)
+    @user.role_id = 1
+    @user.created_by = current_user.id
     respond_to do |format|
-      if @notice.save
+      if @user.save
         format.html { redirect_to @user, user: 'User was successfully created.' }
         format.json { render :show, status: :created, location: @user }
       else
@@ -74,6 +76,6 @@ end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:user_id, :username, :email, :role_id, :password, :password_confirmation, :created_by)
+      params.require(:user ).permit(:user_id, :username, :email, :role_id,:password, :password_confirmation, :created_by)
     end
 end

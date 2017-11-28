@@ -2,169 +2,116 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.person_wraper {
-  display: block;
+
+.deleted_alert{
+  text-align: center;
+  margin-top:10px;
+  font-weight: bold;
+  color:red;
 }
 
-.avatar {
+.politician_list  img {
+  max-height: 180px;
+}
+
+.politician_list .card {
+	height: 335px;
+	margin: 10px 0 10px;
+	max-width: 150px;
+}
+
+.politician_list .card-footer {
+	line-height:10px;
+	height: 40px;
+	overflow:hidden;
+}
+
+.politician_list h4 {
+	height: 40px;
+	font-size: 16px;
+	overflow: hidden;
+}
+
+.politician_list .card-subtitle     {
+	font-size:16px;
+}
+
+.person_wraper {
+  display: block;
+	padding-top: 2em;
+}
+
+.person_wraper .card {
+  flex-direction: column;
+}
+
+.card--fixed-width {
+  width: 160px;
+}
+
+.person_wraper .avatar {
   margin: 1em;
   border-radius: 1px;
   box-shadow: 1px 1px 1px #888888;
 }
 
-.people-list-alphabet {
-    margin-top: 1em;
-    margin-left: -0.2em
+.person_wraper_chart {
+	padding-top: 2em;
 }
-.people-list-alphabet a {
-    color: #6c6b68;
-    text-decoration: none;
-    padding: 0.2em
-}
-.people-list-alphabet a:hover,
-.people-list-alphabet a:focus {
-    color: #62b356
-}
-.people-list {
-    margin-top: 1em
-}
-.people-list__person {
-    display: block;
-    padding: 1.2em 0 1.2em 60px;
-    border-top: 1px solid #f3f1eb;
-    position: relative;
-    color: inherit
-}
-.people-list__person:hover,
-.people-list__person:focus {
-    text-decoration: none;
-    color: inherit
-}
-.people-list__person:hover .people-list__person__name,
-.people-list__person:focus .people-list__person__name {
-    color: #62b356;
-    text-decoration: underline
-}
-.people-list__person__image {
-    position: absolute;
-    top: 1.2em;
-    left: 0;
-    width: 45px
-}
-.people-list__person__name {
-    color: inherit;
-    margin: 0;
-    line-height: 1.2em
-}
-.people-list__person__memberships {
-    margin: 0.2em -0.3em 0 -0.3em;
-    line-height: 1.4em;
-    color: #878582
-}
-.people-list__person__memberships>* {
-    margin: 0 0.3em
-}
-.people-list__person__party {
-    white-space: nowrap
-}
-.people-list__person__party:before {
-    content: "";
-    display: inline-block;
-    height: 0.6em;
-    width: 0.6em;
-    -moz-border-radius: 0.6em;
-    -webkit-border-radius: 0.6em;
-    border-radius: 0.6em;
-    background-color: #ccc;
-    margin-right: 0.3em;
-    vertical-align: 0.05em
-}
-.people-list__person__party.conservative:before {
-    background-color: #166fd2
-}
-.people-list__person__party.labour:before {
-    background-color: #ee3224
-}
-.people-list__person__party.liberal:before {
-    background-color: #fb3
-}
-.people-list__person__party.snp:before {
-    background-color: #fff95d
-}
-.people-list__person__party.green:before {
-    background-color: #6ab023
-}
-.people-list__person__positions {
-    margin-left: 0;
-    list-style: none outside none;
-    color: #a2a09c;
-    max-width: 26em;
-    margin: 0
-}
-.people-list__person__positions li {
-    font-weight: normal;
-    font-size: 0.8em;
-    line-height: 1.2em;
-    margin-top: 0.5em
-}
-.search-page__section--your-mp {
-    background-color: #FFFCD9
-}
-.people-list__your-mp .people-list__person {
-    border-top-color: #e5e2c3;
-    margin-top: 0.5em;
-    padding-bottom: 0
-}
-.people-list__your-mp__header h3 {
-    font-weight: normal;
-    font-size: 1.2em;
-    color: #6c6b68;
-    margin: 0
-}
-.people-list__your-mp__header p {
-    color: #989689;
-    margin-bottom: 0.5em
-}
-.people-list__your-mp__header p a {
-    margin-left: 0.2em
-}
-@media (min-width: 48em) {
-    .people-list__your-mp__header:before,
-    .people-list__your-mp__header:after {
-        content: " ";
-        display: table
-    }
-    .people-list__your-mp__header:after {
-        clear: both
-    }
-    .people-list__your-mp__header {
-        *zoom: 1
-    }
-    .people-list__your-mp__header h3 {
-        float: left
-    }
-    .people-list__your-mp__header p {
-        float: right;
-        margin-bottom: 0
-    }
-}
-.people-list__your-mp__replist-header {
-    margin-top: 1em
-}
-.people-list__your-mp__replist-header h3 {
-    padding-top: 0.5em;
-    border-top: 1px solid #e5e2c3;
-    font-weight: normal;
-    font-size: 1.2em;
-    color: #6c6b68;
-    margin: 0
-}
-.person_wraper {
-	min-width:330px;
-}
+
 li {
-	list-style: none; 
+	list-style: none;
 }
+
 #chart_div {
-	min-height:200px; 
+	min-height:200px;
+}
+
+.vote-descriptions > li {
+	position: relative;
+	border-bottom: 1px solid #e4e2dc;
+	line-height: 1.5em;
+	padding-top: 0.4m;
+	padding-bottom: 0.4em;
+}
+.vote-descriptions>li:first-child {
+	border-top: 1px solid #e4e2dc
+}
+
+thead{
+  background-color: #59ABE3;
+}
+
+.mng_tbl_head th{
+  border-bottom:2px black solid;
+}
+
+.mng_tbl_row tr{
+  border-bottom:1px grey solid;
+}
+
+.mng_tbl{
+  width: 85%;
+  border: 1px black solid;
+  border-radius: 1px;
+  margin:auto;
+}
+
+.active{
+  background-color: #59ABE3;
+}
+.deleted{
+  background-color: #CF000F;
+  color: white;
+}
+.break{
+  height:20px;
+}
+
+.theader{
+  text-align: center;
+  font-weight: bold;}
+
+.no-flex-grow {
+  flex-grow: 0
 }

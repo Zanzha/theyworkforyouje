@@ -1,24 +1,46 @@
 Rails.application.routes.draw do
-  get 'import/index'
-  get 'import_props/index'
-  resources :import_politicians
-  get 'import/index'
-  devise_for :users, :path_prefix => 'my'
-  resources :users
-  resources :roles
+
+  resource :admin_panel
   root to: "home#index"
-  get 'home/index'
-  get 'notices/index'
-  get 'offices/index'
-  get 'politicians/index'
-  get 'propositions/index'
-  get 'terms/index'
-  resources :politicians
-  resources :notices
+
+  devise_for :users, :path_prefix => 'my'
+
+  resources :users
+  resources :import_politicians
+
+
   resources :votes
   resources :propositions
   resources :terms
   resources :offices
   resources :parishes
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+
+  resources :notices do
+  collection do
+    get :manage
+  end
+end
+
+resources :politicians do
+  collection do
+    get :manage
+  end
+end
+
+  get 'import/index'
+  get 'import_props/index'
+  get 'import_terms/index'
+  get 'import_terms/show'
+  get 'terms/index'
+  get 'import/index'
+  get 'home/index'
+  get 'notices/index'
+  get 'offices/index'
+  get 'politicians/index'
+  get 'propositions/index'
+  get 'search', to: 'search#index'
+  get 'privacy', to: 'static_pages#privacy'
+  get 'termsandconditions' , to: 'static_pages#tandc'
+  post 'politicians/:id(.:format)', to:'politicians#restore'
+
 end

@@ -1,6 +1,6 @@
 class OfficesController < ApplicationController
   before_action :set_office, only: [:show, :edit, :update, :destroy]
-
+load_and_authorize_resource
   # GET /offices
   # GET /offices.json
   def index
@@ -54,9 +54,9 @@ class OfficesController < ApplicationController
   # DELETE /offices/1
   # DELETE /offices/1.json
   def destroy
-    @office.destroy
+    @office.delete
     respond_to do |format|
-      format.html { redirect_to offices_url, notice: 'Office was successfully destroyed.' }
+      format.html { redirect_to offices_url, notice: 'Office was successfully deleted.' }
       format.json { head :no_content }
     end
   end

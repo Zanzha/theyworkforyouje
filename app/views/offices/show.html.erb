@@ -5,5 +5,11 @@
   <%= @office.position %>
 </p>
 
-<%= link_to 'Edit', edit_office_path(@office) %> |
-<%= link_to 'Back', offices_path %>
+<div class="manage_container">
+<% if !current_user.blank? && current_user.role_id == 1 %>
+          <div class="manage_button"><%= link_to 'Edit', edit_office_path(@office) %></div>
+          <div class="manage_button"><%= link_to 'Delete', @office, method: :delete, data: { confirm: 'Are you sure?' } %></div>
+
+<% end %>
+  <div class="manage_button"><%= link_to 'Back', offices_path %></div>
+</div>

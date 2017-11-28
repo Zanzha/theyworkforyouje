@@ -1,10 +1,12 @@
 class ParishesController < ApplicationController
   before_action :set_parish, only: [:show, :edit, :update, :destroy]
+  load_and_authorize_resource
 
   # GET /parishes
   # GET /parishes.json
   def index
     @parishes = Parish.all
+    @politicians = Politician.all
   end
 
   # GET /parishes/1
@@ -60,6 +62,7 @@ class ParishesController < ApplicationController
       format.json { head :no_content }
     end
   end
+
 
   private
     # Use callbacks to share common setup or constraints between actions.

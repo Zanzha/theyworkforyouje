@@ -13,3 +13,26 @@
 //= require rails-ujs
 //= require turbolinks
 //= require_tree .
+//= require jquery3
+//= require popper
+//= require bootstrap-sprockets
+//= require masonry.pkgd
+
+{/* <script>
+  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  crossorigin="anonymous">
+</script>
+
+<script>
+  // Initialize masonary on the grid
+  var $grid = $('.grid').masonry({
+    itemSelector: '.grid-item',
+    columnWidth: 200
+  });
+
+  // On click remove (or add) the hidden class and reinitailze masonary
+  $grid.on( 'click', '.grid-item', function() {
+    $($(this).data('target')).toggleClass('hidden')
+    $grid.masonry()
+  })
+</script> */}

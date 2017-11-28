@@ -7,29 +7,25 @@
       </div>
 
       <div class="main_index col-md-5">
-        <h1>
-            Democracy: it’s for everyone
-        </h1>
-        <p>
-            You shouldn’t have to be an expert to understand what goes on in States Chamber. Your politicians represent you… but what exactly do they do in your name?<br>
-            TheyWorkForYouJersey takes open data from the Parliament, and presents it in a way that’s easy to follow – for everyone. So now you can check, with just a few clicks:
-            <h3> are They Working For You?</h3>
+        <h1>Democracy Is For Everyone.</h1>
+
+          <h5>You shouldn’t have to be an expert to understand what goes on in the States Chamber.</h5>
+
+          <h5>Your politicians represent you - but what exactly do they do in your name?</h5>
+
+          <h5>TheyWorkForYouJersey takes open data from the States and presents it in a way that’s easy to follow  - for everyone!</h5>
+
+            <h3>So now, with just a few clicks, you can check:</h3>
+            
+            <h1>Are They Working For You?</h1>
         </p>
       </div>
     </div>
 
   </div>
-  <div class="home_notice">
-    <h5>
-      Latest news
-    </h5>
-    <p>
-      <% @notices.each do |notice| %>
-      <%= notice.title %><br>
-      <%= notice.content[0,150] %>
-      <%= "..." %>
-      <%= link_to "read more", notices_path %>
-      <% end %>
-    </p>
-  </div>
+
+   <h2> Notice Board </h2>
+    <% @notices.each do |notice| %>
+    <%= render 'notices/notice_home', notice: notice %>
+    <% end %>
 </body>

@@ -2,11 +2,28 @@
 <% @year = Time.new.year %>
 
 <footer class="navbar navbar-light bg-light">
+  <div></div>
+
   <span class="navbar-text">
-    theyworkforyouje
+    <%= @title %>
     &copy;
     <%= @year %>
     </br></br>
-    <span class="privacy-text">Privacy Policy</span> - <span class="dont-sue-me">Don't sue us plz thanx</span>
+    <%= link_to "Privacy Policy", privacy_path, class: "container static" %>
+    <%= link_to "Terms and Conditions", termsandconditions_path, class: "container static" %>
   </span>
+
+<div>
+
+<% if user_signed_in? %>
+<%=link_to "Log Out", destroy_user_session_path%>
+<%else%>
+<%=link_to "Sign In", new_user_session_path%>
+<%end%>
+<br><br>
+<%  if user_signed_in? && current_user.role.name == "Admin"%>
+<%=link_to "Admin Panel", admin_panel_path %>
+<%end%>
+</div>
+
 </footer>

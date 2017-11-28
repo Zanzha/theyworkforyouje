@@ -1,20 +1,23 @@
 class VotesController < ApplicationController
   before_action :set_vote, only: [:show, :edit, :update, :destroy]
-
+load_and_authorize_resource
   # GET /votes
   # GET /votes.json
   def index
     @votes = Vote.all
+    @votes_grouped = @votes.group(:proposition_title).order("id DESC")
+    @votes_grouped_pagination = @votes_grouped.paginate(:page => params[:page])
   end
 
   # GET /votes/1
   # GET /votes/1.json
   def show
-#	@votes = Vote.all
 	@propositions = Proposition.all
-	@mainid = Vote.find(params[:id])
-	@mainid = @mainid.voting_id.to_i
-	@shared_voteid = Vote.find_by_sql("SELECT * FROM votes WHERE voting_id=#{@mainid}")
+  @politicians = Politician.all
+	@mainid = Vote.find(params[:id]).voting_id.to_i
+	@proposition = Proposition.where(p_id: @vote.p_id).take
+    @shared_voteid = Vote.where(voting_id: @mainid)
+    @shared_voteid_type = Vote.where(voting_id: @mainid).group_by(&:vote_type)
   end
 
   # GET /votes/new
