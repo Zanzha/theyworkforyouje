@@ -1,49 +1,51 @@
 <div class="search_wrapper">
-
-  <% if !params['q'].blank? %>
-
-    <% if @meta_results.length > 0 %>
-      <h6>
-        Your search results for "<%= params['q'] %>" returned <%= @meta_results.length %> results.
-      </h6>
-    <% end %>
-
-    <div>
-      <% @pol_results.each do |pol| %>
-        <div class="search_pol">
-          <span class="search_title">
-            <%= pol['title'] %>
-          </span>
-          <span class="search_label">
-            <%= pol['label'] %>
-          </span>
-          <span class="search_link">
-            <%= pol['link'] %>
-          </span>
-        </div>
-      <% end %>
-    </div>
-
-    <div class="search_prop">
-      <% @prop_results.each do |prop| %>
-        <div class="search_prop">
-          <div class="search_lodgeby">
-            Lodged By: <%= prop['proposer'] %>
-          </div>
-          <span class="search_label">
-            <%= prop['label'] %>
-          </span>
-          <span class="search_link">
-            <%= prop['link'] %>
-          </span>
-        </div>
-      <% end %>
-    </div>
-
-    <% if @meta_results == 0 %>
-      <p>Your search for <%= params['q'] %> returned no results</p>
-    <% end %>
-
-  <% end %>
-
+<% if !params['q'].blank? %>
+<h6>Your search results for "<%= params['q'] %>" returned <%= pluralize(@politicians.count, 'Politician') %> and <%= pluralize(@propositions.count, 'Proposition') %>.</h6>
+<div class="container">
+   <div class="politician_list">
+      <div class="row">
+         <% if params['page'].blank? %>
+         <% @politicians.each do |politician| %>
+         <div class="col no-flex-grow">
+            <div class="card card--fixed-width">
+               <img src="<%= politician.avatar %>" alt="<%= politician.title %> <%= politician.full_name %>">
+               <div class="card-body">
+                  <h4 class="card-title">
+                     <%= link_to politician.full_name, politician %>
+                  </h4>
+               </div>
+            </div>
+         </div>
+         <% end %>
+         <% end %>
+      </div>
+   </div>
+   <% @propositions.each do |proposition| %>
+   <div class="container vote_prop">
+      <div class="row">
+         <div class="col-10">
+            <div class="vote_title">
+               <%== '<s>' if proposition.status == 'Withdrawn' %>
+               <%= link_to proposition.prop_name, proposition %>
+               <%== '</s><small class="text-muted">(withdrawn)</small>' if proposition.status == 'Withdrawn' %>
+            </div>
+            <% if !current_user.blank? && current_user.role_id == 1 %>
+            <div class="manage_container">
+               <%= link_to 'Edit', edit_proposition_path(proposition),class:"btn btn-primary manage_button" %>
+               <%= link_to 'Delete', proposition, method: :delete, data: {confirm: 'Are you sure?'},class:"btn btn-primary manage_button" %>
+            </div>
+            <% end %>
+         </div>
+      </div>
+   </div>
+   <% end %>
+   <div class="digg_pagination">
+      <div class="page_info">
+         <%= page_entries_info @propositions %>
+      </div>
+      <div class="page_select">
+         <%= will_paginate @propositions, :container => false %>
+      </div>
+   </div>
+   <% end %>
 </div>

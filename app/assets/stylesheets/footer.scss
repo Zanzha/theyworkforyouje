@@ -1,17 +1,21 @@
 $green: #00B541;
 $border: 1px solid $green;
 
+footer{
+  margin-top:10px;
+}
+
 footer.navbar {
   min-width: 100%;
   min-height: 6em;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   border-top: $border;
 }
 .navbar-text {
   text-align: center;
 }
-.privacy-text, .dont-sue-me {
+.privacy-text, .terms-and-conditions {
   font-size: 0.8em;
 }

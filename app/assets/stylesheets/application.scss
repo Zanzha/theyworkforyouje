@@ -29,11 +29,16 @@ $border: 1px solid $green;
 a:hover {
   background-color: transparent;
 }
+body{
+  margin:0;
+}
+
 body, html {
   display: flex;
   flex-direction: column;
   width: 100%;
   min-height: 100vh;
+  margin:0;
 }
 .meta-wrapper {
   display: flex;
