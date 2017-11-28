@@ -4,7 +4,12 @@ class TermsController < ApplicationController
   # GET /terms
   # GET /terms.json
   def index
-    @terms = Term.all
+    #@terms = Term.all
+    @parishes = Parish.all
+    first_term = Term.order(:begin_date).select('YEAR(`begin_date`) AS begin_date').first
+    end_term = Term.order(end_date: :desc).select('YEAR(`end_date`) AS end_date').first
+    @first_year = first_term['begin_date'].to_i
+    @last_year = end_term['end_date'].to_i
   end
 
   # GET /terms/1
