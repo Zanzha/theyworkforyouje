@@ -11,54 +11,20 @@
             </a>
         </h5>
       </div>
-      <div id="collapse-<%= term.parish.name %>" class="collapse" role="tabpanel" aria-labelledby="headingOne" data-parent="#accordion">
+      <div id="collapse-<%= parish.id %>" class="collapse" role="tabpanel" aria-labelledby="headingOne" data-parent="#accordion">
         <div class="container parish">
           <div class="row">
             <div class="col-6 parish_desc">
-              <%= term.parish.name  %>
+              <%= parish.name  %>
 
             </div>
             <div class="col-6">
 
-              <%  (first_year..last_year).each do |year| %>
+              <%  (@first_year..@last_year).each do |year| %>
                 <%= puts year %>
                 <% end %>
 
-                <!-- <% if  (term.politician_id) %>
-                 <div class="container term_container">
-                    <div class="row">
-                       <div class="col-2">
-                           <%= term.parish.name %>
-                       </div>
-                       <div class="col-3">
-                           <%= term.position %>
-                       </div>
-                       <div class="col-1">
-                           <%= term.politician.title %>
-                       </div>
-                       <div class="col-2">
-                           <%= term.politician.full_name %>
-                       </div>
-                       <div class="col-2">
-                           <%= term.begin_date %>
-                       </div>
-                       <div class="col-2">
-                           <%= term.end_date %>
-                       </div>
-
-                      <% if !current_user.blank? && current_user.role_id == 1 %>
-                        <div class="col">
-                          <div class="manage_container">
-                             <%= link_to 'Edit', edit_proposition_path(proposition),class:"btn btn-primary manage_button" %>
-                            <%= link_to 'Delete', proposition, method: :delete, data: {confirm: 'Are you sure?'},class:"btn btn-primary manage_button" %>
-                               <%= link_to 'New Term', new_term_path %>
-                          </div>
-                        </div>
-                      <% end %>
-                    </div>
-                  </div>
-                <% end %> -->
-
+              
             </div>
           </div>
         </div>
