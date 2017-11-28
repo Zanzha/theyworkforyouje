@@ -2,6 +2,7 @@
 
 <div class="vote_wraper">
   <h1>Propositions</h1>
+  <p><span class="badge badge-secondary">new</span> Proposition awaiting vote </p>
   <div>
      <% @propositions.each do |proposition| %>
      <div class="container vote_prop">
@@ -11,6 +12,9 @@
                  <%== '<s>' if proposition.status == 'Withdrawn' %>
                  <%= link_to proposition.prop_name, proposition %>
                  <%== '</s><small class="text-muted">(withdrawn)</small>' if proposition.status == 'Withdrawn' %>
+                 <% if proposition.votes.count == 0 %>
+                    <span class="badge badge-secondary">new</span>
+                 <% end %>
               </div>
               <div class="vote_lodgeby">Lodged By:
                  <%= proposition.lodged_by %> on <%= proposition.prop_date.strftime('%F') %>
