@@ -1,31 +1,29 @@
 <body>
   <div class="main_index_wraper container">
     <div class="row">
-      <div class="main_index_pic col-md-6">
+      <div class="main_index_pic col-md-7">
       </div>
-      <div class="spacer col-md-1">
-      </div>
-
       <div class="main_index col-md-5">
-        <h1>Democracy Is For Everyone.</h1>
+        <h2>Democracy Is For Everyone.</h2>
 
-          <h5>You shouldn’t have to be an expert to understand what goes on in the States Chamber.</h5>
+        <p>You shouldn’t have to be an expert to understand what goes on in the States Chamber.
+        Your politicians represent you - but what exactly do they do in your name?</p>
 
-          <h5>Your politicians represent you - but what exactly do they do in your name?</h5>
+        <p>TheyWorkForYouJersey takes open data from the States and presents it in a way that’s easy to follow  - for everyone!</p>
 
-          <h5>TheyWorkForYouJersey takes open data from the States and presents it in a way that’s easy to follow  - for everyone!</h5>
+        <p>So now, with just a few clicks, you can check:</p>
 
-            <h3>So now, with just a few clicks, you can check:</h3>
-            
-            <h1>Are They Working For You?</h1>
-        </p>
+        <h3>Are They Working For You?</h3>
+
       </div>
     </div>
 
   </div>
+  <div class="container_notice">
+    <h2> Notice Board </h2>
 
-   <h2> Notice Board </h2>
-    <% @notices.each do |notice| %>
-    <%= render 'notices/notice_home', notice: notice %>
-    <% end %>
+     <% @notices.each do |notice| %>
+     <%= render 'notices/notice_home', notice: notice %>
+     <% end %>
+  </div>
 </body>
