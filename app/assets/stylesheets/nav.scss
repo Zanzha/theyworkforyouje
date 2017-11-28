@@ -1,27 +1,108 @@
-$green: #00B541;
-$border: 1px solid $green;
+// OLD NAV STYLE
 
-nav.navbar {
-  min-width: 100%;
-  min-height: 5em;
-  border-bottom: $border;
-  li.external-nav {
-    padding-left: 11em;
-    a {
-    text-decoration: underline;
+// $green: #00B541;
+// $border: 1px solid $green;
+
+// nav.navbar {
+//   min-width: 100%;
+//   min-height: 5em;
+//   border-bottom: $border;
+//   li.external-nav {
+//     padding-left: 11em;
+//     a {
+//     text-decoration: underline;
+//     }
+//     a:hover {
+//     background-color: transparent;
+//     }
+//   }
+//   .form-control { 
+//     // width: 100%;
+//   }
+//   a:hover {
+//     background-color: $green;
+//     border-radius: 5px;
+//   }
+//   a.navbar-brand:hover {
+//     background-color: transparent;
+//   }
+// }
+
+
+
+
+// NAVBAR STYLING
+
+.navbar {
+  height: 3.8em;
+  border: 1px solid rgba(0, 0, 0, 0.6);
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
+
+  .container {
+    padding: 0;
+  }
+
+  .navbar-toggler {
+    border-color: rgba(0, 0, 0, 0.6);
+  }
+
+  &-fixed-top {
+    border-width: 0 0 1px 0;
+  }
+
+  &-fixed-bottom {
+    border-width: 1px 0 0 0;
+  }
+
+  .nav-link {
+    padding: 1rem;
+    border-left: 1px solid rgba(255, 255, 255, 0.1);
+    border-right: 1px solid rgba(0, 0, 0, 0.2);
+
+    &:hover,
+    &:focus {
+      // @include btn-shadow-inverse($gray-800);
+      border-left: 1px solid rgba(0, 0, 0, 0.2);
     }
-    a:hover {
-    background-color: transparent;
+  }
+
+  &-brand {
+    padding: 0.75rem 1rem calc(54px - 0.75rem - 30px);
+    margin-right: 0;
+    border-right: 1px solid rgba(0, 0, 0, 0.2);
+  }
+
+  .nav-item.active .nav-link {
+    background-color: rgba(0, 0, 0, 0.3);
+    border-left: 1px solid rgba(0, 0, 0, 0.2);
+  }
+
+  &-nav .nav-item + .nav-item {
+    margin-left: 0;
+  }
+}
+
+@media (max-width: 576px) {
+  .navbar-expand-sm {
+    .navbar-brand,
+    .nav-link {
+      border: none !important;
     }
   }
-  .form-control { 
-    // width: 100%;
+}
+@media (max-width: 768px) {
+  .navbar-expand-md {
+    .navbar-brand,
+    .nav-link {
+      border: none !important;
+    }
   }
-  a:hover {
-    background-color: $green;
-    border-radius: 5px;
-  }
-  a.navbar-brand:hover {
-    background-color: transparent;
+}
+@media (max-width: 992px) {
+  .navbar-expand-lg {
+    .navbar-brand,
+    .nav-link {
+      border: none !important;
+    }
   }
 }
