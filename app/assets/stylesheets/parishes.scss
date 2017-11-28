@@ -7,13 +7,16 @@
   justify-content: center;
   align-content: center;
   margin: 0 auto;
-  max-width: 75%;
+  min-width: 100%;
 }
 #accordion {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-content: center;
+  margin: 0 auto;
   text-align: center;
+  min-width: 75%;
   // padding: 0 7em 0 5em;
   // padding-right: 7em;
 }
@@ -23,7 +26,7 @@
   flex-direction: column;
   margin-top: 0.2em;
   // margin-left: 2em;
-  min-width: 50px;
+  max-width: 100%;
   border: none;
 }
 

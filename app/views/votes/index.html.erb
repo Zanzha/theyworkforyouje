@@ -29,8 +29,12 @@
       <div class="page_info">
         <%= page_entries_info @votes_grouped_pagination %>
       </div>
-      <%= will_paginate @votes_grouped_pagination, :container => false %>
-
+      <div class="page_select">
+        <%= will_paginate @votes_grouped_pagination, :container => false %>
+      </div>
    </div>
 </div>
-<%= link_to 'New Vote', new_vote_path, class:"btn btn-primary" %>
+
+<% if !current_user.blank? && current_user.role_id == 1 %>
+  <%= link_to 'New Vote', new_vote_path, class:"btn btn-primary" %>
+<% end %>
