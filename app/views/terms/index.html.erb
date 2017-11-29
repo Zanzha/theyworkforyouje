@@ -14,17 +14,17 @@
       <div id="collapse-<%= parish.id %>" class="collapse" role="tabpanel" aria-labelledby="headingOne" data-parent="#accordion">
         <div class="container parish">
           <div class="row">
-            <div class="col-6 parish_desc">
-              <%= parish.name  %>
-
+            <div class="col-3 parish_desc">
+              <span> Represented in:
+              </span>
             </div>
-            <div class="col-6">
+            <div class="col-9">
+              <% (@first_year..@last_year).each do |year| %>
+                <span class="term_year">
+                  <%= link_to year %>
 
-              <%  (@first_year..@last_year).each do |year| %>
-                <%= puts year %>
-                <% end %>
-
-              
+                </span>
+              <% end %>
             </div>
           </div>
         </div>
