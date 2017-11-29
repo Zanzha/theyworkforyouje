@@ -2,31 +2,20 @@
 
 <p>
   <strong>Parishid:</strong>
-  <%= @term.parish_id %>
-</p>
 
-<p>
-  <strong>Title:</strong>
-  <%= @term.politician.title %>
-</p>
-
-<p>
-  <strong>First name:</strong>
-  <%= @term.politician.first_name %>
-</p>
-
-<p>
-  <strong>Middle name:</strong>
-  <%= @term.politician.middle_name %>
-</p>
-
-<p>
-  <strong>Last name:</strong>
-  <%= @term.politician.last_name %>
+  <% @terms.each do |t| %>
+    <div>
+      <%= t.parish.name %>
+      <%= t.politician_id %>
+      <%= t.position %>
+      <%= t.begin_date %>
+      <%= t.end_date %>
+    </div>
+    <% end %>
 </p>
 
 
-REWRITE ALL OF THIS^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
 
 <div class="manage_container">
 <% if !current_user.blank? && current_user.role_id == 1 %>

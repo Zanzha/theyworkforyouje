@@ -1,17 +1,14 @@
 class TermsController < ApplicationController
-  
+
 
   # GET /terms
   # GET /terms.json
   def index
-    #@terms = Term.all
     @parishes = Parish.all
     first_term = Term.order(:begin_date).select('YEAR(`begin_date`) AS begin_date').first
     end_term = Term.order(end_date: :desc).select('YEAR(`end_date`) AS end_date').first
     @first_year = first_term['begin_date'].to_i
     @last_year = end_term['end_date'].to_i
-
-
 
     terms = Term.where("`parish_id` = ? AND YEAR(`begin_date`) <= ? AND YEAR(`end_date`) >= ? ", params[:parish_id], params[:year], params[:year])
 
@@ -20,6 +17,7 @@ class TermsController < ApplicationController
   # GET /terms/1
   # GET /terms/1.json
   def show
+    @parishes = Parish.all
     @terms = Term.where("`parish_id` = ? AND YEAR(`begin_date`) <= ? AND YEAR(`end_date`) >= ? ", params[:parish_id], params[:year], params[:year])
   end
 
