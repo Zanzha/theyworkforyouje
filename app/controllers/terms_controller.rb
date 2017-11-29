@@ -20,7 +20,8 @@ class TermsController < ApplicationController
   # GET /terms/1
   # GET /terms/1.json
   def show
-
+    puts params['parish_id']
+    puts params['year']
   end
 
   # GET /terms/new
