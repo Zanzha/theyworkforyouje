@@ -15,10 +15,6 @@ class TermsController < ApplicationController
 
     terms = Term.where("`parish_id` = ? AND YEAR(`begin_date`) <= ? AND YEAR(`end_date`) >= ? ", params[:parish_id], params[:year], params[:year])
 
-
-  #author_id = params[:author_id]
-
-
   end
 
   # GET /terms/1
