@@ -1,5 +1,5 @@
 class TermsController < ApplicationController
-  before_action :set_term, only: [:show, :edit, :update, :destroy]
+  
 
   # GET /terms
   # GET /terms.json
@@ -20,8 +20,7 @@ class TermsController < ApplicationController
   # GET /terms/1
   # GET /terms/1.json
   def show
-    puts params['parish_id']
-    puts params['year']
+    terms = Term.where("`parish_id` = ? AND YEAR(`begin_date`) <= ? AND YEAR(`end_date`) >= ? ", params[:parish_id], params[:year], params[:year])
   end
 
   # GET /terms/new
