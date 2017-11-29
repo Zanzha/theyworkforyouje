@@ -1,13 +1,15 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Parishid:</strong>
+  <strong>Parish has been represented by: </strong>
 
   <% @terms.each do |t| %>
     <div>
-      <%= t.parish.name %>
-      <%= t.politician_id %>
       <%= t.position %>
+      <% if t.politician_id.present? %>
+        <%= t.politician.full_name %>
+        <% end %>
+
       <%= t.begin_date %>
       <%= t.end_date %>
     </div>

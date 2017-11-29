@@ -17,7 +17,7 @@ class TermsController < ApplicationController
   # GET /terms/1
   # GET /terms/1.json
   def show
-    @parishes = Parish.all
+    @politicians = Politician.all
     @terms = Term.where("`parish_id` = ? AND YEAR(`begin_date`) <= ? AND YEAR(`end_date`) >= ? ", params[:parish_id], params[:year], params[:year])
   end
 
