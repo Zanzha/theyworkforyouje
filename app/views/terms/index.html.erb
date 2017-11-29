@@ -21,7 +21,9 @@
             <div class="col-9">
               <% (@first_year..@last_year).each do |year| %>
                 <span class="term_year">
-                  <%= link_to year %>
+                  <%= link_to terms_url %>
+
+
 
                 </span>
               <% end %>

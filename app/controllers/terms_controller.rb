@@ -10,7 +10,15 @@ class TermsController < ApplicationController
     end_term = Term.order(end_date: :desc).select('YEAR(`end_date`) AS end_date').first
     @first_year = first_term['begin_date'].to_i
     @last_year = end_term['end_date'].to_i
-    #@terms = Term.all.where("term.parish_id = parish_id")
+
+
+
+    terms = Term.where("`parish_id` = ? AND YEAR(`begin_date`) <= ? AND YEAR(`end_date`) >= ? ", params[:parish_id], params[:year], params[:year])
+
+
+  #author_id = params[:author_id]
+
+
   end
 
   # GET /terms/1
@@ -31,7 +39,7 @@ class TermsController < ApplicationController
   # POST /terms
   # POST /terms.json
   def create
-    @terms = Term.new(term_params)
+    @term = Term.new(term_params)
 
     respond_to do |format|
       if @term.save
@@ -71,8 +79,9 @@ class TermsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_term
-      @terms = Term.find(params[:id])
+      @term = Term.find(params[:id])
     end
+
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def term_params
