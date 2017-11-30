@@ -1,9 +1,55 @@
 // Place all the styles related to the Home controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-$green: #00B541;
+$greenbg: #379219;
+$greenborder: #143a08;
 
+.hero-image
+{
+  width: 100%;
+}
 
+.home_notice_container
+{
+}
+
+.home_notice_title
+{
+  text-align: center;
+  padding: 10px;
+  background-color: $greenbg;
+  padding: 20px;
+  border: solid 1px $greenbg;
+  border-bottom: solid 1px $greenborder;
+}
+
+.home_notice_title a
+{
+  color: #fff;  
+  font-size: 1.2em;
+}
+
+.home_notice_author
+{
+  text-align: right;  
+  padding: 5px 20px;
+  font-style: italic;
+  font-size: 0.7em;
+  border: solid 1px $greenborder;
+  border-top: 0;
+  border-bottom: 0;
+}
+
+.home_notice_content
+{
+  text-align: justify;  
+  padding: 20px;
+  border: solid 1px $greenborder;
+  border-top: 0;
+  font-size: 0.9em;
+}
+
+/*
 .main_index_wraper {
   display: flex;
   flex-direction: row;
@@ -40,3 +86,4 @@ $green: #00B541;
   border-top: 1px solid green;
   padding: 2em;
 }
+*/
