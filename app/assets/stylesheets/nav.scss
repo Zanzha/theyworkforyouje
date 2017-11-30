@@ -1,7 +1,10 @@
-$green: #00B541;
-$border: 1px solid $green;
+$greenbg: #379219;
+$greenborder: #143a08;
+
+$border: 1px solid $greenborder;
 
 nav.navbar {
+  background-color: $greenbg;
   min-width: 100%;
   min-height: 5em;
   border-bottom: $border;
@@ -18,7 +21,7 @@ nav.navbar {
     // width: 100%;
   }
   a:hover {
-    background-color: $green;
+    background-color: $greenborder;
     border-radius: 5px;
   }
   a.navbar-brand:hover {

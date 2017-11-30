@@ -1,11 +1,11 @@
-<div class="notice_container">
-    <div class="notice_title">
+<div class="home_notice_container">
+    <div class="home_notice_title">
       <%= link_to notice.title,notice %>
     </div>
-    <div class="notice_author">
+    <div class="home_notice_author">
       <i>Written by  <%= notice.user.username %> - <%= notice.created_at.strftime("%d %b. %Y") %> </i>
     </div>
-    <div class="notice_content">
+    <div class="home_notice_content">
       <%= notice.content %>
     </div>
 
