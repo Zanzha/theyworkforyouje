@@ -26,6 +26,9 @@
              ['Out of island', <%= @votes.where(vote_type: 'Out of the island').count %>],
              ['Not present for vote', <%= @votes.where(vote_type: 'Not present for vote').count %>],
              ['Unwell', <%= @votes.where(vote_type: 'Ill').count %>],
+             ['En défaut', <%= @votes.where(vote_type: 'En défaut').count %>],
+             ['Abstained', <%= @votes.where(vote_type: 'Abstained').count %>],
+
            ]);
            var options = {'title':'Breakdown of <%= number_with_delimiter(@votes.count) %> Votes','is3D': true};
           var chart = new google.visualization.PieChart(document.getElementById('chart_div'));
