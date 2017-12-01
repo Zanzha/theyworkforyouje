@@ -5,7 +5,7 @@ class PoliticiansController < ApplicationController
   # GET /politicians.json
 
   def index
-    @politicians = Politician.all
+    @politicians = Politician.where(in_term:1)
     @politicians_grouped = @politicians.group_by(&:title)
   end
 
