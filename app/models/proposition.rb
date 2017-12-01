@@ -1,5 +1,5 @@
 class Proposition < ApplicationRecord
- belongs_to :politician
+# belongs_to :politician
  has_many :votes
 
   def self.search(query)
