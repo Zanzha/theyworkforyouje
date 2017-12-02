@@ -25,6 +25,22 @@
 
 // NAVBAR STYLING
 
+footer.navbar {
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  text-align: center;
+}
+
+span.navbar-text {
+  max-height: 80%;
+  margin: 0 auto;
+}
+
+span.text-padding {
+  margin-bottom: 1em;
+}
+
 .navbar {
   min-height: 5em;
   margin: 0;
