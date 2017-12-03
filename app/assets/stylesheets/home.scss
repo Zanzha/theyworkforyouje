@@ -52,22 +52,26 @@ $greenborder: #143a08;
 .main_index {
   padding-top: 1em;
   padding-bottom: 1em;
-  background-color: lightgray;
+  background-color: #E8E8E8;
 }
 
 .main_index_text {
  padding-top: 0.5em;
- padding-left: 2em;
+ padding-left: 4em;
  padding-right: 4em;
+ text-align: center;
  h1 {
-   text-align: center;
    color: #143a08;
    padding: 0.5em;
+   font-weight: bold;
  }
  h3 {
-   text-align: center;
    padding-bottom: 0.5em;
-
+   font-weight: bold;
+   color: #143a08;
  }
- 
+ p {
+   font-size: 1.1em;
+ }
+
 }
