@@ -1,27 +1,30 @@
-  <div class="main_index_wraper container">
-    <div class="row">
-      <div class="main_index_pic col-md-7">
-      </div>
-      <div class="main_index col-md-5">
-        <h2>Democracy Is For Everyone.</h2>
-
-        <p>You shouldn’t have to be an expert to understand what goes on in the States Chamber.
-        Your politicians represent you - but what exactly do they do in your name?</p>
-
-        <p>TheyWorkForYouJersey takes open data from the States and presents it in a way that’s easy to follow  - for everyone!</p>
-
-        <p>So now, with just a few clicks, you can check:</p>
-
-        <h3>Are They Working For You?</h3>
-
-      </div>
-    </div>
-
+<div class="row">
+  <div class="col-md-6">
+    <%= image_tag("stateschamber.jpg", class: "hero-image") %>
   </div>
-  <div class="container_notice">
-    <h2> Notice Board </h2>
+  <div class="col-md-6">
+      <h2>Democracy Is For Everyone.</h2>
 
-     <% @notices.each do |notice| %>
-     <%= render 'notices/notice_home', notice: notice %>
-     <% end %>
+      <p>You shouldn’t have to be an expert to understand what goes on in the States Chamber.
+      Your politicians represent you - but what exactly do they do in your name?</p>
+
+      <p>TheyWorkForYouJersey takes open data from the States and presents it in a way that’s easy to follow  - for everyone!</p>
+
+      <p>So now, with just a few clicks, you can check:</p>
+
+      <h3>Are They Working For You?</h3>
   </div>
+</div>
+
+<div class="row">
+  <div class="col-md-12 text-center">
+    <h2>Notice Board</h2>
+  </div>
+</div>
+<div class="row">
+    <% @notices.each do |notice| %>
+      <div class="col-md-4">
+        <%= render 'notices/notice_home', notice: notice %>
+      </div>
+    <% end %>
+</div>
