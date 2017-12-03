@@ -25,13 +25,13 @@ $greenborder: #143a08;
 
 .home_notice_title a
 {
-  color: #fff;  
+  color: #fff;
   font-size: 1.2em;
 }
 
 .home_notice_author
 {
-  text-align: right;  
+  text-align: right;
   padding: 5px 20px;
   font-style: italic;
   font-size: 0.7em;
@@ -42,48 +42,32 @@ $greenborder: #143a08;
 
 .home_notice_content
 {
-  text-align: justify;  
+  text-align: justify;
   padding: 20px;
   border: solid 1px $greenborder;
   border-top: 0;
   font-size: 0.9em;
 }
 
-/*
-.main_index_wraper {
-  display: flex;
-  flex-direction: row;
-  padding-top: 2em;
-  padding-bottom: 3em;
-  font-family: verdana, arial, helvetica, sans-serif;
-}
-
 .main_index {
-  width: 30%;
   padding-top: 1em;
-  padding-left: 4em;
-
-  p {
-    font-size: 1em;
-    padding-top: 0.5em;
-  }
+  padding-bottom: 1em;
+  background-color: lightgray;
 }
 
-.main_index_pic {
-  min-height: 100%;
-  background-color: orange;
-  background-image: url('stateschamber.jpg');
-  background-size: cover;
+.main_index_text {
+ padding-top: 0.5em;
+ padding-left: 2em;
+ padding-right: 4em;
+ h1 {
+   text-align: center;
+   color: #143a08;
+   padding: 0.5em;
+ }
+ h3 {
+   text-align: center;
+   padding-bottom: 0.5em;
+
+ }
+ 
 }
-.home_notice {
-  font-size: 1.4em;
-  padding-left: 3em;
-  h5 {
-    font-weight: bold;
-  }
-}
-.container_notice {
-  border-top: 1px solid green;
-  padding: 2em;
-}
-*/
