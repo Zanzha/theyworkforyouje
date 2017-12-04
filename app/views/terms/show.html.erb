@@ -1,37 +1,37 @@
 <p id="notice"><%= notice %></p>
+<div class="container">
+  <p>
+    <strong>Parish has been represented by: </strong>
 
-<p>
-  <strong>Parishid:</strong>
-  <%= @term.parish_id %>
-</p>
+      <% @terms.each do |t| %>
+        <div class="row term_card">
+          <div class="col-3">
+            <%= t.position %>
+          </div>
+          <div class="col-4">
+            <% if t.politician_id.present? %>
+            <%= t.politician.full_name %>
+            <% end %>
+          </div>
+          <div class="col-2">
+            <%= t.begin_date %>
+          </div>
+          <div class="col-3">
+            <%= t.end_date %>
+          </div>
+        </div>
+      <% end %>
 
-<p>
-  <strong>Title:</strong>
-  <%= @term.politician.title %>
-</p>
-
-<p>
-  <strong>First name:</strong>
-  <%= @term.politician.first_name %>
-</p>
-
-<p>
-  <strong>Middle name:</strong>
-  <%= @term.politician.middle_name %>
-</p>
-
-<p>
-  <strong>Last name:</strong>
-  <%= @term.politician.last_name %>
-</p>
+  </p>
 
 
-REWRITE ALL OF THIS^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-<div class="manage_container">
-<% if !current_user.blank? && current_user.role_id == 1 %>
-    <%= link_to 'Edit', edit_term_path(@term),class:"btn btn-primary manage_button" %>
-    <%= link_to 'Delete', @term, method: :delete, data: { confirm: 'Are you sure?' },class:"btn btn-primary manage_button" %>
-<% end %>
-  <%= link_to 'Back', terms_path,class:"btn btn-primary manage_button" %>
+
+  <div class="manage_container">
+  <% if !current_user.blank? && current_user.role_id == 1 %>
+      <%= link_to 'Edit', edit_term_path(@term),class:"btn btn-primary manage_button" %>
+      <%= link_to 'Delete', @term, method: :delete, data: { confirm: 'Are you sure?' },class:"btn btn-primary manage_button" %>
+  <% end %>
+    <%= link_to 'Back', terms_path,class:"btn btn-primary manage_button" %>
+  </div>
 </div>

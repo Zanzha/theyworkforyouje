@@ -8,6 +8,7 @@
   align-content: center;
   margin: 0 auto;
   min-width: 100%;
+  padding-top: 1em;
 }
 #accordion {
   display: flex;
@@ -56,6 +57,7 @@
 }
 
 .district_container {
+  padding-left: 12em;
   min-width: 100%;
   display: flex;
   flex-direction: column;

@@ -1,20 +1,29 @@
 class TermsController < ApplicationController
-  before_action :set_term, only: [:show, :edit, :update, :destroy]
+
 
   # GET /terms
   # GET /terms.json
   def index
-    @terms = Term.all
+    @parishes = Parish.all
+    first_term = Term.order(:begin_date).select('YEAR(`begin_date`) AS begin_date').first
+    end_term = Term.order(end_date: :desc).select('YEAR(`end_date`) AS end_date').first
+    @first_year = first_term['begin_date'].to_i
+    @last_year = end_term['end_date'].to_i
+
+    terms = Term.where("`parish_id` = ? AND YEAR(`begin_date`) <= ? AND YEAR(`end_date`) >= ? ", params[:parish_id], params[:year], params[:year])
+
   end
 
   # GET /terms/1
   # GET /terms/1.json
   def show
+    @politicians = Politician.all
+    @terms = Term.where("`parish_id` = ? AND YEAR(`begin_date`) <= ? AND YEAR(`end_date`) >= ? ", params[:parish_id], params[:year], params[:year])
   end
 
   # GET /terms/new
   def new
-    @term = Term.new
+    @terms = Term.new
   end
 
   # GET /terms/1/edit
@@ -66,6 +75,7 @@ class TermsController < ApplicationController
     def set_term
       @term = Term.find(params[:id])
     end
+
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def term_params

@@ -7,18 +7,19 @@ $green: #00B541;
 .main_index_wraper {
   display: flex;
   flex-direction: row;
-  padding: 2em;
-  margin-bottom: 0;
+  padding-top: 2em;
+  padding-bottom: 3em;
   font-family: verdana, arial, helvetica, sans-serif;
 }
 
 .main_index {
   width: 30%;
   padding-top: 1em;
+  padding-left: 4em;
 
   p {
     font-size: 1em;
-    padding-top: 2em;
+    padding-top: 0.5em;
   }
 }
 
@@ -34,4 +35,8 @@ $green: #00B541;
   h5 {
     font-weight: bold;
   }
+}
+.container_notice {
+  border-top: 1px solid green;
+  padding: 2em;
 }
