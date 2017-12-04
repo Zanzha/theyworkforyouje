@@ -2,6 +2,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 $green: #00B541;
+$blue-border: 2px solid #008cac;
 
 
 .main_index_wraper {
@@ -37,6 +38,6 @@ $green: #00B541;
   }
 }
 .container_notice {
-  border-top: 1px solid green;
+  border-top: $blue-border;
   padding: 2em;
 }

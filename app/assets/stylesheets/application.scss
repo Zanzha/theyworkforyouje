@@ -44,20 +44,19 @@ body, html {
   display: flex;
   flex-direction: column;
   flex: 1;
-  // margin: 1em;
-  // border: $border;
+  min-height: 100vh;
 }
 p.notice, p.alert {
   margin: 0;
   padding: 0;
 }
 
-.manage_container a{
+.manage_container a {
   color: black;
   text-decoration: none;
 }
 
-.manage_button a{
+.manage_button a {
   color: black;
   text-decoration: none;
 }
