@@ -2,7 +2,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 $greenbg: #379219;
-$greenborder: #143a08;
+$greenborder: darken($greenbg, 20%);
 $greybg: #E8E8E8;
 
 .logo {
