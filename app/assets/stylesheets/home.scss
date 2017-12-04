@@ -69,19 +69,23 @@ $greybg: #E8E8E8;
  padding-top: 0.5em;
  padding-left: 4em;
  padding-right: 4em;
- text-align: center;
+ text-align: left;
+
  h1 {
    color: $greenborder;
-   padding: 0.5em;
+   padding-top: 0.5em;
+   padding-bottom: 0.5em;
    font-weight: bold;
  }
  h3 {
-   padding-bottom: 0.5em;
+   padding-top: 0.5em;
+   padding-bottom: 0.5em ;
    font-weight: bold;
    color: $greenborder;
  }
  p {
-   font-size: 1.1em;
+   font-size: 1.2em;
+   text-align: justify;
  }
 }
 
