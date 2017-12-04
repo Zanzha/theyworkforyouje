@@ -16,6 +16,7 @@ footer.navbar {
   justify-content: space-between;
   background-color: $greybg;
   color: $greenborder;
+  border-top: 1px solid darken($greybg, 20%);
 }
 
 .navbar-text {
