@@ -10,7 +10,7 @@
           </div>
           <div class="col-4">
             <% if t.politician_id.present? %>
-            <%= t.politician.full_name %>
+            <%= link_to t.politician.full_name, t.politician %>
             <% end %>
           </div>
           <div class="col-2">
