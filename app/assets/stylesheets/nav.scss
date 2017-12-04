@@ -28,15 +28,17 @@
 //   }
 // }
 
-
+$bg: #00a5ce;
+$blue-border: 2px solid #008cac;
 
 
 // NAVBAR STYLING
 
 .navbar {
-  height: 3.8em;
-  border: 1px solid rgba(0, 0, 0, 0.6);
+  height: 3.7em;
   text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
+  border-bottom: $blue-border;
+  background-color: $bg !important;
 
   .container {
     padding: 0;

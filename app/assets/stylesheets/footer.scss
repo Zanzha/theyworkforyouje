@@ -1,89 +1,23 @@
-// $green: #00B541;
-// $border: 1px solid $green;
-
-// footer{
-//   margin-top:10px;
-// }
-
-// footer.navbar {
-//   min-width: 100%;
-//   min-height: 6em;
-//   display: flex;
-//   align-items: center;
-//   justify-content: space-between;
-//   border-top: $border;
-// }
-// .navbar-text {
-//   text-align: center;
-// }
-// .privacy-text, .terms-and-conditions {
-//   font-size: 0.8em;
-// }
-
-
-
-
-// NAVBAR STYLING
+$green: #00B541;
+$border: 1px solid $green;
+$bg: #00a5ce;
+$blue-border: 2px solid #008cac;
 
 footer.navbar {
   display: flex;
   flex-direction: column;
-  padding: 0;
+  align-items: center;
+  justify-content: center;
+  min-width: 100%;
+  min-height: 5em;
+  margin-top: 2em;
+  padding: 0; 
+  border-top: $blue-border;
+  background-color: $bg !important;
+}
+.navbar-text {
   text-align: center;
 }
-
-span.navbar-text {
-  max-height: 80%;
-  margin: 0 auto;
-}
-
-span.text-padding {
-  margin-bottom: 1em;
-}
-
-.navbar {
-  min-height: 5em;
-  margin: 0;
-  padding: 1em;
-  border: 1px solid rgba(0, 0, 0, 0.6);
-  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
-
-  .container {
-    padding: 0;
-  }
-
-  &-fixed-top {
-    border-width: 0 0 1px 0;
-  }
-
-  &-fixed-bottom {
-    border-width: 1px 0 0 0;
-  }
-
-  .nav-link {
-    padding: 1rem;
-    border-left: 1px solid rgba(255, 255, 255, 0.1);
-    border-right: 1px solid rgba(0, 0, 0, 0.2);
-
-    &:hover,
-    &:focus {
-      // @include btn-shadow-inverse($gray-800);
-      border-left: 1px solid rgba(0, 0, 0, 0.2);
-    }
-  }
-
-  &-brand {
-    padding: 0.75rem 1rem calc(54px - 0.75rem - 30px);
-    margin-right: 0;
-    border-right: 1px solid rgba(0, 0, 0, 0.2);
-  }
-
-  .nav-item.active .nav-link {
-    background-color: rgba(0, 0, 0, 0.3);
-    border-left: 1px solid rgba(0, 0, 0, 0.2);
-  }
-
-  &-nav .nav-item + .nav-item {
-    margin-left: 0;
-  }
+.privacy, .terms {
+  font-size: 0.92em;
 }
