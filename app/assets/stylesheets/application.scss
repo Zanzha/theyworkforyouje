@@ -20,13 +20,20 @@
 
 $green: #00B541;
 $border: 1px solid $green;
+$greenbg: #379219;
+$greenborder: #143a08;
 
 * {
   margin: 0;
   padding: 0;
 }
 
+a {
+  color: $greenborder;
+}
+
 a:hover {
+  color: lighten($greenborder, 15%);
   background-color: transparent;
 }
 body{

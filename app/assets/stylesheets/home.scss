@@ -3,14 +3,23 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 $greenbg: #379219;
 $greenborder: #143a08;
+$greybg: #E8E8E8;
+
+.logo {
+  border: 1px solid $greenborder;
+  color: $greenborder;
+  padding: 0.5em 1em;
+  border-radius: 1px;
+  font-weight: bold;
+}
 
 .hero-image
 {
   width: 100%;
 }
 
-.home_notice_container
-{
+.home_notice_container{
+  padding-top: 1em;
 }
 
 .home_notice_title
@@ -22,6 +31,7 @@ $greenborder: #143a08;
   border: solid 1px $greenbg;
   border-bottom: solid 1px $greenborder;
 }
+
 
 .home_notice_title a
 {
@@ -52,7 +62,7 @@ $greenborder: #143a08;
 .main_index {
   padding-top: 1em;
   padding-bottom: 1em;
-  background-color: #E8E8E8;
+  background-color: $greybg;
 }
 
 .main_index_text {
@@ -61,17 +71,25 @@ $greenborder: #143a08;
  padding-right: 4em;
  text-align: center;
  h1 {
-   color: #143a08;
+   color: $greenborder;
    padding: 0.5em;
    font-weight: bold;
  }
  h3 {
    padding-bottom: 0.5em;
    font-weight: bold;
-   color: #143a08;
+   color: $greenborder;
  }
  p {
    font-size: 1.1em;
  }
+}
 
+.search_button {
+  .btn-outline-success {
+   color: $greenborder;
+   background-color: white;
+   background-image: none;
+   border-color: $greenborder;
+ }
 }

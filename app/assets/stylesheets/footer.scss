@@ -1,5 +1,8 @@
 $green: #00B541;
 $border: 1px solid $green;
+$greenbg: #379219;
+$greenborder: #143a08;
+$greybg: #E8E8E8;
 
 footer{
   margin-top:10px;
@@ -11,11 +14,14 @@ footer.navbar {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  border-top: $border;
+  background-color: $greybg;
+  color: $greenborder;
 }
+
 .navbar-text {
   text-align: center;
 }
+
 .privacy-text, .terms-and-conditions {
   font-size: 0.8em;
 }

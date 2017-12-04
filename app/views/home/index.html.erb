@@ -12,9 +12,11 @@
       <h3>Are They Working For You?</h3>
       <form action="/search" method="GET" class="form-inline my-2 my-lg-0 d-flex justify-content-center">
         <input name="q" class="form-control form-control-lg" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success btn-lg ml-2 my-sm-0" type="submit">
-          Search
-        </button>
+        <div class="search_button">
+          <button class="btn btn-outline-success btn-lg ml-2 my-sm-0" type="submit">
+            Search
+          </button>
+        </div>
       </form>
   </div>
   <div class="col-md-6">
@@ -22,11 +24,7 @@
   </div>
 </div>
 
-<div class="row">
-  <div class="col-md-12 text-center">
-    <h2>Notice Board</h2>
-  </div>
-</div>
+
 <div class="row">
     <% @notices.each do |notice| %>
       <div class="col-md-4">
