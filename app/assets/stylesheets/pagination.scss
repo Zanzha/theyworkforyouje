@@ -1,0 +1,51 @@
+$green: #00B541;
+$border: 1px solid $green;
+$greenbg: #379219;
+$greenborder: #143a08;
+$greybg: #E8E8E8;
+
+.digg_pagination{
+  padding-bottom: 20px;
+  background: white;
+  cursor: default;
+
+  a span em {
+    padding: 0.2em 0.5em;
+    display: block;
+    float: left;
+    margin-right: 1px;
+  }
+  .disabled {
+    color: #999999;
+    border: 1px solid #dddddd;
+  }
+  .current {
+    font-style: normal;
+    font-weight: bold;
+    background: $greenbg;
+    color: white;
+    border: 1px solid $greenborder;
+  }
+  a {
+    text-decoration: none;
+    color: $greenborder;
+    border: 1px solid $greenborder;
+
+    &:hover, &:focus {
+      color: lighten($greenborder, 15%);
+      border-color: $greenborder;
+    }
+  }
+  .page_info {
+    padding: 0.4em 0.6em;
+    width: 22em;
+    margin-bottom: 0.3em;
+    text-align: center;
+
+    b {
+      color: $greenborder;
+      background: $greenbg;
+      padding: 0.1em 0.25em;
+    }
+  }
+}
