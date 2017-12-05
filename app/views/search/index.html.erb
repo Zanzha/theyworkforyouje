@@ -39,6 +39,9 @@
       </div>
    </div>
    <% end %>
+
+  <% if @propositions.blank? %>
+
    <div class="digg_pagination">
       <div class="page_info">
          <%= page_entries_info @propositions %>
@@ -46,6 +49,8 @@
       <div class="page_select">
          <%= will_paginate @propositions, :container => false %>
       </div>
-   </div>
+   </div> 
+
+   <% end %>
    <% end %>
 </div>
