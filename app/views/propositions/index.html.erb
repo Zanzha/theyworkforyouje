@@ -9,11 +9,10 @@
         <div class="row">
            <div class="col-10">
               <div class="vote_title">
-                 <%== '<s>' if proposition.status == 'Withdrawn' %>
                  <%= link_to proposition.prop_name, proposition %>
-                 <%== '</s><small class="text-muted">(withdrawn)</small>' if proposition.status == 'Withdrawn' %>
-                 <% if proposition.votes.count == 0 %>
-                    <span class="badge badge-secondary">new</span>
+                 <%== '<span class="badge badge-secondary">Withdrawn</span>' if proposition.status == 'Withdrawn' %>
+                 <% if proposition.votes.count == 0 && proposition.status != 'Withdrawn' %>
+                    <span class="badge badge-primary">New</span>
                  <% end %>
               </div>
               <div class="vote_lodgeby">Lodged By:
