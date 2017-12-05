@@ -1,10 +1,10 @@
-$greenbg: #1d6b04;
-$greenborder: darken($greenbg, 20%);
+$redbg: #903535;
+$bordercolor: black;
 
-$border: 1px solid $greenborder;
+$border: 1px solid $bordercolor;
 
 nav.navbar {
-  background-color: $greenbg;
+  background-color: $redbg;
   min-width: 100%;
   min-height: 5em;
   border-bottom: $border;
@@ -23,7 +23,7 @@ nav.navbar {
   }
 
   a:hover {
-    background-color: lighten($greenborder, 15%);
+    background-color: darken($redbg, 15%);
     border-radius: 2px;
   }
   a.navbar-brand:hover {
@@ -31,6 +31,7 @@ nav.navbar {
   }
 }
 .navbar-light .navbar-nav .nav-link {
-    color: $greenborder;
+    color: white;
     font-weight: bolder;
 }
+ 
