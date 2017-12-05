@@ -1,4 +1,4 @@
-$redbg: #bf4a4a;
+$redbg: #903535;
 $bordercolor: black;
 
 $border: 1px solid $bordercolor;
@@ -23,7 +23,7 @@ nav.navbar {
   }
 
   a:hover {
-    background-color: lighten($bordercolor, 15%);
+    background-color: darken($redbg, 15%);
     border-radius: 2px;
   }
   a.navbar-brand:hover {
@@ -31,6 +31,6 @@ nav.navbar {
   }
 }
 .navbar-light .navbar-nav .nav-link {
-    color: $bordercolor;
+    color: white;
     font-weight: bolder;
 }
