@@ -39,8 +39,17 @@
 
 #accordion .card-body {
   padding: 0.5em;
+  padding-left: 3em;
   margin: 0.5em;
+  text-align: left;
 }
+
+#accordion .parish_desc {
+  text-align: left;
+  text-align: justify;
+  padding-right: 3em;
+}
+
 .parish {
   padding: 0.5em;
 }
@@ -48,12 +57,14 @@
 .parish_politician {
   font-weight: bold;
   padding-left: 1em;
+
 }
 
 .parish_desc {
   padding-top: 1em;
   padding-bottom: 1em;
   font-family: inherit;
+
 }
 
 .district_container {
