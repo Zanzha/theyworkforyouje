@@ -1,7 +1,6 @@
-<p id="notice"><%= notice %></p>
 
-<h1>Propositions</h1>
 
+<<<<<<< HEAD
 <table class="table">
   <thead>
     <tr>
@@ -32,7 +31,51 @@
     <% end %>
   </tbody>
 </table>
+=======
+<div class="vote_wraper">
+  <h1>Propositions</h1>
+  <p><span class="badge badge-secondary">new</span> Proposition awaiting vote </p>
+  <div>
+     <% @propositions.each do |proposition| %>
+     <div class="container vote_prop">
+        <div class="row">
+           <div class="col-10">
+              <div class="vote_title">
+                 <%== '<s>' if proposition.status == 'Withdrawn' %>
+                 <%= link_to proposition.prop_name, proposition %>
+                 <%== '</s><small class="text-muted">(withdrawn)</small>' if proposition.status == 'Withdrawn' %>
+                 <% if proposition.votes.count == 0 %>
+                    <span class="badge badge-secondary">new</span>
+                 <% end %>
+              </div>
+              <div class="vote_lodgeby">Lodged By:
+                 <%= proposition.lodged_by %> on <%= proposition.prop_date.strftime('%F') %>
+              </div>
 
-<br>
+              <% if !current_user.blank? && current_user.role_id == 1 %>
+                <div class="manage_container">
+            <%= link_to 'Edit', edit_proposition_path(proposition),class:"btn btn-primary manage_button" %>
+            <%= link_to 'Delete', proposition, method: :delete, data: {confirm: 'Are you sure?'},class:"btn btn-primary manage_button" %>
+                </div>
+              <% end %>
+>>>>>>> develop
 
-<%= link_to 'New Proposition', new_proposition_path %>
+           </div>
+        </div>
+     </div>
+     <% end %>
+  </div>
+
+  <div class="digg_pagination">
+    <div class="page_info">
+      <%= page_entries_info @propositions %>
+    </div>
+    <div class="page_select">
+      <%= will_paginate @propositions, :container => false %>
+    </div>
+  </div>
+</div>
+
+<% if !current_user.blank? && current_user.role_id == 1 %>
+<%= link_to 'New Proposition', new_proposition_path,class:"btn btn-primary" %>
+<% end %>

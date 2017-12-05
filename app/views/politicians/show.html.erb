@@ -1,4 +1,8 @@
+
+
+
 <div class="container">
+<<<<<<< HEAD
 <br/><br/>
 <div class="row">
 <div class="person_wraper col-md-4">
@@ -73,3 +77,91 @@
    </div>
    <% end %>
 </div> 
+=======
+  <%if !@politician.deleted_at.blank? %>
+  <h1 class="deleted_alert"> This States member was deleted on <%=@politician.deleted_at.strftime("%d %b. %Y")%> and is currently inactive </h1>
+  <% end %>
+  <div class="row">
+    <div class="person_wraper col">
+       <div class="card" style="width: 320px;">
+          <img class="card-img-top" src="<%= @politician.avatar %>" alt="<%= @politician.title %> <%= @politician.full_name %>">
+          <div class="card-body">
+             <h4 class="card-title"><%= @politician.full_name %></h4>
+             <p class="card-text"><%= @politician.summary %></p>
+          </div>
+          <ul class="list-group list-group-flush">
+             <li class="list-group-item"><%== @politician.address %></li>
+             <li class="list-group-item">Represents <%= @politician.parish.name %></li>
+
+          </ul>
+          <div class="card-body">
+             <a href="#" class="card-link"><%= mail_to @politician.email, "Send Email", class: 'btn btn-primary' %></a>
+             <a  class="card-link">
+             <% if (@politician.landline) %>
+             <%= link_to "Phone", "tel:#{@politician.landline}", class: 'btn btn-primary' %></a>
+             <% elsif (@politician.mobile) %>
+             <%= link_to "Phone", "tel:#{@politician.mobile}", class: 'btn btn-primary' %></a>
+             <% elsif (@politician.fax) %>
+             <%= link_to "Fax", "tel:#{@politician.Fax}", class: 'btn btn-primary' %></a>
+             <% end %>
+
+             <% if !current_user.blank? && current_user.role_id == 1 %>
+             <br><br>
+              <%= link_to 'Edit', edit_politician_path(@politician),class:"btn btn-primary manage_button" %>
+                <%if @politician.deleted_at.blank? %>
+                  <%= link_to 'Delete', @politician, type: :normal, method: :destroy, data: { confirm: 'Are you sure?' }, class:"btn btn-primary manage_button" %>
+                    <%else%>
+                    <%= link_to 'Undelete', @politician, method: :restore, class: 'btn' %>
+
+                  <%end%>
+
+              <%end%>
+          </div>
+       </div>
+    </div>
+    <div class="person_wraper_chart col">
+       <script type="text/javascript">
+          google.charts.load('current', {'packages':['corechart']});
+          google.charts.setOnLoadCallback(drawChart);
+
+          function drawChart() {
+            var data = new google.visualization.DataTable();
+            data.addColumn('string', 'Vote Status');
+            data.addColumn('number', 'Count');
+            data.addRows([
+              ['Out of island', <%= @politician.votes.where(vote_type: 'Out of the island').count %>],
+              ['Not present for vote', <%= @politician.votes.where(vote_type: 'Not present for vote').count %>],
+              ['Pour', <%= @politician.votes.where(vote_type: 'Pour').count %>],
+              ['Contre', <%= @politician.votes.where(vote_type: 'Contre').count %>],
+              ['Unwell', <%= @politician.votes.where(vote_type: 'Ill').count %>],
+            ]);
+            var options = {'title':'Breakdown of <%= number_with_delimiter(@politician.votes.count) %> Votes','is3D': true};
+           var chart = new google.visualization.PieChart(document.getElementById('chart_div'));
+            chart.draw(data, options);
+          }
+       </script>
+       <% if (@politician.votes.count>0) %>
+       <div id="chart_div"></div>
+       <div class="panel">
+          <h4>How <%= @politician.title %> <%= @politician.full_name %> has voted</h4>
+          <ul class="vote-descriptions">
+          <% @votes_pagination.each.reverse_each do |vote| %>
+          <li>Voted for <b><%= vote.vote_type %></b> for <%= link_to vote.proposition_title.truncate_words(13), vote_path(vote.id) %></li>
+          <% end %>
+       </div>
+		<div class="digg_pagination">
+			  <div class="page_info">
+				<%= page_entries_info @votes_pagination %>
+			  </div>
+			  <%= will_paginate @votes_pagination, :container => false %>
+
+		   </div>
+       <% else %>
+       <div class="panel">
+          <h3><%= @politician.title %> <%= @politician.full_name %></h3>
+          <h5>This member has no vote</h5>
+       </div>
+       <% end %>
+    </div>
+  </div>
+>>>>>>> develop

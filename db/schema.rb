@@ -10,7 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171114184717) do
+ActiveRecord::Schema.define(version: 20171123182744) do
+
+  create_table "admin_panels", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "import_politicians", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.datetime "created_at", null: false
@@ -53,11 +58,13 @@ ActiveRecord::Schema.define(version: 20171114184717) do
     t.string "parish"
     t.string "landline"
     t.string "email"
+    t.string "in_term", default: "0", null: false
+    t.datetime "deleted_at"
+    t.index ["deleted_at"], name: "index_politicians_on_deleted_at"
     t.index ["parish_id"], name: "fk_rails_3acf0946b4"
   end
 
   create_table "propositions", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.bigint "politician_id"
     t.string "prop_name"
     t.datetime "prop_date"
     t.datetime "created_at", null: false
@@ -70,9 +77,6 @@ ActiveRecord::Schema.define(version: 20171114184717) do
     t.string "voting_id"
     t.string "status"
     t.string "p_id"
-    t.bigint "vote_id"
-    t.index ["politician_id"], name: "fk_rails_90bd012afd"
-    t.index ["vote_id"], name: "fk_rails_af78db00fe"
   end
 
   create_table "roles", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -132,14 +136,19 @@ ActiveRecord::Schema.define(version: 20171114184717) do
     t.string "proposition_title"
     t.bigint "politician_id"
     t.bigint "proposition_id"
+    t.index ["p_id"], name: "p_id"
     t.index ["politician_id"], name: "fk_rails_7d623af5ff"
     t.index ["proposition_id"], name: "fk_rails_0bc883c6a4"
+    t.index ["proposition_title"], name: "proposition_title"
   end
 
   add_foreign_key "notices", "users"
   add_foreign_key "politicians", "parishes"
+<<<<<<< HEAD
   add_foreign_key "propositions", "politicians"
   add_foreign_key "propositions", "votes"
+=======
+>>>>>>> develop
   add_foreign_key "terms", "parishes"
   add_foreign_key "terms", "politicians"
   add_foreign_key "users", "roles"

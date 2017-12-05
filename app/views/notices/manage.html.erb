@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<h1> Notice Management </h1>
+<br>
+  <%= link_to 'Return to Admin Panel', admin_panel_path%>
+</br>
+<div class="table-responsive">
+  <table class="table table-hover">
+    <tr>
+      <th> Post Title </th>
+      <th> Notice Author </th>
+      <th> Notice Date <th>
+        <th></th>
+        <th></th>
+    </tr>
+    <% @notices.each do |notice| %>
+  <tr>
+    <td><%= notice.title %> </td>
+    <td><%= notice.user.username %> </td>
+    <td><%= notice.created_at.strftime("%d %b. %Y") %></td>
+    <td><%=link_to "View Full Notice",  notice %></td>
+    <td><%= link_to 'Edit', edit_notice_path(notice)%></td>
+    <td>  <%= link_to 'Delete', notice, method: :delete, data: { confirm: 'Are you sure?' }%></td>
+  </tr>
+  <%end%>
+  </table>
+</div>

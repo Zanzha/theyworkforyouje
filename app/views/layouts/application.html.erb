@@ -3,8 +3,8 @@
   <head>
     <title>They Work For You JE</title>
     <%= csrf_meta_tags %>
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>    
 
   </head>
 
@@ -12,14 +12,14 @@
 
     <%= render partial: "layouts/nav" %>
 
-    <div class="meta-wrapper">
+      <div class="container-fluid">
 
-      <% if (notice) %><p class="bg-success"><%= notice %></p><% end %>
-      <% if (alert) %><p class="bg-warning"><%= alert %></p><% end %>
+        <% if (notice) %><p class="bg-success"><%= notice %></p><% end %>
+        <% if (alert) %><p class="bg-warning"><%= alert %></p><% end %>
 
-      <%= yield %>
+        <%= yield %>
 
-    </div>
+      </div>
 
     <%= render partial: "layouts/footer" %>
 

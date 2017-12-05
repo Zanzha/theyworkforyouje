@@ -1,4 +1,6 @@
 class Politician < ApplicationRecord
+acts_as_paranoid
+
   has_many :propositions
   has_many :votes
   has_many :terms

@@ -1,37 +1,99 @@
 // Place all the styles related to the Home controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-$green: #00B541;
+$greenbg: #1d6b04;
+$greenborder: darken($greenbg, 20%);
+$greybg: #E8E8E8;
+
+.logo {
+  border: 1px solid $greenborder;
+  color: $greenborder;
+  padding: 0.5em 1em;
+  border-radius: 1px;
+  font-weight: bold;
+}
+
+.hero-image
+{
+  width: 100%;
+}
+
+.home_notice_container{
+  padding-top: 1em;
+}
+
+.home_notice_title
+{
+  text-align: center;
+  padding: 10px;
+  background-color: $greenbg;
+  padding: 20px;
+  border: solid 1px $greenbg;
+  border-bottom: solid 1px $greenborder;
+}
 
 
-.main_index_wraper {
-  display: flex;
-  flex-direction: row;
-  padding: 2em;
-  margin-bottom: 0;
-  font-family: verdana, arial, helvetica, sans-serif;
+.home_notice_title a
+{
+  color: $greenborder;
+  font-size: 1.2em;
+}
+
+.home_notice_author
+{
+  text-align: right;
+  padding: 5px 20px;
+  font-style: italic;
+  font-size: 0.7em;
+  border: solid 1px $greenborder;
+  border-top: 0;
+  border-bottom: 0;
+}
+
+.home_notice_content
+{
+  text-align: justify;
+  padding: 20px;
+  border: solid 1px $greenborder;
+  border-top: 0;
+  font-size: 0.9em;
 }
 
 .main_index {
-  width: 30%;
   padding-top: 1em;
-
-  p {
-    font-size: 1em;
-    padding-top: 2em;
-  }
+  padding-bottom: 1em;
+  background-color: $greybg;
 }
 
-.main_index_pic {
-  min-height: 100%;
-  background-color: orange;
-  background-image: url('stateschamber.jpg');
-  background-size: cover;
+.main_index_text {
+ padding-top: 0.5em;
+ padding-left: 4em;
+ padding-right: 4em;
+ text-align: left;
+
+ h1 {
+   color: $greenborder;
+   padding-top: 0.5em;
+   padding-bottom: 0.5em;
+   font-weight: bold;
+ }
+ h3 {
+   padding-top: 0.5em;
+   padding-bottom: 0.5em ;
+   font-weight: bold;
+   color: $greenborder;
+ }
+ p {
+   font-size: 1.2em;
+   text-align: justify;
+ }
 }
-.home_notice {
-  font-size: 1.4em;
-  padding-left: 3em;
-  h5 {
-    font-weight: bold;
-  }
+
+.search_button {
+  .btn-outline-success {
+   color: $greenborder;
+   background-color: white;
+   background-image: none;
+   border-color: $greenborder;
+ }
 }

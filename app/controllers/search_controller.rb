@@ -1,25 +1,18 @@
 class SearchController < ApplicationController
   def index
-
-    #  Check if we have the two required parameters to run a search
-    # if not we can simply return the view
     if (!params['q'])
-      return
-    end
+return
+end
+      @politicians = Politician.search(params['q'])
+  
 
-    # Set up an array to hold our POLOTICIAN results (if any)
-    @pol_results = Array.new
+search_words = params['q'].split(" ")
+@propositions = Proposition.order("id DESC").where('prop_name REGEXP ?',search_words.join('|')) unless search_words.blank?
+@politicians = Politician.where('full_name REGEXP ?',search_words.join('|')) unless search_words.blank?
 
-    # Run the search & Limits search results
-      polResults = Politician.search(params['q']).page params[:page]
-       # Note search is a model method
+@propositions = @propositions.paginate(:page => params[:page])
 
-    # Loop over the results and make them consistent
-    polResults.each do |polResult|
-      pol_result_label = polResult.full_name
-      pol_result_title = polResult.title
-      pol_result_link = view_context.link_to("View more", politician_path(polResult))
-
+<<<<<<< HEAD
       # Add this result ot the Array of results
       @pol_results.push({
         'label' => pol_result_label, 
@@ -54,3 +47,7 @@ class SearchController < ApplicationController
 
   end
 end
+=======
+    end
+end
+>>>>>>> develop

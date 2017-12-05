@@ -1,17 +1,33 @@
 $green: #00B541;
 $border: 1px solid $green;
+$greenbg: #1d6b04;
+$greenborder: darken($greenbg, 20%);
+$greybg: #E8E8E8;
+
+footer{
+  margin-top:10px;
+}
 
 footer.navbar {
   min-width: 100%;
   min-height: 5em;
   display: flex;
   align-items: center;
-  justify-content: center;
-  border-top: $border;
+  justify-content: space-between;
+  background-color: $greybg;
+  color: $greenborder;
+  border-top: 1px solid darken($greybg, 20%);
 }
+
 .navbar-text {
   text-align: center;
 }
-.privacy-text, .dont-sue-me {
+
+.logo_footer {
+  font-weight: bold;
+  padding-bottom: 1em;
+}
+
+.privacy-text, .terms-and-conditions {
   font-size: 0.8em;
 }

@@ -1,10 +1,14 @@
-$green: #00B541;
-$border: 1px solid $green;
+$greenbg: #1d6b04;
+$greenborder: darken($greenbg, 20%);
+
+$border: 1px solid $greenborder;
 
 nav.navbar {
+  background-color: $greenbg;
   min-width: 100%;
   min-height: 5em;
   border-bottom: $border;
+
   li.external-nav {
     padding-left: 11em;
     a {
@@ -17,11 +21,16 @@ nav.navbar {
   .form-control {
     // width: 100%;
   }
+
   a:hover {
-    background-color: $green;
-    border-radius: 5px;
+    background-color: lighten($greenborder, 15%);
+    border-radius: 2px;
   }
   a.navbar-brand:hover {
     background-color: transparent;
   }
+}
+.navbar-light .navbar-nav .nav-link {
+    color: $greenborder;
+    font-weight: bolder;
 }

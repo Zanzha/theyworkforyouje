@@ -5,12 +5,20 @@ class PropositionsController < ApplicationController
   # GET /propositions
   # GET /propositions.json
   def index
-    @propositions = Proposition.all
+    @propositions = Proposition.all.order("id DESC").paginate(:page => params[:page])
+    @votes = Vote.all
   end
 
   # GET /propositions/1
   # GET /propositions/1.json
   def show
+
+    @proposition = Proposition.find(params[:id])
+    @votes = @proposition.votes.includes(:politician)
+
+
+  #  @shared_voteid = Vote.where(voting_id: @mainid)
+    #  @shared_voteid_type = Vote.where(voting_id: @mainid).group_by(&:vote_type)
   end
 
   # GET /propositions/new
@@ -72,4 +80,4 @@ class PropositionsController < ApplicationController
     def proposition_params
       params.require(:proposition).permit(:politician_id, :title, :proposition_date, :vote_date, :reference)
     end
-end
+  end
