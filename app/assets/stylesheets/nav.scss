@@ -29,6 +29,7 @@
 // }
 
 $bg: #00a5ce;
+$db: #008cac;
 $blue-border: 2px solid #008cac;
 
 
@@ -39,6 +40,21 @@ $blue-border: 2px solid #008cac;
   text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
   border-bottom: $blue-border;
   background-color: $bg !important;
+
+  .nav-button {
+    background-color: $bg;
+    border: $blue-border;
+  }
+
+  .nav-button:hover {
+    transition: background-color 0.3s ease;
+    background-color: $db;
+  }
+
+  .nav-button:active {
+    border: none;
+    background-color: $bg;
+  }
 
   .container {
     padding: 0;
