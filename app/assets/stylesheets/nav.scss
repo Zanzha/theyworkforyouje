@@ -8,12 +8,13 @@ nav.navbar {
   min-width: 100%;
   min-height: 5em;
   border-bottom: $border;
+  a {
+  text-decoration: none !important;
+  }
 
   li.external-nav {
     padding-left: 11em;
-    a {
-    text-decoration: underline;
-    }
+
     a:hover {
     background-color: transparent;
     }
@@ -34,4 +35,3 @@ nav.navbar {
     color: white;
     font-weight: bolder;
 }
- 

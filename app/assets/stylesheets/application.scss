@@ -30,7 +30,8 @@ $greybg: #E8E8E8;
 }
 
 a {
-  color: Black;
+  color: $bordercolor;
+  text-decoration: underline;
 }
 
 a:hover {
@@ -73,6 +74,7 @@ p.notice, p.alert {
 .btn-primary {
   background-color: $redbg;
   border-color: $redbg;
+  text-decoration: none;
 }
 
 .btn-primary:hover {
