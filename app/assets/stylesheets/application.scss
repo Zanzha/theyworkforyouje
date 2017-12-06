@@ -70,7 +70,14 @@ p.notice, p.alert {
   text-decoration: none;
 }
 
+.btn-primary {
+  background-color: $redbg;
+  border-color: $redbg;
+}
 
+.btn-primary:hover {
+  background-color: $bordercolor;
+}
 
 .manage_container{
   display: flex;
