@@ -1,0 +1,425 @@
+
+
+<!DOCTYPE html>
+<html dir="ltr" class="ms-isBot" lang="en-GB">
+
+    <head><meta http-equiv="X-UA-Compatible" content="IE=Edge" /><title>
+	
+	States Assembly
+
+</title><link rel="icon" href="/_layouts/15/images/C5.StatesAssembly/GovJE.ico" type="image/x-icon" /><link rel="shortcut icon" href="/_layouts/15/images/C5.StatesAssembly/GovJE.ico" type="image/vnd.microsoft.icon" id="favicon" /><link id="CssRegistration2" rel="stylesheet" type="text/css" href="/_layouts/15/1033/styles/Themable/corev15.css?rev=DHzjGJKbtAsTIA4uW3YOqA%3D%3D"/>
+<script src="/_layouts/15/c5.statesassembly/scripts/jquery-1.6.2.min.js"></script>
+<script type="text/javascript" src="/_layouts/15/init.js?rev=Cv9RhP3nrueoFDa3tkS6FQ%3D%3D"></script>
+<script src="/_layouts/15/c5.statesassembly/scripts/jquery-ui-1.8.14.custom.min.js"></script>
+<script src="/_layouts/15/c5.statesassembly/scripts/jquery.defaultvalue.js"></script>
+<script src="/_layouts/15/c5.statesassembly/scripts/jquery.safeenter.js"></script>
+<script src="/_layouts/15/c5.statesassembly/scripts/crazyegg.js"></script>
+<script type="text/javascript" src="/ScriptResource.axd?d=jUgRgRLtEaCMqLesEs8ONWyradkGdeUO9bkLv3SaK9R09EE8Jkf89qKmqDWCIAqIfgEj-g20vfswmtnzOOZP_JnKFspN-EHhKy1FA3wOftFpFbOf4ve8ZAcx-nsfswf837hwP3R7Rb0G53i_i8bb1LdU5REVD9qJ-ZqxgpwSgERE9l-1u112_z0VqLqmwuoB0&amp;t=3d6efc1f"></script>
+<script type="text/javascript" src="/_layouts/15/blank.js?rev=ZaOXZEobVwykPO9g8hq%2F8A%3D%3D"></script>
+<script type="text/javascript">RegisterSod("initstrings.js", "\u002f_layouts\u002f15\u002f1033\u002finitstrings.js?rev=S11vfGURQYVuACMEY0tLTg\u00253D\u00253D");</script>
+<script type="text/javascript">RegisterSod("strings.js", "\u002f_layouts\u002f15\u002f1033\u002fstrings.js?rev=xXYZY4hciX287lShPZuClw\u00253D\u00253D");RegisterSodDep("strings.js", "initstrings.js");</script>
+<script type="text/javascript">RegisterSod("sp.init.js", "\u002f_layouts\u002f15\u002fsp.init.js?rev=jvJC3Kl5gbORaLtf7kxULQ\u00253D\u00253D");</script>
+<script type="text/javascript">RegisterSod("sp.res.resx", "\u002f_layouts\u002f15\u002fScriptResx.ashx?culture=en\u00252Dus\u0026name=SP\u00252ERes\u0026rev=yNk\u00252FhRzgBn40LJVP\u00252BqfgdQ\u00253D\u00253D");</script>
+<script type="text/javascript">RegisterSod("sp.ui.dialog.js", "\u002f_layouts\u002f15\u002fsp.ui.dialog.js?rev=3Oh2QbaaiXSb7ldu2zd6QQ\u00253D\u00253D");RegisterSodDep("sp.ui.dialog.js", "sp.init.js");RegisterSodDep("sp.ui.dialog.js", "sp.res.resx");</script>
+<script type="text/javascript">RegisterSod("core.js", "\u002f_layouts\u002f15\u002fcore.js?rev=d6tOcTZntXT\u00252BlpDwhRDXhg\u00253D\u00253D");RegisterSodDep("core.js", "strings.js");</script>
+<script type="text/javascript">RegisterSod("menu.js", "\u002f_layouts\u002f15\u002fmenu.js?rev=cXv35JACAh0ZCqUwKU592w\u00253D\u00253D");</script>
+<script type="text/javascript">RegisterSod("mQuery.js", "\u002f_layouts\u002f15\u002fmquery.js?rev=VYAJYBo5H8I3gVSL3MzD6A\u00253D\u00253D");</script>
+<script type="text/javascript">RegisterSod("callout.js", "\u002f_layouts\u002f15\u002fcallout.js?rev=ryx2n4ePkYj1\u00252FALmcsXZfA\u00253D\u00253D");RegisterSodDep("callout.js", "strings.js");RegisterSodDep("callout.js", "mQuery.js");RegisterSodDep("callout.js", "core.js");</script>
+<script type="text/javascript">RegisterSod("clienttemplates.js", "\u002f_layouts\u002f15\u002fclienttemplates.js?rev=XH1WIFJpyZZdO2qH8bl2jw\u00253D\u00253D");RegisterSodDep("clienttemplates.js", "initstrings.js");</script>
+<script type="text/javascript">RegisterSod("sharing.js", "\u002f_layouts\u002f15\u002fsharing.js?rev=XxxHIxIIc8BsW9ikVc6dgA\u00253D\u00253D");RegisterSodDep("sharing.js", "strings.js");RegisterSodDep("sharing.js", "mQuery.js");RegisterSodDep("sharing.js", "clienttemplates.js");RegisterSodDep("sharing.js", "core.js");</script>
+<script type="text/javascript">RegisterSod("suitelinks.js", "\u002f_layouts\u002f15\u002fsuitelinks.js?rev=REwVU5jSsadDdOZlCx4wpA\u00253D\u00253D");RegisterSodDep("suitelinks.js", "strings.js");RegisterSodDep("suitelinks.js", "core.js");</script>
+<script type="text/javascript">RegisterSod("sp.core.js", "\u002f_layouts\u002f15\u002fsp.core.js?rev=tZDGLPOvY1bRw\u00252BsgzXpxTg\u00253D\u00253D");RegisterSodDep("sp.core.js", "strings.js");RegisterSodDep("sp.core.js", "sp.init.js");RegisterSodDep("sp.core.js", "core.js");</script>
+<script type="text/javascript">RegisterSod("sp.runtime.js", "\u002f_layouts\u002f15\u002fsp.runtime.js?rev=5f2WkYJoaxlIRdwUeg4WEg\u00253D\u00253D");RegisterSodDep("sp.runtime.js", "sp.res.resx");</script>
+<script type="text/javascript">RegisterSod("sp.js", "\u002f_layouts\u002f15\u002fsp.js?rev=wgu7x7WPUmF6ZXEfjPK4HA\u00253D\u00253D");RegisterSodDep("sp.js", "sp.runtime.js");RegisterSodDep("sp.js", "sp.ui.dialog.js");RegisterSodDep("sp.js", "sp.res.resx");</script>
+<script type="text/javascript">RegisterSod("cui.js", "\u002f_layouts\u002f15\u002fcui.js?rev=LPKF2\u00252BgWXqwwaFh34pQUlA\u00253D\u00253D");</script>
+<script type="text/javascript">RegisterSod("inplview", "\u002f_layouts\u002f15\u002finplview.js?rev=Qm8q5fKNmA8BO5e1\u00252B0ZMdw\u00253D\u00253D");RegisterSodDep("inplview", "strings.js");RegisterSodDep("inplview", "core.js");RegisterSodDep("inplview", "sp.js");</script>
+<script type="text/javascript">RegisterSod("ribbon", "\u002f_layouts\u002f15\u002fsp.ribbon.js?rev=1F3TSGFB5\u00252FyAaRkjYHJL5w\u00253D\u00253D");RegisterSodDep("ribbon", "strings.js");RegisterSodDep("ribbon", "core.js");RegisterSodDep("ribbon", "sp.core.js");RegisterSodDep("ribbon", "sp.js");RegisterSodDep("ribbon", "cui.js");RegisterSodDep("ribbon", "sp.res.resx");RegisterSodDep("ribbon", "sp.runtime.js");RegisterSodDep("ribbon", "inplview");</script>
+<script type="text/javascript">RegisterSod("browserScript", "\u002f_layouts\u002f15\u002fnon_ie.js?rev=W2q45TO627Zi6ztdktTOtA\u00253D\u00253D");RegisterSodDep("browserScript", "strings.js");</script>
+ 
+<link rel="canonical" href="http://www.statesassembly.gov.je:80/Pages/default.aspx" /><link type="text/xml" rel="alternate" href="/_vti_bin/spsdisco.aspx" /><link rel="stylesheet" type="text/css" href="../_layouts/15/styles/C5.StatesAssembly/containers.css" media="screen" /><link rel="stylesheet" type="text/css" href="../_layouts/15/styles/C5.StatesAssembly/Assembly.css?rel=1802" media="screen" /><link rel="stylesheet" type="text/css" href="../_layouts/15/styles/C5.StatesAssembly/sections.css?rel=2809" media="screen" /><link rel="stylesheet" type="text/css" href="../_layouts/15/styles/C5.StatesAssembly/jquery-ui-1.8.16.custom.css" /><link rel="stylesheet" type="text/css" href="../_layouts/15/styles/C5.StatesAssembly/print/printDefault.css" media="print" />   
+	
+
+<!-- Dublin Core meta tags start -->
+<meta name="DC.coverage" content="Jersey, Channel Islands" />
+<meta name="DC.coverage.spatial" content="States of Jersey, Channel Islands" />
+<meta name="DC.creator" content="States of Jersey" />
+<meta name="DC.date.available" scheme="W3CDTF" content="20/11/2011" />
+<meta name="DC.date.created" scheme="W3CDTF" content="20/11/2011" />
+<meta name="DC.date.issued" scheme="W3CDTF" content="20/11/2011" />
+<meta name="DC.date.modified" scheme="W3CDTF" content="05/12/2017" />
+<meta name="DC.description" content="States of Jersey Government Website." />
+<meta name="DC.format" scheme="IMT" content="text/html" />
+<meta name="DC.government.update" content="N" />
+<meta name="DC.identifier" content="http://www.statesassembly.gov.je" />
+<meta name="DC.language" scheme="ISO 639-2/T" content="en" />
+<meta name="DC.publisher" content="States of Jersey, Cyril Le Marquand House, PO Box 140, The Parade, St Helier, Jersey, JE4 8QT" />
+<meta name="DC.rights.copyright" content="Copyright (C) States of Jersey unless otherwise specified.  See http://www.statesassembly.gov.je/pages/Terms.aspx for further information." />
+<meta name="DC.title" content="States Assembly" />
+<meta name="DC.Subject" scheme="eGMS.IPSV" content="States Assembly Jersey; Jersey parliament; Jersey government; States of Jersey; States Members; Bailiff of Jersey; States Greffe; Greffier of the States; States Chamber" />
+<!-- Dublin Core meta tags end -->
+<!-- eGMS meta tags start -->
+<meta name="eGMS.accessibility" scheme="WCAG" content="Double-A" />
+<meta name="eGMS.Subject.Category" scheme="IPSV" content="States Assembly Jersey; Jersey parliament; Jersey government; States of Jersey; States Members; Bailiff of Jersey; States Greffe; Greffier of the States; States Chamber" />
+<meta name="eGMS.Subject.Keyword" content="The official website for the States Assembly of the island of Jersey. Jersey's parliament." />
+<!-- eGMS meta tags end -->
+<!-- Standard meta tags start -->
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="author" content="States of Jersey" />
+<meta name="copyright" content="Copyright (C) States of Jersey unless otherwise specified.  See http://whttp://www.statesassembly.gov.je/pages/legal.aspx for further information." />
+<meta name="country" content="Jersey, Channel Islands" />
+<meta name="creator" content="States of Jersey" />
+<meta name="publisher" content="States of Jersey, Cyril Le Marquand House, PO Box 140, The Parade, St Helier, Jersey, JE4 8QT" />
+<meta name="rights" content="Copyright (C) States of Jersey unless otherwise specified.  See http://www.gov.je/pages/legal.aspx for further information." />
+<meta name="verify-v1" content="cyKjQY77cnm4gBZiC4+cK+bHdUpSlsIFZxFM0BwL8A8=" />
+<meta name="title" content="States Assembly" />
+<meta name="last-modified" content="05/12/2017" />
+<meta name="keywords" content="The official website for the States Assembly of the island of Jersey. Jersey's parliament." />
+<meta name="robots" content="INDEX,FOLLOW" />
+<!-- Standard meta tags end -->
+
+<link rel="stylesheet" type="text/css" href="/_layouts/15/styles/C5.StatesAssembly/fontSizeSmall.css" media="screen" />
+
+
+	
+    	<!--[if IE 6]>
+		    <link rel="stylesheet" type="text/css" href="/css/IE6.css" media="screen" />	
+	    <![endif]-->
+ 
+        </head>
+    <body>
+        
+		<div id="imgPrefetch" style="display:none">
+<img src="/_layouts/15/images/C5.StatesAssembly/GovJE.ico?rev=23" />
+</div>
+
+
+	    <form method="post" action="./default.aspx" id="aspnetForm">
+<input type="hidden" name="_wpcmWpid" id="_wpcmWpid" value="" />
+<input type="hidden" name="wpcmVal" id="wpcmVal" value="" />
+<input type="hidden" name="MSOWebPartPage_PostbackSource" id="MSOWebPartPage_PostbackSource" value="" />
+<input type="hidden" name="MSOTlPn_SelectedWpId" id="MSOTlPn_SelectedWpId" value="" />
+<input type="hidden" name="MSOTlPn_View" id="MSOTlPn_View" value="0" />
+<input type="hidden" name="MSOTlPn_ShowSettings" id="MSOTlPn_ShowSettings" value="False" />
+<input type="hidden" name="MSOGallery_SelectedLibrary" id="MSOGallery_SelectedLibrary" value="" />
+<input type="hidden" name="MSOGallery_FilterString" id="MSOGallery_FilterString" value="" />
+<input type="hidden" name="MSOTlPn_Button" id="MSOTlPn_Button" value="none" />
+<input type="hidden" name="__REQUESTDIGEST" id="__REQUESTDIGEST" value="0xD61DEE61F1C9D2D96925BEFD0A085C8E21A5BFB91F756FAE8F7081A98AE3F9B2B56C861C5BE324F2A4238C022BC71B318778647E05108AD5A313338138031117,07 Dec 2017 18:36:25 -0000" />
+<input type="hidden" name="MSOSPWebPartManager_DisplayModeName" id="MSOSPWebPartManager_DisplayModeName" value="Browse" />
+<input type="hidden" name="MSOSPWebPartManager_ExitingDesignMode" id="MSOSPWebPartManager_ExitingDesignMode" value="false" />
+<input type="hidden" name="MSOWebPartPage_Shared" id="MSOWebPartPage_Shared" value="" />
+<input type="hidden" name="MSOLayout_LayoutChanges" id="MSOLayout_LayoutChanges" value="" />
+<input type="hidden" name="MSOLayout_InDesignMode" id="MSOLayout_InDesignMode" value="" />
+<input type="hidden" name="_wpSelected" id="_wpSelected" value="" />
+<input type="hidden" name="_wzSelected" id="_wzSelected" value="" />
+<input type="hidden" name="MSOSPWebPartManager_OldDisplayModeName" id="MSOSPWebPartManager_OldDisplayModeName" value="Browse" />
+<input type="hidden" name="MSOSPWebPartManager_StartWebPartEditingName" id="MSOSPWebPartManager_StartWebPartEditingName" value="false" />
+<input type="hidden" name="MSOSPWebPartManager_EndWebPartEditing" id="MSOSPWebPartManager_EndWebPartEditing" value="false" />
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwULLTIwNjk0ODE3MjgPZBYCZg9kFgICAQ9kFgQCAQ9kFgQCAQ9kFgJmD2QWAgIBDxYCHhNQcmV2aW91c0NvbnRyb2xNb2RlCymIAU1pY3Jvc29mdC5TaGFyZVBvaW50LldlYkNvbnRyb2xzLlNQQ29udHJvbE1vZGUsIE1pY3Jvc29mdC5TaGFyZVBvaW50LCBWZXJzaW9uPTE1LjAuMC4wLCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPTcxZTliY2UxMTFlOTQyOWMBZAIHD2QWAgIBD2QWAmYPPCsABgBkAgcPZBYGAgYPZBYCAgIPZBYCAgUPZBYCAgMPFgIeB1Zpc2libGVoFgJmD2QWBAICD2QWBgIBDxYCHwFoZAIDDxYCHwFoZAIFDxYCHwFoZAIDDw8WAh4JQWNjZXNzS2V5BQEvZGQCDg9kFgICBQ9kFgQCAQ8PFgIfAWdkFgYCAQ8PFgQeCEltYWdlVXJsBTgvU2l0ZUNvbGxlY3Rpb25JbWFnZXMvU3RhdGVzIEFzc2VtYmx5L2Jhbm5lcnN0YXRlcyAzLmpwZx4NQWx0ZXJuYXRlVGV4dAUfU3RhdGVzIEFzc2VtYmx5IEhvbWUgUGFnZSBJbWFnZWRkAgMPDxYCHwFnZBYCAgEPFgIeBFRleHQFRVdlbGNvbWUgdG8gdGhlIHdlYnNpdGUgb2YgdGhlIFN0YXRlcyBBc3NlbWJseSBpbiB0aGUgSXNsYW5kIG9mIEplcnNleWQCBQ8PFgIfAWdkFgICAQ8PFgQeC05hdmlnYXRlVXJsBRkvYWJvdXQvUGFnZXMvZGVmYXVsdC5hc3B4HwUFJEZpbmQgb3V0IGFib3V0IHRoZSBTdGF0ZXMgQXNzZW1ibHkgPmRkAgMPFgIfAAsrBAFkAhAPZBYCZg9kFgJmDw8WAh8BaGQWBAIBD2QWBAIBDxBkZBYBZmQCBQ8PZBYEHgtvbm1vdXNlb3ZlcgVIdGhpcy5zcmM9Jy9fbGF5b3V0cy8xNS9pbWFnZXMvQzUuU3RhdGVzQXNzZW1ibHkvY29tbWFuZF9mZWVkYmFja19tby5wbmcnHgpvbm1vdXNlb3V0BUV0aGlzLnNyYz0nL19sYXlvdXRzLzE1L2ltYWdlcy9DNS5TdGF0ZXNBc3NlbWJseS9jb21tYW5kX2ZlZWRiYWNrLnBuZydkAgMPDxYCHwFoZGQYAQUeX19Db250cm9sc1JlcXVpcmVQb3N0QmFja0tleV9fFgEFEmN0bDAwJEhlYWRlciRjdGwwMPyLsHMsB3PiMOmNxhcH6MTcoip1sf9qE0EwVNhpxtiI" />
+
+
+<script type="text/javascript">
+//<![CDATA[
+var MSOWebPartPageFormName = 'aspnetForm';
+var g_presenceEnabled = true;
+var g_wsaEnabled = false;
+var g_wsaQoSEnabled = false;
+var g_wsaQoSDataPoints = [];
+var g_wsaLCID = 1033;
+var g_wsaListTemplateId = 850;
+var g_wsaSiteTemplateId = 'BLANKINTERNET#0';
+var _fV4UI=true;var _spPageContextInfo = {webServerRelativeUrl: "\u002f", webAbsoluteUrl: "http:\u002f\u002fwww.statesassembly.gov.je", siteAbsoluteUrl: "http:\u002f\u002fwww.statesassembly.gov.je", serverRequestPath: "\u002fPages\u002fdefault.aspx", layoutsUrl: "_layouts\u002f15", webTitle: "States Assembly", webTemplate: "53", tenantAppVersion: "0", isAppWeb: false, webLogoUrl: "_layouts\u002f15\u002fimages\u002fsiteicon.png", webLanguage: 1033, currentLanguage: 1033, currentUICultureName: "en-US", currentCultureName: "en-GB", clientServerTimeDelta: new Date("2017-12-07T18:36:25.4456317Z") - new Date(), siteClientTag: "3700$$15.0.4945.1000", crossDomainPhotosEnabled:false, webUIVersion:15, webPermMasks:{High:16,Low:196673},pageListId:"{a7d6f410-5aaf-42ce-8db3-b5028d56f0aa}",pageItemId:38, pagePersonalizationScope:1, alertsEnabled:true, siteServerRelativeUrl: "\u002f", allowSilverlightPrompt:'True'};document.onreadystatechange=fnRemoveAllStatus; function fnRemoveAllStatus(){removeAllStatus(true)};//]]>
+</script>
+
+<script src="/_layouts/15/blank.js?rev=ZaOXZEobVwykPO9g8hq%2F8A%3D%3D" type="text/javascript"></script>
+<script type="text/javascript">
+//<![CDATA[
+if (typeof(DeferWebFormInitCallback) == 'function') DeferWebFormInitCallback();//]]>
+</script>
+
+<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="FCD354B4" />
+<input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="/wEdAAP3tuEwnAViAlLrmeqCxytfUuHE4ZtJkeVMagIuiZkkeBkoeNy6Hq2OJNzKjm/nU4DsCdmdsneLcugK94hwxUjORqk18jh3KhIEYh4ORE1+HQ==" />
+            
+            <script type="text/javascript"> var submitHook = function () { return false; }; theForm._spOldSubmit = theForm.submit; theForm.submit = function () { if (!submitHook()) { this._spOldSubmit(); } }; </script>
+
+            
+	        
+
+            <div>
+	
+	<div id="s4-ribbonrow" style="visibility:hidden;display:none"></div>
+
+</div>
+
+
+
+        
+            
+		        <script type="text/javascript">//<![CDATA[
+        var formDigestElement = document.getElementsByName('__REQUESTDIGEST')[0];
+        if (!((formDigestElement == null) || (formDigestElement.tagName.toLowerCase() != 'input') || (formDigestElement.type.toLowerCase() != 'hidden') ||
+            (formDigestElement.value == null) || (formDigestElement.value.length <= 0)))
+        {
+            formDigestElement.value = '0xD61DEE61F1C9D2D96925BEFD0A085C8E21A5BFB91F756FAE8F7081A98AE3F9B2B56C861C5BE324F2A4238C022BC71B318778647E05108AD5A313338138031117,07 Dec 2017 18:36:25 -0000';
+            g_updateFormDigestPageLoaded = new Date();
+        }
+        //]]>
+        </script>
+	        
+
+            <div id="s4-workspace">
+				<div id="s4-bodyContainer">
+	                <a name="mainContent"></a>
+		            <div id="pageFrame">
+			            <div id="containerGlobal">
+				            <a href="#startcontent" accesskey="s" class="accessibility noindex">Skip to main content</a>
+					        <a href="#startleftnav" accesskey="n" class="accessibility noindex">Skip to navigation</a>
+			
+					        
+
+<script type="text/javascript" language="javascript">
+
+function fixFormAction()
+{
+    theForm.action = $(location).attr('href');
+}
+</script>
+<div id="containerHeader" class="noindex">
+    <div id="header">
+        <div id="logo">
+            <a href="/" accesskey="1" title="States of Jersey">
+                <img src="~/_layouts/15/images/C5.StatesAssembly/assemblylogo.png" alt="The official website for public services and information online" /></a>
+        </div>
+        <div id="headerNavigation">
+            <ul id="headerMenu">
+                <li><a accesskey="6" href="/pages/help.aspx">Help</a></li>
+                <li><a accesskey="5" href="/pages/Accessibility.aspx">Accessibility</a></li>
+                <li class="lastHeaderLink">
+                    <a class='font small activeFont' href='&#47;Pages&#47;default.aspx&#63;fontSize&#61;small'>A</a><a class='font medium' href='&#47;Pages&#47;default.aspx&#63;fontSize&#61;medium'>A</a><a class='font large' href='&#47;Pages&#47;default.aspx&#63;fontSize&#61;large'>A</a></li>
+            </ul>
+            <div id="search">
+                <input type="text" style="visibility: hidden; display: none;" />
+                <input name="ctl00$Header$txtSearch" type="text" id="ctl00_Header_txtSearch" class="text" placeholder="Search this site..." />
+                
+                <input type="image" name="ctl00$Header$ctl00" class="submitSearch" src="../_layouts/15/images/C5.StatesAssembly/search-go-button.gif" onclick="fixFormAction();WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions(&quot;ctl00$Header$ctl00&quot;, &quot;&quot;, true, &quot;&quot;, &quot;&quot;, false, false))" />
+            </div>
+        </div>
+    </div>
+</div>
+	
+					        
+<div id="containerNavigation" class="noindex">
+    <div id="navigation">
+        <div id="sectionNavigation">
+            <ul>
+                <li class="first"><a accesskey="2" href="/pages/contactus.aspx">Contact us</a></li>
+            </ul>
+        </div>
+    </div>
+    <div id="breadcrumb"><a class='breadcrumbLink' href="/Pages/default.aspx">Home</a></div>
+
+</div>
+
+                    	
+					        <div id="containerMainContent">
+					            <div id="mainContent">
+						            
+	<div id="column_left" class="noindex">
+		
+
+<div id="left-navigator">
+<a name="startleftnav" class="accessibility"></a>
+<h2 class="accessibility">Main Navigation</h2>
+
+				<div class="navbox">
+					<h3>Browse by subject</h3>
+					<ul>
+					<li><a href='/about/Pages/default.aspx'>About the States Assembly</a></li><li><a href='/committees/Pages/default.aspx'>Committees and panels</a></li><li><a href='/Pages/Complaints-Board.aspx'>Complaints Board</a></li><li><a href='/Pages/Hansard.aspx'>Hansard</a></li><li><a href='/Pages/Members.aspx'>Members</a></li><li><a href='/Pages/MinisterDepartments.aspx'>Ministers</a></li><li><a href='/Pages/Minutes.aspx'>Minutes</a></li><li><a href='/Pages/OrderPapers.aspx'>Order Papers</a></li><li><a href='/Pages/Propositions.aspx'>Propositions</a></li><li><a href='/Pages/Questions.aspx'>Questions</a></li><li><a href='/Pages/Reports.aspx'>Reports</a></li><li><a href='/committees/Pages/ScrutinyPanelsCommittees.aspx'>Scrutiny</a></li><li><a href='/Pages/SittingsDebates.aspx'>Sittings and debates</a></li><li><a href='/Pages/Statements.aspx'>Statements</a></li><li><a href='/Pages/StatesMeetings.aspx'>States meetings</a></li><li><a href='/Reform/Pages/default.aspx'>States reform</a></li><li><a href='/Pages/Votes.aspx'>Votes</a></li><li><a href='/Pages/complaints.aspx'>Complaints about States Members or States Greffe employees</a></li>
+					</ul>
+					
+			</div>
+</div>
+
+	</div>
+	<div id="column_center">
+		<div id="bodycontent">
+			<a name="startcontent" class="accessibility"></a>
+					
+				
+				<div id="ctl00_PlaceHolderMain_EditModePanelintroview">
+	
+					
+
+<div id="HomePageImage" >
+    <img id="ctl00_PlaceHolderMain_EditModePanelintroview_HomePageImage_imgImage" src="/SiteCollectionImages/States%20Assembly/bannerstates%203.jpg" alt="States Assembly Home Page Image" height="235" width="610" />
+
+    <div id="ctl00_PlaceHolderMain_EditModePanelintroview_HomePageImage_pnlTop" class="top">
+		
+        Welcome to the website of the States Assembly in the Island of Jersey
+    
+	</div>
+    <div id="ctl00_PlaceHolderMain_EditModePanelintroview_HomePageImage_pnlBottom" class="bottom">
+		
+        <a id="ctl00_PlaceHolderMain_EditModePanelintroview_HomePageImage_hlImageLink" href="/about/Pages/default.aspx">Find out about the States Assembly ></a>
+    
+	</div>
+    <script type="text/javascript">
+        $("#HomePageImage .top").css("opacity", 0.7);
+        $("#HomePageImage .bottom").css("opacity", 0.7);
+    </script>
+
+</div>
+
+					 <div>
+                        <div id="ctl00_PlaceHolderMain_EditModePanelintroview_RadHtmlField1_label" style='display:none'>Body Content</div><div id="ctl00_PlaceHolderMain_EditModePanelintroview_RadHtmlField1__ControlWrapper_RichHtmlField" class="ms-rtestate-field" style="display:inline" aria-labelledby="ctl00_PlaceHolderMain_EditModePanelintroview_RadHtmlField1_label"><h3 class="assemblystyleElement-H3">Next States sitting </h3><p class="assemblystyleElement-P"><span style="font-size&#58;14px;"></span><span style="font-size&#58;14px;"><span style="font-size&#58;14px;"><span aria-hidden="true"></span>The&#160;States Assembly will next meet at 2.30 pm on Monday 11th December 2017. The</span><span style="font-size&#58;14px;"> Sittings and Debates page lists the&#160;propositions that will be debated at that meeting and at future meetings.&#160; <span aria-hidden="true"></span></span>&#160; </span></p><h3 class="assemblystyleElement-H3">Transcripts of the latest States sittings ('Hansard')</h3><p><a href="/Pages/Hansard.aspx?docid=CCA6DAD4-1207-435E-BB41-D669496722A9">30th November 2017 - Edited Transcript</a><br></p><p><a href="/Pages/Hansard.aspx?docid=14A704A2-A89F-416B-9B7C-E5933A34A47C">29th November 2017 - Edited Transcript</a></p><p></p><p><a href="/Pages/Hansard.aspx?docid=65BFC512-3FF5-483C-A0F1-7C70E2AB851E">28th November 2017 - Edited Transcript</a></p><p><a href="/Pages/Hansard.aspx?docid=D63C5AB0-EA52-4926-9EB8-6ACDE6F9D8B0">27th November 2017 - Edited Transcript</a></p><p></p><p></p><p>
+   <span aria-hidden="true" style="color&#58;#8b0304;"> 
+      <span aria-hidden="true"></span></span></p><h3 class="assemblystyleElement-H3"></h3><h3 class="assemblystyleElement-H3">Webcasting of the States</h3>
+<font color="#000000" face="Times New Roman" size="3"> </font>
+<p class="assemblystyleElement-P"><span style="font-size&#58;14px;">The Assembly's meetings&#160;are webcast.&#160;Each meeting&#160;can be watched live and the webcast is available for a further 6 months and searchable by topic and speaker.&#160; </span></p>
+<font color="#000000" face="Times New Roman" size="3"> </font><font color="#000000" face="Times New Roman" size="3"> </font><font color="#000000" face="Times New Roman" size="3"> </font><font color="#000000" face="Times New Roman" size="3"> </font>
+<p style="margin&#58;0cm 0cm 0pt;">
+   <span style="font-family&#58;&quot;arial&quot;,sans-serif;"><font color="#000000" size="3"><a href="https&#58;//statesassembly.public-i.tv/core/portal/home">Watch the States Assembly</a></font></span></p><p style="margin&#58;0cm 0cm 0pt;"><span style="font-family&#58;&quot;arial&quot;,sans-serif;"><font color="#000000" face="Verdana"></font></span><br></p><h3 class="assemblystyleElement-H3">Video Introduction to the States Assembly</h3><p><span style="font-family&#58;&quot;arial&quot;,sans-serif;"><font color="#000000" face="Verdana"></font></span>The States Greffe has put together a short video to explain how the States Assembly works.&#160; <a href="https&#58;//www.youtube.com/watch?v=tCTw0_eSlL0">Learn about the States Assembly</a>.<br></p><h3 class="assemblystyleElement-H3">History Exhibition</h3><p class="assemblystyleElement-H3">A public exhibition to mark the 130th anniversary of the States Chamber is currently on tour around the Parishes.&#160; From 23rd November to 7th December 2017, it will be available to view at&#160;St. Saviour's&#160;Parish Hall.&#160; <a href="https&#58;//jerseyassembly.wordpress.com/" target="_blank">View brochure</a></p><font color="#000000" face="Times New Roman" size="3">
+
+</font><h3 class="assemblystyleElement-H3">Take a look inside the States Chamber<br></h3><p style="margin&#58;0cm 0cm 0pt;"><span style="font-size&#58;14px;">Come in from the Royal Square and </span><a href="https&#58;//www.google.com/maps/%4049.1836847%2c-2.1051451%2c3a%2c60.2y%2c282.07h%2c73.51t/data=%213m7%211e1%213m5%211skB9GjATQhPsAAAQvxeN7vA%212e0%213e2%217i13312%218i6656"><span style="font-size&#58;14px;">explore the States Chamber</span></a>.</p>
+<font color="#000000" face="Times New Roman" size="3"> </font></div>
+					</div>
+					<!--start content-->
+					
+
+<div class="linksSummaryArea">
+
+<div class='linksSummary'><div><h3><a href='/about/Pages/default.aspx'  >About the States Assembly</a></h3><ul><li><a href='/about/history/Pages/default.aspx'  >History and information about States Assembly</a></li><li><a href='/about/statesgreffe/Pages/default.aspx'  >States Greffe</a></li><li><a href='/about/membersmeetingsproceedings/Pages/Default2.aspx'  >States members, meetings and proceedings</a></li><li><a href='/about/usefullinks/Pages/default.aspx'  >Useful links</a></li><li><a href='/about/youngpeople/Pages/def2.aspx'  >Young people and the States</a></li></ul></div></div><div class='linksSummaryEven'><div><h3><a href='/committees/Pages/default.aspx'  >Committees and panels</a></h3><p>Information about the States Assembly's committees and panels and details of their members</p></div></div><div class='clearFix'><!-- empty div --></div><div class='linksSummary'><div><h3><a href='/Pages/SittingsDebates.aspx'  >Sittings and debates</a></h3><p>Details of the propositions that are listed for debate at future States sittings and the dates on which they will be debated</p></div></div><div class='linksSummaryEven'><div><h3><a href='/Reform/Pages/default.aspx'  >States reform</a></h3><ul><li><a href='/Reform/Pages/CarswellReview.aspx'  >Carswell review</a></li><li><a href='/Reform/Pages/ClothierReview.aspx'  >Clothier review</a></li><li><a href='/Reform/Pages/ElectoralCommission.aspx'  >Electoral Commission</a></li><li><a href='/Reform/Pages/ReformReferendum.aspx'  >Referendum on States reform</a></li><li><a href='/Reform/Pages/Sub-committee-on-reform.aspx'  >Sub-Committee on reform</a></li></ul></div></div><div class='clearFix'><!-- empty div --></div><div class='linksSummary'><div><h3><a href='/Pages/Questions.aspx'  >Questions</a></h3><p>Find out which questions were asked in the States Assembly, when, and who answered them</p></div></div><div class='linksSummaryEven'><div><h3><a href='/Pages/Complaints-Board.aspx'  >Complaints Board</a></h3><p>Find information on how to make a complaint to the Complaints Board and read the Board's most recent findings.</p></div></div><div class='clearFix'><!-- empty div --></div><div class='linksSummary'><div><h3><a href='/Pages/Votes.aspx'  >Votes</a></h3><p>Find a record of all votes recorded through the electronic voting system, which shows how States members have voted</p></div></div><div class='linksSummaryEven'><div><h3><a href='/Pages/complaints.aspx'  >Complaints about States Members or States Greffe employees</a></h3><p>Find out how to complain about a States Member or a member of the States Greffe staff.</p></div></div><div class='clearFix'><!-- empty div --></div><div class='linksSummary'><div><h3><a href='/publications/Pages/default.aspx'  >Publications</a></h3><ul><li><a href='/Pages/Hansard.aspx'  >Hansard</a></li><li><a href='/Pages/Minutes.aspx'  >Minutes</a></li><li><a href='/Pages/OrderPapers.aspx'  >Order Papers</a></li><li><a href='/Pages/Propositions.aspx'  >Propositions</a></li><li><a href='/Pages/Questions.aspx'  >Questions</a></li><li><a href='/Pages/Reports.aspx'  >Reports</a></li><li><a href='/Pages/Statements.aspx'  >Statements</a></li></ul></div></div><div class='linksSummaryEven'><div><h3><a href='/Pages/StatesMeetings.aspx'  >States meetings</a></h3><p>Find out the dates for the holding of meetings of the States</p></div></div><div class='clearFix'><!-- empty div --></div><div class='linksSummary'><div><h3><a href='/Pages/Members.aspx'  >Members</a></h3><p>Find a list of all current States members and the positions they hold, as well as their contact details</p></div></div>
+
+</div>
+
+					<!--end content-->
+				
+</div>
+
+		</div>
+	</div>
+	
+	<div id="column_right" class="noindex">
+		<div id="navigator">
+			<div class='navbox'><h3>What's new</h3><ul><li><a href="/SiteCollectionDocuments/States%20Assembly/Public%20Business%20–%20States%27%20decisions%20made%20at%20the%20Sitting%20of%202017.11.27%20(to%202017.11.30).pdf" target="_blank">Public Business – States' decisions made at the Sitting of 2017.11.27 (to 2017.11.30) <img src="/_layouts/15/images/C5.StatesAssembly/newwindow-black.gif" alt="Opens link in new window" /></a></li><li><a href="/AssemblyOrderPapers/2017/2017.12.11%20Order%20Paper.pdf" target="_blank">Order Paper 11th December 2017 <img src="/_layouts/15/images/C5.StatesAssembly/newwindow-black.gif" alt="Opens link in new window" /></a></li><li><a href="/SiteCollectionDocuments/Monday%204th%20December.pdf" target="_blank">Meeting List Monday 4th December 2017 <img src="/_layouts/15/images/C5.StatesAssembly/newwindow-black.gif" alt="Opens link in new window" /></a></li><li><a href="/SiteCollectionDocuments/States%20Assembly/November%202017.pdf" target="_blank">Monthly List of Publications - November 2017 <img src="/_layouts/15/images/C5.StatesAssembly/newwindow-black.gif" alt="Opens link in new window" /></a></li></ul></div>
+<p></p>
+<div class='navbox'><h3>Quick links</h3><ul><li><a href="/SiteCollectionDocuments/States%20Assembly/States%20of%20Jersey%20Law%202005%20UNOFFICIAL%20CONSOLIDATION%20(in%20force%2010.3.15).pdf" target="_blank">States of Jersey Law 2005 <img src="/_layouts/15/images/C5.StatesAssembly/newwindow-black.gif" alt="Opens link in new window" /></a></li><li><a href="/SiteCollectionDocuments/States%20Assembly/Standing%20Orders%20of%20the%20States%20of%20Jersey%20UNOFFICIAL%20CONSOLIDATION%20(in%20force%2020.7.17).pdf" target="_blank">Standing Orders of the States of Jersey <img src="/_layouts/15/images/C5.StatesAssembly/newwindow-black.gif" alt="Opens link in new window" /></a></li><li><a href="/SiteCollectionDocuments/States%20Assembly/Green%20Sheets%20as%20at%202017.11.17.pdf" target="_blank">Constitution of the States of Jersey as at 2017.11.17 <img src="/_layouts/15/images/C5.StatesAssembly/newwindow-black.gif" alt="Opens link in new window" /></a></li><li><a href="/about/MembersMeetingsProceedings/Pages/QuestionsMinisters.aspx">Rota of questions without notice to Ministers</a></li></ul></div>
+
+
+		</div>
+	</div>
+<div style='display:none' id='hidZone'><menu class="ms-hide">
+	<ie:menuitem id="MSOMenu_Help" iconsrc="/_layouts/15/images/HelpIcon.gif" onmenuclick="MSOWebPartPage_SetNewWindowLocation(MenuWebPart.getAttribute('helpLink'), MenuWebPart.getAttribute('helpMode'))" text="Help" type="option" style="display:none">
+
+	</ie:menuitem>
+</menu></div>
+						        </div>
+					        </div>
+		
+					        
+
+
+<div id="containerFooter" class="noindex">
+					<div id="footer">
+						<h2 class="accessibility">Site Footer links</h2>
+						
+
+<div id="footerlinks">
+    <ul><li><a href="http://www.gov.je" target="_blank" title="States of Jersey website">www.gov.je</a></li><li><a href="/Pages/TranslateSite.aspx">Translate this site</a></li><li><a href="https://www.facebook.com/statesofjerseyassembly/" target="_blank">Facebook</a></li><li><a href="https://twitter.com/StatesAssembly" target="_blank" title="Twitter">Twitter</a></li><li><a href="https://statesassembly.public-i.tv/core/portal/home" target="_blank">Watch the States</a></li></ul>
+</div>
+<div id="footercopyright">
+    &copy; States of Jersey 2017
+</div>
+					
+					</div>
+</div>
+		
+   
+	                    </div>
+	                </div>
+                </div>
+            </div>
+
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+			
+			
+			
+			
+	     
+	    
+
+<script type="text/javascript">
+//<![CDATA[
+var _spFormDigestRefreshInterval = 1440000;window.g_updateFormDigestPageLoaded = new Date(); window.g_updateFormDigestPageLoaded.setDate(window.g_updateFormDigestPageLoaded.getDate() -5);var _fV4UI = true;
+function _RegisterWebPartPageCUI()
+{
+    var initInfo = {editable: false,isEditMode: false,allowWebPartAdder: false,listId: "{a7d6f410-5aaf-42ce-8db3-b5028d56f0aa}",itemId: 38,recycleBinEnabled: true,enableMinorVersioning: true,enableModeration: false,forceCheckout: true,rootFolderUrl: "\u002fPages",itemPermissions:{High:16,Low:196673}};
+    SP.Ribbon.WebPartComponent.registerWithPageManager(initInfo);
+    var wpcomp = SP.Ribbon.WebPartComponent.get_instance();
+    var hid;
+    hid = document.getElementById("_wpSelected");
+    if (hid != null)
+    {
+        var wpid = hid.value;
+        if (wpid.length > 0)
+        {
+            var zc = document.getElementById(wpid);
+            if (zc != null)
+                wpcomp.selectWebPart(zc, false);
+        }
+    }
+    hid = document.getElementById("_wzSelected");
+    if (hid != null)
+    {
+        var wzid = hid.value;
+        if (wzid.length > 0)
+        {
+            wpcomp.selectWebPartZone(null, wzid);
+        }
+    }
+};
+function __RegisterWebPartPageCUI() {
+ExecuteOrDelayUntilScriptLoaded(_RegisterWebPartPageCUI, "sp.ribbon.js");}
+_spBodyOnLoadFunctionNames.push("__RegisterWebPartPageCUI");var __wpmExportWarning='This Web Part Page has been personalized. As a result, one or more Web Part properties may contain confidential information. Make sure the properties contain information that is safe for others to read. After exporting this Web Part, view properties in the Web Part description file (.WebPart) by using a text editor such as Microsoft Notepad.';var __wpmCloseProviderWarning='You are about to close this Web Part.  It is currently providing data to other Web Parts, and these connections will be deleted if this Web Part is closed.  To close this Web Part, click OK.  To keep this Web Part, click Cancel.';var __wpmDeleteWarning='You are about to permanently delete this Web Part.  Are you sure you want to do this?  To delete this Web Part, click OK.  To keep this Web Part, click Cancel.';//]]>
+</script>
+</form>
+	    
+
+	    <script type="text/javascript">
+
+	        var _gaq = _gaq || [];
+	        _gaq.push(['_setAccount', 'UA-12796584-12']);
+	        _gaq.push(['_trackPageview']);
+
+	        (function () {
+	            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+	            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+	            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+	        })();
+
+		</script>
+
+    </body>
+</html>
