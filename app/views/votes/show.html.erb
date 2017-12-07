@@ -3,9 +3,7 @@
  <div class="row">
   <div class="col">
     <div class="proposal_name">
-      <h4><%== '<s>' if @proposition.status == 'Withdrawn' %>
-      <%= @proposition.prop_name %>
-      <%== '</s>' if @proposition.status == 'Withdrawn' %></h4>
+      <h4><%= @proposition.prop_name %></h4>
       <h6>Lodged by:  <%= @proposition.lodged_by %></h6>
     </div>
      <script type="text/javascript">
@@ -17,11 +15,9 @@
           data.addColumn('string', 'Vote Status');
           data.addColumn('number', 'Count');
           data.addRows([
-            ['Pour', <%= @shared_voteid.where(vote_type: 'Pour').count %>],
-            ['Contre', <%= @shared_voteid.where(vote_type: 'Contre').count %>],
-            ['Out of island', <%= @shared_voteid.where(vote_type: 'Out of the island').count %>],
-            ['Not present for vote', <%= @shared_voteid.where(vote_type: 'Not present for vote').count %>],
-            ['Unwell', <%= @shared_voteid.where(vote_type: 'Ill').count %>],
+		<% @shared_voteid_type.each do |vote_type, votes| %>
+			['<%= vote_type %>', <%= votes.count %>],
+		<% end %>
           ]);
           var options = {'title':'Breakdown of <%= number_with_delimiter(@shared_voteid.count) %> Votes','is3D': true};
          var chart = new google.visualization.PieChart(document.getElementById('chart_div'));
