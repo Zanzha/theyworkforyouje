@@ -25,13 +25,9 @@ class PropositionsController < ApplicationController
   # GET /propositions/1
   # GET /propositions/1.json
   def show
-
     @proposition = Proposition.find(params[:id])
     @votes = @proposition.votes.includes(:politician)
-
-
-  #  @shared_voteid = Vote.where(voting_id: @mainid)
-    #  @shared_voteid_type = Vote.where(voting_id: @mainid).group_by(&:vote_type)
+    @votes_grouped = @votes.order('id desc').group_by(&:voting_id)
   end
 
   # GET /propositions/new
