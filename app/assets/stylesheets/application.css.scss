@@ -15,15 +15,28 @@
 
  */
 
- // import scss file
-@import "bootswatch/flatly/variables";
-@import "bootstrap";
-@import "bootswatch/flatly/bootswatch";
+ div.container-fluid {
+   display: flex;
+   flex-direction: column;
+   flex: 1 0 auto;
+   padding: 0;
+ }
+ p {
+  -webkit-margin-before: 0;
+  -webkit-margin-after: 0;
+  -webkit-margin-start: 0;
+  -webkit-margin-end: 0;
+ }
+
+ @import "bootswatch/flatly/variables";
+ @import "bootstrap";
+ @import "bootswatch/flatly/bootswatch";
+
 
 $green: #00B541;
 $border: 1px solid $green;
-$greenbg: #1d6b04;
-$greenborder: darken($greenbg, 20%);
+$redbg: #903535;
+$bordercolor: darken($redbg, 20%);
 $greybg: #E8E8E8;
 
 * {
@@ -32,11 +45,12 @@ $greybg: #E8E8E8;
 }
 
 a {
-  color: Black;
+  color: $bordercolor;
+  text-decoration: underline;
 }
 
 a:hover {
-  color: lighten($greenborder, 15%);
+  color: lighten($bordercolor, 15%);
   background-color: transparent;
 }
 body{
@@ -53,7 +67,7 @@ body, html {
 .meta-wrapper {
   display: flex;
   flex-direction: column;
-  flex: 1;
+  flex: 1 0 auto;
   // margin: 1em;
   // border: $border;
 }
@@ -70,7 +84,15 @@ p.notice, p.alert {
   text-decoration: none;
 }
 
+.btn-primary {
+  background-color: $redbg;
+  border-color: $redbg;
+  text-decoration: none;
+}
 
+.btn-primary:hover {
+  background-color: $bordercolor;
+}
 
 .manage_container{
   display: flex;
@@ -84,4 +106,9 @@ p.notice, p.alert {
     margin-top: 5px;
     margin-right: 5px;
 
+  }
+
+  .row.no-margin
+  {
+    margin: 0 auto;
   }

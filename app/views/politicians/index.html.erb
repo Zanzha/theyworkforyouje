@@ -2,22 +2,22 @@
    <div class="politician_list">
       <div class="row">
          <% @politicians_grouped.each do |title, politicians| %>
-         <% politicians.each do |politician| %>
-         <div class="col no-flex-grow">
-            <div class="card card--fixed-width">
-               <img src="<%= politician.avatar %>" alt="<%= title %> <%= politician.full_name %>">
-               <div class="card-body">
-                  <h4 class="card-title">
-                    <%= link_to politician do %>
-                      <%= politician.full_name %>
-                    <% end %>
-                  </h4>
-                  <h6 class="card-subtitle text-muted"><%= politician.parish.name %></h6>
-               </div>
-               <div class="card-footer"><%= title %></div>
-            </div>
-         </div>
-         <% end %>
+           <% politicians.each do |politician| %>
+           <div class="col no-flex-grow">
+              <div class="card card--fixed-width">
+                 <img src="<%= politician.avatar %>" alt="<%= title %> <%= politician.full_name %>">
+                 <div class="card-body">
+                    <h4 class="card-title">
+                      <%= link_to politician do %>
+                        <%= politician.full_name %>
+                      <% end %>
+                    </h4>
+                    <h6 class="card-subtitle text-muted"><%= politician.parish.name %></h6>
+                 </div>
+                 <div class="card-footer"><%= title %></div>
+              </div>
+           </div>
+           <% end %>
          <% end %>
       </div>
    </div>

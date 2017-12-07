@@ -1,11 +1,17 @@
 $green: #00B541;
 $border: 1px solid $green;
-$greenbg: #1d6b04;
-$greenborder: darken($greenbg, 20%);
+$redbg: #903535;
+$bordercolor: black;
 
 
-.digg_pagination{
-  padding-bottom: 20px;
+.digg_pagination {
+  display: flex;
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  // padding-bottom: 20px;
   background: white;
   cursor: default;
 
@@ -22,18 +28,18 @@ $greenborder: darken($greenbg, 20%);
   .current {
     font-style: normal;
     font-weight: bold;
-    background: $greenbg;
+    background: $redbg;
     color: white;
-    border: 1px solid $greenborder;
+    border: 1px solid $bordercolor;
   }
   a {
     text-decoration: none;
-    color: $greenborder;
-    border: 1px solid $greenborder;
+    color: $bordercolor;
+    border: 1px solid $bordercolor;
 
     &:hover, &:focus {
-      color: lighten($greenborder, 15%);
-      border-color: $greenborder;
+      color: lighten($bordercolor, 15%);
+      border-color: $bordercolor;
     }
   }
   .page_info {
@@ -43,8 +49,8 @@ $greenborder: darken($greenbg, 20%);
     text-align: center;
 
     b {
-      color: $greenborder;
-      background: $greenbg;
+      color: $bordercolor;
+      background: $redbg;
       padding: 0.1em 0.25em;
     }
   }

@@ -25,14 +25,22 @@
                       <%end%>
             </div>
             <div class="col-6">
-              <% parish.politicians.each do |politician| %>
+              <% 
+                politicians = parish.politicians.where(in_term:1)
+                politicians.each do |politician| %>
               <div class="card-body">
-                  <span class="parish_politician_title">
-                    <%= politician.title %>
-                  </span>
-                  <span class="parish_politician">
-                    <%= link_to politician.full_name, politician_path(politician)  %>
-                  </span>
+                <div class="row">
+                  <div class="col-3">
+                    <span class="parish_politician_title">
+                      <%= politician.title %>
+                    </span>
+                  </div>
+                  <div class="col-9">
+                    <span class="parish_politician">
+                      <%= link_to politician.full_name, politician_path(politician)  %>
+                    </span>
+                  </div>
+                </div>
               </div>
               <% end %>
             </div>

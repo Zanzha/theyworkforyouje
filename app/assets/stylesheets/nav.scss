@@ -6,9 +6,7 @@ nav.navbar {
 
   li.external-nav {
     padding-left: 11em;
-    a {
-    text-decoration: underline;
-    }
+
     a:hover {
     background-color: transparent;
     }
@@ -26,6 +24,6 @@ nav.navbar {
   }
 }
 .navbar-light .navbar-nav .nav-link {
-    
+
     font-weight: bolder;
 }

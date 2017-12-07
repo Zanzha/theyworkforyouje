@@ -1,26 +1,30 @@
 $green: #00B541;
 $border: 1px solid $green;
-$greenbg: #1d6b04;
-$greenborder: darken($greenbg, 20%);
+$redbg: #903535;
+$bordercolor: black;
 $greybg: #E8E8E8;
 
-footer{
+footer {
   margin-top:10px;
+  p {
+    margin: 0;
+  }
 }
 
 footer.navbar {
-  min-width: 100%;
-  min-height: 6em;
+  width: 100%;
+  height: 6em;
   display: flex;
   align-items: center;
   justify-content: space-between;
   background-color: $greybg;
-  color: $greenborder;
+  color: $bordercolor;
   border-top: 1px solid darken($greybg, 20%);
 }
 
 .navbar-text {
   text-align: center;
+  padding: 0;
 }
 
 .logo_footer {
