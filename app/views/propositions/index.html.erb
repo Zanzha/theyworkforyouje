@@ -46,12 +46,12 @@
      <% end %>
   </div>
 
-  <div class="digg_pagination">
+
     <div class="page_info">
       <%= page_entries_info @propositions %>
     </div>
     <div class="page_select">
-      <%= will_paginate @propositions, :container => false %>
+      <%= will_paginate(@propositions, :renderer => WillPaginate::ActionView::Bootstrap4LinkRenderer) %>
     </div>
   </div>
 </div>

@@ -1,13 +1,10 @@
 // Place all the styles related to the Home controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-$redbg: #903535;
-$bordercolor: black;
-$greybg: #E8E8E8;
+
 
 .logo {
-  border: 1px solid white ;
-  color: white;
+
   padding: 0.5em 1em;
   border-radius: 1px;
   font-weight: bold;
@@ -27,10 +24,6 @@ $greybg: #E8E8E8;
 {
   text-align: center;
   padding: 10px;
-  background-color: $redbg;
-  padding: 20px;
-  border: solid 1px $redbg;
-  border-bottom: solid 1px $bordercolor;
 }
 
 
@@ -46,7 +39,6 @@ $greybg: #E8E8E8;
   padding: 5px 20px;
   font-style: italic;
   font-size: 0.7em;
-  border: solid 1px $bordercolor;
   border-top: 0;
   border-bottom: 0;
 }
@@ -55,16 +47,21 @@ $greybg: #E8E8E8;
 {
   text-align: justify;
   padding: 20px;
-  border: solid 1px $bordercolor;
+
   border-top: 0;
   font-size: 0.9em;
 }
 
 .main_index {
+<<<<<<< HEAD
   max-width: 100%;
   padding: 1em;
   // padding-bottom: 1em;
   background-color: $greybg;
+=======
+  padding-top: 1em;
+  padding-bottom: 1em;
+>>>>>>> 4bacf8ec5bed60d234112dbabffbc1ce9087bbef
 }
 
 .main_index_text {
@@ -75,7 +72,6 @@ $greybg: #E8E8E8;
  text-align: left;
 
  h1 {
-   color: $bordercolor;
    padding-top: 0.5em;
    padding-bottom: 0.5em;
    font-weight: bold;
@@ -84,7 +80,6 @@ $greybg: #E8E8E8;
    padding-top: 0.5em;
    padding-bottom: 0.5em ;
    font-weight: bold;
-   color: $bordercolor;
  }
  p {
    font-size: 1.2em;
@@ -94,9 +89,7 @@ $greybg: #E8E8E8;
 
 .search_button {
   .btn-outline-success {
-   color: $bordercolor;
    background-color: white;
    background-image: none;
-   border-color: $bordercolor;
  }
 }
