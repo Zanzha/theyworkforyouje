@@ -1,13 +1,8 @@
-$greenbg: #1d6b04;
-$greenborder: darken($greenbg, 20%);
 
-$border: 1px solid $greenborder;
 
 nav.navbar {
-  background-color: $greenbg;
   min-width: 100%;
   min-height: 5em;
-  border-bottom: $border;
 
   li.external-nav {
     padding-left: 11em;
@@ -23,7 +18,7 @@ nav.navbar {
   }
 
   a:hover {
-    background-color: lighten($greenborder, 15%);
+    background-color: lighten;
     border-radius: 2px;
   }
   a.navbar-brand:hover {
@@ -31,6 +26,6 @@ nav.navbar {
   }
 }
 .navbar-light .navbar-nav .nav-link {
-    color: $greenborder;
+    
     font-weight: bolder;
 }

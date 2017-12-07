@@ -1,13 +1,10 @@
 // Place all the styles related to the Home controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-$greenbg: #1d6b04;
-$greenborder: darken($greenbg, 20%);
-$greybg: #E8E8E8;
+
 
 .logo {
-  border: 1px solid $greenborder;
-  color: $greenborder;
+
   padding: 0.5em 1em;
   border-radius: 1px;
   font-weight: bold;
@@ -26,16 +23,11 @@ $greybg: #E8E8E8;
 {
   text-align: center;
   padding: 10px;
-  background-color: $greenbg;
-  padding: 20px;
-  border: solid 1px $greenbg;
-  border-bottom: solid 1px $greenborder;
 }
 
 
 .home_notice_title a
 {
-  color: $greenborder;
   font-size: 1.2em;
 }
 
@@ -45,7 +37,6 @@ $greybg: #E8E8E8;
   padding: 5px 20px;
   font-style: italic;
   font-size: 0.7em;
-  border: solid 1px $greenborder;
   border-top: 0;
   border-bottom: 0;
 }
@@ -54,7 +45,7 @@ $greybg: #E8E8E8;
 {
   text-align: justify;
   padding: 20px;
-  border: solid 1px $greenborder;
+
   border-top: 0;
   font-size: 0.9em;
 }
@@ -62,7 +53,6 @@ $greybg: #E8E8E8;
 .main_index {
   padding-top: 1em;
   padding-bottom: 1em;
-  background-color: $greybg;
 }
 
 .main_index_text {
@@ -72,7 +62,6 @@ $greybg: #E8E8E8;
  text-align: left;
 
  h1 {
-   color: $greenborder;
    padding-top: 0.5em;
    padding-bottom: 0.5em;
    font-weight: bold;
@@ -81,7 +70,6 @@ $greybg: #E8E8E8;
    padding-top: 0.5em;
    padding-bottom: 0.5em ;
    font-weight: bold;
-   color: $greenborder;
  }
  p {
    font-size: 1.2em;
@@ -91,9 +79,7 @@ $greybg: #E8E8E8;
 
 .search_button {
   .btn-outline-success {
-   color: $greenborder;
    background-color: white;
    background-image: none;
-   border-color: $greenborder;
  }
 }
