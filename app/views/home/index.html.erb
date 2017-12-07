@@ -10,14 +10,10 @@
       <p>So now, with just a few clicks, you can check:</p>
 
       <h3>Are They Working For You?</h3>
-
-      <form action="/search" method="GET" class="form-inline my-2 my-lg-0 ">
-
-        <input name="q" class="form-control form-control-lg" type="search" placeholder="Search" aria-label="Search">
-        <div class="search_button">
-          <button class="btn btn-outline-success btn-lg ml-2 my-sm-0" type="submit">
-            Search
-          </button>
+      <form action="/search" method="GET" class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="text" placeholder="Search">
+            <div class="search_button">
+                <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
         </div>
       </form>
   </div>
@@ -27,11 +23,10 @@
 </div>
 
 
-<div class="row">
+<div class="row no-margin">
     <% @notices.each do |notice| %>
       <div class="col-md-4">
         <%= render 'notices/notice_home', notice: notice %>
       </div>
     <% end %>
 </div>
-

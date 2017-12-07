@@ -8,6 +8,17 @@ require 'open-uri'
 ##### Will take >5h to complete (from page 1)
 ###   set to future page? upto 137 in db
 
+### Get last 5 pages of propositions - future referance
+### Get max page - start_page is last page -5
+# content = URI("http://www.statesassembly.gov.je/Pages/Propositions.aspx?page=6666&SortBy=pnumber&items=50&query=&sadocumentdatefrom=1998-01-01&sadocumentdateto=2020-11-30").read
+# start_page = content.scan(/page=([0-9]{1,5})&amp/).min
+# end_page = start_page.to_s + 5.to_s
+#  for page_id in start_page.to_s..end_page.to_s do
+
+
+
+
+
   for page_id in 137..140 do
    page = Nokogiri::HTML(open("http://www.statesassembly.gov.je/Pages/Propositions.aspx?page=#{page_id}&SortBy=pnumber&items=50&query=&sadocumentdatefrom=1998-01-01&sadocumentdateto=2020-11-30"))
    puts "\nPage: #{page_id}\n"

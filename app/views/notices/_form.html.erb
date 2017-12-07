@@ -1,4 +1,7 @@
-<%= form_with(model: notice, local: true) do |form| %>
+
+<div class="containter-fluid jumbotron" style="width:70%;margin:auto;">
+<div class="form-group">
+<%= form_with(model: notice, local: true, class:"form-horizontal") do |form| %>
   <% if notice.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(notice.errors.count, "error") %> prohibited this notice from being saved:</h2>
@@ -10,22 +13,24 @@
       </ul>
     </div>
   <% end %>
+  <div class="form-group">
+     <%= form.label :title, class: "col-sm-2 control-label" %>
+     <div class="col-sm-10">
+        <%= form.text_field :title, class: "form-control" %>
+     </div>
 
 
-<div class="input_container">
+     <div class="form-group">
+        <%= form.label :content, class: "col-sm-2 control-label" %>
+        <div class="col-sm-10">
+           <%= form.text_area :content, class: "form-control",style: "min-height:300px;"%>
+        </div>
 
-Title:
-  <div class="field">
-    <%= form.text_field :title, id: :notice_title %>
+
+<div class="manage_container">
+    <button type="submit" class="btn btn-success manage_button"> Submit</button>
   </div>
-
-Notice:
-  <div class="field">
-    <%= form.text_area :content, class: 'content_input', id: :notice_content %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
+</div>
+</div>
 </div>
 <% end %>

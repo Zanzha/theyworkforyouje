@@ -25,7 +25,9 @@
                       <%end%>
             </div>
             <div class="col-6">
-              <% parish.politicians.each do |politician| %>
+              <% 
+                politicians = parish.politicians.where(in_term:1)
+                politicians.each do |politician| %>
               <div class="card-body">
                 <div class="row">
                   <div class="col-3">
