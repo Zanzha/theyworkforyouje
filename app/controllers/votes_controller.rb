@@ -13,11 +13,11 @@ load_and_authorize_resource
   # GET /votes/1.json
   def show
 	@propositions = Proposition.all
-  @politicians = Politician.all
+	@politicians = Politician.all
 	@mainid = Vote.find(params[:id]).voting_id.to_i
 	@proposition = Proposition.where(p_id: @vote.p_id).take
     @shared_voteid = Vote.where(voting_id: @mainid)
-    @shared_voteid_type = Vote.where(voting_id: @mainid).group_by(&:vote_type)
+    @shared_voteid_type = Vote.order("member_name").where(voting_id: @mainid).group_by(&:vote_type)
   end
 
   # GET /votes/new
