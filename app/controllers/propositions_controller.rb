@@ -5,8 +5,21 @@ class PropositionsController < ApplicationController
   # GET /propositions
   # GET /propositions.json
   def index
-    @propositions = Proposition.all.order("id DESC").paginate(:page => params[:page])
-    @votes = Vote.all
+    puts params
+    if (params[:filter])
+      begin
+        start_date = params[:filter][:date_from].to_date.beginning_of_day
+        end_date = params[:filter][:date_to].to_date.end_of_day
+        @propositions = Proposition.where(:prop_date => start_date..end_date).order("prop_date DESC").paginate(:page => params[:page])
+      rescue
+        puts "Error in date filtering"
+        @propositions = Proposition.all.order("prop_date DESC").paginate(:page => params[:page])
+      end
+    else 
+      @propositions = Proposition.all.order("prop_date DESC").paginate(:page => params[:page])  
+    end
+    
+    #@votes = Vote.all # Not sure why this was here? Commenting out for now - RCWD 
   end
 
   # GET /propositions/1
