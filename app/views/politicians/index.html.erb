@@ -5,7 +5,10 @@
            <% politicians.each do |politician| %>
            <div class="col no-flex-grow">
               <div class="card card--fixed-width">
-                 <img src="<%= politician.avatar %>" alt="<%= title %> <%= politician.full_name %>">
+                  <%
+                    url = URI.unescape(politician.avatar.gsub "http://www.statesassembly.gov.je/SiteCollectionImages/States%20Members/", "")
+                  %>
+                 <img src="<%= image_path(url) %>" alt="<%= title %> <%= politician.full_name %>">
                  <div class="card-body">
                     <h4 class="card-title">
                       <%= link_to politician do %>
