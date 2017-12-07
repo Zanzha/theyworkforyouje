@@ -13,6 +13,7 @@
 .hero-image
 {
   width: 100%;
+  padding: 0.8em 0 0 1em;
 }
 
 .home_notice_container{
@@ -28,6 +29,7 @@
 
 .home_notice_title a
 {
+  color: #fff;
   font-size: 1.2em;
 }
 
@@ -51,14 +53,17 @@
 }
 
 .main_index {
-  padding-top: 1em;
-  padding-bottom: 1em;
+  max-width: 100%;
+  padding: 1em;
+  // padding-bottom: 1em;
+  // background-color: $greybg;
 }
 
 .main_index_text {
  padding-top: 0.5em;
- padding-left: 4em;
- padding-right: 4em;
+//  padding-left: 4em;
+//  padding-right: 4em; 
+  padding: 0 2em 0 2em;
  text-align: left;
 
  h1 {
