@@ -3,7 +3,11 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .search_wrapper{
+  display: flex;
+  flex-direction: column;
+  flex: 1 0 auto;
   margin: 2em;
+  text-align: center;
   h6 {
     padding-top: 1em;
     padding-bottom: 1em;

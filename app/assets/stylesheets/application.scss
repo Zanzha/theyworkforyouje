@@ -15,6 +15,19 @@
 
  */
 
+ div.container-fluid {
+   display: flex;
+   flex-direction: column;
+   flex: 1 0 auto;
+   padding: 0;
+ }
+ p {
+  -webkit-margin-before: 0;
+  -webkit-margin-after: 0;
+  -webkit-margin-start: 0;
+  -webkit-margin-end: 0;
+ }
+
  @import "bootstrap";
 
 
@@ -52,7 +65,7 @@ body, html {
 .meta-wrapper {
   display: flex;
   flex-direction: column;
-  flex: 1;
+  flex: 1 0 auto;
   // margin: 1em;
   // border: $border;
 }
@@ -94,4 +107,9 @@ p.notice, p.alert {
     margin-right: 5px;
     color: black;
 
+  }
+
+  .row.no-margin
+  {
+    margin: 0 auto;
   }
