@@ -7,7 +7,8 @@
     </div>
     <div class="card-body text-primary bg-white">
     <div class="card-text">
-      <%= notice.content %>
+	<%= truncate notice.content, length: 260 %>
+	<%= link_to 'read more', notice %> 
     </div></div>
 
     <% if !current_user.blank? && current_user.role_id == 1 %>
