@@ -15,19 +15,20 @@
 }
 
 .politician_list .card {
-	height: 335px;
+	height: 410px;
 	margin: 10px 0 10px;
-	max-width: 150px;
+	max-width: 160px;
+  min-width: 160px;
 }
 
 .politician_list .card-footer {
-	line-height:10px;
-	height: 40px;
+	line-height:17px;
+	height: 60px;
 	overflow:hidden;
 }
 
 .politician_list h4 {
-	height: 40px;
+	min-height: max-content;
 	font-size: 16px;
 	overflow: hidden;
 }
@@ -46,7 +47,7 @@
 }
 
 .card--fixed-width {
-  width: 160px;
+  width: 180px;
 }
 
 .person_wraper .avatar {
@@ -113,5 +114,5 @@ thead{
   font-weight: bold;}
 
 .no-flex-grow {
-  flex-grow: 0
+  flex-grow: 0;
 }

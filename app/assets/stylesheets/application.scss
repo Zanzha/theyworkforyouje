@@ -20,8 +20,8 @@
 
 $green: #00B541;
 $border: 1px solid $green;
-$greenbg: #1d6b04;
-$greenborder: darken($greenbg, 20%);
+$redbg: #903535;
+$bordercolor: darken($redbg, 20%);
 $greybg: #E8E8E8;
 
 * {
@@ -30,11 +30,12 @@ $greybg: #E8E8E8;
 }
 
 a {
-  color: Black;
+  color: $bordercolor;
+  text-decoration: underline;
 }
 
 a:hover {
-  color: lighten($greenborder, 15%);
+  color: lighten($bordercolor, 15%);
   background-color: transparent;
 }
 body{
@@ -70,7 +71,15 @@ p.notice, p.alert {
   text-decoration: none;
 }
 
+.btn-primary {
+  background-color: $redbg;
+  border-color: $redbg;
+  text-decoration: none;
+}
 
+.btn-primary:hover {
+  background-color: $bordercolor;
+}
 
 .manage_container{
   display: flex;
