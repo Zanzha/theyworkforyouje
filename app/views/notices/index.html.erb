@@ -1,9 +1,9 @@
-<p id="notice"><%= notice %></p>
 
+<div class="notice_wrapper">
     <% @notices.each do |notice| %>
     <%= render 'notice_home', notice: notice %>
     <% end %>
-
+</div>
 
 <br>
   <% if !current_user.blank? && current_user.role_id == 1 %>

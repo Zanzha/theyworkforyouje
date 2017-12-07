@@ -1,13 +1,14 @@
-<div class="home_notice_container">
-    <div class="home_notice_title">
-      <%= link_to notice.title,notice %>
+<div class="card text-white bg-primary mb-3">
+    <div class="card-header">
+      <h4><%= link_to notice.title,notice %></h4>
+      <div class="home_notice_author">
+        <i>Written by  <%= notice.user.username %> - <%= notice.created_at.strftime("%d %b. %Y") %> </i>
+      </div>
     </div>
-    <div class="home_notice_author">
-      <i>Written by  <%= notice.user.username %> - <%= notice.created_at.strftime("%d %b. %Y") %> </i>
-    </div>
-    <div class="home_notice_content">
+    <div class="card-body text-primary bg-white">
+    <div class="card-text">
       <%= notice.content %>
-    </div>
+    </div></div>
 
     <% if !current_user.blank? && current_user.role_id == 1 %>
             <div class="manage_container">
