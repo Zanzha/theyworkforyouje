@@ -2,17 +2,6 @@
 <!-- Bringing in jQuery and Masonry libraries -->
 
 <div class="parish_container">
-
-  <div class="district_container">
-    <a class="district_link" href="https://cab.org.je/index.php?option=com_content&view=article&id=221:electoral-districts-731l1&catid=29&Itemid=53" target="_blank">
-    WHATS MY DISTRICT?
-    </a>
-
-    <p>If you live in St. Helier, St. Saviour or St. Brelade, you may need to know which district you reside in. </p>
-  </div>
-
-
-
   <div id="accordion" role="tablist">
     <% @parishes.each do |parish| %>
     <div class="card">
@@ -36,14 +25,22 @@
                       <%end%>
             </div>
             <div class="col-6">
-              <% parish.politicians.each do |politician| %>
+              <% 
+                politicians = parish.politicians.where(in_term:1)
+                politicians.each do |politician| %>
               <div class="card-body">
-                  <span class="parish_politician_title">
-                    <%= politician.title %>
-                  </span>
-                  <span class="parish_politician">
-                    <%= link_to politician.full_name, politician_path(politician)  %>
-                  </span>
+                <div class="row">
+                  <div class="col-3">
+                    <span class="parish_politician_title">
+                      <%= politician.title %>
+                    </span>
+                  </div>
+                  <div class="col-9">
+                    <span class="parish_politician">
+                      <%= link_to politician.full_name, politician_path(politician)  %>
+                    </span>
+                  </div>
+                </div>
               </div>
               <% end %>
             </div>
@@ -54,6 +51,13 @@
     </div>
     <% end %>
   </div>
+  <div class="district_container">
+    <a class="district_link" href="https://cab.org.je/index.php?option=com_content&view=article&id=221:electoral-districts-731l1&catid=29&Itemid=53" target="_blank">
+    WHATS MY DISTRICT?
+    </a>
+
+    <p>If you live in St. Helier, St. Saviour or St. Brelade, you may need to know which district you reside in. </p>
+  </div>
 
   <br>
 
@@ -61,5 +65,5 @@
       <%= link_to 'New Parish', new_parish_path, class:"btn btn-primary" %>
 
   <% end %>
-  
+
 </div>

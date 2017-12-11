@@ -1,94 +1,91 @@
+
+
 <div class="container">
- <div class="row">
-  <div class="col">
-    <div class="proposal_name">
-      <h4><%== '<s>' if @proposition.status == 'Withdrawn' %>
-      <%= @proposition.prop_name %>
-      <%== '</s>' if @proposition.status == 'Withdrawn' %></h4>
-
-      <p>Lodged By:
-        <strong>
-        <%= @proposition.lodged_by %>
-        </strong>
-      </p>
-      <% if @votes.count>0 %>
-        <script type="text/javascript">
-         google.charts.load('current', {'packages':['corechart']});
-         google.charts.setOnLoadCallback(drawChart);
-
-         function drawChart() {
-           var data = new google.visualization.DataTable();
-           data.addColumn('string', 'Vote Status');
-           data.addColumn('number', 'Count');
-           data.addRows([
-             ['Pour', <%= @votes.where(vote_type: 'Pour').count %>],
-             ['Contre', <%= @votes.where(vote_type: 'Contre').count %>],
-             ['Out of island', <%= @votes.where(vote_type: 'Out of the island').count %>],
-             ['Not present for vote', <%= @votes.where(vote_type: 'Not present for vote').count %>],
-             ['Unwell', <%= @votes.where(vote_type: 'Ill').count %>],
-           ]);
-           var options = {'title':'Breakdown of <%= number_with_delimiter(@votes.count) %> Votes','is3D': true};
-          var chart = new google.visualization.PieChart(document.getElementById('chart_div'));
-           chart.draw(data, options);
-         }
-      </script>
-
-       <div id="chart_div"></div>
-       <% end %>
-
-      <div class="prop_date">
-        <p>
-          <strong>Proposition date:</strong>
-        <%= @proposition.prop_date.strftime('%F') %>
-      </p>
-      <p>
-        <strong>Debate date:</strong>
-        <%= @proposition.debate_date %>
-      </p>
+   <div class="row">
+      <div class="col">
+         <div class="proposal_name">
+            <h4><%== '<s>' if @proposition.status == 'Withdrawn' %>
+               <%= @proposition.prop_name %>
+               <%== '</s>' if @proposition.status == 'Withdrawn' %>
+            </h4>
+            <p>Lodged By:
+               <strong>
+               <%= @proposition.lodged_by %>
+               </strong>
+            </p>
+            <% if @votes.count>0 %>
+            <script type="text/javascript">
+               google.charts.load('current', {'packages':['corechart']});
+               google.charts.setOnLoadCallback(drawChart);
+               
+               function drawChart() {
+                 var data = new google.visualization.DataTable();
+                 data.addColumn('string', 'Vote Status');
+                 data.addColumn('number', 'Count');
+                 data.addRows([
+                   ['Pour', <%= @votes.where(vote_type: 'Pour').count %>],
+                   ['Contre', <%= @votes.where(vote_type: 'Contre').count %>],
+                   ['Out of island', <%= @votes.where(vote_type: 'Out of the island').count %>],
+                   ['Not present for vote', <%= @votes.where(vote_type: 'Not present for vote').count %>],
+                   ['Unwell', <%= @votes.where(vote_type: 'Ill').count %>],
+                   ['Abstained', <%= @votes.where(vote_type: 'Abstained').count %>],
+               
+                 ]);
+                 var options = {'title':'Breakdown of <%= number_with_delimiter(@votes.count) %> Votes','is3D': true};
+                var chart = new google.visualization.PieChart(document.getElementById('chart_div'));
+                 chart.draw(data, options);
+               }
+            </script>
+            <div id="chart_div"></div>
+            <% end %>
+            <div class="prop_date">
+               <p>
+                  <strong>Proposition date:</strong>
+                  <%= @proposition.prop_date.strftime('%F') %>
+               </p>
+               <p>
+                  <strong>Debate date:</strong>
+                  <%= @proposition.debate_date %>
+               </p>
+            </div>
+            <p>
+               <% if (@proposition.prop_pdf.present?) %>
+               <%= link_to 'Proposal PDF', @proposition.prop_pdf, target: '_blank', class: 'btn btn-primary' %>
+               <% end %>
+               <% if (@proposition.minutes_pdf.present?) %>
+               <%= link_to  'Minutes PDF', @proposition.minutes_pdf, target: '_blank', class: "btn btn-primary" %>
+               <% end %>
+               <% if (@proposition.hansard_pdf.present?) %>
+               <%= link_to 'Hansard PDF', @proposition.hansard_pdf, target: '_blank', class: "btn btn-primary" %>
+               <% end %>
+            </p>
+            <p>
+               <strong>Reference:</strong>
+               <%= @proposition.p_id %>
+            </p>
+         </div>
       </div>
-
-      <p>
-        <% if (@proposition.prop_pdf.present?) %>
-          <%= link_to 'Proposal PDF', @proposition.prop_pdf, target: '_blank', class: 'btn btn-primary' %>
-          <% end %>
-        <% if (@proposition.minutes_pdf.present?) %>
-          <%= link_to  'Minutes PDF', @proposition.minutes_pdf, target: '_blank', class: "btn btn-primary" %>
-          <% end %>
-        <% if (@proposition.hansard_pdf.present?) %>
-          <%= link_to 'Hansard PDF', @proposition.hansard_pdf, target: '_blank', class: "btn btn-primary" %>
-          <% end %>
-      </p>
-
-      <p>
-        <strong>Reference:</strong>
-        <%= @proposition.p_id %>
-      </p>
-
-
-    </div>
-  </div>
-  <div class=" col vote_sum">
-          <% @votes.group_by(&:vote_type).each do |vote_type, votes| %>
-          <h6><%= votes.count %> Voted <%= vote_type %></h6>
-
-           <% votes.each do |vote| %>
-           <div class="vote_sum_pol">
+      <div class=" col vote_sum">
+         <% @votes_grouped.each do |title, date| %>
+         <% if (title) %>
+         <h5>Voting ID <%= title %></h5>
+         <% end %>
+         <% date.group_by(&:vote_type).each do |vote_type, votes| %>
+         <h6><%= votes.count %> Voted <%= vote_type %></h6>
+         <% votes.each do |vote| %>
+         <div class="vote_sum_pol">
             <%= link_to vote.member_name, politician_path(vote.politician_id) %>
-          </div>
-          <% end %>
-          <% end %>
-    </div>
-  </div>
- </div>
-
- <div class="manage_container">
-
- <% if !current_user.blank? && current_user.role_id == 1 %>
-         <%= link_to 'Edit', edit_proposition_path(@proposition), class:"btn btn-primary manage_button" %>
-         <%= link_to 'Delete', @proposition, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-primary manage_button" %>
-
- <% end %>
-
-
- <%= link_to 'Back', propositions_path, class:"btn btn-primary manage_button" %>
+         </div>
+         <% end %>
+         <% end %>
+         <% end %>
+      </div>
+   </div>
+</div>
+<div class="manage_container">
+   <% if !current_user.blank? && current_user.role_id == 1 %>
+   <%= link_to 'Edit', edit_proposition_path(@proposition), class:"btn btn-primary manage_button" %>
+   <%= link_to 'Delete', @proposition, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-primary manage_button" %>
+   <% end %>
+   <%= link_to 'Back', propositions_path, class:"btn btn-primary manage_button" %>
 </div>

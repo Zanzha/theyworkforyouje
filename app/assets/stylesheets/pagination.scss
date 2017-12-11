@@ -1,0 +1,57 @@
+$green: #00B541;
+$border: 1px solid $green;
+$redbg: #903535;
+$bordercolor: black;
+
+
+.digg_pagination {
+  display: flex;
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  // padding-bottom: 20px;
+  background: white;
+  cursor: default;
+
+  a span em {
+    padding: 0.2em 0.5em;
+    display: block;
+    float: left;
+    margin-right: 1px;
+  }
+  .disabled {
+    color: #999999;
+    border: 1px solid #dddddd;
+  }
+  .current {
+    font-style: normal;
+    font-weight: bold;
+    background: $redbg;
+    color: white;
+    border: 1px solid $bordercolor;
+  }
+  a {
+    text-decoration: none;
+    color: $bordercolor;
+    border: 1px solid $bordercolor;
+
+    &:hover, &:focus {
+      color: lighten($bordercolor, 15%);
+      border-color: $bordercolor;
+    }
+  }
+  .page_info {
+    padding: 0.4em 0.6em;
+    width: 22em;
+    margin-bottom: 0.3em;
+    text-align: center;
+
+    b {
+      color: $bordercolor;
+      background: $redbg;
+      padding: 0.1em 0.25em;
+    }
+  }
+}

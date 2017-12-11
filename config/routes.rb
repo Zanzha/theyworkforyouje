@@ -11,7 +11,7 @@ Rails.application.routes.draw do
 
   resources :votes
   resources :propositions
-  resources :terms
+  #resources :terms # Removed due to new terms flow
   resources :offices
   resources :parishes
 
@@ -31,7 +31,8 @@ end
   get 'import_props/index'
   get 'import_terms/index'
   get 'import_terms/show'
-  get 'terms/index'
+  get 'terms', to: 'terms#index'
+  get 'terms/:parish_id/:year', to: 'terms#show', as: :terms_by_parish_year
   get 'import/index'
   get 'home/index'
   get 'notices/index'

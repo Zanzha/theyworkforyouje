@@ -22,7 +22,7 @@
    </div>
    <% @propositions.each do |proposition| %>
    <div class="container vote_prop">
-      <div class="row">
+      <div class="row term_card">
          <div class="col-10">
             <div class="vote_title">
                <%== '<s>' if proposition.status == 'Withdrawn' %>
@@ -39,13 +39,11 @@
       </div>
    </div>
    <% end %>
-   <div class="digg_pagination">
-      <div class="page_info">
-         <%= page_entries_info @propositions %>
-      </div>
-      <div class="page_select">
-         <%= will_paginate @propositions, :container => false %>
-      </div>
+   <div class="page_info">
+     <%= page_entries_info @propositions %>
+   </div>
+   <div class="page_select">
+     <%= will_paginate(@propositions, :renderer => WillPaginate::ActionView::Bootstrap4LinkRenderer) %>
    </div>
    <% end %>
 </div>

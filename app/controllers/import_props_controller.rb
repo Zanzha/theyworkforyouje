@@ -5,10 +5,21 @@ require 'open-uri'
 
 ##### statesassembly may IP ban you for running this script
 ##### Dont run on IP you want to view the site on in future - ie. DJ
-##### Will take >4h to complete
-exit
+##### Will take >5h to complete (from page 1)
+###   set to future page? upto 137 in db
 
-  for page_id in 1..136 do
+### Get last 5 pages of propositions - future referance
+### Get max page - start_page is last page -5
+# content = URI("http://www.statesassembly.gov.je/Pages/Propositions.aspx?page=6666&SortBy=pnumber&items=50&query=&sadocumentdatefrom=1998-01-01&sadocumentdateto=2020-11-30").read
+# start_page = content.scan(/page=([0-9]{1,5})&amp/).min
+# end_page = start_page.to_s + 5.to_s
+#  for page_id in start_page.to_s..end_page.to_s do
+
+
+
+
+
+  for page_id in 137..140 do
    page = Nokogiri::HTML(open("http://www.statesassembly.gov.je/Pages/Propositions.aspx?page=#{page_id}&SortBy=pnumber&items=50&query=&sadocumentdatefrom=1998-01-01&sadocumentdateto=2020-11-30"))
    puts "\nPage: #{page_id}\n"
    all_props = page.css(".latestdecisions table")
@@ -41,6 +52,10 @@ exit
     minutes = prop_page.match(/(http:\/\/www.statesassembly.gov.je\/AssemblyMinutes\/(.*).pdf)/).to_a
     (!minutes.blank? ? minutes = minutes[1] : minutes = "")
 
+### Dont re-insert when scraper re-running
+	prop_referance = Proposition.find_by(p_id:referance)
+	if (prop_referance.blank?)
+
     votes = prop_page.scan(/Votes.aspx\?VotingId=([0-9]{1,7})/).to_a
     if (!votes.empty?)
      votes.each do |vote|
@@ -54,7 +69,7 @@ exit
      proposition.prop_pdf = prop_pdf
      proposition.minutes_pdf = minutes
      proposition.hansard_pdf = hansard
-     proposition.vote_id = vote
+     proposition.voting_id = vote
      proposition.status = status
      proposition.p_id = referance
      proposition.save
@@ -73,6 +88,7 @@ exit
      proposition.save
     end
     sleep(1)
+	end
    end
   end
  end

@@ -5,20 +5,29 @@ class PropositionsController < ApplicationController
   # GET /propositions
   # GET /propositions.json
   def index
-    @propositions = Proposition.all.order("id DESC").paginate(:page => params[:page])
-    @votes = Vote.all
+    puts params
+    if (params[:filter])
+      begin
+        start_date = params[:filter][:date_from].to_date.beginning_of_day
+        end_date = params[:filter][:date_to].to_date.end_of_day
+        @propositions = Proposition.where(:prop_date => start_date..end_date).order("prop_date DESC").paginate(:page => params[:page])
+      rescue
+        puts "Error in date filtering"
+        @propositions = Proposition.all.order("prop_date DESC").paginate(:page => params[:page])
+      end
+    else 
+      @propositions = Proposition.all.order("prop_date DESC").paginate(:page => params[:page])  
+    end
+    
+    #@votes = Vote.all # Not sure why this was here? Commenting out for now - RCWD 
   end
 
   # GET /propositions/1
   # GET /propositions/1.json
   def show
-
     @proposition = Proposition.find(params[:id])
     @votes = @proposition.votes.includes(:politician)
-
-
-  #  @shared_voteid = Vote.where(voting_id: @mainid)
-    #  @shared_voteid_type = Vote.where(voting_id: @mainid).group_by(&:vote_type)
+    @votes_grouped = @votes.order('id desc').group_by(&:voting_id)
   end
 
   # GET /propositions/new

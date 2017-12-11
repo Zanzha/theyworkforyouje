@@ -1,16 +1,21 @@
 <%= stylesheet_link_tag 'footer', media: 'all', 'data-turbolinks-track': 'reload' %>
 <% @year = Time.new.year %>
 
-<footer class="navbar navbar-light bg-light">
+<footer class="navbar nav_footer">
   <div></div>
 
   <span class="navbar-text">
-    <%= @title %>
-    &copy;
-    <%= @year %>
-    </br></br>
-    <%= link_to "Privacy Policy", privacy_path, class: "container static" %>
-    <%= link_to "Terms and Conditions", termsandconditions_path, class: "container static" %>
+    <div class="logo_footer">
+      <%= @title %>
+      &copy;
+      <%= @year %>
+    </div>
+    <div>
+      <%= link_to "Privacy Policy", privacy_path, class: "container static" %>
+      <%= link_to "Terms and Conditions", termsandconditions_path, class: "container static" %>
+      <p>Looking for the UK TheyWorkForYou site? <a href='https://www.theyworkforyou.com/'>It's here!</a></p>
+
+    </div>
   </span>
 
 <div>
@@ -20,7 +25,7 @@
 <%else%>
 <%=link_to "Sign In", new_user_session_path%>
 <%end%>
-<br><br>
+<br>
 <%  if user_signed_in? && current_user.role.name == "Admin"%>
 <%=link_to "Admin Panel", admin_panel_path %>
 <%end%>

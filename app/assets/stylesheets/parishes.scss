@@ -7,13 +7,17 @@
   justify-content: center;
   align-content: center;
   margin: 0 auto;
-  max-width: 75%;
+  min-width: 100%;
+  padding-top: 1em;
 }
 #accordion {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-content: center;
+  margin: 0 auto;
   text-align: center;
+  min-width: 75%;
   // padding: 0 7em 0 5em;
   // padding-right: 7em;
 }
@@ -23,7 +27,7 @@
   flex-direction: column;
   margin-top: 0.2em;
   // margin-left: 2em;
-  min-width: 50px;
+  max-width: 100%;
   border: none;
 }
 
@@ -35,8 +39,17 @@
 
 #accordion .card-body {
   padding: 0.5em;
+  padding-left: 3em;
   margin: 0.5em;
+  text-align: left;
 }
+
+#accordion .parish_desc {
+  text-align: left;
+  text-align: justify;
+  padding-right: 3em;
+}
+
 .parish {
   padding: 0.5em;
 }
@@ -44,15 +57,18 @@
 .parish_politician {
   font-weight: bold;
   padding-left: 1em;
+
 }
 
 .parish_desc {
   padding-top: 1em;
   padding-bottom: 1em;
   font-family: inherit;
+
 }
 
 .district_container {
+  padding-left: 12em;
   min-width: 100%;
   display: flex;
   flex-direction: column;

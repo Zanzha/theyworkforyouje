@@ -1,31 +1,32 @@
-<body>
-  <div class="main_index_wraper container">
-    <div class="row">
-      <div class="main_index_pic col-md-6">
-      </div>
-      <div class="spacer col-md-1">
-      </div>
+<div class="row main_index">
+  <div class="col-md-6 main_index_text">
+      <h1>Democracy Is For Everyone</h1>
 
-      <div class="main_index col-md-5">
-        <h1>Democracy Is For Everyone.</h1>
+      <p>You shouldn’t have to be an expert to understand what goes on in the States Chamber.
+      Your politicians represent you - but what exactly do they do in your name?</p>
 
-          <h5>You shouldn’t have to be an expert to understand what goes on in the States Chamber.</h5>
+      <p>TheyWorkForYouJersey takes open data from the States and presents it in a way that’s easy to follow  - for everyone!</p>
 
-          <h5>Your politicians represent you - but what exactly do they do in your name?</h5>
+      <p>So now, with just a few clicks, you can check:</p>
 
-          <h5>TheyWorkForYouJersey takes open data from the States and presents it in a way that’s easy to follow  - for everyone!</h5>
-
-            <h3>So now, with just a few clicks, you can check:</h3>
-            
-            <h1>Are They Working For You?</h1>
-        </p>
-      </div>
-    </div>
-
+      <h3>Are They Working For You?</h3>
+      <form action="/search" method="GET" class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="text" placeholder="Search">
+            <div class="search_button">
+                <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
+        </div>
+      </form>
   </div>
+  <div class="col-md-6">
+    <%= image_tag("stateschamber.jpg", class: "hero-image") %>
+  </div>
+</div>
 
-   <h2> Notice Board </h2>
+
+<div class="row no-margin">
     <% @notices.each do |notice| %>
-    <%= render 'notices/notice_home', notice: notice %>
+      <div class="col-md-4">
+        <%= render 'notices/notice_home', notice: notice %>
+      </div>
     <% end %>
-</body>
+</div>

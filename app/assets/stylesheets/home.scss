@@ -1,37 +1,90 @@
 // Place all the styles related to the Home controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-$green: #00B541;
 
 
-.main_index_wraper {
-  display: flex;
-  flex-direction: row;
-  padding: 2em;
-  margin-bottom: 0;
-  font-family: verdana, arial, helvetica, sans-serif;
+.logo {
+
+  padding: 0.5em 1em;
+  border-radius: 1px;
+  font-weight: bold;
+}
+
+.hero-image
+{
+  width: 100%;
+  padding: 0.8em 0 0 1em;
+}
+
+.home_notice_container{
+  padding-top: 1em;
+}
+
+.home_notice_title
+{
+  text-align: center;
+  padding: 10px;
+}
+
+
+.home_notice_title a
+{
+  color: #fff;
+  font-size: 1.2em;
+}
+
+.home_notice_author
+{
+  text-align: center;
+  padding: 5px 20px;
+  font-style: italic;
+  font-size: 0.7em;
+  border-top: 0;
+  border-bottom: 0;
+}
+
+.home_notice_content
+{
+  text-align: justify;
+  padding: 20px;
+
+  border-top: 0;
+  font-size: 0.9em;
 }
 
 .main_index {
-  width: 30%;
-  padding-top: 1em;
-
-  p {
-    font-size: 1em;
-    padding-top: 2em;
-  }
+  max-width: 100%;
+  padding: 1em;
+  // padding-bottom: 1em;
+  // background-color: $greybg;
 }
 
-.main_index_pic {
-  min-height: 100%;
-  background-color: orange;
-  background-image: url('stateschamber.jpg');
-  background-size: cover;
+.main_index_text {
+ padding-top: 0.5em;
+//  padding-left: 4em;
+//  padding-right: 4em; 
+  padding: 0 2em 0 2em;
+ text-align: left;
+
+ h1 {
+   padding-top: 0.5em;
+   padding-bottom: 0.5em;
+   font-weight: bold;
+ }
+ h3 {
+   padding-top: 0.5em;
+   padding-bottom: 0.5em ;
+   font-weight: bold;
+ }
+ p {
+   font-size: 1.2em;
+   text-align: justify;
+ }
 }
-.home_notice {
-  font-size: 1.4em;
-  padding-left: 3em;
-  h5 {
-    font-weight: bold;
-  }
+
+.search_button {
+  .btn-outline-success {
+   background-color: white;
+   background-image: none;
+ }
 }

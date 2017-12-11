@@ -5,7 +5,7 @@ class PoliticiansController < ApplicationController
   # GET /politicians.json
 
   def index
-    @politicians = Politician.all
+    @politicians = Politician.where(in_term:1)
     @politicians_grouped = @politicians.group_by(&:title)
   end
 
@@ -15,7 +15,7 @@ end
   # GET /politicians/1
   # GET /politicians/1.json
   def show
-	@votes_pagination = @politician.votes.paginate(:page => params[:page])
+	@votes_pagination = @politician.votes.order("id DESC").paginate(:page => params[:page])
   end
   # GET /politicians/new
   def new

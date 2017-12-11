@@ -1,46 +1,65 @@
 
 
 <div class="vote_wraper">
-<h1>Propositions</h1>
-<div>
-   <% @propositions.each do |proposition| %>
-   <div class="container vote_prop">
-      <div class="row">
-         <div class="col-10">
-            <div class="vote_title">
-               <%== '<s>' if proposition.status == 'Withdrawn' %>
-               <%= link_to proposition.prop_name, proposition %>
-               <%== '</s><small class="text-muted">(withdrawn)</small>' if proposition.status == 'Withdrawn' %>
-            </div>
-            <div class="vote_lodgeby">Lodged By:
-               <%= proposition.lodged_by %> on <%= proposition.prop_date.strftime('%F') %>
-            </div>
-
-            <% if !current_user.blank? && current_user.role_id == 1 %>
-              <div class="manage_container">
-          <%= link_to 'Edit', edit_proposition_path(proposition),class:"btn btn-primary manage_button" %>
-          <%= link_to 'Delete', proposition, method: :delete, data: {confirm: 'Are you sure?'},class:"btn btn-primary manage_button" %>
+  <h1>Propositions</h1>
+  <p><span class="badge badge-primary">New</span> Proposition awaiting vote  <span class="badge badge-secondary">Withdrawn</span> Proposition withdrawn</p>
+  <div class="row">
+    <div class="col">
+      <form class="form-inline" method="get">
+        <label class="mr-sm-2" for="filter_date_from">Between</label>
+        <% if params[:filter] %>
+          <%= date_field("filter", "date_from", :value => params[:filter][:date_from]) %>
+          <label class="mr-sm-2" for="filter_date_to">and</label>
+          <%= date_field("filter", "date_to", :value => params[:filter][:date_to]) %>
+        <% else %>
+          <%= date_field("filter", "date_from") %>
+          <label class="mr-sm-2" for="filter_date_to">and</label>
+          <%= date_field("filter", "date_to") %>
+        <% end %>
+        <button type="submit" class="btn btn-primary">Filter</button>
+      </form>
+      <br>
+    </div>
+  </div>
+  <div>
+     <% @propositions.each do |proposition| %>
+     <div class="container vote_prop">
+        <div class="row">
+           <div class="col-10">
+              <div class="vote_title">
+                 <%= link_to proposition.prop_name, proposition %>
+                 <%== '<span class="badge badge-secondary">Withdrawn</span>' if proposition.status == 'Withdrawn' %>
+                 <% if proposition.votes.count == 0 && proposition.status != 'Withdrawn' %>
+                    <span class="badge badge-primary">New</span>
+                 <% end %>
               </div>
-            <% end %>
+              <div class="vote_lodgeby">Lodged By:
+                 <%= proposition.lodged_by %> on <%= proposition.prop_date.strftime('%F') %>
+              </div>
 
-         </div>
-      </div>
-   </div>
-   <% end %>
-</div>
+              <% if !current_user.blank? && current_user.role_id == 1 %>
+                <div class="manage_container">
+            <%= link_to 'Edit', edit_proposition_path(proposition),class:"btn btn-primary manage_button" %>
+            <%= link_to 'Delete', proposition, method: :delete, data: {confirm: 'Are you sure?'},class:"btn btn-primary manage_button" %>
+                </div>
+              <% end %>
 
-<div class="digg_pagination">
-  <div class="page_info">
-    <%= page_entries_info @propositions %>
+           </div>
+        </div>
+     </div>
+     <% end %>
   </div>
-  <div class="page_select">
-    <%= will_paginate @propositions, :container => false %>
+
+
+    <div class="page_info">
+      <%= page_entries_info @propositions %>
+    </div>
+    <div class="page_select">
+      <%= will_paginate(@propositions, :renderer => WillPaginate::ActionView::Bootstrap4LinkRenderer) %>
+    </div>
   </div>
-
-
-</div>
 </div>
 
 <% if !current_user.blank? && current_user.role_id == 1 %>
-<%= link_to 'New Proposition', new_proposition_path,class:"btn btn-primary" %>
+  <%= link_to 'New Proposition', new_proposition_path,class:"btn btn-primary" %>
 <% end %>

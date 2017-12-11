@@ -15,20 +15,41 @@
 
  */
 
+ div.container-fluid {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   flex: 1 0 auto;
+   padding: 0;
+ }
+ p {
+  -webkit-margin-before: 0;
+  -webkit-margin-after: 0;
+  -webkit-margin-start: 0;
+  -webkit-margin-end: 0;
+ }
+ div.col-md-6 {
+   padding: 0;
+   margin: 0;
+ }
+
+ .card-header{
+   text-align: center;
+ }
+
+ @import "bootswatch/flatly/variables";
  @import "bootstrap";
-
-
-$green: #00B541;
-$border: 1px solid $green;
+ @import "bootswatch/flatly/bootswatch";
 
 * {
   margin: 0;
   padding: 0;
 }
 
+
 a:hover {
-  background-color: transparent;
 }
+
 body{
   margin:0;
 }
@@ -43,9 +64,7 @@ body, html {
 .meta-wrapper {
   display: flex;
   flex-direction: column;
-  flex: 1;
-  // margin: 1em;
-  // border: $border;
+  flex: 1 0 auto;
 }
 p.notice, p.alert {
   margin: 0;
@@ -53,16 +72,19 @@ p.notice, p.alert {
 }
 
 .manage_container a{
-  color: black;
   text-decoration: none;
 }
 
 .manage_button a{
-  color: black;
   text-decoration: none;
 }
 
+.btn-primary {
+  text-decoration: none;
+}
 
+.btn-primary:hover {
+}
 
 .manage_container{
   display: flex;
@@ -75,6 +97,10 @@ p.notice, p.alert {
   .manage_button{
     margin-top: 5px;
     margin-right: 5px;
-    color: black;
 
+  }
+
+  .row.no-margin
+  {
+    margin: 0 auto;
   }

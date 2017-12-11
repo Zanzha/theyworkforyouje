@@ -9,6 +9,7 @@ gem 'nokogiri'
 gem 'seed_dump'
 gem 'smarter_csv'
 gem 'will_paginate', '~> 3.1.0'
+gem 'bootstrap-will_paginate'
 
 # Jquery masonry
 gem 'jquery-masonry-rails'
@@ -43,6 +44,8 @@ gem 'jbuilder', '~> 2.5'
 # gem 'bcrypt', '~> 3.1.7'
 # User Figaro for environment config
 gem 'figaro'
+
+
 gem 'bootstrap', '~> 4.0.0.beta2.1'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
@@ -69,6 +72,9 @@ gem 'database_cleaner'
 
 #paranoia
 gem "paranoia", "~> 2.2"
+
+#Bootswatch
+gem 'bootswatch'
 
 #devise
 gem 'devise'
